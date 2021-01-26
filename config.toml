@@ -1,4 +1,4 @@
-baseURL = ""
+baseURL = "djangocamera.netlify.app"
 languageCode = "fr"
 title = "Surveillance par caméras avec raspberry, mjpg-streamer, Django et Apache"
 theme = "hugo-geekdoc"
