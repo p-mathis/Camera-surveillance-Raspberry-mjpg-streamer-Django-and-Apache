@@ -1,0 +1,24 @@
+---
+main:
+  - name: Présentation
+    ref: /
+  - name: Tutoriel Pas à pas
+    ref: "/tuto/part1"    
+    sub:
+      - name: Mise en route
+        ref: "/tuto/part1"
+      - name: Installation de mjpg-streamer
+        ref: "/tuto/part2"
+      - name: Installation de Django
+        ref: "/tuto/part3"
+      - name: Installation de Apache et mod-wsgi
+        ref: "/tuto/part4"
+      - name: Accès depuis l'extérieur
+        ref: "/tuto/part5"
+      - name: Sécuriser le site en https
+        ref: "/tuto/part6"
+      - name: Fichiers de gestion
+        ref: "/tuto/part7"       
+  - name: Guide rapide
+    ref: "/rapid/rapid"
+
