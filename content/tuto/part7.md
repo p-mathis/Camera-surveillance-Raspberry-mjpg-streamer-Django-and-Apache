@@ -77,7 +77,7 @@ draft: false
 ## Accès à la raspberry depuis son téléphone mobile
 - Il peut être nécessaire de se connecter à la raspberry pour modifier certains paramètres ou pour toute autre raison. Y compris depuis l’extérieur du réseau avec son téléphone mobile.
 - Différentes applications permettant une connexion ssh depuis un mobile sont disponibles. Termius est particulièrement simple et a une offre gratuite amplement suffisante pour ce projet. 
-- Installer `Termius` depuis l'[App Store](https://www.apple.com/fr/ios/app-store/) ou [Google Play](https://play.google.com/store)
+- Installer `Termius` depuis l'[App Store](https://apps.apple.com/fr/app/termius-ssh-client/id549039908) ou [Google Play](https://play.google.com/store/apps/details?id=com.server.auditor.ssh.client)
 - Une fois `Termius` installée sur son mobile
   - Dans le menu choisir Hosts
   - Créer un nouvel hôte en appuyant sur + et choisir `New host`
