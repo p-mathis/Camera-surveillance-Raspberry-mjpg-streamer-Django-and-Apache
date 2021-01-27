@@ -34,7 +34,7 @@ draft: false
     ```
 Si la question `souhaitez-vous continuer` est posée, taper `O`  
 - A priori les dépendances gcc et g++ sont déjà installées. Sinon les installer
-    ```
+    ```sh
     sudo apt install gcc g++
     ```
 - Compilation
