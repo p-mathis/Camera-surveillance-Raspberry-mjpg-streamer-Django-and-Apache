@@ -89,7 +89,7 @@ draft: false
       ProxyPass /Rp1 http://192.168.1.49:8081/
       ProxyPassReverse /Rp1 http://192.168.1.49:8081/
       ProxyPass /Rp2 http://192.168.1.49:8082/
-      ProxyPassReverse /Rp_2 http://192.168.1.49:8082/
+      ProxyPassReverse /Rp2 http://192.168.1.49:8082/
       ProxyPass /Rpi http://192.168.1.49:8084/
       ProxyPassReverse /Rpi http://192.168.1.49:8084/
      ```
