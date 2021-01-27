@@ -164,7 +164,7 @@ draft: false
   - Entrer dans les paramètres `Réseau` de la box
   - Cliquer sur l’onglet `DMZ`
   - Intégrer la raspberry comme équipement de la `DMZ`
-  - La connexion au site se fera même depuis le réseau local avec la commande `<nom du site>/camera`
+  - La connexion au site se fera depuis le réseau local avec la même commande `<nom du site>/camera`
 - Solution moins élégante mais efficace et plus sûre
   - faire une copie du fichier /etc/apache2/ports.conf
     ```sh  
