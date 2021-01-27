@@ -322,9 +322,9 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
   - l'inscription dans la base de données des caractéristiques relatives à chaque photo (caméra, date de prise, nom de la photo, répertoire de stockage)
 - Créer le script
   - Créer et ouvrir en écriture le fichier getCamerasAndRegister<span></span>.py
-
-        nano ~/script/getCamerasAndRegister.py
-
+    ```sh
+    nano ~/script/getCamerasAndRegister.py
+    ```
   - Copier/coller dans ce fichier le contenu du fichier `getCamerasAndRegister.py` disponible [ici]({{< ref "/script/getCamerasAndRegister_py.md" >}} "getCamerasAndRegister.py")
 - Lancer le script au démarrage de la Raspberry
   - Ouvrir le cron en édition
