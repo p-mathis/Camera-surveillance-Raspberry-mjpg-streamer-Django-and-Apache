@@ -1,6 +1,6 @@
-baseURL = "http://example.org/"
+baseURL = "djangocamera.netlify.app"
 languageCode = "fr"
-title = "My New Hugo Site"
+title = "Surveillance camera avec raspberry, mjpg-streamer, Django et Apache"
 theme = "hugo-geekdoc"
 
 # Geekdoc required configuration
@@ -16,7 +16,7 @@ disablePathToLower = true
   [markup.tableOfContents]
     startLevel = 1
     endLevel = 9
-    
+
 [params]    
 # (Optional, default static/brand.svg) Set the path to a logo for the Geekdoc
 # relative to your 'static/' folder.
@@ -24,6 +24,5 @@ geekdocLogo = "logo/logo_camera.svg"
 
 # (Optional, default false) Render menu from data file im 'data/menu/main.yaml'.
 geekdocMenuBundle = true
-
 
 
