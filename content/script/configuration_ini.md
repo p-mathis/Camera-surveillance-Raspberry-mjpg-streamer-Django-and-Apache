@@ -36,6 +36,7 @@ django_port=8000
 
 ;proxy pour accès extérieur 
 ;proxy for outdoor internet access
+
 proxy_1=Rp1
 proxy_2=Rp2
 proxy_py=Rpi
@@ -80,9 +81,9 @@ cam_1_port=8081
 cam_2_port=8082
 cam_py_port=8084
 
-;localisation des deux caméras USB (cam_1 et cam_2). Prendre les valeurs trouvées dans le fichier /dev/v4l/by-id en choisissant cells se terminant par -index0
+;localisation des deux caméras USB (cam_1 et cam_2). Prendre les valeurs trouvées dans le fichier /dev/v4l/by-id en choisissant celles se terminant par -index0
 ;VOUS DEVEZ RENSEIGNER LES DONNNEES AVEC VOS VALEURS
-;location of the two USB cameras (cam_1 and cam_2). Take the values ​​found in the / dev / v4l / by-id file by choosing cells ending in -index0
+;location of the two USB cameras (cam_1 and cam_2). Take the values found in the file / dev / v4l / by-id by choosing those ending in -index0
 ;YOU MUST FILL IN THE DATA WITH YOUR VALUES
 
 cam_1_name=<value1>-video-index0
@@ -110,6 +111,9 @@ cam_py_fps=5
 
 
 [paths]
+
+;il est déconseillé de modifier les valeurs des chemins
+;it is not recommended to modify the values of the paths
 
 ;dossier de mjpg-streamer
 ;mjpg-streamer folder
