@@ -10,7 +10,9 @@ draft: false
 [locate]
 
 ;par défaut : le centre de la France selon l'IGN, Corse non comprise
+;remplacer les valeurs par celles de votre localisation
 ;default : centre of France according IGN, Corse not included
+;replace the values with those of your location
 
 longitude=2.430278
 latitude=46.539722
