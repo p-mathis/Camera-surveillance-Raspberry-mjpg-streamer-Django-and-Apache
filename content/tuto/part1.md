@@ -67,7 +67,7 @@ Les indications données ici sont valables pour une livebox Orange. La procédur
   - la Raspberry apparaît dans la section `Baux DHCP dynamiques`
   - au dessus des baux statiques, sélectionner la Raspberry dans la liste déroulante
   - les autres lignes vont se remplir automatiquement
-  - cliquer sur " Ajouter "
+  - cliquer sur `Ajouter`
   - la raspberry est maintenant positionnée dans la section `Baux DHCP statiques`
   - *Dans ce tutoriel, l’IP locale fixe est 192.168.1.49*
 - Modifier le port ssh externe de la Raspberry
