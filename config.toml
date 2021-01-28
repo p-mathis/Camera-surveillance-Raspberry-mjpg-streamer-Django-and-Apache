@@ -1,5 +1,6 @@
 baseURL = "/"
-languageCode = "fr"
+languageCode = "fr-fr"
+DefaultContentLanguage = "fr"
 title = "Surveillance camera avec raspberry, mjpg-streamer, Django et Apache"
 theme = "hugo-geekdoc"
 
