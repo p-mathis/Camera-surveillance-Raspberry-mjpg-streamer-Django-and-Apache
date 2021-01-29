@@ -165,22 +165,26 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
     (venv) python ~/folder/project/manage.py migrate
     ```
 - Créer les trois caméras
-    ```sh
-    (venv) python ~/folder/project/manage.py shell
-    >>> from camera.models import Appareil 
-    >>> c = Appareil(name="Cam_1")
-    >>> c.save()
-    >>> c = Appareil(name="Cam_2")
-    >>> c.save()
-    >>> c = Appareil(name="Cam_py")
-    >>> c.save()
-    ```
-- Vérifier que les trois caméras sont bien crées
-    ```sh
-    >>> Appareil.objects.all()
-    <QuerySet [<Appareil: Cam_1>, <Appareil: Cam_2>, <Appareil: Cam_py>]>
-    ```
-- Quitter le shell : `Ctrl+D`
+	- Ouvrir le shell 
+    	```sh
+    	(venv) python ~/folder/project/manage.py shell
+    	```
+	- Créer les caméras
+	```sh
+    	>>> from camera.models import Appareil 
+    	>>> c = Appareil(name="Cam_1")
+    	>>> c.save()
+    	>>> c = Appareil(name="Cam_2")
+    	>>> c.save()
+    	>>> c = Appareil(name="Cam_py")
+    	>>> c.save()
+    	```
+	- Vérifier que les trois caméras sont bien crées
+    	```sh
+    	>>> Appareil.objects.all()
+    	<QuerySet [<Appareil: Cam_1>, <Appareil: Cam_2>, <Appareil: Cam_py>]>
+    	```
+	- Quitter le shell : `Ctrl+D`
 - Nous n’avons pas utilisé l’interface Admin de Django. Celle-ci nous est inutile, toutes les actions sur la base de données se feront directement par des scripts python.
 ## Modifier le fichier urls<span></span>.py de ~/folder/project/project
 - Ouvrir le fichier
