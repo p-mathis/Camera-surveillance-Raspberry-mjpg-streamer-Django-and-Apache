@@ -204,7 +204,7 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
     nano ~/folder/project/camera/urls.py
     ```
 - Coller/copier dans ce fichier le contenu du fichier urls<span></span>.py (camera) disponible [ici]({{< ref "/script/urls_py_camera.md" >}} "urls camera").
-## Modifier le fichier ~folder/project/camera/views<span></span>.py
+## Modifier le fichier views.py dans ~/folder/project/camera
 ### Modifier le fichier
 - Ouvrir le fichier  
     ```sh
