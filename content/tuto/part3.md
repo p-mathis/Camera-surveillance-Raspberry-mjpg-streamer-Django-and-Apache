@@ -166,9 +166,9 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
     ```
 - Créer les trois caméras
 	- Ouvrir le shell 
-    	```sh
-    	(venv) python ~/folder/project/manage.py shell
-    	```
+      ```sh
+      (venv) python ~/folder/project/manage.py shell
+      ```
 	- Créer les caméras
 	```sh
     	>>> from camera.models import Appareil 
