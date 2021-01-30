@@ -70,9 +70,10 @@ ProxyPass /Rpi http://<local IP Raspberry>:8084/
 ProxyPassReverse /Rpi http://<local IP Raspberry>:8084/
 
 #Pour le certificat
+#!!!REMPLACER <site name> par le nom de votre site (par exemple, monprojet.sytes.net)
 SSLEngine on
-SSLCertificateFile /etc/letsencrypt/live/projectcamera.sytes.net/fullchain.pem
-SSLCertificateKeyFile /etc/letsencrypt/live/projectcamera.sytes.net/privkey.pem
+SSLCertificateFile /etc/letsencrypt/live/<site name>/fullchain.pem
+SSLCertificateKeyFile /etc/letsencrypt/live/<site name>/privkey.pem
 
 #Pour accroître la sécurité
 SSLProtocol -all +TLSv1.2 +TLSv1.3
