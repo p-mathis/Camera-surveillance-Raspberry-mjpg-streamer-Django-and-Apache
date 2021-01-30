@@ -94,11 +94,11 @@ A l’invite de commande, taper O (oui)
     <VirtualHost *:443>
     ```
 	et sous cette ligne copier l’ancien contenu du VirtualHost80
-- Ajouter les lignes concernant le certificat
+- Ajouter les lignes concernant le certificat en remplaçant `<nom du site>`par le nom de votre site
     ```sh
     SSLEngine on
-    SSLCertificateFile /etc/letsencrypt/live/projectcamera.sytes.net/fullchain.pem
-    SSLCertificateKeyFile /etc/letsencrypt/live/projectcamera.sytes.net/privkey.pem
+    SSLCertificateFile /etc/letsencrypt/live/<nom du site>/fullchain.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/<nom du site>/privkey.pem
     ```
 - Ajouter les lignes concernant la sécurité
     ```sh
