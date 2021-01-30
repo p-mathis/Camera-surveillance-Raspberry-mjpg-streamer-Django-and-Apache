@@ -83,7 +83,7 @@ A l’invite de commande, taper O (oui)
     sudo nano /etc/apache2/sites-available/project-camera.conf
     ```
 - Faire un `copier` du contenu du VirtualHost 80 (voir plus loin)
-- Modifier le contenu de `<VirtualHost *:80>` (en remplaçant `<nom du site>`par le nom de votre site comme indiqué ci-dessous
+- Modifier le contenu de `<VirtualHost *:80>` (en remplaçant `<nom du site>`par le nom de votre site) comme indiqué ci-dessous
 	```sh
     ServerName <nom du site>
     ServerAlias www.<nom du site>
