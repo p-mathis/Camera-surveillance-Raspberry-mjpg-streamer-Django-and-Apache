@@ -82,7 +82,7 @@ A l’invite de commande, taper O (oui)
     ```sh
     sudo nano /etc/apache2/sites-available/project-camera.conf
     ```
-- Faire un `copier` du contenu du VirtualHost 80 ([voir plus loin](#copier))
+- Faire un `copier` du contenu du VirtualHost 80 (voir plus loin)
 - Modifier le contenu de `<VirtualHost *:80>` (en remplaçant `<nom du site>`par le nom de votre site comme indiqué ci-dessous
 	```sh
     ServerName <nom du site>
@@ -93,7 +93,7 @@ A l’invite de commande, taper O (oui)
     ```sh
     <VirtualHost *:443>
     ```
-	    et sous cette ligne #copier l’ancien contenu du VirtualHost80
+	    et sous cette ligne copier l’ancien contenu du VirtualHost80
 - Ajouter les lignes concernant le certificat en remplaçant `<nom du site>`par le nom de votre site
     ```sh
     SSLEngine on
