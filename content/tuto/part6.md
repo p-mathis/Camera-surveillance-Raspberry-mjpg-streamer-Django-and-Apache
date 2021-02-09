@@ -170,7 +170,7 @@ A l’invite de commande, taper O (oui)
 - Le certificat de Let’s Encrypt est renouvelé automatiquement tous les deux mois.
 ### Etape suivante
 - Automatiser les mises à jour de la raspberry
-- Être informé des redémmarrages de la raspberry
+- Être informé des redémarrages de la raspberry
 - Etre informé des changements d’IP de la box
 - Mettre en place un accès par ssh sur la raspberry depuis son téléphone portable
 
