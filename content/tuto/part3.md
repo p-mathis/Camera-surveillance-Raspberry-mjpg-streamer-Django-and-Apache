@@ -100,7 +100,7 @@ L’application camera va comporter huit vues, c’est à dire huit pages web di
 - stream_py : flux vidéo en direct de la caméra py
 - stream_AllCam : flux vidéo en direct des trois caméras
 ## Réglage du fichier settings<span></span>.py
-- Ouvrir le fichier settings<span>/<span>.py (vous n’avez pas besoin d’être en environnement virtuel)
+- Ouvrir le fichier settings.py (vous n’avez pas besoin d’être en environnement virtuel)
     ```sh
     nano ~/folder/project/project/settings.py
     ```
