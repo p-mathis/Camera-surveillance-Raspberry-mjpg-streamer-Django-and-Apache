@@ -223,9 +223,9 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
 - Par défaut : N = 24 heures (clé display_jour=1, soit 24 heures), n = 4, p = 3, f = 60 (en secondes) ; les ports des flux sont par défaut 8081, 8082 et 8084.
 ### Lever et coucher du soleil
 - Les heures de lever et de coucher du soleil sont calculées à l'aide du module `suntimes`
-- Installer le module suntimes (en environnement virtuel) *Attention : les nouvelles versions 0.2.XX sont sources de bug. Installer la version 0.1.2*
+- Installer le module suntimes (en environnement virtuel)  
     ```sh
-    (venv) pip install suntimes==0.1.2
+    (venv) pip install suntimes
     ```
 - Si besoin installer jdcal et tzlocal (*a priori* les dépendances s'installent automatiquement)
     ```sh
