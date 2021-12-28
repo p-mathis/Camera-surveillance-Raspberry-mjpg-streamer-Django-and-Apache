@@ -95,10 +95,10 @@ def nuit(request):
     #lieu = SunTimes(longitude, latitude, altitude, zone)
     lieu = SunTimes(longitude, latitude, altitude)
     maintenant = local_tz.localize(datetime.now())     #voir http://pytz.sourceforge.net/
-    lever = lieu.dateRiseLocal(maintenant)
-    coucher = lieu.dateSetLocal(maintenant)
-    coucherHier = lieu.dateSetLocal(maintenant - timedelta(1))
-    leverDemain = lieu.dateRiseLocal(maintenant + timedelta(1))
+    lever = lieu.riselocal(maintenant)
+    coucher = lieu.setlocal(maintenant)
+    coucherHier = lieu.setlocal(maintenant - timedelta(1))
+    leverDemain = lieu.riselocal(maintenant + timedelta(1))
 
     if lever <= maintenant <= coucher:
         #on est en journée ; on sélectionne les photos allant du coucher de la veille au lever de ce jour
