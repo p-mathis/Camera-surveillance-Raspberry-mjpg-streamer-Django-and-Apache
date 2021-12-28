@@ -92,7 +92,8 @@ def historique(request):
 
 def nuit(request):
     
-    lieu = SunTimes(longitude, latitude, altitude, zone)
+    #lieu = SunTimes(longitude, latitude, altitude, zone)
+    lieu = SunTimes(longitude, latitude, altitude)
     maintenant = local_tz.localize(datetime.now())     #voir http://pytz.sourceforge.net/
     lever = lieu.dateRiseLocal(maintenant)
     coucher = lieu.dateSetLocal(maintenant)
