@@ -1,6 +1,6 @@
 ---
 main:
-  - name: Présentation
+  - name: Presentation
     ref: /
   - name: Tutoriel Pas à pas
     ref: "/tuto/part1"    
