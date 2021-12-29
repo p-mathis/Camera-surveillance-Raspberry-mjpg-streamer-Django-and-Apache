@@ -75,7 +75,7 @@ draft: false
     <table class="item_footer">
     <tr>
         <td><img src="{% static 'camera/logo/logo.png' %}" alt="?logo?"></td>
-        <td>Prune & Choco</td>
+        <td>X & Y</td>
     </tr>
     </table>
  </body>
