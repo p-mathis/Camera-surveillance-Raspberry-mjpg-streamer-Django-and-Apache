@@ -23,3 +23,22 @@ main:
     ref: "/rapid/rapid"
   - name: Fichiers html
     ref: "/script/base_html.md"
+    sub:
+      - name: accueil.html
+        ref: "/script/accueil_html.md"
+      - name: base.html
+        ref: "/script/base_html.md"
+      - name: historique.html
+        ref: "/script/historique_html.md"
+      - name: nuit.html
+        ref: "/script/nuit_html.md"
+      - name: parHeure.html
+        ref: "/script/parHeure_html.md"
+      - name: stream_1.html
+        ref: "/script/stream_1_html.md"
+      - name: stream_2.html
+        ref: "/script/stream_2_html.md"
+      - name: stream_AllCam.html
+        ref: "/script/stream_AllCam_html.md"
+      - name: stream_py.html
+        ref: "/script/stream_py_html.md"
