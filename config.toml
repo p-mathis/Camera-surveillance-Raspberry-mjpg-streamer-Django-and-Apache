@@ -8,6 +8,10 @@ theme = "hugo-geekdoc"
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 disablePathToLower = true
+enableGitInfo = true
+
+# Required if you want to render robots.txt template
+enableRobotsTXT = true
 
 # Needed for mermaid shortcodes
 [markup]
@@ -18,6 +22,9 @@ disablePathToLower = true
     startLevel = 1
     endLevel = 9
 
+[taxonomies]
+  tag = "tags"
+
 [params]    
 # (Optional, default static/brand.svg) Set the path to a logo for the Geekdoc
 # relative to your 'static/' folder.
@@ -25,3 +32,6 @@ geekdocLogo = "logo/logo_camera.svg"
 
 # (Optional, default false) Render menu from data file im 'data/menu/main.yaml'.
 geekdocMenuBundle = true
+
+# (Optional, default true) Display a "Back to top" link in the site footer.
+geekdocBackToTop = true
