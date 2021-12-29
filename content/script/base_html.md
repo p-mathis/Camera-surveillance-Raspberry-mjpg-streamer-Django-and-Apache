@@ -78,5 +78,5 @@ draft: false
         <td>Prune & Choco</td>
     </tr>
     </table>
-</body>
+ </body>
 </html>
