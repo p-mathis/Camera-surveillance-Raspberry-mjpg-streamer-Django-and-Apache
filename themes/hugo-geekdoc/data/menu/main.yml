@@ -57,34 +57,17 @@ main:
         ref: "/script/menu_css.md"
       - name: pagination.css
         ref: "/script/pagination_css.md"
-  - name: Scripts python
-    ref: "/script/models_py.md"
+  - name: Fichiers Divers
     sub:
-      - name: getCamerasAndRegister.py
-        ref: "/script/getCamerasAndRegister_py.md"
-      - name: ipcheck.py
-        ref: "/script/ipcheck_py.md"  
-      - name: mail_reboot.py
-        ref: "/script/mail_reboot_py.md"
-      - name: models.py
-        ref: "/script/models_py.md"
-      - name: runCamera_1.py
-        ref: "/script/runCamera_1py.md"
-      - name: runCamera_2.py
-        ref: "/script/runCamera_2_py.md"
-      - name: runCamera_py.py
-        ref: "/script/runCamera_py_py.md"
-      - name: runDjango.py
-        ref: "/script/runDjango_py.md"
-      - name: suppressFiles.py
-        ref: "/script/suppressFiles_py.md"
-      - name: urls.py camera
-        ref: "/script/urls_py_camera.md"
-      - name: urls.py project
-        ref: "/script/urls_py_project.md"
-      - name: views.py V1
-        ref: "/script/views_py_V1.md"
-      - name: views.py V2
-        ref: "/script/views_py_V2.md"
-      - name: wsgi.py
-        ref: "/script/wsgi_py.md"
+      - name: configuration.ini
+        ref: "/script/configuration_ini.md"
+      - name: project-camera.conf V1
+        ref: "/script/project-camera_conf_V1.md"
+      - name: project-camera.conf V2
+        ref: "/script/project-camera_conf_V2.md"
+      - name: project-camera.conf V3
+        ref: "/script/project-camera_conf_V3.md"
+      - name: project-camera.conf V4
+        ref: "/script/project-camera_conf_V4.md"
+      - name: project-camera.conf V5
+        ref: "/script/project-camera_conf_V5.md"        
