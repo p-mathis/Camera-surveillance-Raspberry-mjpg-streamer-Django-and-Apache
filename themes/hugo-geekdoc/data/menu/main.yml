@@ -21,3 +21,5 @@ main:
         ref: "/tuto/part7"       
   - name: Guide rapide
     ref: "/rapid/rapid"
+  - name: Fichiers html
+    ref: "/script/base_html.md"
