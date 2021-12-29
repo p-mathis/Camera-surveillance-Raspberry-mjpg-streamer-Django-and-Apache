@@ -25,5 +25,3 @@ geekdocLogo = "logo/logo_camera.svg"
 
 # (Optional, default false) Render menu from data file im 'data/menu/main.yaml'.
 geekdocMenuBundle = true
-
-
