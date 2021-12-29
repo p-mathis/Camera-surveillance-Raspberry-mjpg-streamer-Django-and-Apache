@@ -62,3 +62,25 @@ draft: false
   
   {% endblock %}
 ```
+<div class="grid-container">
+
+    <div class= "item_header">
+        {% block header %}
+        {% endblock %}
+    </div>
+
+    <div class="item_main">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+
+    <table class="item_footer">
+      <tr>
+        <td><img src="{% static 'camera/logo/logo.png' %}" alt="?logo?"></td>
+        <td>Prune & Choco</td>
+      </tr>
+    </table>
+
+  </body>
+</html>
