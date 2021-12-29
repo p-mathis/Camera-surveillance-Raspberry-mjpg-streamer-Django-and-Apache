@@ -73,6 +73,10 @@ while True:
     conn.close()
 
 #si la boucle True s'interrompt, le script est relancé
-command_replay = "python3 {}/getCamerasAndRegister.py".format(script)
+#command_replay = "python3 {}/getCamerasAndRegister.py".format(script)
+#si la boucle True s'interrompt, la raspberry est reboutée
+command_replay = "sudo reboot"
+
 subprocess.run(command_replay, shell=True)
+
 ```
