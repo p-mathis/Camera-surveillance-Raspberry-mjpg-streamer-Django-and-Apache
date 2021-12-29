@@ -49,7 +49,7 @@ main:
         ref: "/script/bouton_css.md"
       - name: disposition.css
         ref: "/script/disposition_css.md"
-     - name: general.css
+      - name: general.css
         ref: "/script/general_css.md"
       - name: header_footer.css
         ref: "/script/header_footer_css.md"
