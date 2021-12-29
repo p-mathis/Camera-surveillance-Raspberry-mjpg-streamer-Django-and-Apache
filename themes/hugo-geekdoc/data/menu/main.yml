@@ -1,6 +1,6 @@
 ---
 main:
-  - name: Presentation
+  - name: Présentation
     ref: /
   - name: Tutoriel Pas à pas
     ref: "/tuto/part1"    
@@ -42,3 +42,18 @@ main:
         ref: "/script/stream_AllCam_html.md"
       - name: stream_py.html
         ref: "/script/stream_py_html.md"
+  - name: Fichiers css
+    ref: "/script/general_css.md"
+    sub:
+      - name: bouton.css
+        ref: "/script/bouton_css.md"
+      - name: disposition.css
+        ref: "/script/disposition_css.md"
+      - name: general.css
+        ref: "/script/general_css.md"
+      - name: header_footer.css
+        ref: "/script/header_footer_css.md"
+      - name: menu.css
+        ref: "/script/menu_css.md"
+      - name: pagination.css
+        ref: "/script/pagination_css.md"
