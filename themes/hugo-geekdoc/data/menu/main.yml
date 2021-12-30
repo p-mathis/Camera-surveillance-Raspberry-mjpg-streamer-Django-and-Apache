@@ -22,7 +22,6 @@ main:
   - name: Guide rapide
     ref: "/rapid/rapid"
   - name: Fichiers html
-    ref: "/script/base_html.md"
     sub:
       - name: accueil.html
         ref: "/script/accueil_html.md"
@@ -43,7 +42,6 @@ main:
       - name: stream_py.html
         ref: "/script/stream_py_html.md"
   - name: Fichiers css
-    ref: "/script/general_css.md"
     sub:
       - name: bouton.css
         ref: "/script/bouton_css.md"
