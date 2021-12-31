@@ -11,7 +11,7 @@ draft: false
 
 <div class="grid-One">
         <div>Bienvenue sur le site de X&Y !!<br>
-        Choisissez la page que vous souhaitez consutler.
+        Choisissez la page que vous souhaitez consulter.
         </div>
 </div>
 
