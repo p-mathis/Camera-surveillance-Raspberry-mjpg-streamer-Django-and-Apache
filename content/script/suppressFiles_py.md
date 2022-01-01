@@ -35,7 +35,7 @@ path_db = "{}/{}/{}".format(home, folder, project)
 command_1 = "find {}/{} -type f -mtime +{} -delete".format(stock, pathCamera_1, delay_delete)
 command_2 = "find {}/{} -type f -mtime +{} -delete".format(stock, pathCamera_2, delay_delete)
 command_py = "find {}/{} -type f -mtime +{} -delete".format(stock, pathCamera_py, delay_delete)
-command_del = "{} & {} & {}".format(command_1, commande_2, command_py)
+command_del = "{} & {} & {}".format(command_1, command_2, command_py)
 run(command_del, shell=True)
 
 #sauvegarder la base de données avant de la modifier (sécurité)
