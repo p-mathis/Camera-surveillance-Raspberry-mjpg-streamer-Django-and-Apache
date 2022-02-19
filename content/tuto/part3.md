@@ -65,7 +65,7 @@ Django sera installé dans cet environnement virtuel.
     ```sh
     (venv) python -m django --version
     ```
-qui doit renvoyer une sortie du type : 3.1.4 (en fonction de la version)
+qui doit renvoyer une sortie du type : 4.0.2 (en fonction de la version)
 ## Création du projet et de l’application
 ### Créer le projet project
 - Se mettre dans le répertoire folder (en environnement virtuel)
