@@ -105,4 +105,4 @@ Un système de surveillance en flux direct et avec enregistrement et stockage de
 En jouant sur différents paramètres, notamment la fréquence de capture des images, on dispose, si on le souhaite, d’une surveillance qui peut être adaptée à d'autres projets.  
 Certaines faiblesses sont patentes ; par exemple le fait que si l'une des caméras ne se lance pas au départ, il n'y a ni procédure de relance ni message d'alerte.  
 De manière délibérée, il n'a pas été fait appel à un logiciel de détection de mouvements ni à un traitement des images permettant de ne sélectionner que les photos sur lesquelles un cheval apparaîtrait. Ceci pourrait faire l’objet d'autres projets.  
-Toutes vos remarques et critiques sont les bienvenues et peuvent être adressées par courriel à l'adresse suivante : `pmathis@protonmail.com`.
+La limite (qui peut être considérée comme rédhibitoire) est l'espérance de vie de la carte micro-SD. Dans notre expérience, celle-ci ne dépasse pas quatre mois...
