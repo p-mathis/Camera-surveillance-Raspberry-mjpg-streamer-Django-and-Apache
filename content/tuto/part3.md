@@ -381,7 +381,7 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
     sudo reboot
     ```
 - Attendre que les scripts des différentes caméras soient lancés.
-- Dans la barre d'adresse d'un navigateur taper `<local IP Raspberry>:8000/camera/` (par exemple : `192.168.1.1:8000/camera/`)
+- Dans la barre d'adresse d'un navigateur taper `<local IP Raspberry>:8000/camera/` (par exemple : `192.168.1.49:8000/camera/`)
 - Vous devez obtenir ce résultat :
 {{< figure src="/media/cam_accueil.png">}}
 - Si les caméras sont bien lancées, vous devez voir les flux en cliquant sur le bouton `En direct`. Bien sûr, pour les autres pages html, au début vous ne verrez que peu ou pas d'images. 
