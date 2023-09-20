@@ -349,7 +349,7 @@ sudo mkdir Camera_1 Camera_2 Camera_py
 ### Donner les droits à www-data et à l'utilisateur pi
 - Créer un groupe composé de pi et www-data, appelé varwwwusers  
     ```sh
-    sudo groupadd varwwwusers
+    sudo addgroup varwwwusers
     sudo adduser pi varwwwusers
     sudo adduser www-data varwwwusers
     ```
