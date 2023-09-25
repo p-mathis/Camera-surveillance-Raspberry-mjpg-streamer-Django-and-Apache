@@ -33,9 +33,9 @@ baseBackUp = parser.get("paths", "baseBackUp")
 path_db = f'{home}/{folder}/{project}'
 
 #commandes qui vont supprimer les fichiers de stock/
-command_1 = ["find", {stock}/{pathCamera_1}, "-mtime", f'+{str(delay_delete)}', "-delete"]
-command_2 = ["find", {stock}/{pathCamera_2}, "-mtime", f'+{str(delay_delete)}', "-delete"]
-command_py = ["find", {stock}/{pathCamera_py}, "-mtime", f'+{str(delay_delete)}', "-delete"]
+command_1 = ["find", f'{stock}/{pathCamera_1}', "-mtime", f'+{str(delay_delete)}', "-delete"]
+command_2 = ["find", f'stock}/{pathCamera_2}', "-mtime", f'+{str(delay_delete)}', "-delete"]
+command_py = ["find", f'{stock}/{pathCamera_py}', "-mtime", f'+{str(delay_delete)}', "-delete"]
 # command_1 = "find {}/{} -type f -mtime +{} -delete".format(stock, pathCamera_1, delay_delete)
 # command_2 = "find {}/{} -type f -mtime +{} -delete".format(stock, pathCamera_2, delay_delete)
 # command_py = "find {}/{} -type f -mtime +{} -delete".format(stock, pathCamera_py, delay_delete)
