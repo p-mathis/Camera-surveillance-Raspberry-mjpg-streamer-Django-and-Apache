@@ -24,6 +24,8 @@ mjpg_path = parser.get("paths", "mjpg")
 delay_run=int(parser.get("frequences", "delay_run_Cam_1"))
 
 sleep(delay_run)  #attente avant de lancer les commandes
+#command_cp = ["cp", f'{path_db}{baseName}', f'{path_db}/{baseBackUp}']
+#command_1 = ["cd", f'{mjpg_path}', "&&", "export", f'LD_LIBRARY_PATH=.', "&&", f'./mjpg_streamer', "-i", 'input_uvc.so -r {} -fps {} -d /dev/v4l/by-id/{}' -o 'output_http.so -p {} -w {}/www']".format(mjpg_path,cam_1_resol, cam_1_fps, cam_1_name, cam_1_port, mjpg_path)
 command_1 = "cd {} && export LD_LIBRARY_PATH=. && ./mjpg_streamer -i 'input_uvc.so -r {} -fps {} -d /dev/v4l/by-id/{}' -o 'output_http.so -p {} -w {}/www'".format(mjpg_path,cam_1_resol, cam_1_fps, cam_1_name, cam_1_port, mjpg_path)
 subprocess.run(command_1, shell=True)
 ```
