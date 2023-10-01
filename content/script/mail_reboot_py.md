@@ -39,8 +39,8 @@ server.login(login,mail_site_mdp)
 msg = MIMEMultipart()
 fromaddr = mail_site
 msg['From'] = fromaddr
-msg['Subject'] = "Redémarrage de la raspberry - {}".format(dateString)
-body = 'ATTENTION : la raspberry a redémarré le {}.\nVérifiez le bon fonctionnement des caméras.'.format(dateString)
+msg['Subject'] = f'Redémarrage de la raspberry Camera - {dateString}'
+body = f'ATTENTION : la raspberry a redémarré le {dateString}.\nVérifiez le bon fonctionnement des caméras.'
 msg.attach(MIMEText(body, 'plain'))
 server.sendmail(fromaddr, mail_perso, msg.as_string())
 ```
