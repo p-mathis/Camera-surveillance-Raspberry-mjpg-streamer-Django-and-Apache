@@ -34,6 +34,7 @@ date = datetime.datetime.now()
 dateString = date.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
 server=smtplib.SMTP("smtp.{}".format(fournisseur),smtp_port)
 server.ehlo()
+server.starttls()
 server.login(login,mail_site_mdp)
 msg = MIMEMultipart()
 fromaddr = mail_site
