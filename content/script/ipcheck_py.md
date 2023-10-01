@@ -42,7 +42,7 @@ def notifyByMail(ip, date):
 	msg = MIMEMultipart()
 	fromaddr = mail_site
 	msg['From'] = fromaddr
-	msg['Subject'] = "IP Raspberry - {}".format(ip)
+	msg['Subject'] = "IP Raspberry Caméras - {}".format(ip)
 	body = '{}\nssh pi@{}'.format(dateString, ip)
 	msg.attach(MIMEText(body, 'plain'))
 	server.sendmail(fromaddr,mail_perso ,msg.as_string())
