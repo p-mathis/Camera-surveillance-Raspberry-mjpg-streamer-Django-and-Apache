@@ -30,20 +30,19 @@ home = parser.get("paths", "home")
 
 fournisseur = mail_site.split("@")[1]
 login =  mail_site.split("@")[0]
-filePath = "{}/currentIP.txt".format(home)
+filePath = f'{home}/currentIP.txt'
 
 def notifyByMail(ip, date):
 	print("Sending email...")
 	dateString = date.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
-	server=smtplib.SMTP("smtp.{}".format(fournisseur),smtp_port)
+	server=smtplib.SMTP(f'smtp.{fournisseur}',smtp_port)
 	server.ehlo()
         server.starttls()
 	server.login(login,mail_site_mdp)
 	msg = MIMEMultipart()
 	fromaddr = mail_site
 	msg['From'] = fromaddr
-	msg['Subject'] = "IP Raspberry Caméras - {}".format(ip)
-	body = '{}\nssh pi@{}'.format(dateString, ip)
+	msg['Subject'] = f'IP Raspberry Caméras - {ip}'
 	msg.attach(MIMEText(body, 'plain'))
 	server.sendmail(fromaddr,mail_perso ,msg.as_string())
 	print("Sent")
