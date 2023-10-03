@@ -43,6 +43,7 @@ def notifyByMail(ip, date):
 	fromaddr = mail_site
 	msg['From'] = fromaddr
 	msg['Subject'] = f'IP Raspberry Caméras - {ip}'
+	body = f'Changement IP Raspberry : nouvelle IP : {ip} ; date : {dateString}'
 	msg.attach(MIMEText(body, 'plain'))
 	server.sendmail(fromaddr,mail_perso ,msg.as_string())
 	print("Message sent")
