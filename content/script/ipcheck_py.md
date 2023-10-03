@@ -45,7 +45,10 @@ def notifyByMail(ip, date):
 	msg['Subject'] = f'IP Raspberry Caméras - {ip}'
 	msg.attach(MIMEText(body, 'plain'))
 	server.sendmail(fromaddr,mail_perso ,msg.as_string())
-	print("Sent")
+	print("Message sent")
+	server.quit()
+	print("Server quit !")
+
 
 def getPreviousIP():
 	try:
