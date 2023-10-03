@@ -32,15 +32,15 @@ login = mail_site.split("@")[0]
 sleep(delay_send_mail_reboot)
 date = datetime.datetime.now()
 dateString = date.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
-server=smtplib.SMTP("smtp.{}".format(fournisseur),smtp_port)
+server=smtplib.SMTP(f'smtp.{fournisseur}',smtp_port)
 server.ehlo()
 server.starttls()
 server.login(login,mail_site_mdp)
 msg = MIMEMultipart()
 fromaddr = mail_site
 msg['From'] = fromaddr
-msg['Subject'] = "Redémarrage de la raspberry - {}".format(dateString)
-body = 'ATTENTION : la raspberry a redémarré le {}.\nVérifiez le bon fonctionnement des caméras.'.format(dateString)
+msg['Subject'] = f'Redémarrage de la raspberry - {dateString}'
+body = f'ATTENTION : la raspberry a redémarré le {dateString}.\nVérifiez le bon fonctionnement des caméras.'
 msg.attach(MIMEText(body, 'plain'))
 print("message is ready")
 server.sendmail(fromaddr, mail_perso, msg.as_string())
