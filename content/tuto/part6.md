@@ -14,7 +14,7 @@ draft: false
 - Il est possible de sécuriser un site en utilisant les services de Cloudflare. Mais dans la mesure où on utilise un Dyn DNS (No-IP), la procédure est plutôt complexe, nécessitant par exemple de passer par DNS-O-Matic.
 - Il est finalement plus simple d’utiliser Certbot, d’autant que l’on peut automatiser le renouvellement des certificats. La manière la plus simple d’installer certbot est d’utiliser la commande snap.
 ## Sources
-- [certbot](https://certbot.eff.org/lets-encrypt/snap-apache.html)
+- [certbot](https://certbot.eff.org/instructions?ws=other&os=snap)
 - [Wiki ubuntu-fr](https://doc.ubuntu-fr.org/tutoriel/securiser_apache2_avec_ssl)
 ## Activer les modules de Apache
 - Activer le module ssl
