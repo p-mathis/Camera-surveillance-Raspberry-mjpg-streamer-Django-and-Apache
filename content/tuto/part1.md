@@ -32,9 +32,9 @@ La gamme de prix ci-dessus est plutôt dans le haut de la fourchette. On peut tr
 ### Création de la carte micro-SD
 - Source : [raspberry-pi](https://raspberry-pi.fr/creer-carte-sd-windows-mac-linux-raspberry-pi-imager/)
 - Installer Raspberry Pi Imager sur son ordinateur
-  - sous [linux](https://downloads.raspberrypi.org/imager/imager_amd64.deb)
-  - sous [macOX](https://downloads.raspberrypi.org/imager/imager.dmg)
-  - sous [Windows](https://downloads.raspberrypi.org/imager/imager.exe)
+  - sous [linux](https://downloads.raspberrypi.org/imager/imager_latest_amd64.deb)
+  - sous [macOX](https://downloads.raspberrypi.org/imager/imager_latest.dmg)
+  - sous [Windows](https://downloads.raspberrypi.org/imager/imager_latest.exe)
 - Insérer la carte micro-SD dans son ordinateur
 - Lancer Raspberry Pi Imager et suivre les instructions :
   - sélectionner l’OS ; choisir raspbian
