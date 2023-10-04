@@ -36,7 +36,7 @@ draft: false
     ```sh
     sudo apt install snapd
     ```
-A l’invite de commande, taper O (oui)
+  A l’invite de commande, taper O (oui)
 - Rebouter le système
     ```sh
     sudo reboot
