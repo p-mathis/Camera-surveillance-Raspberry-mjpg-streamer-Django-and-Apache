@@ -160,7 +160,8 @@ et sous cette ligne copier l’ancien contenu du VirtualHost80
 - Vérifier en lançant la commande
   ```sh
   sudo certbot certonly --force-renew -d <monsite>
-  ```que la réponse 1 `1: Apache Web Server plugin (apache)` est la plus appropriée
+  ```
+  que la réponse 1 `1: Apache Web Server plugin (apache)` est la plus appropriée
 - Éditer le crontab
     ```sh
     crontab -e
