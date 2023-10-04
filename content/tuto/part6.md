@@ -160,7 +160,7 @@ et sous cette ligne copier l’ancien contenu du VirtualHost80
   ```sh
   sudo certbot certonly --force-renew -d <monsite>
   ```
-que la réponse 1 est la plus appropriée
+  que la réponse 1 est la plus appropriée
   - Éditer le crontab
     ```sh
     crontab -e
