@@ -156,7 +156,7 @@ et sous cette ligne copier l’ancien contenu du VirtualHost80
     ```
 - Modifier \<nom du site\> par le nom du site, par exemple monsite.net
 - Il est nécessaire d'utiliser le flag -d, car deux sites ont été créés : \<nom du site\> et www.\<nom du site\>
-- `echo "1"` permet de forcer la réponse à la question posée par certbot : *"How would you like to authenticate with the ACME CA?"* et qui propose trois réponses. Vérifier en lançant la commande
+- `echo "1"` permet de forcer la réponse à la question posée par certbot : `How would you like to authenticate with the ACME CA?` et qui propose trois réponses. Vérifier en lançant la commande
   ```sh
   sudo certbot certonly --force-renew -d <monsite>
   ```
