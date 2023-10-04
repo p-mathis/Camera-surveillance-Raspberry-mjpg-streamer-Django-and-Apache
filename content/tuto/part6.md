@@ -152,9 +152,15 @@ A l’invite de commande, taper O (oui)
 - Écrire le script en ajoutant les deux lignes
     ```sh
     #!bin/bash
-    sudo certbot renew --force-renewal
+    echo "1" | sudo certbot certonly --force-renew -d <monsite>
     ```
-- Éditer le crontab
+- Modifier <monsite> par le nom du site, par exemple monsite.net
+- echo "1" permet de forcer la réponse à la question posée par certbot : *How would you like to authenticate with the ACME CA?* et qui propose trois réponses. Vérifier en lançant la commande
+  ```sh
+  sudo certbot certonly --force-renew -d <monsite>
+  ```
+  que la réponse 1 est la plus appropriée
+  - Éditer le crontab
     ```sh
     crontab -e
     ```
