@@ -34,22 +34,14 @@ path_db = f'{home}/{folder}/{project}'
 
 #commandes qui vont supprimer les fichiers de stock/
 command_1 = ["find", f'{stock}/{pathCamera_1}', "-mtime", f'+{str(delay_delete)}', "-delete"]
-command_2 = ["find", f'stock}/{pathCamera_2}', "-mtime", f'+{str(delay_delete)}', "-delete"]
+command_2 = ["find", f'{stock}/{pathCamera_2}', "-mtime", f'+{str(delay_delete)}', "-delete"]
 command_py = ["find", f'{stock}/{pathCamera_py}', "-mtime", f'+{str(delay_delete)}', "-delete"]
-# command_1 = "find {}/{} -type f -mtime +{} -delete".format(stock, pathCamera_1, delay_delete)
-# command_2 = "find {}/{} -type f -mtime +{} -delete".format(stock, pathCamera_2, delay_delete)
-# command_py = "find {}/{} -type f -mtime +{} -delete".format(stock, pathCamera_py, delay_delete)
-# command_del = "{} & {} & {}".format(command_1, command_2, command_py)
 run(command_1)
 run(command_2)
 run(command_py)
-#run(command_del, shell=True)
-
 
 #sauvegarder la base de données avant de la modifier (sécurité)
-command_cp = ["cp", f'{path_db}{baseName}', f'{path_db}/{baseBackUp}']
-# command_cp = "cp -f {}/{}/{}/{} {}/{}/{}/{}".format(home, folder, project, baseName, home, folder, project, baseBackUp)
-# run(command_cp, shell=True)
+command_cp = ["cp", f'{path_db}/{baseName}', f'{path_db}/{baseBackUp}']
 run(command_cp)
 
 #suppression des lignes correspondantes de la base de données
