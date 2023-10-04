@@ -25,4 +25,6 @@ delay_run=int(parser.get("frequences", "delay_run_Cam_2"))
 sleep(delay_run)  #attente avant de lancer les commandes
 command_2 = "cd {} && export LD_LIBRARY_PATH=. && ./mjpg_streamer -i 'input_uvc.so -r {} -d /dev/v4l/by-id/{}' -o 'output_http.so -p {} -w {}/www'".format(mjpg_path,cam_2_resol, cam_2_name, cam_2_port, mjpg_path)
 subprocess.run(command_2, shell=True)
+# command_2 = ["cd", {mjpg_path}, "&&", "export", "LD_LIBRARY_PATH=", "&&", "./mjpg_streamer", "-i", f'input_uvc.so -r {cam_2_resol} -d /dev/v4l/by-id/{cam_2_name}', "-o", f'output_http.so -p {am_2_port} -w {mjpg_path}/www']
+# suprocess.run(command_2)
 ```
