@@ -177,11 +177,10 @@ et sous cette ligne copier l’ancien contenu du VirtualHost80
     ```
     en adaptant \<nom du site\>, par exemple monsite.sytes.net
 - La commande doit renvoyer une réponse du style :
-```sh
+    ```sh
     notBefore=Oct  5 05:23:04 2023 GMT
     notAfter=Jan  3 05:23:03 2024 GMT
     ```
-
 ## A ce stade - Prochaine étape
 ### A ce stade
 - Votre site est sécurisé https
