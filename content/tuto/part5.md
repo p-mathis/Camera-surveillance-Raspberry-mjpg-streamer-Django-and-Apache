@@ -29,7 +29,7 @@ draft: false
 - Confirmer l’inscription en validant le lien reçu sur sa boîte mail
 - Connectez-vous à votre compte
 - Si vous consultez votre `Tableau de bord` vous avez les informations sur votre site : le nom, la date d’expiration (vous devrez réactiver votre abonnement à l’échéance), l’adresse IP cible (celle de votre box).
-### Obtenir un nom de domaine chez dynu.com
+### Obtenir un nom de domaine chez dynu.com (GnuDIP)
 - Aller sur la page d'inscription de [dynu.com](https://www.dynu.com/fr-FR/ControlPanel/CreateAccount)
 - Remplir le formulaire en indiquant son adresse mail, un mot de passe (entre 4 et 20 caractères)
 - Cliquer sur `Soumettre`
