@@ -6,6 +6,7 @@ draft: false
 
 ## Introduction
 Création d'un site internet hébergé sur une raspberry fonctionnant sous un serveur Apache. Le site est construit avec le cadre de développement (framework) Django. Les images et les flux vidéos de trois caméras sont capturés par mjpg-streamer.
+*Ce tutoriel a été mis à jour en octobre 2023.*
 ## Objectif
 Créer une surveillance à distance de chevaux en stabulation libre.
 Les chevaux peuvent aller et venir hors d'un abri pour se rendre dans les prés avoisinants. La surveillance a pour but de savoir si les chevaux sont dans l’abri ou dans les prés et de vérifier que leur comportement y est normal. Mais également, lorsqu’ils sont hors de vue des caméras de savoir si dans un passé récent ils étaient bien présents.  
