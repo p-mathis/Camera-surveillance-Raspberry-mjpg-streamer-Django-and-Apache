@@ -60,7 +60,7 @@ draft: false
   - Service : choisir son fournisseur : No-IP ou GnuDIP selon votre choix (c'est cette liste qui est limitative et ne propose que quelques fournisseurs)
   - Nom d’hôte/de domaine : mettre le nom de domaine attribué par le fournisseur
   - Email utilisateur : l’adresse mail avec laquelle vous vous êtes inscrit chez le fournisseur
-  - Mot de Passe : votre mot de passe chez le fournisseur(et non pas celui du mail, bien sûr)
+  - Mot de Passe : votre mot de passe chez le fournisseur (et non pas celui du mail, bien sûr)
   - Validez avec le bouton « Enregistrer »
 ## Modifier le fichier de configuration Apache
 - Ouvrir le fichier
