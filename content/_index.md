@@ -6,6 +6,7 @@ draft: false
 
 ## Introduction
 Création d'un site internet hébergé sur une raspberry fonctionnant sous un serveur Apache. Le site est construit avec le cadre de développement (framework) Django. Les images et les flux vidéos de trois caméras sont capturés par mjpg-streamer.
+
 *Ce tutoriel a été mis à jour en octobre 2023.*
 ## Objectif
 Créer une surveillance à distance de chevaux en stabulation libre.
