@@ -17,7 +17,8 @@ draft: false
 - Le serveur DNS permettra de traduire le nom de domaine en adresse IP (l’IP publique de votre box).
 - Les IP publiques n’étant pas nécessairement fixes, le DNS dynamique transférera l’adresse IP évolutive vers un nom de domaine fixe.
 - Quelques fournisseurs de DNS dynamiques proposent des offres gratuites. Mais tous ne sont pas compatibles avec les box dont nous disposons, notamment la livebox d’Orange.
-- Malgré ses contraintes (nécessité de réactiver son abonnement gratuit tous les mois) No-IP a l’avantage d’être performant.
+- Malgré ses contraintes (nécessité de réactiver son abonnement gratuit tous les mois) No-IP a l’avantage d’être performant. 
+- La box d'Orange propose maintenant *(octobre 2023*) le protocole GnuDIP. dynu.com propose un service gratuit pour lequel il n'y a pas besoin de réactiver régulièrement le nom de domaine.
 - On aurait pu prendre une autre option : acheter un nom de domaine chez un registraire pour quelques Euro par an et bénéficier du DynDNS de ce registraire. OVH est une option intéressante et un [tutoriel](https://raspberry-pi.fr/nom-domaine/) très bien fait est disponible.
 - Quelque soit l’option que vous choisissez, la marche à suivre sera globalement la même.
 ### Obtenir un nom de domaine chez No-Ip
@@ -28,6 +29,15 @@ draft: false
 - Confirmer l’inscription en validant le lien reçu sur sa boîte mail
 - Connectez-vous à votre compte
 - Si vous consultez votre `Tableau de bord` vous avez les informations sur votre site : le nom, la date d’expiration (vous devrez réactiver votre abonnement à l’échéance), l’adresse IP cible (celle de votre box).
+### Obtenir un nom de domaine chez dynu.com
+- Aller sur la page d'inscription de [dynu.com](https://www.dynu.com/fr-FR/ControlPanel/CreateAccount)
+- Remplir le formulaire en indiquant son adresse mail, un mot de passe (entre 4 et 20 caractères)
+- Cliquer sur `Soumettre`
+- Confirmer l'adresse mail via le mail de vérification. *Attention : celui-ci a pu être placé dans les mails indésirables.*
+- Se connecter
+- Dans le menu, choisir : DDNS -\> S'INSCRIRE
+- Renseigner le nom d'hôte désiré et cliquer sur `+Ajouter`
+- Aller dans son compte pour modifier certains paramètres, notamment le fuseau horaire
 ## Modifications sur la box
 - Quelques modifications sont à apporter au niveau de la box. Disposant d’une livebox de chez Orange, la marche à suivre que je donne se réfère à ce type de box ; mais elle est grosso modo la même chez les autres opérateurs.
 - Entrer dans le menu de sa box
@@ -47,10 +57,10 @@ draft: false
 - Modifier le DynDNS
   - Allez à l’onglet DynDNS
   - Remplissez la ligne saisissable
-  - Service : choisir No-IP (c’est cette liste qui est très limitative dans le choix du fournisseur DynDNS)
-  - Nom d’hôte/de domaine : mettre le nom de domaine attribué par No-IP
-  - Email utilisateur : l’adresse mail avec laquelle vous vous êtes inscrit chez No-IP
-  - Mot de Passe : votre mot de passe chez No-IP (et non pas celui du mail, bien sûr)
+  - Service : choisir son fournisseur : No-IP ou GnuDIP selon votre choix (c'est cette liste qui est limitative et ne propose que quelques fournisseurs)
+  - Nom d’hôte/de domaine : mettre le nom de domaine attribué par le fournisseur
+  - Email utilisateur : l’adresse mail avec laquelle vous vous êtes inscrit chez le fournisseur
+  - Mot de Passe : votre mot de passe chez le fournisseur(et non pas celui du mail, bien sûr)
   - Validez avec le bouton « Enregistrer »
 ## Modifier le fichier de configuration Apache
 - Ouvrir le fichier
