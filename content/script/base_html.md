@@ -13,15 +13,11 @@ draft: false
   {% block title %}<title>X & Y</title>{% endblock %}
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="{% static 'camera/css/general.css' %}">
-  <link rel="stylesheet" href="{% static 'camera/css/menu.css' %}">
   <link rel="shortcut icon" href="{% static 'camera/logo/logo.png' %}" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <link rel="stylesheet" href="{% static 'camera/css/header_footer.css' %}">
-  <link rel="stylesheet" href="{% static 'camera/css/disposition.css' %}">
-  <link rel="stylesheet" href="{% static 'camera/css/bouton.css' %}">
-  <link rel="stylesheet" href="{% static 'camera/css/pagination.css' %}">
+  <link rel="stylesheet" href="{% static 'camera/css/global.css' %}">
+  
 </head>
 
 <script>
