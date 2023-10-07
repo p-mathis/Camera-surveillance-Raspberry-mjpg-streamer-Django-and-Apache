@@ -241,7 +241,7 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
 ### **A renseigner impérativement dans le fichier de configuration**
 - Dans la section `[hosts]` chercher la clé `raspIP`
 - Remplacer la valeur <local IP Raspberry> par l'IP locale de votre Raspberry
-## Créer les fichiers css et un fichier logo
+## Créer le fichier css et un fichier logo
 - Création des dossiers css et logo
   - Les fichiers css sont situés dans `~/folder/project/camera/static/camera/css/`  
   - Ce chemin paraît compliqué à première vue, mais il est le chemin recommandé dans les différentes tutoriels relatifs à Django. On suit cette procédure, même si la simplicité du site (une seule application) ne la justifie pas.
@@ -250,23 +250,19 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
     cd ~/folder/project/camera
     mkdir static static/camera static/camera/css static/camera/logo
     ```
-- Remarques sur les fichiers css : ces fichiers ont été récupérés à partir d'un site personnel construit antérieurement. Ceci explique :
-  - que les fichiers soient multiples
-  - qu'il y a des redondances et des classes superflues
+- Remarques sur le fichier css :
+    - ce fichier a été récupéré à partir d'un site personnel construit antérieurement
+    - il y a des redondances et des classes superflues
+    - le design du site n'est pas optimal, loin s'en faut
+    - pour simplifier, tout le css a été regroupé dans un seul fichier
+    - il est possible de le fractionner en plusieurs fichiers, mais dans ce cas il faudra appeler chaque fichier dans le base.html
 - Vous pouvez, bien sûr, modifier à votre convenance le css. Il faudra alors modifier l'appel des fichiers css dans le fichier `base.html` (chapître suivant).
-- Création de general.css
-  - Créer et ouvrir en écriture le fichier general.css
-     ```sh 
-     cd ~/folder/project/camera/static/camera/css/
+- Création de global.css
+  - Créer et ouvrir en écriture le fichier global.css
+     ```sh      
      nano ~/folder/project/camera/static/camera/css/general.css
     ```
-  - Copier/coller dans l'éditeur de texte le contenu du fichier `general.css`disponible [ici]({{< ref "/script/general_css.md" >}} "general.css")
-- Création des autres fichiers css en procédant de même pour les fichiers
-  - `bouton.css` dont le contenu est disponible [ici]({{< ref "/script/bouton_css.md" >}} "bouton.css")
-  - `menu.css` dont le contenu est disponible [ici]({{< ref "/script/menu_css.md" >}} "menu.css")
-  - `disposition.css` dont le contenu est disponible [ici]({{< ref "/script/disposition_css.md" >}} "menu.css")
-  - `header_footer.css` dont le contenu est disponible [ici]({{< ref "/script/header_footer_css.md" >}} "menu.css")
-  - `pagination.css` dont le contenu est disponible [ici]({{< ref "/script/pagination_css.md" >}} "pagination.css")
+  - Copier/coller dans l'éditeur de texte le contenu du fichier `global.css`disponible [ici]({{< ref "/script/global_css.md" >}} "global.css")
 - Logo favicon  
   - La favicon est une image qui s'affiche dans la barre d'adresse web en regard de l'URL.
   - Charger sur la Raspberry une image au format png d'environ 40x40 pixels
