@@ -168,7 +168,7 @@ draft: false
     ```
 - Vous pouvez vérifier que même en dehors du réseau local vous avez accès au site.
 ### Si vous n'avez pas d'accès au site depuis le réseau local
-- Il est possible que vous ayiez accès au site depuis l'extérieur (par exemple depuis un téléphone portable dont la wifi a été coupée), mais pas depuis un appareil qui est sur le réseau local. Cela peut être dû, entre autre, à des problèmes d’autorisations et de paramétrages de la box.
+- Il est possible que vous ayez accès au site depuis l'extérieur (par exemple depuis un téléphone portable dont la wifi a été coupée), mais pas depuis un appareil qui est sur le réseau local. Cela peut être dû, entre autre, à des problèmes d’autorisations et de paramétrages de la box.
 - Solution risquée à proscrire : modifier la `DMZ`
   - Sauf si vous savez exactement ce que vous faites, il est déconseillé de modifier la `DMZ` au niveau de la box.
   - Entrer dans les paramètres `Réseau` de la box
