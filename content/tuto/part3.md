@@ -260,7 +260,7 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
 - Création de global.css
   - Créer et ouvrir en écriture le fichier global.css
      ```sh      
-     nano ~/folder/project/camera/static/camera/css/general.css
+     nano ~/folder/project/camera/static/camera/css/global.css
     ```
   - Copier/coller dans l'éditeur de texte le contenu du fichier `global.css`disponible [ici]({{< ref "/script/global_css.md" >}} "global.css")
 - Logo favicon  
