@@ -43,6 +43,8 @@ main:
         ref: "/script/stream_py_html.md"
   - name: Fichiers css
     sub:
+      - name: global.css
+        ref: "/script/global_css.md"
       - name: bouton.css
         ref: "/script/bouton_css.md"
       - name: disposition.css
