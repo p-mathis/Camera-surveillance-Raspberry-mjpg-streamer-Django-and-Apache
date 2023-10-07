@@ -1,3 +1,9 @@
+---
+title: "global.css"
+date: 2023-10-07T11:45:19+01:00
+draft: false
+---
+```css
 /* pour les fontes en fonction du type d'élément */
 p {
     font-size: 18px;
@@ -387,3 +393,4 @@ figcaption {
   .pagination a:active {
     background-color: #aaa;
   }
+```
