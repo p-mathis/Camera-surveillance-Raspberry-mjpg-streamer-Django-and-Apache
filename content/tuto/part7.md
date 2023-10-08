@@ -18,6 +18,8 @@ draft: false
     #!bin/bash  
     sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
     ```
+- Il faut cependant être vigilant avec les mises à jour ; certaines d'entre elles pourraient empêcher que le serveur continue de bien fonctionner
+- Il est préférable de les lancer manuellement de manière régulière, surtout concernant les mises à jour de `apache2` qui peuvent corriger des failles de sécurité
 ## Etre informé par courriel des redémarrages de la raspberry
 - A chaque démarrage de la raspberry, un courriel est envoyé pour prévenir l'utilisateur.  
 - Ceci permet notamment de vérifier que les caméras se sont bien lancées.  
@@ -70,7 +72,7 @@ draft: false
     @reboot python3 /home/pi/script/getCamerasAndRegister.py
     10 03 * * * python3 /home/pi/script/suppressFiles.py
     10 02 3 */2 * sh /home/pi/script/certbotRenew.sh
-    10 04 * * 1 sh /home/pi/script/updateAndUpgradeAuto.sh
+    10 04 * * 1 sh /home/pi/script/updateAndUpgradeAuto.sh  # à commenter au besoin
     @reboot python3 /home/pi/script/mail_reboot.py
     */10 * * * * python3 /home/pi/script/ipcheck.py
     ```
