@@ -168,7 +168,7 @@ et sous cette ligne copier l’ancien contenu du VirtualHost80
     ```
 - Lancer le script tous les deux mois en ajoutant la ligne
     ```sh
-    10 02 3 */2 * sh /home/pi/script/certbotRenew.sh
+    10 02 3 2,4,6,8,10,12 * sh /home/pi/script/certbotRenew.sh
     ```
 	Le script sera lancé à 2 heures 10 le troisième jour des mois pairs. Dans la mesure où certains trimestres durent 92 jours, on doit renouveler le certificat tous les deux mois.
 - Pour vérifier la validité du certificat, lancer depuis le terminal de **n'importe quel** ordinateur la commande :
