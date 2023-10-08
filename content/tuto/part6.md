@@ -171,6 +171,10 @@ et sous cette ligne copier l’ancien contenu du VirtualHost80
     10 02 3 2,4,6,8,10,12 * sh /home/pi/script/certbotRenew.sh
     ```
 	Le script sera lancé à 2 heures 10 le troisième jour des mois pairs. Dans la mesure où certains trimestres durent 92 jours, on doit renouveler le certificat tous les deux mois.
+- *Pour une raison obscure la commande suivante (équivalente à la précédente) n'a pas fonctionné :*
+    ```sh
+    10 02 3 */2 * sh /home/pi/script/certbotRenew.sh
+    ```    
 - Pour vérifier la validité du certificat, lancer depuis le terminal de **n'importe quel** ordinateur la commande :
     ```sh
     echo | openssl s_client -connect nougatine.sytes.net:443 -servername <nom du site> 2>/dev/null | openssl x509 -noout -dates
