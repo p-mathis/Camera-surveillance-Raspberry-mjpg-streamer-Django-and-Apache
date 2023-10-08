@@ -185,6 +185,10 @@ et sous cette ligne copier l’ancien contenu du VirtualHost80
     notBefore=Oct  5 05:23:04 2023 GMT
     notAfter=Jan  3 05:23:03 2024 GMT
     ```
+- Il est possible de vérifier la validité du certificat **depuis la raspberry** en lançant la commande :
+    ```sh
+    sudo certbot certificates
+    ```
 
 ## A ce stade - Prochaine étape
 ### A ce stade
