@@ -177,7 +177,7 @@ et sous cette ligne copier l’ancien contenu du VirtualHost80
     ```    
 - Pour vérifier la validité du certificat, lancer depuis le terminal de **n'importe quel** ordinateur la commande :
     ```sh
-    echo | openssl s_client -connect nougatine.sytes.net:443 -servername <nom du site> 2>/dev/null | openssl x509 -noout -dates
+    echo | openssl s_client -connect <nom du site>:443 -servername <nom du site> 2>/dev/null | openssl x509 -noout -dates
     ```
     en adaptant \<nom du site\>, par exemple monsite.sytes.net
 - La commande doit renvoyer une réponse du style :
