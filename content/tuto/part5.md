@@ -162,7 +162,7 @@ draft: false
     ```sh
     <nom du site>/camera
     ```
-- par exemple, si votre site s'appelle monproject.freeddns.org :
+- par exemple, si votre site s'appelle monprojet.freeddns.org :
     ```sh
     monprojet.freeddns.org/camera
     ```
