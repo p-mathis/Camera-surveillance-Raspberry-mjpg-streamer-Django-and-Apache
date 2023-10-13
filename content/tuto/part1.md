@@ -80,7 +80,7 @@ Les indications données ici sont valables pour une livebox Orange. La procédur
   - IP externe : laisser `Toutes`
   - *Ceci évitera les attaques multiples de personnes malveillantes qui viseront en premier lieu le port 22 par défaut.*
 ### Une raspberry et deux adresses Mac !
-- **Attention, la Raspberry a deux adresses Mac selon qu'elle est en WiFi ou en Filaire**
+- **Attention, la Raspberry a deux [adresses Mac](https://fr.wikipedia.org/wiki/Adresse_MAC) selon qu'elle est en WiFi ou en Filaire**
 - La box donnera donc deux adresses IP différentes : l'une pour chacune des adresses Mac
 - Il convient donc de paramétrer son adresse IP locale en fonction du mode de transmission choisi : WiFi ou filaire
 ### Connexion ssh à la raspberry
