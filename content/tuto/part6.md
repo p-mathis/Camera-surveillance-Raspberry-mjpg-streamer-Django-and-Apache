@@ -71,10 +71,10 @@ draft: false
   - Read the terms of service : accepter en tapant `Y` à l’invite de commande
   - Electronic Frontier Foundation : accepter ou non 
   - Quel nom activer pour le certificat : deux options
-    - Soit rien n’est proposé : rentrer le nom du site (monsite.sytes.net par exemple)
+    - Soit rien n’est proposé : rentrer le nom du site (monsite.freeddns.org par exemple)
     - Soit deux options sont proposées :
-      - 1 :`<nom du site>` (`monsite.sytes.net` par exemple)
-      - 2 :`www.<nom du site>` (`www.monsite.sytes.net` par exemple)  
+      - 1 :`<nom du site>` (`monsite.freeddns.org` par exemple)
+      - 2 :`www.<nom du site>` (`www.monsite.freeddns.org` par exemple)  
       
 	  Taper 1 car c’est le nom qui a été donné à No-IP.
 ## Modifier le fichier /etc/apache2/sites-available/project-camera.conf
@@ -179,7 +179,7 @@ et sous cette ligne copier l’ancien contenu du VirtualHost80
     ```sh
     echo | openssl s_client -connect <nom du site>:443 -servername <nom du site> 2>/dev/null | openssl x509 -noout -dates
     ```
-    en adaptant \<nom du site\>, par exemple monsite.sytes.net
+    en adaptant \<nom du site\>, par exemple monsite.freeddns.org
 - La commande doit renvoyer une réponse du style :
     ```sh
     notBefore=Oct  5 05:23:04 2023 GMT
