@@ -169,11 +169,12 @@ draft: false
 - Vous pouvez vérifier que même en dehors du réseau local vous avez accès au site.
 ### Problème avec l'IPv6
 - Il est possible que l'accès au site ne soit pas possible pour des problèmes liés à l'IPv6
-- Dans la box, se rendre dans Réseau -\> Ipv6
+- Dans la box, se rendre dans Réseau --\> Ipv6
 - Décocher la case `Activer la connectivité IPv6`
 - NoIP ne pointant pas sur l'adresse IPv6 (du moins en octobre 2023), il n'y a pas de problème
 - Par contre dynu.com pointant sur l'IPv6, vous pouvez être confronté à cette difficulté
-- Voir les discussions de [stackoverflow](https://stackoverflow.com/questions/77259946/access-to-an-apache-server-impossible-with-an-ipv6-dynamic-dns-possible-with-an) et de [serveurfault.com](https://serverfault.com/questions/1110107/cant-access-apache-server-through-ipv6-from-outside)
+- *Voir la discussion de [serveurfault.com](https://serverfault.com/questions/1110107/cant-access-apache-server-through-ipv6-from-outside)*
+- ***En décochant la connectivité IPv6, vous perdez de possibles connexions en IPv6 pour d'autres usages***
 ### Si vous n'avez pas d'accès au site depuis le réseau local
 - Il est possible que vous ayez accès au site depuis l'extérieur (par exemple depuis un téléphone portable dont la wifi a été coupée), mais pas depuis un appareil qui est sur le réseau local. Cela peut être dû, entre autre, à des problèmes d’autorisations et de paramétrages de la box.
 - Solution risquée à proscrire : modifier la `DMZ`
