@@ -76,7 +76,7 @@ SSLCertificateFile /etc/letsencrypt/live/<site name>/fullchain.pem
 SSLCertificateKeyFile /etc/letsencrypt/live/<site name>/privkey.pem
 
 #Pour accroître la sécurité
-SSLProtocol -all +TLSv1.2 +TLSv1.3
+SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
 SSLHonorCipherOrder on
 SSLCompression off
 SSLCipherSuite ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-DSS-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384
