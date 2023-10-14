@@ -122,7 +122,7 @@ et sous cette ligne copier l’ancien contenu du VirtualHost80
 - `SSLEngine on` : Activation du module `SSL`
 - `SSLCertificateKeyFile` : chemin vers le fichier `privkey.pem`
 - `SSLCertificateChainFile` : chemin vers le fichier `chain.pem`
-- `SSLProtocol` : N’active que les versions les plus sûres : `TLSv1.2` et `TLSv1.3`
+- `SSLProtocol` : Désactive les protocoles les moins sûrs : `SSLv3`, `TLSv1` et `TLSv1.1`
 - `SSLHonorCipherOrder` : Quand activé, le serveur force ses préférences de protocoles et non le navigateur du client.
 - `SSLCompression` : La compression SSL n’est pas activée
 - `SSLOptions +StrictRequire` : Exige une connexion SSL stricte
