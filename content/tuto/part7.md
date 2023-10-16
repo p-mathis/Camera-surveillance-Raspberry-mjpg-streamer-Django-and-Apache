@@ -16,10 +16,11 @@ draft: false
 - Ecrire le script en ajoutant les deux lignes
     ```sh
     #!bin/bash  
-    sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+    sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y && sudo reboot
     ```
 - Il faut cependant être vigilant avec les mises à jour ; certaines d'entre elles pourraient empêcher que le serveur continue de bien fonctionner
-- Il est préférable de les lancer manuellement de manière régulière, surtout concernant les mises à jour de `apache2` qui peuvent corriger des failles de sécurité
+- Il est préférable de les lancer manuellement de manière régulière
+- Apporter un soin particulier aux mises à jour de `apache2` qui peuvent corriger des failles de sécurité
 ## Etre informé par courriel des redémarrages de la raspberry
 - A chaque démarrage de la raspberry, un courriel est envoyé pour prévenir l'utilisateur.  
 - Ceci permet notamment de vérifier que les caméras se sont bien lancées.  
