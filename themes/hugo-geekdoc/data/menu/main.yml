@@ -1,3 +1,4 @@
+
 ---
 main:
   - name: Présentation
@@ -18,7 +19,9 @@ main:
       - name: Sécuriser le site en https
         ref: "/tuto/part6"
       - name: Fichiers de gestion
-        ref: "/tuto/part7"       
+        ref: "/tuto/part7"  
+      - name: Ajout d'une nouvelle caméra
+        ref:  "/tuto/part8"    
   - name: Guide rapide
     ref: "/rapid/rapid"
   - name: Fichiers html
@@ -101,3 +104,28 @@ main:
         ref: "/script/views_py_V2.md"
       - name: wsgi.py
         ref: "/script/wsgi_py.md"
+  - name: Fichier pour caméra supplémentaire
+    sub:
+      - name: configuration_ini_4cam.md
+        ref: "/script/configuration_ini_4cam.md"
+      - name: urls_4cam.py
+        ref: "/script/urls_py_4cam.md"
+      - name: views_4cam.py
+        ref: "/script/views_py_4cam.md"  
+      - name: runCamera_3_py_4cam
+        ref: "/script/runCamera_3_py_4cam.md"
+      - name: getCamerasAndRegister_py_4cam
+        ref: "/script/getCamerasAndRegister_py_4cam.md"        
+      - name: suppressFiles_py_4cam
+        ref: "/script/suppressFiles_py_4cam.md"   
+      - name: historique_html_4cam
+        ref: "/script/historique_html_4cam.md"
+      - name: parHeure_html_4cam
+        ref: "/script/parHeure_html_4cam.md"
+      - name: stream_3_html_4cam
+        ref: "/script/stream_3_html_4cam.md" 
+      - name: stream_AllCam_html_4cam
+        ref: "/script/stream_AllCam_html_4cam.md"                 
+      - name: project-camera_conf_4cam
+        ref: "/script/project-camera_conf_4cam"
+     

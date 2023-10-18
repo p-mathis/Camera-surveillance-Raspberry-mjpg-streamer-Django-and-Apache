@@ -79,13 +79,13 @@ def historique(request):
 
     min_length = min(len(latest_photo_list_1_oneoutofN), len(latest_photo_list_2_oneoutofN), len(latest_photo_list_py_oneoutofN))
 
-    latest_photo_list_group3 = []  #groupe les photos par trois (une par caméra)
+    latest_photo_list_group = []  #groupe les photos par trois (une par caméra)
     for i in range(min_length):
         new_group = [latest_photo_list_1_oneoutofN[i], latest_photo_list_2_oneoutofN[i], latest_photo_list_py_oneoutofN[i]] 
-        latest_photo_list_group3.extend(new_group)
+        latest_photo_list_group.extend(new_group)
 
     context = {
-        'latest_photo_list_group3': latest_photo_list_group3,
+        'latest_photo_list_group': latest_photo_list_group,
     }
 
     return render(request, "{}/historique.html".format(appli), context)
@@ -135,12 +135,12 @@ def parheure(request):
 
     min_length = min(len(latest_photo_list_1), len(latest_photo_list_2), len(latest_photo_list_py))
 
-    latest_photo_list_group3 = []
+    latest_photo_list_group = []
     for i in range(min_length):
         new_group = [latest_photo_list_1[i], latest_photo_list_2[i], latest_photo_list_py[i]] 
-        latest_photo_list_group3.extend(new_group)
+        latest_photo_list_group.extend(new_group)
 
-    paginator = Paginator(latest_photo_list_group3, 180)
+    paginator = Paginator(latest_photo_list_group, 180)
     page = request.GET.get('page')
     photos = paginator.get_page(page)
 

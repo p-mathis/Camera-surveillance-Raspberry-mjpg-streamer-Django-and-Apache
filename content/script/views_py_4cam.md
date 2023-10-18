@@ -1,9 +1,8 @@
 ---
-title: "Views.py (V1)"
-date: 2021-01-24T10:41:11+01:00
+title: "views_4cam.py"
+date: 2023-10-17T23:28:16+01:00
 draft: false
 ---
-
 ```python
 from django.shortcuts import render, redirect
 
@@ -38,10 +37,17 @@ cam_1_port = parser.get("camera", "cam_1_port")
 cam_2_port = parser.get("camera", "cam_2_port")
 cam_py_port = parser.get("camera", "cam_py_port")
 
+Rp1 = parser.get("hosts", "proxy_1")
+Rp2 = parser.get("hosts", "proxy_2")
+Rpi = parser.get("hosts", "proxy_py")
+
+# Ajout pour la quatrième caméra
+cam_3_port = parser.get("camera", "cam_3_port")
+Rp3 = parser.get("hosts", "proxy_3")
+
+
 display_nombre = int(float(parser.get("frequences", "display_jour")) * 3600 * 24 / hz_capture)
-
 appli = parser.get("paths", "appli")
-
 local_tz = timezone(zone)
 utc = pytz.utc
 
@@ -50,7 +56,7 @@ def accueil(request):
     return response
 
 def historique(request):
-    
+    """On visionne les trois caméras sur les 24 dernière heures ; on prend une photo toutes les n minutes."""
     maintenant = local_tz.localize(datetime.now())     #voir http://pytz.sourceforge.net/
 
     latest_photo_list_1 = Photo.objects.filter(appareil=1).order_by('-date')[:display_nombre]
@@ -73,21 +79,33 @@ def historique(request):
         if (photo.date - maintenant).seconds // hz_capture % hz_historique == 0:
             latest_photo_list_py_oneoutofN.append(photo)
 
-    min_length = min(len(latest_photo_list_1_oneoutofN), len(latest_photo_list_2_oneoutofN), len(latest_photo_list_py_oneoutofN))
+    # Ajouts pour la quatrième caméra
+    latest_photo_list_3 = Photo.objects.filter(appareil=4).order_by('-date')[:display_nombre]
+    latest_photo_list_3_oneoutofN = []
+    for photo in latest_photo_list_3:      #pour ne sélectionner qu'une photo sur N
+        if (photo.date - maintenant).seconds // hz_capture % hz_historique == 0:        
+            latest_photo_list_3_oneoutofN.append(photo)
 
-    latest_photo_list_group = []  #groupe les photos par trois (une par caméra)
+
+    # Modifier la variable min_length en ajoutant la `len((latest_photo_list_3_oneoutofN))` comme item supplémentaire
+    min_length = min(len(latest_photo_list_1_oneoutofN), len(latest_photo_list_2_oneoutofN), len(latest_photo_list_py_oneoutofN), len(latest_photo_list_3_oneoutofN))
+
+
+    latest_photo_list_group = [] 
     for i in range(min_length):
-        new_group = [latest_photo_list_1_oneoutofN[i], latest_photo_list_2_oneoutofN[i], latest_photo_list_py_oneoutofN[i]] 
-        latest_photo_list_group.extend(new_group)
 
+        # modifier la liste `new_group`en ajoutant `latest_photo_list_3_oneoutofN[i]` dans la liste 
+        new_group = [latest_photo_list_1_oneoutofN[i], latest_photo_list_2_oneoutofN[i], latest_photo_list_py_oneoutofN[i]]
+
+        latest_photo_list_group.extend(new_group)
+    
     context = {
         'latest_photo_list_group': latest_photo_list_group,
-    }
-
+    }  
     return render(request, "{}/historique.html".format(appli), context)
 
 def nuit(request):
-        
+    
     #lieu = SunTimes(longitude, latitude, altitude, zone)
     lieu = SunTimes(longitude, latitude, altitude)
     maintenant = local_tz.localize(datetime.now())     #voir http://pytz.sourceforge.net/
@@ -97,7 +115,7 @@ def nuit(request):
     leverDemain = lieu.riselocal(maintenant + timedelta(1))
 
     if lever <= maintenant <= coucher:
-        #On est en journée ; on sélectionne les photos allant du coucher de la veille au lever de ce jour
+        #on est en journée ; on sélectionne les photos allant du coucher de la veille au lever de ce jour
         night_photo_list = Photo.objects.filter(appareil=3).filter(date__gt=coucherHier, date__lt=lever).order_by('-date')
         horaire = [lever.strftime('%Hh %Mmn'), lever.day, lever.month, coucherHier.strftime('%Hh %Mmn'), coucherHier.day, coucherHier.month]
 
@@ -106,7 +124,7 @@ def nuit(request):
         night_photo_list = Photo.objects.filter(appareil=3).filter(date__gt=coucherHier).order_by('-date')
         horaire = [lever.strftime('%Hh %Mmn'), lever.day, lever.month, coucherHier.strftime('%Hh %Mmn'), coucherHier.day, coucherHier.month]
     else:
-        #On est avant minuit mais après le coucher. On sélectionne les photos de coucher à maintenant
+        #on est avant minuit mais après le coucher. On sélectionne les photos de coucher à maintenant
         night_photo_list = Photo.objects.filter(appareil=3).filter(date__gt=coucher).order_by('-date')
         horaire = [leverDemain.strftime('%Hh %Mmn'), leverDemain.day, leverDemain.month, coucher.strftime('%Hh %Mmn'), coucher.day, coucher.month]    
     
@@ -123,19 +141,31 @@ def nuit(request):
     return render(request, "{}/nuit.html".format(appli), context)
 
 def parheure(request):
+    """On visionne les trois caméras sur les 24 dernière heures ; la pagination se fera heure par heure."""
 
     latest_photo_list_1 = Photo.objects.filter(appareil=1).order_by('-date')[:display_nombre]
     latest_photo_list_2 = Photo.objects.filter(appareil=2).order_by('-date')[:display_nombre]
     latest_photo_list_py = Photo.objects.filter(appareil=3).order_by('-date')[:display_nombre]
 
-    min_length = min(len(latest_photo_list_1), len(latest_photo_list_2), len(latest_photo_list_py))
+    # Déclarer `latest_photo_list_3` 
+    latest_photo_list_3 = Photo.objects.filter(appareil=4).order_by('-date')[:display_nombre]
+
+    # Modifier la variable min_length en ajoutant la `len((latest_photo_list_3_oneoutofN))` comme item supplémentaire
+    min_length = min(len(latest_photo_list_1), len(latest_photo_list_2), len(latest_photo_list_py), len(latest_photo_list_3))
 
     latest_photo_list_group = []
+
+
     for i in range(min_length):
-        new_group = [latest_photo_list_1[i], latest_photo_list_2[i], latest_photo_list_py[i]] 
+
+       # modifier la liste `new_group`en ajoutant `latest_photo_list_3_oneoutofN[i]` dans la liste 
+        new_group = [latest_photo_list_1[i], latest_photo_list_2[i], latest_photo_list_py[i], latest_photo_list_3[i]] 
         latest_photo_list_group.extend(new_group)
 
-    paginator = Paginator(latest_photo_list_group, 180)
+    # Changer éventuellement le nombre d'éléments affichés par page
+    paginator = Paginator(latest_photo_list_group, 240)
+
+
     page = request.GET.get('page')
     photos = paginator.get_page(page)
 
@@ -146,7 +176,7 @@ def parheure(request):
     return render(request, "{}/parHeure.html".format(appli), context)
 
 def stream_py(request):
-    stream = ["http://{}:{}/?action=stream".format(raspIP, cam_py_port)]
+    stream = ["/{}?action=stream".format(Rpi)]
     context = {
         'stream': stream,
     }
@@ -154,7 +184,7 @@ def stream_py(request):
     return render(request, "{}/stream_py.html".format(appli), context)
 
 def stream_1(request):
-    stream = ["http://{}:{}/?action=stream".format(raspIP, cam_1_port)]
+    stream = ["/{}?action=stream".format(Rp1)]
     context = {
         'stream': stream,
     }
@@ -163,19 +193,29 @@ def stream_1(request):
 
 
 def stream_2(request):
-    stream = ["http://{}:{}/?action=stream".format(raspIP, cam_2_port)]
+    stream = ["/{}?action=stream".format(Rp2)]    
     context = {
         'stream': stream,
     }
 
     return render(request, "{}/stream_2.html".format(appli), context)
 
+# Ajouter une fonction stream_3
+def stream_3(request):
+    stream = ["/{}?action=stream".format(Rp3)]
+    context = {
+        'stream': stream,
+    }    
+
+    return render(request, "{}/stream_3.html".format(appli), context)
+
 def stream_AllCam(request):
-    stream = ["http://{}:{}/?action=stream".format(raspIP, cam_1_port),"http://{}:{}/?action=stream".format(raspIP, cam_2_port), "http://{}:{}/?action=stream".format(raspIP, cam_py_port) ]
+    # Ajouter le stream pour la nouvelle caméra dans la liste `stream`
+    stream = ["/{}?action=stream".format(Rp1),"/{}?action=stream".format(Rp2), "/{}?action=stream".format(Rpi), "/{}?action=stream".format(Rp3) ]
     context = {
         'stream': stream,
     }
 
     return render(request, "{}/stream_AllCam.html".format(appli), context)
-```
 
+```
