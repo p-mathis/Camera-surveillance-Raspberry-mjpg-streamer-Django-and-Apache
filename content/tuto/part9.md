@@ -72,9 +72,10 @@ nano ~/folder/project/camera/urls.py
 ```python
 path('nuitParMinute/', views.nuitparminute, name="nuitParMinute")
 ```
-- **Vérifier qu'il y a bien une virgule entre ce path et le path précédent**
+- **Vérifier qu'il y a bien une virgule entre ce path et le path précédent**  
 
-### Sauvegarder et fermer
+### Sauvegarder et fermer
+
 ## Ecrire le fichier nuitParMinute.html
 ### Créer le fichier en écriture
 ```sh
@@ -119,7 +120,9 @@ nano ~/folder/project/camera/templates/camera/nuitParMinute.html
 ```
 ### Modifications éventuelles
 - Au besoin modifier la valeur de `divisibleby` dans `forloop.counter` en fonction du nombre de photos à afficher par ligne
+
 ### Sauvegarder et fermer
+
 ## Ajouter un bouton dans la page `Accueil`
 ### Ouvrir `accueil.html` en écriture 
 ```sh
