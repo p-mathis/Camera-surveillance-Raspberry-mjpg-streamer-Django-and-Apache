@@ -49,4 +49,6 @@ Deux guides d'installation sont disponibles :
   - obtention d'un nom de domaine et utilisation du serveur apache sur le réseau extérieur
   - sécurisation https du site avec Certbot
   - mise en place de divers scripts facilitant la maintenance
+  - mise en place d'une nouvelle caméra
+  - écriture d'une nouvelle fonction nuit
 

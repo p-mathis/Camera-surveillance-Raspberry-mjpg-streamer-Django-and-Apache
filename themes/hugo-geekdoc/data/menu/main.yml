@@ -21,7 +21,10 @@ main:
       - name: Fichiers de gestion
         ref: "/tuto/part7"  
       - name: Ajout d'une nouvelle caméra
-        ref:  "/tuto/part8"    
+        ref:  "/tuto/part8"  
+      - name: Ajout d'une nouvelle fonction nuitparminute
+        ref: "/tuto/part9"       
+   
   - name: Guide rapide
     ref: "/rapid/rapid"
   - name: Fichiers html
