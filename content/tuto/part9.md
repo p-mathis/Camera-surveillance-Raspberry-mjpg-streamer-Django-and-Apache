@@ -73,6 +73,7 @@ nano ~/folder/project/camera/urls.py
 path('nuitParMinute/', views.nuitparminute, name="nuitParMinute")
 ```
 - **Vérifier qu'il y a bien une virgule entre ce path et le path précédent**
+
 ### Sauvegarder et fermer
 ## Ecrire le fichier nuitParMinute.html
 ### Créer le fichier en écriture
