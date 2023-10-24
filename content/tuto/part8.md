@@ -39,17 +39,17 @@ draft: false
 ls /dev/v4l/by-id
 ```
 - Noter la valeur `index-O` de la nouvelle caméra
-## Modifier le fichier `configuration.ini`
+## Modifier le fichier&nbsp;*configuration.ini*
 - Ouvrir le fichier config.ini en écriture  
 ```sh
 sudo nano /etc/camera/configuration.ini
 ```
-### Dans la section `[hosts]`
+### Dans la section&nbsp;*\[hosts\]*
 - Ajouter un proxy pour la nouvelle caméra
 ```sh
 proxy_3=Rp3
 ```
-### Dans la section `[camera]`
+### Dans la section&nbsp;*\[camera\]*
 - Ajouter 
     - un nouveau port
     - le nom de la caméra
@@ -59,14 +59,14 @@ proxy_3=Rp3
     - `cam_3_port=8083`
     - `cam_3_name=usb-046d_08ce_53892EC2-video-index0`
     - `cam_3_resol=640x480`
-    - `cam_3_resol=640x480`
+    - `cam_3_fps=5`
 
-### Dans la section `[paths]`
+### Dans la section&nbsp;*\[paths\]*
 - Ajouter un path pour la caméra
 - Par exemple :
     - `pathCamera_3=Camera_3`
 
-### Dans la section `[frequences]`
+### Dans la section&nbsp;*\[frequences\]*
 - Ajouter un temps d'attente pour le lancement de la caméra
 - Par exemple :
     - `delay_run_Cam_3=100`
@@ -182,8 +182,8 @@ source ~/folder/folder_venv/bin/activate
 ```sh
 (venv) deactivate
 ```
-## Moodifier les fichiers urls et views de Django
-### Modifier le fichier urls\.py dans \~\/folder\/project\/camera
+## Moodifier les fichiers&nbsp;*urls*&nbsp;et&nbsp;*views*&nbsp;de Django
+### Modifier le fichier&nbsp;*urls\.py*&nbsp;dans&nbsp;*\~\/folder\/project\/camera*
 - Ouvrir le fichier
 ```sh
 nano ~/folder/project/camera/urls.py
@@ -194,7 +194,7 @@ path('stream_3/', views.stream_3, name="stream_3"),
 ```
 - Le fichier modifié est consultable [ici]({{< ref "/script/urls_py_4cam.md" >}} "urls_py_4cam
 ")
-### Modifier le fichier views\.py dans \~\/folder\/project\/camera
+### Modifier le fichier&nbsp;*views\.py*&nbsp;dans&nbsp;*\~\/folder\/project\/camera*
 - Ouvrir le fichier
 ```sh
 nano ~/folder/project/camera/views.py
@@ -204,7 +204,7 @@ nano ~/folder/project/camera/views.py
 cam_3_port = parser.get("camera", "cam_3_port")
 Rp3 = parser.get("hosts", "proxy_3")
 ```
-#### Modifier `def historique(request)`
+#### Modifier&nbsp;*def historique(request)*
 - Ajouter chacune des lignes suivantes à la suite des lignes qui leur sont équivalentes
 
 ```python
@@ -238,7 +238,7 @@ new_group = [latest_photo_list_1_oneoutofN[i], latest_photo_list_2_oneoutofN[i],
 ```
 
 
-#### Modifier `def parheure(request)`
+#### Modifier&nbsp;*def parheure(request)*
 - Ajouter la ligne suivante après `latest_photo_list_py ...`
 ```python
 latest_photo_list_3 = Photo.objects.filter(appareil=4).order_by('-date')[:display_nombre]
@@ -261,7 +261,7 @@ for i in range(min_length):
 ```python
 paginator = Paginator(latest_photo_list_group, 240)
 ```
-#### Ajouter la fonction stream_3
+#### Ajouter la fonction&nbsp;*stream_3*
 - Après les trois fonctions `stream` ajouter :
 ```python
 def stream_3(request):
@@ -270,7 +270,7 @@ def stream_3(request):
         'stream': stream,
     }
 ```
-#### Modifier la fonction `stream_AllCam`
+#### Modifier la fonction&nbsp;*stream_AllCam*
 - Dans la liste `stream` ajouter `"/{}?action=stream".format(Rp3)`
 ```python
 stream = ["/{}?action=stream".format(Rp1),"/{}?action=stream".format(Rp2),"/{}?action=stream".format(Rpi), "/{}?action=stream".format(Rp3)]
@@ -286,7 +286,7 @@ Le fichier `views.py` doit ressembler au fichier consultable [ici]({{< ref "/scr
 - Modifier `parHeure.html` pour modifier le nombre d'éléments affichés par ligne
 - Modifier `stream_AllCam.html` pour ajouter la nouvelle caméra
 - Toiletter divers fichiers `.html`
-### Créer le ficher `stream_3.html`
+### Créer le ficher&nbsp;*stream_3.html*
 - Créer le fichier en écriture
 ```sh
 nano ~/folder/project/camera/templates/camera/stream_3.html
@@ -299,7 +299,7 @@ nano ~/folder/project/camera/templates/camera/stream_3.html
 
 - Un exemple de fichier est disponible [ici]({{< ref "/script/stream_3_html_4cam.md" >}} "stream_3_html_4cam")
 
-### Modifier le fichier `base.html`
+### Modifier le fichier&nbsp;*base.html*
 - Ouvrir le fichier en écriture
 ```sh
 nano ~/folder/project/camera/templates/camera/base.html
@@ -313,7 +313,7 @@ nano ~/folder/project/camera/templates/camera/base.html
 - Un exemple de fichier est disponible [ici]({{< ref "/script/base_html_4cam.md" >}} "base_html_4cam
 ")
 
-### Modifier le fichier `historique.html`
+### Modifier le fichier&nbsp;*historique.html*
 - Ouvrir le fichier en écriture
 ```sh
 nano ~/folder/project/camera/templates/camera/parHeure.html
@@ -329,7 +329,7 @@ nano ~/folder/project/camera/templates/camera/parHeure.html
 - Un exemple de fichier est disponible [ici]({{< ref "/script/historique_html_4cam.md" >}} "historique_html_4cam
 ")
 
-### Modifier le fichier `parHeure.html`
+### Modifier le fichier&nbsp;*parHeure.html*
 - Ouvrir le fichier en écriture
 ```sh
 nano ~/folder/project/camera/templates/camera/historique.html
@@ -346,7 +346,7 @@ nano ~/folder/project/camera/templates/camera/historique.html
 ")
 
 
-### Modifier le fichier `stream_AllCam.html`
+### Modifier le fichier&nbsp;*stream_AllCam.html*
 - Ouvrir le fichier en écriture
 ```sh
 nano ~/folder/project/camera/templates/camera/stream_AllCam.html
@@ -370,12 +370,12 @@ nano ~/folder/project/camera/templates/camera/stream_AllCam.html
 - Et ajouter la quatrième cellule comme définie plus haut
 - Un exemple de fichier (*avec 2 caméras par ligne sur 2 lignes*) est disponible [ici]({{< ref "/script/stream_AllCam_html_4cam.md" >}} "stream_AllCam_html_4cam
 ")
-### Toiletter divers fichiers `.html`
+### Toiletter divers fichiers&nbsp;*\.html*
 - Un certain nombre de fichiers font référence à trois caméras et non quatre
 - Il est possible de modifier le code `html` pour faire référence à quatre caméras
 - Par exemple au niveau des `boutons` des fichiers de streaming (`stream_1.html, stream_2.html, stream_py.html`)
 - Ces modificatins sont cosmétiques et non indispensables !
-## Vérifier les éventuelles migrations de l'application `camera`
+## Vérifier les éventuelles migrations de l'application&nbsp;*camera*
 - A priori, aucune modification de `models.py` n'a eu lieu
 - Il est cependant possible de vérifier qu'on n'a pas touché à cette partie de l'application `camera`
 - Se mettre en environnement virtuel, puis vérifier les migrations
@@ -384,7 +384,7 @@ source ~/folder/folder_venv/bin/activate
 (venv) python ~/folder/project/manage.py makemigrations
 (venv) python ~/folder/project/manage.py migrate
 ```
-## Modifier le fichier de configuration apache2 du site
+## Modifier le&nbsp;*fichier de configuration*&nbsp;apache2 du site
 ### Modifier le fichier
 - Ouvrir le fichier en écriture
 ```sh

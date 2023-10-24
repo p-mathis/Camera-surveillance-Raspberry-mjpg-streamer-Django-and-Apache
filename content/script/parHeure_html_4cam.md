@@ -31,7 +31,7 @@ href="?page={{ photos.next_page_number }}">Page Suivante</a>
 <table>
     <tr>
     {% for photo in photos %}
-        <td><img class="centre-image imgSmall" src="{% static photo.file_photo_jpg %}" height="150" width="225" alt="photo non disponible"/><figcaption>{{photo.name}} - {{photo.appareil}}</figcaption>
+        <td><img class="centre-image imgSmall" src="{% static photo.file_photo_jpg %}" height="150" width="225" alt="photo non disponible" loading="lazy"/><figcaption>{{photo.name}} - {{photo.appareil}}</figcaption>
         </td>
    {% if forloop.last %}
      </tr>

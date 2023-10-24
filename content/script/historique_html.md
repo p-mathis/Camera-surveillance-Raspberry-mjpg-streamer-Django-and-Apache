@@ -20,7 +20,7 @@ draft: false
   {% for photo in latest_photo_list_group %}
       <td>
         <a href="{% static photo.file_photo_jpg %}">
-        <img class="centre-image imgresponsive" src="{% static photo.file_photo_jpg %}" height="150" width="225" alt="photo non disponible"/><figcaption>{{photo.name}} - {{photo.appareil}}</figcaption>
+        <img class="centre-image imgresponsive" src="{% static photo.file_photo_jpg %}" height="150" width="225" alt="photo non disponible" loading="lazy"/><figcaption>{{photo.name}} - {{photo.appareil}}</figcaption>
         </a>
       </td>
  {% if forloop.last %}

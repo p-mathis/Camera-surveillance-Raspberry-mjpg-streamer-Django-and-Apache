@@ -13,12 +13,13 @@ draft: false
 - Ajouter l'url `nuitParMinute` dans le fichier `urls.py`
 - Créer le fichier html `nuitParMinute.html` qui permettra de visualiser les images
 - Créer un bouton pour la page `nuitParMinute` dans la page d'accueil
-## Modifier le fichier `views.py`
-### Ouvrir le fichier `views.py`en écriture
+- Modifier le menu dans le fichier `base.html`
+## Modifier le fichier&nbsp;*views.py*
+### Ouvrir le fichier&nbsp;*views.py*&nbsp;en écriture
 ```sh
 nano ~/folder/project/camera/views.py
 ```
-### Ajouter la fonction `nuitparminute`
+### Ajouter la fonction&nbsp;*nuitparminute*
 - A la fin du fichier ou bien après la fonction `def nuit(request)` si vous souhaitez que les fonctions soient rassemblées
 - Ajouter la fonction suivante
 ```python
@@ -61,12 +62,12 @@ Ctrl+O
 Entrée
 Ctrl+X
 ```
-## Modifier le fichier `urls.py`
-### Ouvrir le fichier `urls.py` en écriture
+## Modifier le fichier&nbsp;*urls.py*
+### Ouvrir le fichier&nbsp;*urls.py*&nbsp;en écriture
 ```sh
 nano ~/folder/project/camera/urls.py
 ```
-### Ajouter le path pour la fonction `nuitparminute`
+### Ajouter le path pour la fonction&nbsp;*nuitparminute*
 - Aller à la fin de la liste `urlpatterns`
 - Ajouter la ligne
 ```python
@@ -76,7 +77,7 @@ path('nuitParMinute/', views.nuitparminute, name="nuitParMinute")
 
 ### Sauvegarder et fermer
 
-## Ecrire le fichier nuitParMinute.html
+## Ecrire le fichier&nbsp;*nuitParMinute.html*
 ### Créer le fichier en écriture
 ```sh
 nano ~/folder/project/camera/templates/camera/nuitParMinute.html
@@ -123,8 +124,8 @@ nano ~/folder/project/camera/templates/camera/nuitParMinute.html
 
 ### Sauvegarder et fermer
 
-## Ajouter un bouton dans la page `Accueil`
-### Ouvrir `accueil.html` en écriture 
+## Ajouter un bouton dans la page&nbsp;*Accueil*
+### Ouvrir *accueil.html* en écriture 
 ```sh
 nano ~/folder/project/camera/templates/camera/accueil.html
 ```
@@ -135,6 +136,18 @@ nano ~/folder/project/camera/templates/camera/accueil.html
 <a href="/camera/nuitParMinute/" class="button">Nuit par Minute</a>
 ```
 - au besoin ajouter une balise `<br>` pour un saut de ligne
+## Modifier le menu dans le fichier&nbsp;*base.html*
+### Ouvrir le fichier en écriture
+```sh
+nano ~/folder/project/camera/templates/camera/base.html
+```
+### Ajouter une ligne au menu
+- Au niveau de la `div``myNavBar`, entre les lignes `Historique` et `Par Heures` par exemple
+- Ajouter la ligne de menu suivante 
+```sh
+<li><a href="/camera/nuitParMinute/">Nuit par Minutes</a></li>
+```
+
 ## Relancer la raspberry
 ```sh
 sudo reboot
