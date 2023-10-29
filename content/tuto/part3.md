@@ -386,7 +386,7 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
 ## Horaire d'été / horaire d'hiver
 ### Position du problème
 - Lors du passage de l'horaire d'été à l'horaire d'hiver la même heure va être doublée
-- Ceci ne pose pas de problème au niveau de stockage des photos : la photo qui portera le même nom écrasera la photo homonyme
+- Ceci ne pose pas de problème au niveau du stockage des photos : la photo qui portera le même nom écrasera la photo homonyme
 - Par contre au niveau de la base de données, deux lignes vont exister pour une photo prise à la même heure
 - Lorsqu'on voudra afficher les historiques, une *erreur 500* sera renvoyée, Django ne sachant pas quelle image afficher
 ### Solution 1
