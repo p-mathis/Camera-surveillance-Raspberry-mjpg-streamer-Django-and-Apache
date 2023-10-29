@@ -382,6 +382,42 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
 {{< figure src="/media/cam_accueil.png">}}
 - Si les caméras sont bien lancées, vous devez voir les flux en cliquant sur le bouton `En direct`. Bien sûr, pour les autres pages html, au début vous ne verrez que peu ou pas d'images. 
 - Au fil du temps, les différents historiques (Histoire, Heure par Heure et Nuit) pourront être longs à s'afficher, le nombre d'images à charger étant élevé. *C'est, à l'évidence, une faiblesse des scripts.*
+
+## Horaire d'été / horaire d'hiver
+### Position du problème
+- Lors du passage de l'horaire d'été à l'horaire d'hiver la même heure va être doublée
+- Ceci ne pose pas de problème au niveau de stockage des photos : la photo qui portera le même nom écrasera la photo homonyme
+- Par contre au niveau de la base de données, deux lignes vont exister pour une photo prise à la même heure
+- Lorsqu'on voudra afficher les historiques, une *erreur 500* sera renvoyée, Django ne sachant pas quelle image afficher
+### Solution 1
+- Éteindre  la raspberry avant le changement d'heure
+- Rallumer la raspberry après le changement d'heure
+### Solution 2
+- Après le changement d'heure, alors que l'*erreur 500* va s'afficher, vider la table de la base de données contenant les informations des photos
+- Se connecter en *ssh* à la raspberry
+- Une fois connecté, se mettre dans le shell `squlite` en tapant dans le terminal
+```ssh
+pi@raspberry:~ $ sqlite3
+```
+- Ouvrir la base de données *(à adapter si les différents noms ont été changés)*
+```ssh
+sqlite > .open "home/pi/folder/project/db.sqlite3"
+```
+- Éventuellement vérifier le nom des tables de la base
+```ssh
+sqlite > .tables
+```
+- Supprimer les donées de la table *camera-photo" (si ce nom a été conservé)
+```ssh
+sqlite > DELETE FROM camera-photo;
+```
+- Quitter le shell *sqlite*
+```ssh
+sqlite > Crtl+D
+```
+- Vérifier que l'*historique* ne renvoie pas d'*erreur 500*
+- Au bout d'une minute de nouveaux enregistements sont inscrits dans la base et on peut les apercevoir dans la vue *parHeure*
+
 ## A ce stade - Prochaine étape
 ### A ce stade
 - On dispose d'un site web qui fonctionne en local avec le serveur embarqué de Django.
