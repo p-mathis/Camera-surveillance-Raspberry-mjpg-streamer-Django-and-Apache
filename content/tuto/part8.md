@@ -295,7 +295,7 @@ nano ~/folder/project/camera/templates/camera/stream_3.html
     - modifiant le titre `<h2>`
     - adaptant l'attribut `alt` 
     - modifiant le texte de `<figcaption>`
-    - modifiant le texte du bouton `<Direct n Caméras`
+    - modifiant le texte du bouton `<Direct n Caméras>`
 
 - Un exemple de fichier est disponible [ici]({{< ref "/script/stream_3_html_4cam.md" >}} "stream_3_html_4cam")
 
