@@ -93,8 +93,8 @@ qui doit renvoyer une sortie du type : 4.0.2 (en fonction de la version)
 L’application camera va comporter huit vues, c’est à dire huit pages web différentes.
 - accueil : la page d’accueil du site.
 - historique : page présentant des photos prises à intervalle régulier par les trois caméras, sur une durée déterminée (par exemple, toutes les 5 minutes sur les 24 dernières heures)
-- parHeure : page présentant toutes les photos prises sur une durée déterminée (par exemple, toutes les minutes sur les douze dernières heures)
-- nuit : page présentant toutes les photos prises sur une durée déterminée (par exemple, toutes les minutes sur les douze dernières heures)
+- parHeure : page présentant les photos prises sur une durée déterminée (par exemple, toutes les 5 minutes sur les douze dernières heures)
+- nuit : page présentant les photos prises entre le coucher et le lever du soleil (par exemple, toutes les 3 minutes du coucher au lever le lendemain)
 - stream_1 : flux vidéo en direct de la première caméra
 - stream_2: flux vidéo en direct de la deuxième caméra
 - stream_py : flux vidéo en direct de la caméra py
