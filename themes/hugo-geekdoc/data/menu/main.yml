@@ -107,7 +107,7 @@ main:
         ref: "/script/views_py_V2.md"
       - name: wsgi.py
         ref: "/script/wsgi_py.md"
-  - name: Fichier pour caméra supplémentaire
+  - name: Fichiers pour caméra supplémentaire
     sub:
       - name: configuration_ini_4cam.md
         ref: "/script/configuration_ini_4cam.md"
@@ -131,4 +131,7 @@ main:
         ref: "/script/stream_AllCam_html_4cam.md"                 
       - name: project-camera_conf_4cam
         ref: "/script/project-camera_conf_4cam"
-     
+  - name: Fichier pour WiFi
+    sub:
+      - name: WiFiCheck.sh
+        ref: "/script/WiFiCheck_sh.md"     

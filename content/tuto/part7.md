@@ -102,7 +102,50 @@ draft: false
     - Password : entrer le mot de passe de la raspberry (en faisant un copier/coller)
     - Valider en cliquant sur le symbole `∨` en haut à droite de l’écran
   - A la première connexion, le logiciel demande de valider la clé : appuyer sur `Connect`
-  - Lors des changements d’IP de la box, il faut changer l’adresse IP de l’hôte de l’accès extérieur.
+  - Lors des changements d’IP de la box, il faut changer l’adresse IP de l’hôte de l’accès extérieur
+
+<!-- ## Connexion au WiFi
+### Position du problème
+- Si la Raspberry est connectée en WiFi et non en filaire, lors d'une panne de courant, la Raspberry se mettra en route **AVANT** que la WiFi ne soit disponible
+- La Raspberry sera alors incapable de se connecter au WiFi
+- Le logiciel sera opérationnel, avec prises de photos, stockage dans la base de données... Mais le site ne sera pas accessible
+- La Raspberry ne sera même pas accessible en `ssh` et il ne sera donc pas possible de la rebooter à distance
+- La seule solution est alors de débrancher la Raspberry et de la rebrancher pour qu'elle se connecte au WiFi au redémarrage
+### Script de test de connexion
+- Une solution est proposée par [dweeber](https://github.com/dweeber/WiFi_Check/blob/master/WiFi_Check)
+- Il s'agit d'un script qui va tester régulièrement si la Raspberry est sur le réseau et va redémarrer le WiFi dans le cas contraire
+- Ce script est repris dans la procédure ci-dessous ; les seuls changements concernent le chemin d'accès du fichier `lockfile`, notamment pour des questions de droits d'accès au répertoire `/var/run/` préconisé par [Kevin Reed](https://github.com/dweeber) ainsi que la commande `ifconfig` de fin de script
+
+### Procédure
+- Créer le répertoire `/home/pi/WiFi` qui est le répertoire du fichier `lockfile`
+```sh
+mkdir ~/WiFi
+```
+- Vérifier que la valeur du `wlan` est bien `wlan0`
+```sh
+iwconfig wlan0
+```
+- Si la réponse est `wlan0 No such device` chercher cette valeur (*éventuellement aprés avoir installé iw : `sudo apt install iw`*)
+```sh
+iw dev
+```
+- Dans ce cas, dans le script, modifier la valeur de la variable `wlan`
+- La valeur `pingip` est fixée à `192.168.1.1` : la modifier au besoin
+- Créer le fichier `WiFiCheck.sh` en écriture
+```sh
+nano ~/script/WiFiCheck.sh
+```
+- Copier dans ce fichier le script disponible [ici]({{< ref "/script/WiFiCheck_sh.md" >}} "WiFiCheck.sh")
+- Sauvegarder et quitter l'éditeur `nano`: `Ctrl+0 Enter Ctrl+X`
+- Ouvrir le crontab en édition
+```sh
+crontab -e
+```
+- Lancer le script toutes les 5 minutes, par exemple, en ajoutant à la fin du `crontab`
+```sh
+/5 * * * * sh /home/pi/script/WiFiCheck.sh
+```
+- Sauvegarder et quitter le `crontab` -->
 ## Conclusion
 Un système de surveillance en flux direct et avec enregistrement et stockage de photos a été mis en place pour être consultable, après authentification, depuis le web en utilisant mjpg-streamer, django et apache.  
 En jouant sur différents paramètres, notamment la fréquence de capture des images, on dispose, si on le souhaite, d’une surveillance qui peut être adaptée à d'autres projets.  
