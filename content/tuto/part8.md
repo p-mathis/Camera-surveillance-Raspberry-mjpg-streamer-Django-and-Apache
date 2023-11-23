@@ -78,6 +78,10 @@ proxy_3=Rp3
 ```sh
 sudo mkdir /var/www/stock/Camera_3
 ```
+- Accorder les droits ad hoc
+```sh
+sudo chown -R pi /var/www/stock/Camera_3
+```
 ## Ecrire et modifier les scripts python pour la caméra
 ### Le script de lancement
 - Créer le script de lancement
@@ -316,7 +320,7 @@ nano ~/folder/project/camera/templates/camera/base.html
 ### Modifier le fichier&nbsp;*historique.html*
 - Ouvrir le fichier en écriture
 ```sh
-nano ~/folder/project/camera/templates/camera/parHeure.html
+nano ~/folder/project/camera/templates/camera/historique.html
 ```
 - Rechercher la ligne après la condition `{% else %}`
 ```html
@@ -332,7 +336,7 @@ nano ~/folder/project/camera/templates/camera/parHeure.html
 ### Modifier le fichier&nbsp;*parHeure.html*
 - Ouvrir le fichier en écriture
 ```sh
-nano ~/folder/project/camera/templates/camera/historique.html
+nano ~/folder/project/camera/templates/camera/parHeure.html
 ```
 - Rechercher la ligne 
 ```html
@@ -397,6 +401,7 @@ ProxyPass /Rp3 http://< localIP Raspberry >:8083/
 ProxyPassReverse /Rp3 http://< localIP Raspberry >:8083/
 ```
 - **Changer `<localIP>` par l'IP locale de la raspberry** (par exemple : `ProxyPass /Rp3 http://192.168.1.49:8083/`)
+- Rajouter ces deux lignes également au niveau du `VirtualHost *:80`
 - Si il a été nécessaire de créer un `Virtual Host` supplémentaire pour accéder au site depuis le réseau interne (`<VirtualHost *:54321>`) par exemple, ajouter les nouveaux `ProxyPass` et `ProxyPassReverse` au niveau de ce `Virtual Host`
 - Un exemplaire de ce fichier est disponible [ici]({{< ref "/script/project-camera_conf_4cam.md" >}} "project-camera_conf_4cam
 ")
