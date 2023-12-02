@@ -23,7 +23,7 @@ Le cahier des charges est le suivant :
 - Deux webcam en connexion USB.
 - Une pi-caméra à vision nocturne.
 - Un projecteur infra-rouge pour éclairer la zone de surveillance de la caméra nocturne.
-- Un ordinateur.
+- Un ordinateur *(pour initialiser puis programmer la Raspberry à distance)*
 ## Résultat final
 Le résultat sera de ce type :
 - La page d'accueil

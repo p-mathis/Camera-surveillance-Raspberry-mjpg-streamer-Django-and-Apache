@@ -99,7 +99,7 @@ L’application camera va comporter huit vues, c’est à dire huit pages web di
 - stream_2: flux vidéo en direct de la deuxième caméra
 - stream_py : flux vidéo en direct de la caméra py
 - stream_AllCam : flux vidéo en direct des trois caméras
-## Réglage du fichier settings<span></span>.py
+## Réglage du fichier settings.py
 - Ouvrir le fichier settings.py (vous n’avez pas besoin d’être en environnement virtuel)
     ```sh
     nano ~/folder/project/project/settings.py
@@ -153,12 +153,12 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
 - Nous allons créer deux modèles :
   - un modèle Appareil qui caractérise chaque caméra
   - un modèle Photo qui caractérise les photos qui vont être stockées
-- Ouvrir le fichier ~/folder/project/camera/models<span></span>.py
+- Ouvrir le fichier `~/folder/project/camera/models.py`
     ```sh
     nano ~/folder/project/camera/models.py
     ```
 - Supprimer son contenu
-- Remplacer son contenu par celui du fichier models<span>.py</span> disponible [ici]({{< ref "/script/models_py.md" >}} "models.py").
+- Remplacer son contenu par celui du fichier `models.py` disponible [ici]({{< ref "/script/models_py.md" >}} "models.py").
 - Prendre en compte les modifications ; on crée la base de données et on effectue les migrations (en environnement virtuel)
     ```sh
     (venv) python ~/folder/project/manage.py makemigrations
@@ -186,7 +186,7 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
       ```
 	- Quitter le shell : `Ctrl+D`
 - Nous n’avons pas utilisé l’interface Admin de Django. Celle-ci nous est inutile, toutes les actions sur la base de données se feront directement par des scripts python.
-## Modifier le fichier urls<span></span>.py de ~/folder/project/project
+## Modifier le fichier urls.py de ~/folder/project/project
 - Ouvrir le fichier
     ```sh
     nano ~/folder/project/project/urls.py
@@ -202,12 +202,12 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
       ]
     ```
 - Un exemplaire du fichier est disponible [ici]({{< ref "/script/urls_py_project.md" >}} "urls project").
-## Créer un fichier urls<span></span>.py dans ~/folder/project/camera
+## Créer un fichier urls.py dans ~/folder/project/camera
 - Créer et ouvrir le fichier en écriture
     ```sh
     nano ~/folder/project/camera/urls.py
     ```
-- Coller/copier dans ce fichier le contenu du fichier urls<span></span>.py (camera) disponible [ici]({{< ref "/script/urls_py_camera.md" >}} "urls camera").
+- Coller/copier dans ce fichier le contenu du fichier `urls.py` (camera) disponible [ici]({{< ref "/script/urls_py_camera.md" >}} "urls camera").
 ## Modifier le fichier views.py dans ~/folder/project/camera
 ### Modifier le fichier
 - Ouvrir le fichier  

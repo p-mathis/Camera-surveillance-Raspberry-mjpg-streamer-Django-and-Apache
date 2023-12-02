@@ -419,3 +419,20 @@ sudo systemctl restart apache2
 ```sh
 sudo reboot
 ```
+## Remarques sur les caméras
+### Longueur du câble USB
+- Il peut être nécessaire d'allonger le câble USB d'une caméra
+- Si la longueur de la rallonge est courte, une rallonge simple peut suffire
+- Sinon, il convient d'utiliser une rallonge avec **[répéteur actif](https://www.amazon.fr/s?k=usb+active+repeater+extension&rh=n%3A2908498031&__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&ref=nb_sb_noss)**, de manière à amplifier le signal de la caméra
+### Alimentation de plusieurs caméras
+- Le nombre de ports USB de la Raspberry est limité
+- Si on installe un grand nombre de caméras, il faut évidemment un [hub USB](https://fr.wikipedia.org/wiki/Hub_USB)
+- Les caméras vont utiliser l'énergie fournie par la Raspberry pour fonctionner
+- A terme, la puissance de celle-ci sera insuffisante
+- Aussi est-il souhaitable de prévoir un **[hub avec alimentation externe](https://www.amazon.fr/s?k=hub+usb+alimentation+externe&adgrpid=57890976642&hvadid=601470758526&hvdev=c&hvlocphy=9109000&hvnetw=g&hvqmt=e&hvrand=17884128194425712080&hvtargid=kwd-298458767922&hydadcr=196_2608013&tag=googhydr0a8-21&ref=pd_sl_91g4ccd9d7_e)**
+### Capacité du streaming
+- Lorsque le nombre de caméras est élevé, il est possible que la Raspberry ne puisse pas bien afficher tous les flux des caméras ensemble
+- Avec une Raspberry 3-B+, au delà de 4 caméras le flux en direct s'est essouflé
+- Il convient alors de ne pas afficher tous les flux ensemble et de créer, par exemple, une première fonction de `views.py` qui affichera 3 caméras et une deuxième fonction qui affichera les 3 autres *(dans une hypothèse de 6 caméras)*
+- Il faut bien sûr, dans ce cas, adapter `urls.py` et créer les fichiers `html` *ad hoc*
+- Une alternative (possible, mais non testée) est d'utiliser une Raspberry plus puissante *(Pi-4 ou Pi-5 par exemple)*
