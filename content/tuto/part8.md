@@ -433,6 +433,6 @@ sudo reboot
 ### Capacité du streaming
 - Lorsque le nombre de caméras est élevé, il est possible que la Raspberry ne puisse pas bien afficher tous les flux des caméras ensemble
 - Avec une Raspberry 3-B+, au delà de 4 caméras le flux en direct s'est essouflé
-- Il convient alors de ne pas afficher tous les flux ensemble et de créer, par exemple, une première fonction de `views.py` qui affichera 3 caméras et une deuxième fonction qui affichera les 3 autres *(dans une hypothèse de 6 caméras)*
+- Il convient alors de ne pas afficher tous les flux ensemble et de créer, par exemple, une première fonction de `views.py` qui affichera 4 caméras et une deuxième fonction qui affichera les 2 autres *(dans une hypothèse de 6 caméras)*
 - Il faut bien sûr, dans ce cas, adapter `urls.py` et créer les fichiers `html` *ad hoc*
 - Une alternative (possible, mais non testée) est d'utiliser une Raspberry plus puissante *(Pi-4 ou Pi-5 par exemple)*
