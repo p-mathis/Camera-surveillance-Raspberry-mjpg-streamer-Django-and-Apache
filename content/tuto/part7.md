@@ -8,6 +8,7 @@ draft: false
 - Ecriture de scripts de gestion
 - Lancement des scripts depuis le cron
 - Pouvoir se connecter en ssh à la raspberry depuis son téléphone mobile
+- Réglages si la Raspberry fonctionne en WiFi
 ## Mise à jour régulière du système
 - Créer et ouvrir le fichier en écriture
     ```sh
@@ -104,7 +105,7 @@ draft: false
   - A la première connexion, le logiciel demande de valider la clé : appuyer sur `Connect`
   - Lors des changements d’IP de la box, il faut changer l’adresse IP de l’hôte de l’accès extérieur
 
-<!-- ## Connexion au WiFi
+## Connexion au WiFi
 ### Position du problème
 - Si la Raspberry est connectée en WiFi et non en filaire, lors d'une panne de courant, la Raspberry se mettra en route **AVANT** que la WiFi ne soit disponible
 - La Raspberry sera alors incapable de se connecter au WiFi
@@ -145,7 +146,7 @@ crontab -e
 ```sh
 /5 * * * * sh /home/pi/script/WiFiCheck.sh
 ```
-- Sauvegarder et quitter le `crontab` -->
+- Sauvegarder et quitter le `crontab`
 ## Conclusion
 Un système de surveillance en flux direct et avec enregistrement et stockage de photos a été mis en place pour être consultable, après authentification, depuis le web en utilisant mjpg-streamer, django et apache.  
 En jouant sur différents paramètres, notamment la fréquence de capture des images, on dispose, si on le souhaite, d’une surveillance qui peut être adaptée à d'autres projets.  

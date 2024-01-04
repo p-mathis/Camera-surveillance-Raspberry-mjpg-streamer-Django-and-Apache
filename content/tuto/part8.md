@@ -186,7 +186,7 @@ source ~/folder/folder_venv/bin/activate
 ```sh
 (venv) deactivate
 ```
-## Moodifier les fichiers&nbsp;*urls*&nbsp;et&nbsp;*views*&nbsp;de Django
+## Modifier les fichiers&nbsp;*urls*&nbsp;et&nbsp;*views*&nbsp;de Django
 ### Modifier le fichier&nbsp;*urls\.py*&nbsp;dans&nbsp;*\~\/folder\/project\/camera*
 - Ouvrir le fichier
 ```sh
@@ -388,7 +388,7 @@ source ~/folder/folder_venv/bin/activate
 (venv) python ~/folder/project/manage.py makemigrations
 (venv) python ~/folder/project/manage.py migrate
 ```
-## Modifier le&nbsp;*fichier de configuration*&nbsp;apache2 du site
+## Modifier le fichier de configuration apache2 du site
 ### Modifier le fichier
 - Ouvrir le fichier en écriture
 ```sh
@@ -436,3 +436,4 @@ sudo reboot
 - Il convient alors de ne pas afficher tous les flux ensemble et de créer, par exemple, une première fonction de `views.py` qui affichera 4 caméras et une deuxième fonction qui affichera les 2 autres *(dans une hypothèse de 6 caméras)*
 - Il faut bien sûr, dans ce cas, adapter `urls.py` et créer les fichiers `html` *ad hoc*
 - Une alternative (possible, mais non testée) est d'utiliser une Raspberry plus puissante *(Pi-4 ou Pi-5 par exemple)*
+- Il est également possible d'utiliser une deuxième Raspberry qui accueillera de nouvelles caméras et qui enverra les images à la Raspberry qui héberge le site Django : voir la [Partie 10]({{< ref "part10" >}})

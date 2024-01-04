@@ -30,7 +30,7 @@ draft: false
     ```
 - Installation des dépendances :
     ```sh
-    sudo apt install cmake libjpeg8-dev -y
+    sudo apt install cmake libjpeg62-turbo-dev -y
     ```
 Si la question `souhaitez-vous continuer` est posée, taper `O`  
 - A priori les dépendances gcc et g++ sont déjà installées. Sinon les installer

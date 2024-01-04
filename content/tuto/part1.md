@@ -83,9 +83,9 @@ Les indications données ici sont valables pour une livebox Orange. La procédur
 - **Attention, la Raspberry a deux [adresses Mac](https://fr.wikipedia.org/wiki/Adresse_MAC) selon qu'elle est en WiFi ou en Filaire**
 - La box donnera donc deux adresses IP différentes : l'une pour chacune des adresses Mac
 - Il convient donc de paramétrer son adresse IP locale en fonction du mode de transmission choisi : WiFi ou filaire
-<!-- - **Si le mode WiFi est choisi, il faut prendre garde au fait que la Raspberry pourra être lancée AVANT que le réseau WiFi ne soit disponible** (voir *[Fichiers de gestion]({{< ref "/tuto/part7.md#connexion-au-wifi" >}} "/tuto/part7.md#connexion-au-wifi")*) -->
-- **Si le mode WiFi est choisi, il faut prendre garde au fait que la Raspberry pourra être lancée AVANT que le réseau WiFi ne soit disponible** (voir les pages de [dweeber](https://github.com/dweeber/WiFi_Check) et de [Martin Harizanov](https://gist.github.com/mharizanov/5325450))
-- **Le problème de la connexion WiFi est la possiblité d'une fluctuation de l'adresse Mac** : voir le [forum Raspberry](https://forums.raspberrypi.com/viewtopic.php?t=237623)
+- Si le mode WiFi est choisi, il faut prendre garde au fait que la Raspberry pourra être lancée **AVANT** que le réseau WiFi ne soit disponible (voir les pages de [dweeber](https://github.com/dweeber/WiFi_Check) et de [Martin Harizanov](https://gist.github.com/mharizanov/5325450))
+- Un autre problème de la connexion WiFi est la possiblité d'une **fluctuation de l'adresse Mac** : voir le [forum Raspberry](https://forums.raspberrypi.com/viewtopic.php?t=237623)
+- Consulter la [page WiFi]({{< ref "/extra/wifi.md" >}}) consacrée à la connexion WiFi
 ### Connexion ssh à la raspberry
 - Ouvrir un terminal dans l’ordinateur
   - Linux : raccourci clavier `Ctrl + Alt + T`
