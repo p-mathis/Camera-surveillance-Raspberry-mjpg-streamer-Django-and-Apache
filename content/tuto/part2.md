@@ -102,6 +102,28 @@ On peut tester les caméras, par exemple la caméra 1
 {{< figure src="/media/mjpg_accueil.png">}}
 - Visionner le flux en cliquant sur l'onglet `Stream`
 - Les deux autres caméras sont visualisées en adaptant le port : 8082 et 8084 (modifier les ports si ils ont été changés dans le fichier de configuration).
+### Erreurs possibles avec la Camera-py
+- Suite à des modifications de librairies, il est possible que la Camera-py ne fonctionne pas
+#### Absence du fichier input_raspicam.so
+- Si un message de ce type s'affiche :
+```sh
+MJPG Streamer Version.: 2.0
+ERROR: could not find input plugin
+       Perhaps you want to adjust the search path with:
+       # export LD_LIBRARY_PATH=/path/to/plugin/folder
+       dlopen: input_raspicam.so: cannot open shared object file: No such file or directory
+```
+- Cela signifie que le fichier `input_raspicam.so` est manquant
+- La Camera-py peut fonctionner avec le fichier `input_uvc.so` (cf la (discussion sur le site de Jackson Liam)[https://github.com/jacksonliam/mjpg-streamer/issues/285], réponse du 26 décembre 2020)
+- Dans le fichier `RunCamera_py.py`, dans la commande `command_py`,remplacer `input_raspicam.so` par `input_uvc.so`
+#### Erreur 501 
+- Si en tapant dans le navigateur `<local Ip>:<port mjpg>` (par exemple : `192.168.1.45:8080`) le message suivant s'affiche :
+```sh
+501: Not Implemented!
+no www-folder configured
+```
+- Cela signifie qu'il faut ajouter le `folder` manquant (voir la [discussionsur zoneminder](https://forums.zoneminder.com/viewtopic.php?t=12082), réponse de `mattneighbour` du 6 août 2008)
+- Il convient alors de taper dans la barre d'adresse du navigateur : `<local Ip>:<port mjpg>/?action=snapshot` ou `<local Ip>:<port mjpg>/?action=stream`
 ## Lancer les caméras et les flux au démarrage
 Pour lancer automatiquement les caméras et les flux au démarrage de la raspberry, il faut écrire les commandes dans le crontab.  
 - Ouvrir le crontab
