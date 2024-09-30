@@ -114,7 +114,7 @@ ERROR: could not find input plugin
        dlopen: input_raspicam.so: cannot open shared object file: No such file or directory
 ```
 - Cela signifie que le fichier `input_raspicam.so` est manquant
-- La Camera-py peut fonctionner avec le fichier `input_uvc.so` (cf la (discussion sur le site de Jackson Liam)[https://github.com/jacksonliam/mjpg-streamer/issues/285], réponse du 26 décembre 2020)
+- La Camera-py peut fonctionner avec le fichier `input_uvc.so` (cf la [discussion sur le site de Jackson Liam](https://github.com/jacksonliam/mjpg-streamer/issues/285), réponse du 26 décembre 2020)
 - Dans le fichier `RunCamera_py.py`, dans la commande `command_py`,remplacer `input_raspicam.so` par `input_uvc.so`
 #### Erreur 501 
 - Si en tapant dans le navigateur `<local Ip>:<port mjpg>` (par exemple : `192.168.1.45:8080`) le message suivant s'affiche :
