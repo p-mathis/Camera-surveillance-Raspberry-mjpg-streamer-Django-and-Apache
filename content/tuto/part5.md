@@ -38,6 +38,7 @@ draft: false
 - Dans le menu, choisir : DDNS -\> S'INSCRIRE
 - Renseigner le nom d'hôte désiré et cliquer sur `+Ajouter`
 - Aller dans son compte pour modifier certains paramètres, notamment le fuseau horaire
+- ***Note du 30 septembre 2024 : ce service est utilisé depuis septembre 2023, sans aucun problème. Il n'y a notamment aucune obligation de réactiver le compte chaque mois comme avec No-Ip***
 ## Modifications sur la box
 - Quelques modifications sont à apporter au niveau de la box. Disposant d’une livebox de chez Orange, la marche à suivre que je donne se réfère à ce type de box ; mais elle est grosso modo la même chez les autres opérateurs.
 - Entrer dans le menu de sa box
