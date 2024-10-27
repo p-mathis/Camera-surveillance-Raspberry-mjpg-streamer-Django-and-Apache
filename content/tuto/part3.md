@@ -407,7 +407,7 @@ sqlite > .open "/home/pi/folder/project/db.sqlite3"
 ```ssh
 sqlite > .tables
 ```
-- Supprimer les donées de la table *camera_photo" (si ce nom a été conservé)
+- Supprimer les donées de la table *camera_photo* (si ce nom a été conservé)
 ```ssh
 sqlite > DELETE FROM camera_photo;
 ```
