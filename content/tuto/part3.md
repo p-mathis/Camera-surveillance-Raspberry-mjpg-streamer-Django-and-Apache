@@ -401,7 +401,7 @@ pi@raspberry:~ $ sqlite3
 ```
 - Ouvrir la base de données *(à adapter si les différents noms ont été changés)*
 ```ssh
-sqlite > .open "home/pi/folder/project/db.sqlite3"
+sqlite > .open "/home/pi/folder/project/db.sqlite3"
 ```
 - Éventuellement vérifier le nom des tables de la base
 ```ssh
