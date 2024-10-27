@@ -409,7 +409,7 @@ sqlite > .tables
 ```
 - Supprimer les donées de la table *camera-photo" (si ce nom a été conservé)
 ```ssh
-sqlite > DELETE FROM camera-photo;
+sqlite > DELETE FROM camera_photo;
 ```
 - Quitter le shell *sqlite*
 ```ssh
