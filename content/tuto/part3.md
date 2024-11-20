@@ -371,6 +371,10 @@ C'est dans ce dossier `/var/www/stock` que seront stockées les photos prises pa
     ```sh
     @reboot python3 /home/pi/script/runDjango.py
     ```
+  - Il peut être nécessaire, notamment en fonction du modèle de *Raspberry* de donner un temps de latence au démarrage (*ici 120 secondes*)
+    ```sh
+    @reboot sleep 120 && python3 /home/pi/script/runDjango.py
+    ```  
 ## Tester le site
 - Rebouter le système
     ```sh
