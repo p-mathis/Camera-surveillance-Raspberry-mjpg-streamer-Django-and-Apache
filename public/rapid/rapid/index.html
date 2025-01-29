@@ -1,0 +1,4164 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Guide Rapide">
+
+<meta name="google-site-verification" content="VVKYOgzKw8tlGuBepLtGKCV0h4LkzN7dipGYLOrlTxE" />
+
+<title>Guide Rapide | Surveillance camera avec raspberry, mjpg-streamer, Django et Apache</title>
+
+<link rel="icon" href="/favicon/favicon-32x32CAM.png" type="image/x-icon">
+
+<link rel="preload" as="font" href="/fonts/Metropolis.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationSans.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationSans-Bold.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationSans-BoldItalic.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationSans-Italic.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationMono.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/DroidSans.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/GeekdocIcons.woff2" type="font/woff2" crossorigin="anonymous">
+
+<link rel="preload" href="/main-bed196f5e7.min.css" as="style">
+<link rel="stylesheet" href="/main-bed196f5e7.min.css" media="all">
+
+<link rel="preload" href="/mobile-2eb10ce87d.min.css" as="style">
+<link rel="stylesheet" href="/mobile-2eb10ce87d.min.css" media="screen and (max-width: 45rem)">
+
+<link rel="preload" href="/print-16259ad7b8.min.css" as="style">
+<link rel="stylesheet" href="/print-16259ad7b8.min.css" media="print">
+
+<link rel="preload" href="/custom.css" as="style">
+<link rel="stylesheet" href="/custom.css" media="all">
+
+
+</head>
+
+<body>
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol viewBox="-2.29 -2.29 28.57 28.57" id="arrow_back" xmlns="http://www.w3.org/2000/svg"><path d="M24 10.526v2.947H5.755l8.351 8.421-2.105 2.105-12-12 12-12 2.105 2.105-8.351 8.421H24z"/></symbol><symbol viewBox="-2.29 -2.29 28.57 28.57" id="arrow_left_alt" xmlns="http://www.w3.org/2000/svg"><path d="M5.965 10.526V6.035L0 12l5.965 5.965v-4.491H24v-2.947H5.965z"/></symbol><symbol viewBox="-2.29 -2.29 28.57 28.57" id="arrow_right_alt" xmlns="http://www.w3.org/2000/svg"><path d="M18.035 10.526V6.035L24 12l-5.965 5.965v-4.491H0v-2.947h18.035z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="bitbucket" xmlns="http://www.w3.org/2000/svg"><path d="M15.905 13.355c.189 1.444-1.564 2.578-2.784 1.839-1.375-.602-1.375-2.784-.034-3.403 1.151-.705 2.818.223 2.818 1.564zm1.907-.361c-.309-2.44-3.076-4.056-5.328-3.042-1.426.636-2.389 2.148-2.32 3.747.086 2.097 2.08 3.815 4.176 3.626s3.729-2.234 3.472-4.331zm4.108-9.315c-.756-.997-2.045-1.169-3.179-1.358-3.214-.516-6.513-.533-9.727.034-1.066.172-2.269.361-2.939 1.323 1.1 1.031 2.664 1.186 4.073 1.358 2.544.327 5.156.344 7.699.017 1.426-.172 3.008-.309 4.073-1.375zm.979 17.788c-.481 1.684-.206 3.953-1.994 4.932-3.076 1.701-6.806 1.89-10.191 1.289-1.787-.327-3.884-.894-4.864-2.578-.43-1.65-.705-3.334-.98-5.018l.103-.275.309-.155c5.121 3.386 12.288 3.386 17.427 0 .808.241.206 1.22.189 1.805zM26.01 4.951c-.584 3.764-1.255 7.51-1.908 11.257-.189 1.1-1.255 1.719-2.148 2.183-3.214 1.615-6.96 1.89-10.483 1.512-2.389-.258-4.829-.894-6.771-2.389-.911-.705-.911-1.908-1.083-2.922-.602-3.523-1.289-7.046-1.719-10.604.206-1.547 1.942-2.217 3.231-2.698C6.848.654 8.686.362 10.508.19c3.884-.378 7.854-.241 11.618.859 1.341.395 2.784.945 3.695 2.097.412.533.275 1.203.189 1.805z"/></symbol><symbol viewBox="-2.29 -2.29 28.57 28.57" id="bookmark" xmlns="http://www.w3.org/2000/svg"><path d="M15.268 4.392q.868 0 1.532.638t.664 1.506v17.463l-7.659-3.268-7.608 3.268V6.536q0-.868.664-1.506t1.532-.638h10.876zm4.34 14.144V4.392q0-.868-.638-1.532t-1.506-.664H6.537q0-.868.664-1.532T8.733 0h10.876q.868 0 1.532.664t.664 1.532v17.412z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="code" xmlns="http://www.w3.org/2000/svg"><path d="M9.917 24.5a1.75 1.75 0 10-3.501.001 1.75 1.75 0 003.501-.001zm0-21a1.75 1.75 0 10-3.501.001A1.75 1.75 0 009.917 3.5zm11.666 2.333a1.75 1.75 0 10-3.501.001 1.75 1.75 0 003.501-.001zm1.75 0a3.502 3.502 0 01-1.75 3.026c-.055 6.581-4.721 8.039-7.82 9.023-2.898.911-3.846 1.349-3.846 3.117v.474a3.502 3.502 0 011.75 3.026c0 1.932-1.568 3.5-3.5 3.5s-3.5-1.568-3.5-3.5c0-1.294.711-2.424 1.75-3.026V6.526A3.502 3.502 0 014.667 3.5c0-1.932 1.568-3.5 3.5-3.5s3.5 1.568 3.5 3.5a3.502 3.502 0 01-1.75 3.026v9.06c.93-.456 1.914-.766 2.807-1.039 3.391-1.075 5.323-1.878 5.359-5.687a3.502 3.502 0 01-1.75-3.026c0-1.932 1.568-3.5 3.5-3.5s3.5 1.568 3.5 3.5z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="date" xmlns="http://www.w3.org/2000/svg"><path d="M27.192 28.844V11.192H4.808v17.652h22.384zm0-25.689q1.277 0 2.253.976t.976 2.253v22.459q0 1.277-.976 2.216t-2.253.939H4.808q-1.352 0-2.291-.901t-.939-2.253V6.385q0-1.277.939-2.253t2.291-.976h1.577V.001h3.23v3.155h12.769V.001h3.23v3.155h1.577zm-3.155 11.267v3.155h-3.23v-3.155h3.23zm-6.46 0v3.155h-3.155v-3.155h3.155zm-6.384 0v3.155h-3.23v-3.155h3.23z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="download" xmlns="http://www.w3.org/2000/svg"><path d="M2.866 28.209h26.269v3.79H2.866v-3.79zm26.268-16.925L16 24.418 2.866 11.284h7.493V.001h11.283v11.283h7.493z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="email" xmlns="http://www.w3.org/2000/svg"><path d="M28.845 9.615v-3.23L16 14.422 3.155 6.385v3.23L16 17.577zm0-6.46q1.277 0 2.216.977T32 6.385v19.23q0 1.277-.939 2.253t-2.216.977H3.155q-1.277 0-2.216-.977T0 25.615V6.385q0-1.277.939-2.253t2.216-.977h25.69z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="git" xmlns="http://www.w3.org/2000/svg"><path d="M27.472 12.753L15.247.529a1.803 1.803 0 00-2.55 0l-2.84 2.84 2.137 2.137a2.625 2.625 0 013.501 3.501l3.499 3.499a2.625 2.625 0 11-1.237 1.237l-3.499-3.499c-.083.04-.169.075-.257.106v7.3a2.626 2.626 0 11-1.75 0v-7.3a2.626 2.626 0 01-1.494-3.607L8.62 4.606l-8.09 8.09a1.805 1.805 0 000 2.551l12.225 12.224a1.803 1.803 0 002.55 0l12.168-12.168a1.805 1.805 0 000-2.551z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="github" xmlns="http://www.w3.org/2000/svg"><path d="M16 .394c8.833 0 15.999 7.166 15.999 15.999 0 7.062-4.583 13.062-10.937 15.187-.813.146-1.104-.354-1.104-.771 0-.521.021-2.25.021-4.396 0-1.5-.5-2.458-1.083-2.958 3.562-.396 7.312-1.75 7.312-7.896 0-1.75-.625-3.167-1.646-4.291.167-.417.708-2.042-.167-4.25-1.333-.417-4.396 1.646-4.396 1.646a15.032 15.032 0 00-8 0S8.937 6.602 7.603 7.018c-.875 2.208-.333 3.833-.167 4.25-1.021 1.125-1.646 2.542-1.646 4.291 0 6.125 3.729 7.5 7.291 7.896-.458.417-.875 1.125-1.021 2.146-.917.417-3.25 1.125-4.646-1.333-.875-1.521-2.458-1.646-2.458-1.646-1.562-.021-.104.979-.104.979 1.042.479 1.771 2.333 1.771 2.333.938 2.854 5.396 1.896 5.396 1.896 0 1.333.021 2.583.021 2.979 0 .417-.292.917-1.104.771C4.582 29.455-.001 23.455-.001 16.393-.001 7.56 7.165.394 15.998.394zM6.063 23.372c.042-.083-.021-.187-.146-.25-.125-.042-.229-.021-.271.042-.042.083.021.187.146.25.104.062.229.042.271-.042zm.646.709c.083-.062.062-.208-.042-.333-.104-.104-.25-.146-.333-.062-.083.062-.062.208.042.333.104.104.25.146.333.062zm.625.937c.104-.083.104-.25 0-.396-.083-.146-.25-.208-.354-.125-.104.062-.104.229 0 .375s.271.208.354.146zm.875.875c.083-.083.042-.271-.083-.396-.146-.146-.333-.167-.417-.062-.104.083-.062.271.083.396.146.146.333.167.417.062zm1.187.521c.042-.125-.083-.271-.271-.333-.167-.042-.354.021-.396.146s.083.271.271.312c.167.062.354 0 .396-.125zm1.313.104c0-.146-.167-.25-.354-.229-.187 0-.333.104-.333.229 0 .146.146.25.354.229.187 0 .333-.104.333-.229zm1.208-.208c-.021-.125-.187-.208-.375-.187-.187.042-.312.167-.292.312.021.125.187.208.375.167s.312-.167.292-.292z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gitlab" xmlns="http://www.w3.org/2000/svg"><path d="M1.629 11.034L14 26.888.442 17.048a1.09 1.09 0 01-.39-1.203l1.578-4.811zm7.217 0h10.309l-5.154 15.854zM5.753 1.475l3.093 9.559H1.63l3.093-9.559a.548.548 0 011.031 0zm20.618 9.559l1.578 4.811c.141.437-.016.922-.39 1.203l-13.558 9.84 12.371-15.854zm0 0h-7.216l3.093-9.559a.548.548 0 011.031 0z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="heart" xmlns="http://www.w3.org/2000/svg"><path d="M16 29.714a1.11 1.11 0 01-.786-.321L4.072 18.643c-.143-.125-4.071-3.714-4.071-8 0-5.232 3.196-8.357 8.535-8.357 3.125 0 6.053 2.464 7.464 3.857 1.411-1.393 4.339-3.857 7.464-3.857 5.339 0 8.535 3.125 8.535 8.357 0 4.286-3.928 7.875-4.089 8.035L16.785 29.392c-.214.214-.5.321-.786.321z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="keyborad_arrow_down" xmlns="http://www.w3.org/2000/svg"><path d="M3.281 5.36L14 16.079 24.719 5.36 28 8.641l-14 14-14-14z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="keyborad_arrow_left" xmlns="http://www.w3.org/2000/svg"><path d="M25.875 28.25L22.125 32 6.126 16.001 22.125.002l3.75 3.75-12.25 12.25z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="keyborad_arrow_right" xmlns="http://www.w3.org/2000/svg"><path d="M6.125 28.25L18.375 16 6.125 3.75 9.875 0l15.999 15.999L9.875 31.998z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="link" xmlns="http://www.w3.org/2000/svg"><path d="M24.037 7.963q3.305 0 5.634 2.366T32 16t-2.329 5.671-5.634 2.366h-6.46v-3.08h6.46q2.028 0 3.493-1.465t1.465-3.493-1.465-3.493-3.493-1.465h-6.46v-3.08h6.46zM9.615 17.578v-3.155h12.77v3.155H9.615zM3.005 16q0 2.028 1.465 3.493t3.493 1.465h6.46v3.08h-6.46q-3.305 0-5.634-2.366T0 16.001t2.329-5.671 5.634-2.366h6.46v3.08h-6.46q-2.028 0-3.493 1.465t-1.465 3.493z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="menu" xmlns="http://www.w3.org/2000/svg"><path d="M.001 5.334h31.998v3.583H.001V5.334zm0 12.416v-3.5h31.998v3.5H.001zm0 8.916v-3.583h31.998v3.583H.001z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="notification" xmlns="http://www.w3.org/2000/svg"><path d="M22.615 19.384l2.894 2.894v1.413H2.49v-1.413l2.894-2.894V12.25q0-3.365 1.716-5.856t4.745-3.231v-1.01q0-.875.606-1.514T13.999 0t1.548.639.606 1.514v1.01q3.029.74 4.745 3.231t1.716 5.856v7.134zM14 27.999q-1.211 0-2.053-.808t-.841-2.019h5.788q0 1.144-.875 1.986T14 27.999z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="path" xmlns="http://www.w3.org/2000/svg"><path d="M28 12.62h-9.793V8.414h-2.826v11.173h2.826v-4.206H28V26.62h-9.793v-4.206H12.62v-14H9.794v4.206H.001V1.381h9.793v4.206h8.413V1.381H28V12.62z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="person" xmlns="http://www.w3.org/2000/svg"><path d="M16 20.023q5.052 0 10.526 2.199t5.473 5.754v4.023H0v-4.023q0-3.555 5.473-5.754t10.526-2.199zM16 16q-3.275 0-5.614-2.339T8.047 8.047t2.339-5.661T16 0t5.614 2.386 2.339 5.661-2.339 5.614T16 16z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="search" xmlns="http://www.w3.org/2000/svg"><path d="M11.925 20.161q3.432 0 5.834-2.402t2.402-5.834-2.402-5.834-5.834-2.402-5.834 2.402-2.402 5.834 2.402 5.834 5.834 2.402zm10.981 0L32 29.255 29.255 32l-9.094-9.094v-1.458l-.515-.515q-3.26 2.831-7.721 2.831-4.976 0-8.45-3.432T.001 11.925t3.474-8.45 8.45-3.474 8.407 3.474 3.432 8.45q0 1.802-.858 4.075t-1.973 3.646l.515.515h1.458z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="shield" xmlns="http://www.w3.org/2000/svg"><path d="M22.167 15.166V3.5h-8.166v20.726c.93-.492 2.424-1.349 3.883-2.497 1.95-1.531 4.284-3.919 4.284-6.562zm3.499-13.999v14c0 7.674-10.737 12.523-11.192 12.724-.146.073-.31.109-.474.109s-.328-.036-.474-.109c-.456-.201-11.192-5.049-11.192-12.724v-14C2.334.529 2.863 0 3.501 0H24.5c.638 0 1.167.529 1.167 1.167z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="tags" xmlns="http://www.w3.org/2000/svg"><path d="M6.606 7.549c0-1.047-.84-1.887-1.887-1.887s-1.887.84-1.887 1.887.84 1.887 1.887 1.887 1.887-.84 1.887-1.887zm15.732 8.493c0 .501-.206.988-.546 1.327l-7.239 7.254c-.354.339-.84.546-1.342.546s-.988-.206-1.327-.546L1.342 14.066C.59 13.329 0 11.899 0 10.852V4.718a1.9 1.9 0 011.887-1.887h6.134c1.047 0 2.477.59 3.229 1.342L21.792 14.7c.339.354.546.84.546 1.342zm5.661 0c0 .501-.206.988-.546 1.327l-7.239 7.254c-.354.339-.84.546-1.342.546-.767 0-1.15-.354-1.651-.87l6.93-6.93c.339-.339.546-.826.546-1.327s-.206-.988-.546-1.342L13.609 4.173c-.752-.752-2.182-1.342-3.229-1.342h3.303c1.047 0 2.477.59 3.229 1.342L27.454 14.7c.339.354.546.84.546 1.342z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="telescope" xmlns="http://www.w3.org/2000/svg"><path d="M25.026 3.335a.466.466 0 00-.646-.238L13.362 8.91a.463.463 0 00-.216.575l.227.593-6.36 3.488a.462.462 0 00-.205.583l.211.508-6.755 3.228a.463.463 0 00-.228.595l1.386 3.341a.463.463 0 00.583.259l7.056-2.5.211.508a.462.462 0 00.557.267l6.733-1.941.202.527a.46.46 0 00.566.277l12.03-3.702a.46.46 0 00.293-.613L25.026 3.335zM2.109 21.061l-1.049-2.53 6.314-3.018 1.332 3.211-6.596 2.337zm7.857-1.708l-.22-.531-1.706-4.113-.22-.53 5.863-3.216 2.197 5.676.347.908-6.261 1.806zm7.505-1.146l-.188-.491c-.003-.01-.001-.022-.006-.032l-.572-1.478-2.549-6.668 10.201-5.381 4.249 10.624-11.136 3.428zm8.943-16.723a.463.463 0 00-.86.344l5.552 13.881a.464.464 0 00.602.258.464.464 0 00.258-.602L26.413 1.484zM16.268 20.627h-2.776c-1.055 0-1.851.796-1.851 1.851v1.217l-5.44 6.347a.462.462 0 10.702.602l5.415-6.316h2.101v6.015a.463.463 0 00.926 0v-6.015h2.101l5.414 6.316a.462.462 0 10.703-.602l-5.44-6.347v-1.148c0-1.076-.813-1.92-1.851-1.92zm.925 2.777h-4.627v-.925c0-.545.38-.925.925-.925h2.776c.527 0 .925.428.925.995v.856z"/></symbol></svg>
+
+    <div class="wrapper">
+        <input type="checkbox" class="hidden" id="menu-control" />
+        <header class="gdoc-header">
+    <div class="container flex align-center justify-between">
+        
+        <label for="menu-control" class="gdoc-nav__control">
+            <svg class="icon menu"><use xlink:href="#menu"></use></svg>
+            <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
+        </label>
+        
+        <a class="gdoc-header__link" href="https://djangocamera.netlify.app/">
+            <span class="gdoc-brand flex align-center">
+                <img class="gdoc-brand__img" src="/logo/logo_camera.svg" alt="" width=38 height=38>
+                Surveillance camera avec raspberry, mjpg-streamer, Django et Apache
+            </span>
+        </a>
+    </div>
+</header>
+
+
+        <main class="container flex flex-even">
+            <aside class="gdoc-nav">
+                <nav>
+    
+    <div class="gdoc-search">
+        <svg class="icon search"><use xlink:href="#search"></use></svg>
+        <input type="text" id="gdoc-search-input" class="gdoc-search__input" placeholder="Search..."
+            aria-label="Search" maxlength="64" />
+        <div class="gdoc-search__spinner spinner hidden"></div>
+        <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
+    </div>
+
+
+
+    <section class="gdoc-nav--main">
+        <h2>Navigation</h2>
+        
+            
+
+
+
+
+<ul class="gdoc-nav__list">
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/"
+                    class="gdoc-nav__entry ">
+                    Présentation
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/tuto/part1/"
+                    class="gdoc-nav__entry ">
+                    Tutoriel Pas à pas
+                </a>
+            </span>
+            
+        
+
+        
+            
+
+
+
+<ul class="gdoc-nav__list">
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/tuto/part1/"
+                    class="gdoc-nav__entry ">
+                    Mise en route
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/tuto/part2/"
+                    class="gdoc-nav__entry ">
+                    Installation de mjpg-streamer
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/tuto/part3/"
+                    class="gdoc-nav__entry ">
+                    Installation de Django
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/tuto/part4/"
+                    class="gdoc-nav__entry ">
+                    Installation de Apache et mod-wsgi
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/tuto/part5/"
+                    class="gdoc-nav__entry ">
+                    Accès depuis l&#39;extérieur
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/tuto/part6/"
+                    class="gdoc-nav__entry ">
+                    Sécuriser le site en https
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/tuto/part7/"
+                    class="gdoc-nav__entry ">
+                    Fichiers de gestion
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/tuto/part8/"
+                    class="gdoc-nav__entry ">
+                    Ajout d&#39;une nouvelle caméra
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/tuto/part9/"
+                    class="gdoc-nav__entry ">
+                    Ajout d&#39;une nouvelle fonction nuitparminute
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/tuto/part10/"
+                    class="gdoc-nav__entry ">
+                    Mise en place de 2 Raspberry
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+</ul>
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/rapid/rapid/"
+                    class="gdoc-nav__entry is-active">
+                    Guide rapide
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            <span class="flex">Fichiers html</span>
+        
+
+        
+            
+
+
+
+<ul class="gdoc-nav__list">
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/accueil_html/"
+                    class="gdoc-nav__entry ">
+                    accueil.html
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/base_html/"
+                    class="gdoc-nav__entry ">
+                    base.html
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/historique_html/"
+                    class="gdoc-nav__entry ">
+                    historique.html
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/nuit_html/"
+                    class="gdoc-nav__entry ">
+                    nuit.html
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/parHeure_html/"
+                    class="gdoc-nav__entry ">
+                    parHeure.html
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/stream_1_html/"
+                    class="gdoc-nav__entry ">
+                    stream_1.html
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/stream_2_html/"
+                    class="gdoc-nav__entry ">
+                    stream_2.html
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/stream_AllCam_html/"
+                    class="gdoc-nav__entry ">
+                    stream_AllCam.html
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/stream_py_html/"
+                    class="gdoc-nav__entry ">
+                    stream_py.html
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+</ul>
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            <span class="flex">Fichiers css</span>
+        
+
+        
+            
+
+
+
+<ul class="gdoc-nav__list">
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/global_css/"
+                    class="gdoc-nav__entry ">
+                    global.css
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/bouton_css/"
+                    class="gdoc-nav__entry ">
+                    bouton.css
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/disposition_css/"
+                    class="gdoc-nav__entry ">
+                    disposition.css
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/general_css/"
+                    class="gdoc-nav__entry ">
+                    general.css
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/header_footer_css/"
+                    class="gdoc-nav__entry ">
+                    header_footer.css
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/menu_css/"
+                    class="gdoc-nav__entry ">
+                    menu.css
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/pagination_css/"
+                    class="gdoc-nav__entry ">
+                    pagination.css
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+</ul>
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            <span class="flex">Fichiers Divers</span>
+        
+
+        
+            
+
+
+
+<ul class="gdoc-nav__list">
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/configuration_ini/"
+                    class="gdoc-nav__entry ">
+                    configuration.ini
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/project-camera_conf_V1/"
+                    class="gdoc-nav__entry ">
+                    project-camera.conf V1
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/project-camera_conf_V2/"
+                    class="gdoc-nav__entry ">
+                    project-camera.conf V2
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/project-camera_conf_V3/"
+                    class="gdoc-nav__entry ">
+                    project-camera.conf V3
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/project-camera_conf_V4/"
+                    class="gdoc-nav__entry ">
+                    project-camera.conf V4
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/project-camera_conf_V5/"
+                    class="gdoc-nav__entry ">
+                    project-camera.conf V5
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+</ul>
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            <span class="flex">Scripts python</span>
+        
+
+        
+            
+
+
+
+<ul class="gdoc-nav__list">
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/getCamerasAndRegister_py/"
+                    class="gdoc-nav__entry ">
+                    getCamerasAndRegister.py
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/ipcheck_py/"
+                    class="gdoc-nav__entry ">
+                    ipcheck.py
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/mail_reboot_py/"
+                    class="gdoc-nav__entry ">
+                    mail_reboot.py
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/models_py/"
+                    class="gdoc-nav__entry ">
+                    models.py
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/runCamera_1_py/"
+                    class="gdoc-nav__entry ">
+                    runCamera_1.py
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/runCamera_2_py/"
+                    class="gdoc-nav__entry ">
+                    runCamera_2.py
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/runCamera_py_py/"
+                    class="gdoc-nav__entry ">
+                    runCamera_py.py
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/runDjango_py/"
+                    class="gdoc-nav__entry ">
+                    runDjango.py
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/suppressFiles_py/"
+                    class="gdoc-nav__entry ">
+                    suppressFiles.py
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/urls_py_camera/"
+                    class="gdoc-nav__entry ">
+                    urls.py camera
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/urls_py_project/"
+                    class="gdoc-nav__entry ">
+                    urls.py project
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/views_py_V1/"
+                    class="gdoc-nav__entry ">
+                    views.py V1
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/views_py_V2/"
+                    class="gdoc-nav__entry ">
+                    views.py V2
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/wsgi_py/"
+                    class="gdoc-nav__entry ">
+                    wsgi.py
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+</ul>
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            <span class="flex">Fichiers pour caméra supplémentaire</span>
+        
+
+        
+            
+
+
+
+<ul class="gdoc-nav__list">
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/configuration_ini_4cam/"
+                    class="gdoc-nav__entry ">
+                    configuration_ini_4cam.md
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/urls_py_4cam/"
+                    class="gdoc-nav__entry ">
+                    urls_4cam.py
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/views_py_4cam/"
+                    class="gdoc-nav__entry ">
+                    views_4cam.py
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/runCamera_3_py_4cam/"
+                    class="gdoc-nav__entry ">
+                    runCamera_3_py_4cam
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/getCamerasAndRegister_py_4cam/"
+                    class="gdoc-nav__entry ">
+                    getCamerasAndRegister_py_4cam
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/suppressFiles_py_4cam/"
+                    class="gdoc-nav__entry ">
+                    suppressFiles_py_4cam
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/historique_html_4cam/"
+                    class="gdoc-nav__entry ">
+                    historique_html_4cam
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/parHeure_html_4cam/"
+                    class="gdoc-nav__entry ">
+                    parHeure_html_4cam
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/stream_3_html_4cam/"
+                    class="gdoc-nav__entry ">
+                    stream_3_html_4cam
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/stream_AllCam_html_4cam/"
+                    class="gdoc-nav__entry ">
+                    stream_AllCam_html_4cam
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/project-camera_conf_4cam/"
+                    class="gdoc-nav__entry ">
+                    project-camera_conf_4cam
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+</ul>
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            <span class="flex">Fichier pour WiFi</span>
+        
+
+        
+            
+
+
+
+<ul class="gdoc-nav__list">
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/WiFiCheck_sh/"
+                    class="gdoc-nav__entry ">
+                    WiFiCheck.sh
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+</ul>
+
+        
+    </li>
+
+
+</ul>
+
+
+
+
+
+        
+    </section>
+
+    <section class="gdoc-nav--more">
+        
+    </section>
+</nav>
+
+            </aside>
+
+            <div class="gdoc-page">
+                
+    
+
+
+    
+
+
+
+
+
+
+
+
+    <article class="gdoc-markdown">
+        <h1>Guide Rapide</h1>
+        
+
+
+
+    
+
+
+<div class="gdoc-page__anchorwrap"><h2 id="préalable">Préalable<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#préalable" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Préalable" href="#préalable"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<p>Raspbian est installé sur la Raspberry. Celle-ci est accessible par SSH depuis un ordinateur à partir duquel sont lancées toutes les commandes.<br>
+La Raspberry a une IP locale fixe.<br>
+La pi-caméra et les deux caméras USB sont branchées.</p>
+<div class="gdoc-page__anchorwrap"><h2 id="installation-de-logiciels-et-de-dépendances">Installation de logiciels et de dépendances<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#installation-de-logiciels-et-de-dépendances" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de logiciels et de dépendances" href="#installation-de-logiciels-et-de-dépendances"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<ul>
+<li>
+<p>mise à jour (si raspbian est d&rsquo;installation ancienne)</p>
+<pre><code>sudo apt update &amp;&amp; sudo apt upgrade -y
+</code></pre>
+</li>
+<li>
+<p>dépendances pour mjpg-streamer</p>
+<pre><code>sudo apt install cmake libjpeg8-dev -y
+</code></pre>
+</li>
+<li>
+<p>apache2 et ses dépendances</p>
+<pre><code>sudo apt install apache2 apache2-dev
+</code></pre>
+</li>
+<li>
+<p>snapd (pour une installation simplifiée de certbot)</p>
+<pre><code>sudo apt install snapd
+</code></pre>
+</li>
+<li>
+<p>rebouter le système pour installer snap</p>
+<pre><code>sudo reboot
+</code></pre>
+</li>
+<li>
+<p>installer core une fois le système rebouté</p>
+<pre><code>sudo apt install core
+</code></pre>
+</li>
+<li>
+<p>installer certbot</p>
+<pre><code>sudo snap install --classic certbot
+</code></pre>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h2 id="installation-dun-fichier-de-configuration">Installation d&rsquo;un fichier de configuration<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#installation-dun-fichier-de-configuration" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation d&rsquo;un fichier de configuration" href="#installation-dun-fichier-de-configuration"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<pre><code>sudo mkdir /etc/camera
+sudo nano /etc/camera/configuration.ini
+</code></pre>
+<ul>
+<li>Copier/coller dans la fenêtre le contenu du fichier <code>configuration.ini</code> disponible <a href="https://djangocamera.netlify.app/script/configuration_ini/" title="configuration_ini">ici</a>.</li>
+<li>Modifier ou renseigner les valeurs suivantes :
+<ul>
+<li><code>[locate]</code> : renseigner longitude, latitude, altitude et zone en fonction de vos valeurs</li>
+<li><code>[hosts]</code> : renseigner raspIP en fonction de l&rsquo;IP locale de votre Raspberry</li>
+<li><code>[mails]</code> : renseigner les différentes adresses mail et le mot de passe</li>
+<li><code>[camera]</code> : cam_1_name et cam_2_name seront renseignés plus <a href="#d%C3%A9nomination-des-cam%C3%A9ras">loin</a> ; les autres valeurs peuvent être inchangées ou modifiées à votre convenance.</li>
+<li><code>[paths]</code> et <code>[frequences]</code> : ne rien modifier <em>a priori</em></li>
+</ul>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h2 id="installation-de-mjpg-streamer-et-des-caméras">Installation de mjpg-streamer et des caméras<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#installation-de-mjpg-streamer-et-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de mjpg-streamer et des caméras" href="#installation-de-mjpg-streamer-et-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="installer-mjpg-streamer">Installer mjpg-streamer<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#installer-mjpg-streamer" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer mjpg-streamer" href="#installer-mjpg-streamer"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Cloner le dépôt git</p>
+<pre><code>git clone https://github.com/jacksonliam/mjpg-streamer.git
+</code></pre>
+</li>
+<li>
+<p>Déplacer mjpg-streamer-experimental dans /home/pi</p>
+<pre><code>mv ~/mjpg-streamer/mjpg-streamer-experimental ~/
+</code></pre>
+</li>
+<li>
+<p>Compilation</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> ~/mjpg-streamer-experimental
+</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl">sudo make install
+</span></span></code></pre></div></li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="dénomination-des-caméras">Dénomination des caméras<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#dénomination-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dénomination des caméras" href="#dénomination-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Dans le répertoire /dev/v4l/by-id répertorier l’identifiant des caméras</p>
+<pre><code>ls /dev/v4l/by-id
+</code></pre>
+</li>
+<li>
+<p>La commande retourne 4 lignes du style :</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">&lt;valeur1&gt;-video-index0
+</span></span><span class="line"><span class="cl">&lt;valeur1&gt;-video-index1
+</span></span><span class="line"><span class="cl">&lt;valeur2&gt;-video-index0
+</span></span><span class="line"><span class="cl">&lt;valeur2&gt;-video-index1 
+</span></span></code></pre></div></li>
+<li>
+<p>Dans le fichier de configuration remplacer les valeurs des clés <code>cam_1_name</code> et <code>cam_2_name</code> par les valeurs <code>&lt;valeur1&gt;-video-index0</code> et <code>&lt;valeur2&gt;-video-index0</code></p>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h2 id="installation-de-django">Installation de Django<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#installation-de-django" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de Django" href="#installation-de-django"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="création-dun-environnement-virtuel">Création d&rsquo;un environnement virtuel<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#création-dun-environnement-virtuel" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création d&rsquo;un environnement virtuel" href="#création-dun-environnement-virtuel"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Création du dossier folder et de l&rsquo;environnement virtuel</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir ~/folder
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/folder
+</span></span><span class="line"><span class="cl">python3 -m venv folder_venv
+</span></span></code></pre></div></li>
+<li>
+<p>Pour activer l&rsquo;environnement virtuel</p>
+<pre><code>source ~/folder/folder_venv/bin/activate
+</code></pre>
+</li>
+<li>
+<p>L&rsquo;invite de commande ne sera plus du style <code>pi@Foo:~ $</code> mais <code>(folder_venv) pi@Foo:~ $</code></p>
+</li>
+<li>
+<p>Pour désactiver l&rsquo;environnement virtuel</p>
+<pre><code>deactivate
+</code></pre>
+</li>
+<li>
+<p><em><strong>Dorénavant, lorsque les commandes seront tapées dans l&rsquo;environnement virtuel, elles seront précédées du symbole : (venv)</strong></em></p>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="installation-de-django-et-de-modules-complémentaires">Installation de Django et de modules complémentaires<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#installation-de-django-et-de-modules-complémentaires" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de Django et de modules complémentaires" href="#installation-de-django-et-de-modules-complémentaires"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Installer Django en environnement virtuel</p>
+<pre><code>(venv) python -m pip install Django
+</code></pre>
+</li>
+<li>
+<p>Vérifier l&rsquo;installation et la version</p>
+<pre><code>(venv) python -m django --version
+</code></pre>
+</li>
+</ul>
+<p>qui doit renvoyer une sortie du type :  3.1.4 (en fonction de la version)</p>
+<ul>
+<li>
+<p>Installer le module suntimes</p>
+<pre><code>(venv) pip install suntimes
+</code></pre>
+</li>
+<li>
+<p>Au besoin installer les dépendances de suntimes</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> pip install jdcal
+</span></span><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> pip install tzlocal
+</span></span></code></pre></div></li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="création-du-projet-et-de-lapplication">Création du projet et de l&rsquo;application<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#création-du-projet-et-de-lapplication" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création du projet et de l&rsquo;application" href="#création-du-projet-et-de-lapplication"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h4 id="création-du-projet-project-et-de-lapplication-camera">Création du projet project et de l&rsquo;application camera<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#création-du-projet-project-et-de-lapplication-camera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création du projet project et de l&rsquo;application camera" href="#création-du-projet-project-et-de-lapplication-camera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> <span class="nb">cd</span> ~/folder
+</span></span><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> django-admin startproject project
+</span></span><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> <span class="nb">cd</span> ~/folder/project
+</span></span><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> python manage.py startapp camera
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="structure-de-lapplication-camera">Structure de l&rsquo;application camera<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#structure-de-lapplication-camera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Structure de l&rsquo;application camera" href="#structure-de-lapplication-camera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+<p>L&rsquo;application camera va comporter huit vues :</p>
+<ul>
+<li>accueil : la page d’accueil du site</li>
+<li>historique : page présentant des photos prises à intervalle régulier par les trois caméras, sur une durée déterminée (par exemple, toutes les 5 minutes sur les 24 dernières heures)</li>
+<li>parHeure : pages avec pagination présentant toutes les photos prises sur une durée déterminée (par exemple, toutes les minutes sur les 24 dernières heures)</li>
+<li>nuit : page présentant des photos prises à intervalle régulier par la caméra nocturne du coucher du soleil au lever du soleil le lendemain</li>
+<li>stream_1 : flux vidéo en direct de la première caméra</li>
+<li>stream_2: flux vidéo en direct de la deuxième caméra</li>
+<li>stream_py : flux vidéo en direct de la pi-caméra</li>
+<li>stream_AllCam : flux vidéo en direct des trois caméras</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="réglages-du-fichier-settingsspanspanpy">Réglages du fichier settings<span></span>.py<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#réglages-du-fichier-settingsspanspanpy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Réglages du fichier settings<span></span>.py" href="#réglages-du-fichier-settingsspanspanpy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Ouvrir le fichier <code>settings.py</code></p>
+<pre><code>nano ~/folder/project/project/settings.py
+</code></pre>
+</li>
+<li>
+<p>ALLOWED_HOSTS : ajouter l&rsquo;IP locale de la Raspberry</p>
+<pre><code>ALLOWED_HOSTS = ['&lt;local IP raspberry&gt;']
+</code></pre>
+</li>
+<li>
+<p>INSTALLED_APPS : ajouter <code>camera.apps.CameraConfig</code> dans la liste existante</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;camera.apps.CameraConfig&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;django.contrib.admin&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;django.contrib.auth&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;django.contrib.contenttypes&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;django.contrib.sessions&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;django.contrib.messages&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;django.contrib.staticfiles&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span></code></pre></div></li>
+<li>
+<p>DATABASES : ajouter votre time-zone</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s1">&#39;django.db.backends.sqlite3&#39;</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="n">BASE_DIR</span> <span class="o">/</span> <span class="s1">&#39;db.sqlite3&#39;</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;TIME_ZONE&#39;</span><span class="p">:</span> <span class="s1">&#39;Europe/Paris&#39;</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>  
+</span></span></code></pre></div></li>
+<li>
+<p>LANGUAGE_CODE et TIME_ZONE : adapter la langue et la time-zone</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">LANGUAGE_CODE</span> <span class="o">=</span><span class="s1">&#39;fr&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s1">&#39;Europe/Paris&#39;</span>
+</span></span></code></pre></div></li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-les-modèles-de-lapplication">Créer les modèles de l&rsquo;application<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#créer-les-modèles-de-lapplication" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les modèles de l&rsquo;application" href="#créer-les-modèles-de-lapplication"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Ouvrir le fichier <code>models.py</code></p>
+<pre><code>nano ~/folder/project/camera/models.py
+</code></pre>
+</li>
+<li>
+<p>Remplacer son contenu par celui du fichier <code>models.py</code> disponible <a href="https://djangocamera.netlify.app/script/models_py/" title="models.py">ici</a>.</p>
+</li>
+<li>
+<p>Prendre en compte les modifications</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> python ~/folder/project/manage.py makemigrations
+</span></span><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> python ~/folder/project/manage.py migrate
+</span></span></code></pre></div></li>
+<li>
+<p>Créer les trois caméras</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> python ~/folder/project/manage.py shell
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; from camera.models import Appareil 
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; <span class="nv">c</span> <span class="o">=</span> Appareil<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s2">&#34;Cam_1&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; c.save<span class="o">()</span>
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; <span class="nv">c</span> <span class="o">=</span> Appareil<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s2">&#34;Cam_2&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; c.save<span class="o">()</span>
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; <span class="nv">c</span> <span class="o">=</span> Appareil<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s2">&#34;Cam_py&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; c.save<span class="o">()</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Vérifier les enregistrements</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">&gt;&gt;&gt; Appareil.objects.all<span class="o">()</span>
+</span></span><span class="line"><span class="cl">&lt;QuerySet <span class="o">[</span>&lt;Appareil: Cam_1&gt;, &lt;Appareil: Cam_2&gt;, &lt;Appareil: Cam_py&gt;<span class="o">]</span>&gt;
+</span></span></code></pre></div></li>
+<li>
+<p>Quitter le shell : <code>Ctrl+D</code></p>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-urlsspanspanpy-de-folderprojectproject">Modifier le fichier urls<span></span>.py de ~/folder/project/project<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#modifier-le-fichier-urlsspanspanpy-de-folderprojectproject" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier urls<span></span>.py de ~/folder/project/project" href="#modifier-le-fichier-urlsspanspanpy-de-folderprojectproject"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>Ouvrir le fichier
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">  nano ~/folder/project/project/urls.py
+</span></span></code></pre></div></li>
+<li>modifier la ligne d&rsquo;import et la ligne urlpatterns de la manière suivante
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">  <span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="n">path</span><span class="p">(</span><span class="s1">&#39;camera/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;camera.urls&#39;</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">      <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span></code></pre></div></li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-un-fichier-urlsspanspanpy-dans-folderprojectcamera">Créer un fichier urls<span></span>.py dans ~/folder/project/camera<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#créer-un-fichier-urlsspanspanpy-dans-folderprojectcamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer un fichier urls<span></span>.py dans ~/folder/project/camera" href="#créer-un-fichier-urlsspanspanpy-dans-folderprojectcamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Créer et ouvrir le fichier en écriture</p>
+<pre><code>nano ~/folder/project/camera/urls.py
+</code></pre>
+</li>
+<li>
+<p>Coller/copier dans ce fichier le contenu du fichier <code>urls_camera.py</code> disponible <a href="https://djangocamera.netlify.app/script/urls_py_camera/" title="urls camera">ici</a>.</p>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-folderprojectcameraviewsspanspanpy">Modifier le fichier ~folder/project/camera/views<span></span>.py<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#modifier-le-fichier-folderprojectcameraviewsspanspanpy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier ~folder/project/camera/views<span></span>.py" href="#modifier-le-fichier-folderprojectcameraviewsspanspanpy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Ouvrir le fichier</p>
+<pre><code>nano ~/folder/project/camera/views.py
+</code></pre>
+</li>
+<li>
+<p>Effacer son contenu et copier/coller le contenu du fichier <code>views.py</code> disponible <a href="https://djangocamera.netlify.app/script/views_py_V2/" title="views.py V2">ici</a>.</p>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-les-fichier-css-et-un-fichier-logo">Créer les fichier css et un fichier logo<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#créer-les-fichier-css-et-un-fichier-logo" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les fichier css et un fichier logo" href="#créer-les-fichier-css-et-un-fichier-logo"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Création des dossiers css et logo</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> ~/folder/project/camera
+</span></span><span class="line"><span class="cl">mkdir static static/camera static/camera/css static/camera/logo
+</span></span></code></pre></div></li>
+<li>
+<p>Créer et écrire le fichier general.css</p>
+<pre><code>nano ~/folder/project/camera/static/camera/css/general.css
+</code></pre>
+</li>
+</ul>
+<p>Copier/coller dans ce fichier le contenu du fichier <code>general.css</code> disponible <a href="https://djangocamera.netlify.app/script/general_css/" title="general.css">ici</a>.</p>
+<ul>
+<li>Procéder de même pour les autres fichiers css :
+<ul>
+<li><code>bouton.css</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/bouton_css/" title="bouton.css">ici</a></li>
+<li><code>menu.css</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/menu_css/" title="menu.css">ici</a></li>
+<li><code>disposition.css</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/disposition_css/" title="menu.css">ici</a></li>
+<li><code>header_footer.css</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/header_footer_css/" title="menu.css">ici</a></li>
+<li><code>pagination.css</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/pagination_css/" title="pagination.css">ici</a></li>
+</ul>
+</li>
+<li>Logo favicon
+<ul>
+<li>Charger sur la Raspberry une image au format png d&rsquo;environ 40x40 pixels</li>
+<li>Nommer l&rsquo;image <code>logo.png</code></li>
+<li>Déplacer l&rsquo;image dans le dossier <code>~/folder/project/camera/static/camera/logo</code></li>
+</ul>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-les-fichiers-html-templates">Créer les fichiers html (templates)<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#créer-les-fichiers-html-templates" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les fichiers html (templates)" href="#créer-les-fichiers-html-templates"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Création du dossier templates</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> ~/folder/project/camera
+</span></span><span class="line"><span class="cl">mkdir templates templates/camera
+</span></span></code></pre></div></li>
+<li>
+<p>Créer et écrire le fichier <code>base.html</code></p>
+<pre><code>nano ~/folder/project/camera/templates/camera/base.html
+</code></pre>
+</li>
+</ul>
+<p>Copier/coller dans ce fichier le contenu du fichier <code>base.html</code> disponible <a href="https://djangocamera.netlify.app/script/base_html/" title="base.html">ici</a>.</p>
+<ul>
+<li>Procéder de même pour les autres fichiers html :
+<ul>
+<li><code>accueil.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/accueil_html/" title="accueil.html">ici</a></li>
+<li><code>historique.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/historique_html/" title="historique.html">ici</a></li>
+<li><code>nuit.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/nuit_html/" title="nuit.html">ici</a></li>
+<li><code>parHeure.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/parHeure_html/" title="parHeure.html">ici</a></li>
+<li><code>stream_1.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/stream_1_html/" title="stream_1.html">ici</a></li>
+<li><code>stream_2.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/stream_2_html/" title="stream_2.html">ici</a></li>
+<li><code>stream_py.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/stream_py_html/" title="stream_py.html">ici</a></li>
+<li><code>stream_AllCam.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/stream_AllCam_html/" title="stream_AllCam.html">ici</a></li>
+</ul>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h2 id="nom-de-domaine---dyndns---modifications-sur-la-box">Nom de domaine - DynDNS - Modifications sur la box<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#nom-de-domaine---dyndns---modifications-sur-la-box" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Nom de domaine - DynDNS - Modifications sur la box" href="#nom-de-domaine---dyndns---modifications-sur-la-box"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="obtenir-un-nom-de-domain-chez-no-ip">Obtenir un nom de domain chez No-IP<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#obtenir-un-nom-de-domain-chez-no-ip" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Obtenir un nom de domain chez No-IP" href="#obtenir-un-nom-de-domain-chez-no-ip"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>Aller sur le site de <a href="https://www.noip.com/">No-Ip</a></li>
+<li>Créer son site avec obtention du nom de domaine en suivant les instructions</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="modifications-sur-la-box">Modifications sur la box<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#modifications-sur-la-box" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifications sur la box" href="#modifications-sur-la-box"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<p>Quelques modifications sont à apporter au niveau de la box. La marche à suivre décrit ci-dessous concerne une livebox Orange ; les proccédures sont similaires chez les autres opérateurs.</p>
+<ul>
+<li>Créer une règle <code>NAT/PAT</code> pour la raspberry sur les ports internes et externes 80</li>
+<li>Créer une règle <code>NAT/PAT</code> pour la raspberry sur les ports internes et externes 443</li>
+<li>Dans le service <code>DynDNS</code> attribuer le nom de domaine obtenu chez NoIP, renseigner l&rsquo;adresse email et le mot de passe NoIP</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h2 id="paramétrages-de-apache-et-de-linterface-wsgi">Paramétrages de Apache et de l&rsquo;interface wsgi<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#paramétrages-de-apache-et-de-linterface-wsgi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Paramétrages de Apache et de l&rsquo;interface wsgi" href="#paramétrages-de-apache-et-de-linterface-wsgi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="sécurisation-minimale-du-serveur-apache">Sécurisation minimale du serveur apache<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#sécurisation-minimale-du-serveur-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Sécurisation minimale du serveur apache" href="#sécurisation-minimale-du-serveur-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Suivre les instructions de la page <a href="https://wiki.debian-fr.xyz/S%C3%A9curiser_Apache2#Limiter_les_informations_visibles">wiki.debian</a></p>
+</li>
+<li>
+<p>Ouvrir en écriture le fichier security.conf</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo nano /etc/apache2/conf-available/security.conf
+</span></span></code></pre></div></li>
+<li>
+<p>Modifier le fichier comme suit</p>
+<ul>
+<li>modifier <code>ServerTokens Prod</code> (et non OS)</li>
+<li>modifier <code>ServerSignature Off</code> (et non On)</li>
+<li>laisser <code>TraceEnable Off</code></li>
+<li>décommenter <code>Header set X-Content-Type-Options: &quot;nosniff&quot;</code></li>
+<li>décommenter <code>Header set X-Frame-Options: &quot;sameorigin&quot;</code></li>
+</ul>
+</li>
+<li>
+<p>Modifier la page d&rsquo;accueil Apache en la supprimant et en la remplaçant par une nouvelle</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo rm /var/www/html/index.html
+</span></span><span class="line"><span class="cl">sudo nano /var/www/html/index.html
+</span></span></code></pre></div></li>
+<li>
+<p>Copier, par exemple, le script suivant dans cette nouvelle page</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">PAGE INACCESSIBLE
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Créer une page erreur 404</p>
+<pre><code>sudo nano /var/www/html/missing.html
+</code></pre>
+</li>
+<li>
+<p>Copier, par exemple, le script suivant dans cette nouvelle page</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">DOCUMENT INEXISTANT<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">MISSING DOCUMENT
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Modifier /etc/apache2/conf-available/localized-error-pages.conf</p>
+<pre><code>sudo nano /etc/apache2/conf-available/localized-error-pages.conf
+</code></pre>
+</li>
+<li>
+<p>Et décommenter la ligne <code>ErrorDocument 404 /missing.html</code></p>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="installation-du-module-mod_wsgi">Installation du module mod_wsgi<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#installation-du-module-mod_wsgi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation du module mod_wsgi" href="#installation-du-module-mod_wsgi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Installer le module dans l&rsquo;environnement virtuel</p>
+<pre><code>(venv) pip install mod_wsgi
+</code></pre>
+</li>
+<li>
+<p>Se placer dans le répertoire des packages python de l&rsquo;environnement virtuel</p>
+<pre><code>(venv) cd /home/pi/folder/folder_venv/lib/python3.7/site-packages
+</code></pre>
+<p>(Modifier la commande en fonction de la version python de l&rsquo;environnement virtuel)</p>
+</li>
+<li>
+<p>Lancer la commande suivante depuis ce répertoire</p>
+<pre><code>(venv) mod_wsgi-express module-config
+</code></pre>
+</li>
+<li>
+<p>On obtient une sortie de ce type</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">LoadModule wsgi_module <span class="s2">&#34;/home/pi/folder/folder_venv/lib/python3.7/site-packages/mod_wsgi/server/mod_wsgi-py37.cpython-37m-arm-linux-gnueabihf.so&#34;</span>
+</span></span><span class="line"><span class="cl">WSGIPythonHome <span class="s2">&#34;/home/pi/folder/folder_venv&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Créer un fichier wsgi.load dans /etc/apache2/mods-available</p>
+<pre><code>sudo nano /etc/apache2/mods-available/wsgi.load
+</code></pre>
+</li>
+<li>
+<p>Dans ce fichier coller les deux lignes récupérées précédemment</p>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="création-des-répertoires-de-stockage-des-photos">Création des répertoires de stockage des photos<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#création-des-répertoires-de-stockage-des-photos" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création des répertoires de stockage des photos" href="#création-des-répertoires-de-stockage-des-photos"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo mkdir /var/www/stock
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /var/www/stock
+</span></span><span class="line"><span class="cl">sudo mkdir Camera_1 Camera_2 Camera_py
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="donner-les-droits-à-www-data-et-à-lutilisateur-pi">Donner les droits à www-data et à l&rsquo;utilisateur pi<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#donner-les-droits-à-www-data-et-à-lutilisateur-pi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Donner les droits à www-data et à l&rsquo;utilisateur pi" href="#donner-les-droits-à-www-data-et-à-lutilisateur-pi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Créer un groupe composé de pi et www-data, appelé varwwwusers</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo addgroup varwwwusers
+</span></span><span class="line"><span class="cl">sudo adduser pi varwwwusers
+</span></span><span class="line"><span class="cl">sudo adduser www-data varwwwusers
+</span></span></code></pre></div></li>
+<li>
+<p>Changer le propriétaire et les droits du dossier /var/www/stock</p>
+<pre><code>sudo chown -R pi:varwwwusers /var/www/stock
+chmod -R 750 /var/www/stock
+</code></pre>
+</li>
+<li>
+<p>Modifier le propriétaire et les droits de db.sqlite3</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo chown pi:www-data ~/folder/project/db.sqlite3
+</span></span><span class="line"><span class="cl">sudo chmod <span class="m">770</span> ~/folder/project/db.sqlite3
+</span></span></code></pre></div></li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="copier-les-fichiers-statiques-de-django-vers-varwwwstock">Copier les fichiers statiques de Django vers /var/www/stock<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#copier-les-fichiers-statiques-de-django-vers-varwwwstock" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Copier les fichiers statiques de Django vers /var/www/stock" href="#copier-les-fichiers-statiques-de-django-vers-varwwwstock"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cp -r ~/folder/project/camera/static/camera /var/www/stock
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-settingsspanspanpy">Modifier le fichier settings<span></span>.py<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#modifier-le-fichier-settingsspanspanpy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier settings<span></span>.py" href="#modifier-le-fichier-settingsspanspanpy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Ouvrir le fichier settings.py</p>
+<pre><code>nano ~/folder/project/project/settings.py
+</code></pre>
+</li>
+<li>
+<p>Mettre la valeur <code>DEBUG</code> à <code>False</code></p>
+<pre><code>DEBUG = False
+</code></pre>
+</li>
+<li>
+<p>Masquer la clé de sécurité</p>
+<ul>
+<li>
+<p>Copier la valeur de <code>SECRET_KEY</code></p>
+</li>
+<li>
+<p>Créer et ouvrir en écriture /etc/camera/secret_key.txt</p>
+<pre><code>sudo nano /etc/camera/secret_key.txt
+</code></pre>
+</li>
+<li>
+<p>Coller la valeur de <code>SECRET_KEY</code> dans ce fichier</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Remplacer la ligne <code>SECRET_KEY = '&lt;votre SECRET_KEY&gt;'</code> par</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="err">‘</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">secret_key</span><span class="o">.</span><span class="n">txt</span><span class="err">’</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span></code></pre></div></li>
+<li>
+<p>STATICFILES_DIRS : ajouter en fin du fichier <code>settings.py</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">[</span>  
+</span></span><span class="line"><span class="cl"><span class="n">BASE_DIR</span> <span class="o">/</span> <span class="s2">&#34;/home/pi/folder/project/camera/static&#34;</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;/var/www/stock&#34;</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">]</span> 
+</span></span></code></pre></div></li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="restreindre-laccès-au-site">Restreindre l&rsquo;accès au site<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#restreindre-laccès-au-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Restreindre l&rsquo;accès au site" href="#restreindre-laccès-au-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Créer le fichier .htaccess dans /etc/apache2</p>
+<pre><code>sudo touch /etc/apache2/.htpasswd
+</code></pre>
+</li>
+</ul>
+<p>-Créer un utilisateur, par exemple foo :</p>
+<pre><code>  sudo htpasswd /etc/apache2/.htpasswd foo
+</code></pre>
+<ul>
+<li>A l’invite de commande &lsquo;New password&rsquo; rentrer un mot de passe</li>
+<li>A l’invite de commande &lsquo;Re-type new password&rsquo; rentrer à nouveau le mot de passe</li>
+<li>Le message &quot; Adding password for user foo &quot;  s’affiche.</li>
+<li>Créer autant d’utilisateurs que nécessaire en procédant de la même manière.</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="obtenir-un-certificat-certbot-de-lets-encrypt">Obtenir un certificat Certbot de Let&rsquo;s Encrypt<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#obtenir-un-certificat-certbot-de-lets-encrypt" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Obtenir un certificat Certbot de Let&rsquo;s Encrypt" href="#obtenir-un-certificat-certbot-de-lets-encrypt"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Lancer la commande</p>
+<pre><code>sudo certbot certonly --apache --rsa-key-size 4096
+</code></pre>
+</li>
+<li>
+<p>Répondre aux invites de commandes</p>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-le-fichier-de-configuration-project-cameraconf">Créer le fichier de configuration project-camera.conf<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#créer-le-fichier-de-configuration-project-cameraconf" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le fichier de configuration project-camera.conf" href="#créer-le-fichier-de-configuration-project-cameraconf"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Créer et ouvrir le fichie en écriture</p>
+<pre><code>sudo nano /etc/apache2/sites-available/project-camera.conf
+</code></pre>
+</li>
+<li>
+<p>Coller/copier le contenu du fichier <code>project-camera.conf</code> disponible <a href="https://djangocamera.netlify.app/script/project-camera_conf_V5/" title="project-camera_V5.html">ici</a>.</p>
+</li>
+<li>
+<p>Renseigner le nom de son site partout où nécessaire</p>
+</li>
+<li>
+<p>Renseigner l&rsquo;adresse IP locale de la raspberry partout où nécessaire</p>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="activer-les-différents-modules-de-apache">Activer les différents modules de apache<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#activer-les-différents-modules-de-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Activer les différents modules de apache" href="#activer-les-différents-modules-de-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Activation des modules</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo a2enmod headers
+</span></span><span class="line"><span class="cl">sudo a2enmod wsgi
+</span></span><span class="line"><span class="cl">sudo a2enmod proxy_http
+</span></span><span class="line"><span class="cl">sudo a2enmod ssl 
+</span></span><span class="line"><span class="cl">sudo a2enmod rewrite
+</span></span></code></pre></div></li>
+<li>
+<p>Activation du site</p>
+<pre><code>sudo a2ensite project-camera
+</code></pre>
+</li>
+<li>
+<p>Redémarrer apache2</p>
+<pre><code>sudo systemctl restart apache2
+</code></pre>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="accès-au-site">Accès au site<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#accès-au-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès au site" href="#accès-au-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>Depuis l&rsquo;extérieur du réseau, le site est accessible à l&rsquo;adresse : &lt;nom du site&gt;/camera</li>
+<li>Depuis le réseau local, le site est accessible à l&rsquo;adresse : &lt;adresse Ip locale&gt;:54321/camera</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h2 id="scripts-de-gestion">Scripts de gestion<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#scripts-de-gestion" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Scripts de gestion" href="#scripts-de-gestion"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-le-dossier-script">Créer le dossier ~/script<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#créer-le-dossier-script" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le dossier ~/script" href="#créer-le-dossier-script"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir ~/script
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="scripts-de-lancement-des-caméras">Scripts de lancement des caméras<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#scripts-de-lancement-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Scripts de lancement des caméras" href="#scripts-de-lancement-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Créer et écrire le fichier runCamera_1.py</p>
+<pre><code>nano ~/script/runCamera_1.py
+</code></pre>
+</li>
+</ul>
+<p>Et coller dans la fenêtre le contenu du fichier runCamera_1.py disponible <a href="https://djangocamera.netlify.app/script/runCamera_1_py/" title="runCamera_1">ici</a></p>
+<ul>
+<li>Faire de même pour les deux autres caméras en créant les fichiers et en copiant/collant le contenu des fichiers <code>runCamera_2.py</code> disponible <a href="https://djangocamera.netlify.app/script/runCamera_2_py/" title="runCamera_1">ici</a> et <code>runCamera_py.py</code> disponible <a href="https://djangocamera.netlify.app/script/runCamera_py_py/" title="runCamera_1">ici</a></li>
+<li>Les scripts sont lancés après un délai d&rsquo;attente paramétrable dans le fichier de configuration.</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="ecrire-le-script-de-capture-et-de-stockage-des-photos">Ecrire le script de capture et de stockage des photos<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#ecrire-le-script-de-capture-et-de-stockage-des-photos" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire le script de capture et de stockage des photos" href="#ecrire-le-script-de-capture-et-de-stockage-des-photos"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Créer et ouvrir en écriture le fichier</p>
+<pre><code>nano ~/script/getCamerasAndRegister.py
+</code></pre>
+</li>
+<li>
+<p>Copier/coller dans la fenêtre le contenu du fichier <code>getCamerasAndRegister.py</code> disponible <a href="https://djangocamera.netlify.app/script/getCamerasAndRegister_py/" title="getCamerasAndRegister.py">ici</a>.</p>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="ecrire-le-script-de-destruction-périodique-des-fichiers">Ecrire le script de destruction périodique des fichiers<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#ecrire-le-script-de-destruction-périodique-des-fichiers" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire le script de destruction périodique des fichiers" href="#ecrire-le-script-de-destruction-périodique-des-fichiers"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>
+<p>Créer et ouvrir en écriture le fichier</p>
+<pre><code>nano ~/script/suppressFiles.py
+</code></pre>
+</li>
+<li>
+<p>Copier/coller dans la fenêtre le contenu du fichier <code>suppressFiles.py</code> disponible <a href="https://djangocamera.netlify.app/script/suppressFiles_py/" title="suppressFiles.py">ici</a>.</p>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="mise-à-jour-régulière-du-système">Mise à jour régulière du système<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#mise-à-jour-régulière-du-système" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Mise à jour régulière du système" href="#mise-à-jour-régulière-du-système"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>Créer et ouvrir le fichier en écriture<br>
+<code>nano ~/script/updateAndUpgradeAuto.sh</code></li>
+<li>Ecrire le script en ajoutant les deux lignes
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!bin/bash  
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>sudo apt update <span class="o">&amp;&amp;</span> sudo apt upgrade -y <span class="o">&amp;&amp;</span> sudo apt autoremove -y
+</span></span></code></pre></div></li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="etre-informé-par-courriel-des-redémarrages-de-la-raspberry">Etre informé par courriel des redémarrages de la raspberry<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#etre-informé-par-courriel-des-redémarrages-de-la-raspberry" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Etre informé par courriel des redémarrages de la raspberry" href="#etre-informé-par-courriel-des-redémarrages-de-la-raspberry"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>Créer et ouvrir le script en écriture
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/mail_reboot.py
+</span></span></code></pre></div></li>
+<li>Copier/coller le contenu du fichier <code>mail_reboot.py</code> disponible <a href="https://djangocamera.netlify.app/script/mail_reboot_py/" title="mail_reboot.py">ici</a>    ```</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h2 id="contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement">Contrôle de l&rsquo;IP et envoi d&rsquo;un mail en cas de changement<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Contrôle de l&rsquo;IP et envoi d&rsquo;un mail en cas de changement" href="#contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<ul>
+<li>Si une IP statique (fixe) n&rsquo;est pas assujettie à la box, il faut être informé des changements d&rsquo;IP.</li>
+<li>Créer et ouvrir en écriture le fichier ~/currentIP.txt
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/currentIP.txt
+</span></span></code></pre></div></li>
+<li>Ecrire la ligne suivante
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;ip&#34;</span>: <span class="s2">&#34; &#34;</span>, <span class="s2">&#34;date&#34;</span>: <span class="s2">&#34; &#34;</span><span class="o">}</span>
+</span></span></code></pre></div><em>Si vous n&rsquo;écrivez rien dans le fichier, lorsque le script se lancera il soulèvera une erreur.</em></li>
+<li>Créer et ouvrir en écriture le fichier <code>~/script/ipcheck.py</code>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/ipcheck.py  
+</span></span></code></pre></div></li>
+<li>Copier/coller le contenu du fichier <code>ipcheck.py</code> disponible <a href="https://djangocamera.netlify.app/script/ipcheck_py/" title="ipcheck.py">ici</a></li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="lancement-des-différents-scripts-dans-le-cron">Lancement des différents scripts dans le cron<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#lancement-des-différents-scripts-dans-le-cron" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancement des différents scripts dans le cron" href="#lancement-des-différents-scripts-dans-le-cron"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>Éditer le crontab
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">crontab -e
+</span></span></code></pre></div></li>
+<li>Copier dans le crontab les lignes suivantes
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">@reboot python3 /home/pi/script/runCamera_1.py
+</span></span><span class="line"><span class="cl">@reboot python3 /home/pi/script/runCamera_2.py
+</span></span><span class="line"><span class="cl">@reboot python3 /home/pi/script/runCamera_py.py
+</span></span><span class="line"><span class="cl">@reboot python3 /home/pi/script/getCamerasAndRegister.py
+</span></span><span class="line"><span class="cl"><span class="m">10</span> <span class="m">03</span> * * * python3 /home/pi/script/suppressFiles.py
+</span></span><span class="line"><span class="cl"><span class="m">10</span> <span class="m">02</span> <span class="m">3</span> */2 * sh /home/pi/script/certbotRenew.sh
+</span></span><span class="line"><span class="cl"><span class="m">10</span> <span class="m">04</span> * * <span class="m">1</span> sh /home/pi/script/updateAndUpgradeAuto.sh
+</span></span><span class="line"><span class="cl">@reboot python3 /home/pi/script/mail_reboot.py
+</span></span><span class="line"><span class="cl">*/10 * * * * python3 /home/pi/script/ipcheck.py
+</span></span></code></pre></div></li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h2 id="accès-à-la-raspberry-depuis-son-téléphone-mobile">Accès à la Raspberry depuis son téléphone mobile<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#accès-à-la-raspberry-depuis-son-téléphone-mobile" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès à la Raspberry depuis son téléphone mobile" href="#accès-à-la-raspberry-depuis-son-téléphone-mobile"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<ul>
+<li>Différentes applications permettent d&rsquo;accéder en ssh à un ordinateur distant depuis son téléphone mobile.</li>
+<li>Termius est une application simple dont la version gratuite est amplement suffisante pour ce projet.</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h2 id="accès-au-site-1">Accès au site<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#accès-au-site-1" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès au site" href="#accès-au-site-1"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<ul>
+<li>Depuis l&rsquo;extérieur du réseau, le site est accessible à l&rsquo;adresse : <code>&lt;nom du site&gt;/camera</code></li>
+<li>Depuis le réseau local, le site est accessible à l&rsquo;adresse : <code>&lt;adresse Ip locale&gt;:54321/camera</code></li>
+</ul>
+
+
+    </article>
+
+                
+
+
+
+
+
+
+
+
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+                
+                
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+                
+                
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+
+
+
+
+
+<div class="gdoc-page__footer flex flex-wrap justify-between">
+    
+    
+        <span class="gdoc-page__nav">
+            
+                <a class="gdoc-page__nav--prev flex align-center" href="/tuto/part10/" title="Mise en place de 2 Raspberry"> Mise en place de 2 Raspberry</a>
+            
+        </span>
+        <span class="gdoc-page__nav">
+            
+                <a class="gdoc-page__nav--next flex align-center" href="/script/accueil_html/" title="accueil.html">accueil.html </a>
+            
+        </span>
+    
+</div>
+
+            </div>
+        </main>
+
+        <footer class="gdoc-footer">
+    <div class="container flex flex-wrap">
+        <span class="gdoc-footer__item">
+            Tutoriel : Raspberry - Django - Apache - mjpg-streamer
+        </span>
+        
+        
+    </div>
+</footer>
+
+    </div>
+
+    
+
+
+
+
+<script defer src="/js/fr.search.min.698ee1d07ab8dd7dba227b7cf14b1ee7ed042413dc215a5af2b4f15f9df11afe.js"></script>
+
+
+
+<script defer src="/js/clipboard-af8ab36589.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var clipboard = new ClipboardJS('.clip');
+    });
+</script>
+
+
+</body>
+</html>

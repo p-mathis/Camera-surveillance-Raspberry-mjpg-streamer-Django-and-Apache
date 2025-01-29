@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rapids on Surveillance camera avec raspberry, mjpg-streamer, Django et Apache</title>
+    <link>https://djangocamera.netlify.app/rapid/</link>
+    <description>Recent content in Rapids on Surveillance camera avec raspberry, mjpg-streamer, Django et Apache</description>
+    <generator>Hugo</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Mon, 30 Sep 2024 16:00:15 +0200</lastBuildDate>
+    <atom:link href="https://djangocamera.netlify.app/rapid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Guide Rapide</title>
+      <link>https://djangocamera.netlify.app/rapid/rapid/</link>
+      <pubDate>Sat, 23 Jan 2021 19:44:10 +0100</pubDate>
+      <guid>https://djangocamera.netlify.app/rapid/rapid/</guid>
+      <description>&lt;h2 id=&#34;préalable&#34;&gt;Préalable&lt;/h2&gt;&#xA;&lt;p&gt;Raspbian est installé sur la Raspberry. Celle-ci est accessible par SSH depuis un ordinateur à partir duquel sont lancées toutes les commandes.&lt;br&gt;&#xA;La Raspberry a une IP locale fixe.&lt;br&gt;&#xA;La pi-caméra et les deux caméras USB sont branchées.&lt;/p&gt;&#xA;&lt;h2 id=&#34;installation-de-logiciels-et-de-dépendances&#34;&gt;Installation de logiciels et de dépendances&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;mise à jour (si raspbian est d&amp;rsquo;installation ancienne)&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;sudo apt update &amp;amp;&amp;amp; sudo apt upgrade -y&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;dépendances pour mjpg-streamer&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;sudo apt install cmake libjpeg8-dev -y&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;apache2 et ses dépendances&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
