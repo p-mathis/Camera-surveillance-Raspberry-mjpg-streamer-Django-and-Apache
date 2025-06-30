@@ -1,7 +1,7 @@
 ---
 title: "GetCamerasAndRegister_py_2Raspberry"
 date: 2025-06-30T17:22:00+02:00
-draft: true
+draft: false
 ---
 
 ```python

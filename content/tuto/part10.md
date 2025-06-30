@@ -214,7 +214,7 @@ c.execute("INSERT INTO {}_photo(date, appareil_id, name, path) VALUES (?, '6', ?
 - Tout ceci si on a nommé les dossiers de stockage `Camera_5` et `Camera_ir` 
 - Et si on a créé deux caméras dans le shell
 
-- Le nouveau fichier `getCamerasAndRegister.py` est visible dans la partie [script]({{< ref "/script/getCamerasAndRegister_py_4cam.md" >}})
+- Le nouveau fichier `getCamerasAndRegister.py` est visible dans la partie [script]({{< ref "/script/getCamerasAndRegister_py_2Raspberry.md" >}})
 
 ### Modifier les fichiers urls.py et views.py
 - Suivre les indications données dans le tutoriel [Partie 8 - Fichiers urls et views]({{< ref "part8.md#modifier-les-fichiers-urls-et-views-de-django" >}})

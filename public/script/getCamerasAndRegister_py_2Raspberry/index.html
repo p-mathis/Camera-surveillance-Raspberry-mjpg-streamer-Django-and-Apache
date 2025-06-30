@@ -4,11 +4,11 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Tutoriel : Partie 10 - Mise en place de 2 Raspberry">
+<meta name="description" content="GetCamerasAndRegister_py_2Raspberry">
 
 <meta name="google-site-verification" content="4cu-TE4fzvQukOPyIEU106SAMT-DKdp2D_R95dt-83g" />
 
-<title>Tutoriel : Partie 10 - Mise en place de 2 Raspberry | Surveillance camera avec raspberry, mjpg-streamer, Django et Apache</title>
+<title>GetCamerasAndRegister_py_2Raspberry | Surveillance camera avec raspberry, mjpg-streamer, Django et Apache</title>
 
 <link rel="icon" href="/favicon/favicon-32x32CAM.png" type="image/x-icon">
 
@@ -447,7 +447,7 @@
             <span class="flex">
                 
                 <a href="/tuto/part10/"
-                    class="gdoc-nav__entry is-active">
+                    class="gdoc-nav__entry ">
                     Mise en place de 2 Raspberry
                 </a>
             </span>
@@ -2151,7 +2151,7 @@
             <span class="flex">
                 
                 <a href="/script/getCamerasAndRegister_py_2Raspberry/"
-                    class="gdoc-nav__entry ">
+                    class="gdoc-nav__entry is-active">
                     getCamerasAndRegister_py_2Raspberry
                 </a>
             </span>
@@ -2199,7 +2199,7 @@
 
 
     <article class="gdoc-markdown">
-        <h1>Tutoriel : Partie 10 - Mise en place de 2 Raspberry</h1>
+        <h1>GetCamerasAndRegister_py_2Raspberry</h1>
         
 
 
@@ -2207,265 +2207,103 @@
     
 
 
-<div class="gdoc-page__anchorwrap"><h2 id="position-du-problème">Position du problème<a data-clipboard-text="http://localhost:1313/tuto/part10/#position-du-problème" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<ul>
-<li>La Raspberry peut être limitée en termes de capacités</li>
-<li>Soit parce que le nombre de caméras est élevé et que la Raspberry va peiner à traiter toutes les images</li>
-<li>Soit parce qu&rsquo;on souhaite utiliser deux caméras pi et que la Raspberry ne peut en accueillir qu&rsquo;une</li>
-<li>Nous appelons Raspberry Principale la Raspberry qui héberge le site Django</li>
-<li>Et Raspberry Secondaire la nouvelle Raspberry</li>
-</ul>
-<div class="gdoc-page__anchorwrap"><h2 id="schéma-de-la-procédure">Schéma de la procédure<a data-clipboard-text="http://localhost:1313/tuto/part10/#schéma-de-la-procédure" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Schéma de la procédure" href="#schéma-de-la-procédure"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<ul>
-<li>Installer la Raspberry Secondaire et la caméra</li>
-<li>Créer les scripts sur cette Raspberry</li>
-<li>Créer un répertoire de stockage des photos sur la Raspberry Principale et créer la caméra dans la base de données</li>
-<li>Modifier le serveur Apache sur la Raspberry Principale</li>
-</ul>
-<div class="gdoc-page__anchorwrap"><h2 id="installer-la-raspberry-secondaire">Installer la Raspberry Secondaire<a data-clipboard-text="http://localhost:1313/tuto/part10/#installer-la-raspberry-secondaire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer la Raspberry Secondaire" href="#installer-la-raspberry-secondaire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<ul>
-<li>Préparer la Raspberry : procédure de la <a href="http://localhost:1313/tuto/part1/#mise-en-route-de-la-raspberry">première partie du tutoriel</a></li>
-<li>Mettre en place sur cette Raspberry <code>mjpg-streamer</code></li>
-<li>C&rsquo;est la même procédure que celle indiquée dans la <a href="http://localhost:1313/tuto/part2/">deuxième partie du tutoriel</a></li>
-<li>On peut mettre en place un fichier de configuration sur cette Raspberry Secondaire</li>
-<li>Dans ce tutoriel, on simplifie en codant <em>en dur</em> les variables liées à la Raspberry Secondaire</li>
-<li>Installer la camera en suivant la procédure du <a href="http://localhost:1313/tuto/part2/#installation-et-dénomination-des-caméras">tutoriel</a></li>
-</ul>
-<div class="gdoc-page__anchorwrap"><h2 id="créer-les-scripts-sur-la-raspberry-secondaire">Créer les scripts sur la Raspberry Secondaire<a data-clipboard-text="http://localhost:1313/tuto/part10/#créer-les-scripts-sur-la-raspberry-secondaire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les scripts sur la Raspberry Secondaire" href="#créer-les-scripts-sur-la-raspberry-secondaire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-différents-dossiers">Créer différents dossiers<a data-clipboard-text="http://localhost:1313/tuto/part10/#créer-différents-dossiers" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer différents dossiers" href="#créer-différents-dossiers"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<ul>
-<li>Créer un dossier script placé dans /home/pi/
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir ~/script
-</span></span></code></pre></div></li>
-<li>Créer un dossier de stockage des images
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo mkdir /var/www/stock /var/www/stock/Camera
-</span></span></code></pre></div></li>
-<li>Changer le propriétaire de /var/www/stock
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo chown -R pi /var/www/stock
-</span></span></code></pre></div></li>
-</ul>
-<div class="gdoc-page__anchorwrap"><h3 id="script-de-lancement-de-la-camera">Script de lancement de la camera<a data-clipboard-text="http://localhost:1313/tuto/part10/#script-de-lancement-de-la-camera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Script de lancement de la camera" href="#script-de-lancement-de-la-camera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<div class="gdoc-page__anchorwrap"><h4 id="créer-le-script-en-écriture">Créer le script en écriture<a data-clipboard-text="http://localhost:1313/tuto/part10/#créer-le-script-en-écriture" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le script en écriture" href="#créer-le-script-en-écriture"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/runCamera.py
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="écrire-le-contenu">Écrire le contenu<a data-clipboard-text="http://localhost:1313/tuto/part10/#écrire-le-contenu" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Écrire le contenu" href="#écrire-le-contenu"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;Script python qui :
+</span></span></span><span class="line"><span class="cl"><span class="s2">prend une photo depuis chacune des caméras
+</span></span></span><span class="line"><span class="cl"><span class="s2">stocke cette photo dans le dossier ad hoc
+</span></span></span><span class="line"><span class="cl"><span class="s2">modifie la base de données pour indiquer la date, la camera, le nom de la photo et le chemin du fichier
+</span></span></span><span class="line"><span class="cl"><span class="s2">Dans la mesure où on est susceptible de prendre des photos rapprochées (moins de la minute), le cron est insuffisant
+</span></span></span><span class="line"><span class="cl"><span class="s2">On fait donc une boucle while infinie avec le delta temps pour prendre les photos en fonction du paramète [frequences][capture] du fichier /etc/camera/configuration.ini.&#34;&#34;&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;Modifier les valeurs en fonction&#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">mjpg_path</span> <span class="o">=</span> <span class="s2">&#34;/home/pi/mjpg-streamer-experimental&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">cam_name</span> <span class="o">=</span> <span class="s2">&#34;xxxx-video-index0&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">cam_port</span> <span class="o">=</span> <span class="s2">&#34;8088&#34;</span> 
-</span></span><span class="line"><span class="cl"><span class="n">cam_resol</span> <span class="o">=</span> <span class="s2">&#34;640x480&#34;</span>  
-</span></span><span class="line"><span class="cl"><span class="n">cam_fps</span> <span class="o">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Ajout d&#39;une caméra supplémentaire</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">delay_run</span> <span class="o">=</span> <span class="mi">60</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">sleep</span><span class="p">(</span><span class="n">delay_run</span><span class="p">)</span>  <span class="c1">#attente avant de lancer les commandes</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">command</span> <span class="o">=</span> <span class="s2">&#34;cd </span><span class="si">{}</span><span class="s2"> &amp;&amp; export LD_LIBRARY_PATH=. &amp;&amp; ./mjpg_streamer -i &#39;input_uvc.so -r </span><span class="si">{}</span><span class="s2"> -fps </span><span class="si">{}</span><span class="s2"> -d /dev/v4l/by-id/</span><span class="si">{}</span><span class="s2">&#39; -o &#39;output_http.so -p </span><span class="si">{}</span><span class="s2"> -w </span><span class="si">{}</span><span class="s2">/www&#39;&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mjpg_path</span><span class="p">,</span><span class="n">cam_resol</span><span class="p">,</span> <span class="n">cam_fps</span><span class="p">,</span> <span class="n">cam_name</span><span class="p">,</span> <span class="n">cam_port</span><span class="p">,</span> <span class="n">mjpg_path</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span></code></pre></div><ul>
-<li>Modifier les valeurs en fonction des paramètres choisis</li>
-</ul>
-<div class="gdoc-page__anchorwrap"><h4 id="lancer-le-script-au-démareage">Lancer le script au démareage<a data-clipboard-text="http://localhost:1313/tuto/part10/#lancer-le-script-au-démareage" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancer le script au démareage" href="#lancer-le-script-au-démareage"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
-<ul>
-<li>Ouvrir le crontab</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">crontab -e
-</span></span></code></pre></div><ul>
-<li>Ajouter la commande</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">@reboot python3 /home/pi/script/runCamera.py
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="script-denvoi-des-images-vers-la-raspberry-principale">Script d&rsquo;envoi des images vers la Raspberry Principale<a data-clipboard-text="http://localhost:1313/tuto/part10/#script-denvoi-des-images-vers-la-raspberry-principale" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Script d&rsquo;envoi des images vers la Raspberry Principale" href="#script-denvoi-des-images-vers-la-raspberry-principale"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<div class="gdoc-page__anchorwrap"><h4 id="principe">Principe<a data-clipboard-text="http://localhost:1313/tuto/part10/#principe" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Principe" href="#principe"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
-<ul>
-<li>Les images vont être stockées dans le dossier <code>/var/www/stock/Camera</code> de la deuxième caméra toutes les minutes</li>
-<li>Elles sont envoyées par le protocole <code>scp</code> sur la Raspberry principale</li>
-<li>Elles sont stockées dans un dossier <code>/var/www/stock/Camera_n</code> où <code>n</code> représente la n-ième caméra du système</li>
-</ul>
-<div class="gdoc-page__anchorwrap"><h4 id="charger-les-bibliothèques-nécessaires">Charger les bibliothèques nécessaires<a data-clipboard-text="http://localhost:1313/tuto/part10/#charger-les-bibliothèques-nécessaires" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Charger les bibliothèques nécessaires" href="#charger-les-bibliothèques-nécessaires"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
-<ul>
-<li>Ouvrir un terminal dans la Raspberry Secondaire : <code>Ctrl + Alt + T</code></li>
-<li>Installer les deux bibliothèques nécessaires
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pip3 install paramiko
-</span></span><span class="line"><span class="cl">pip3 install scp
-</span></span></code></pre></div></li>
-</ul>
-<div class="gdoc-page__anchorwrap"><h4 id="créer-le-script-en-écriture-dans-la-raspberry-secondaire">Créer le script en écriture dans la Raspberry Secondaire<a data-clipboard-text="http://localhost:1313/tuto/part10/#créer-le-script-en-écriture-dans-la-raspberry-secondaire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le script en écriture dans la Raspberry Secondaire" href="#créer-le-script-en-écriture-dans-la-raspberry-secondaire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/stockAndSendImage.py
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="écrire-le-contenu-1">Écrire le contenu<a data-clipboard-text="http://localhost:1313/tuto/part10/#écrire-le-contenu-1" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Écrire le contenu" href="#écrire-le-contenu-1"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">paramiko</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scp</span> <span class="kn">import</span> <span class="n">SCPClient</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sqlite3</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">configparser</span> <span class="kn">import</span> <span class="n">ConfigParser</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">createSSHClient</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">client</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">SSHClient</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="n">client</span><span class="o">.</span><span class="n">load_system_host_keys</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="n">client</span><span class="o">.</span><span class="n">set_missing_host_key_policy</span><span class="p">(</span><span class="n">paramiko</span><span class="o">.</span><span class="n">AutoAddPolicy</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">    <span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">client</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;Modifier les valeurs en fonction&#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">delay</span> <span class="o">=</span> <span class="mi">8</span>   <span class="c1"># délai en secondes entre la prise de la photo et son envoi par le protocole scp</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Les données concernant la Raspberry Principale</span>
-</span></span><span class="line"><span class="cl"><span class="n">server</span> <span class="o">=</span> <span class="s2">&#34;192.168.1.50&#34;</span> <span class="c1"># l&#39;adresse IP locale de la Raspberry Principale qui porte le site Django</span>
-</span></span><span class="line"><span class="cl"><span class="n">port</span> <span class="o">=</span> <span class="s2">&#34;22&#34;</span>  <span class="c1"># le port usuel du ssh en local</span>
-</span></span><span class="line"><span class="cl"><span class="n">user</span> <span class="o">=</span> <span class="s2">&#34;pi&#34;</span>  <span class="c1"># si vous n&#39;avez pas modifié le nom d&#39;utilisateur de la Raspberry Principale</span>
-</span></span><span class="line"><span class="cl"><span class="n">password</span> <span class="o">=</span> <span class="s2">&#34;le mot de passe de la Raspberry Principale&#34;</span> 
-</span></span><span class="line"><span class="cl"><span class="n">path_server</span> <span class="o">=</span> <span class="s2">&#34;/var/www/stock/Camera_8&#34;</span>   <span class="c1"># modifier selon le lieu de stockage sur la Raspberry Principale</span>
+</span></span><span class="line"><span class="cl"><span class="n">parser_file</span> <span class="o">=</span> <span class="s2">&#34;/etc/camera/configuration.ini&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">parser</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">parser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">parser_file</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Les données concernant la Raspberry Secondaire</span>
-</span></span><span class="line"><span class="cl"><span class="n">sender</span> <span class="o">=</span> <span class="s2">&#34;127.0.0.1&#34;</span>   <span class="c1"># peut aussi être remplacé par 192.168.1.xx ; représente l&#39;ip locale de la Raspberry Secondaire</span>
-</span></span><span class="line"><span class="cl"><span class="n">cam_port</span> <span class="o">=</span> <span class="s2">&#34;8088&#34;</span>   <span class="c1"># le port donné à la caméra de la Raspberry Secondaire</span>
-</span></span><span class="line"><span class="cl"><span class="n">path_sender</span> <span class="o">=</span> <span class="s2">&#34;/var/www/stock/Camera&#34;</span>   <span class="c1"># le lieu de stockage défini au niveau de la Raspberry Secondaire</span>
+</span></span><span class="line"><span class="cl"><span class="n">host</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;hosts&#34;</span><span class="p">,</span> <span class="s2">&#34;local&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">stock</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;paths&#34;</span><span class="p">,</span> <span class="s2">&#34;stock&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">pathCamera_1</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;paths&#34;</span><span class="p">,</span> <span class="s2">&#34;pathCamera_1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">pathCamera_2</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;paths&#34;</span><span class="p">,</span> <span class="s2">&#34;pathCamera_2&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">pathCamera_py</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;paths&#34;</span><span class="p">,</span> <span class="s2">&#34;pathCamera_py&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">home</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;paths&#34;</span><span class="p">,</span> <span class="s2">&#34;home&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">folder</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;paths&#34;</span><span class="p">,</span> <span class="s2">&#34;folder&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">project</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;paths&#34;</span><span class="p">,</span> <span class="s2">&#34;project&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">baseName</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;paths&#34;</span><span class="p">,</span> <span class="s2">&#34;baseName&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">cam_1_port</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;camera&#34;</span><span class="p">,</span> <span class="s2">&#34;cam_1_port&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">cam_2_port</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;camera&#34;</span><span class="p">,</span> <span class="s2">&#34;cam_2_port&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">cam_py_port</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;camera&#34;</span><span class="p">,</span> <span class="s2">&#34;cam_py_port&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">capture</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;frequences&#34;</span><span class="p">,</span> <span class="s2">&#34;capture&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">appli</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;paths&#34;</span><span class="p">,</span> <span class="s2">&#34;appli&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">script</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;paths&#34;</span><span class="p">,</span> <span class="s2">&#34;script&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">name</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%d</span><span class="s2">-%m_%H:%M:00&#34;</span><span class="p">)</span>  <span class="c1"># le nom de la photo du type 25-06_19:52:00 si la photo a été prise un 25 juin à 19h52</span>
+</span></span><span class="line"><span class="cl"><span class="n">path_1</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">pathCamera_1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">path_2</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">pathCamera_2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">path_py</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">pathCamera_py</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;wget http://</span><span class="si">{}</span><span class="s1">:</span><span class="si">{}</span><span class="s1">/?action=snapshot -O </span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">cam_port</span><span class="p">,</span> <span class="n">path_sender</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Ajout d&#39;une caméra suplémentaire - Ajout des variables</span>
+</span></span><span class="line"><span class="cl"><span class="n">pathCamera_3</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;paths&#34;</span><span class="p">,</span> <span class="s2">&#34;pathCamera_3&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">cam_3_port</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;camera&#34;</span><span class="p">,</span> <span class="s2">&#34;cam_3_port&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">path_3</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">pathCamera_3</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">ssh</span> <span class="o">=</span> <span class="n">createSSHClient</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>  <span class="c1"># création du client ssh : la Raspberry Principale</span>
-</span></span><span class="line"><span class="cl"><span class="n">scp</span> <span class="o">=</span> <span class="n">SCPClient</span><span class="p">(</span><span class="n">ssh</span><span class="o">.</span><span class="n">get_transport</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl"><span class="n">scp</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">path_sender</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">.jpg&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">path_server</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>   <span class="c1"># envoi de la photo en scp</span>
-</span></span><span class="line"><span class="cl"><span class="n">scp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;closed / end&#34;</span><span class="p">)</span>
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="lancer-le-script-toutes-les-minutes">Lancer le script toutes les minutes<a data-clipboard-text="http://localhost:1313/tuto/part10/#lancer-le-script-toutes-les-minutes" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancer le script toutes les minutes" href="#lancer-le-script-toutes-les-minutes"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
-<ul>
-<li>Ouvrir le crontab</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">crontab -e
-</span></span></code></pre></div><ul>
-<li>Ajouter la commande</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">* * * * * python3 /home/pi/script/stockAndSendImage.py
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="script-de-destruction-périodique-des-photos-stockées">Script de destruction périodique des photos stockées<a data-clipboard-text="http://localhost:1313/tuto/part10/#script-de-destruction-périodique-des-photos-stockées" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Script de destruction périodique des photos stockées" href="#script-de-destruction-périodique-des-photos-stockées"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<ul>
-<li>On procède comme cela a été fait pour la <a href="http://localhost:1313/tuto/part3/#ecrire-le-script-de-destruction-périodique-des-photos">Raspberry Principale</a></li>
-<li>Créer et ouvrir en écriture le fichier suppressFiles<span></span>.py
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/suppressFiles.py
-</span></span></code></pre></div></li>
-<li>Copier le code suivant
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">run</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">path</span> <span class="o">=</span> <span class="s2">&#34;/var/www/stock/Camera&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">delay_delete</span> <span class="o">=</span> <span class="mi">2</span>   <span class="c1"># en jours : nombre de jours de stockage des photos</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">command</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;find&#34;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s2">&#34;-mtime&#34;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;+</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">delay_delete</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s2">&#34;-delete&#34;</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-</span></span></code></pre></div></li>
-<li>Lancer le script tous les jours à 03H10 du matin (par exemple) dans le crontab
-<ul>
-<li>Ouvrir le cron en édition</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">crontab -e
-</span></span></code></pre></div><ul>
-<li>Ajouter la ligne suivante</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="m">10</span> <span class="m">03</span> * * * python3 /home/pi/script/suppressFiles.py
-</span></span></code></pre></div></li>
-</ul>
-<div class="gdoc-page__anchorwrap"><h2 id="modifications-au-niveau-de-la-raspberry-principale">Modifications au niveau de la Raspberry Principale<a data-clipboard-text="http://localhost:1313/tuto/part10/#modifications-au-niveau-de-la-raspberry-principale" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifications au niveau de la Raspberry Principale" href="#modifications-au-niveau-de-la-raspberry-principale"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="coder-en-dur-">Coder en dur ?<a data-clipboard-text="http://localhost:1313/tuto/part10/#coder-en-dur-" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Coder en dur ?" href="#coder-en-dur-"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<ul>
-<li>Soit on apporte les modifications de variable au niveau du fichier <code>/etc/camera/configuration.ini</code></li>
-<li>Soit on code en dur dans les différents fichiers</li>
-<li>Dans ce tutoriel, par simplification, on code en dur</li>
-</ul>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-un-répertoire-de-stockage">Créer un répertoire de stockage<a data-clipboard-text="http://localhost:1313/tuto/part10/#créer-un-répertoire-de-stockage" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer un répertoire de stockage" href="#créer-un-répertoire-de-stockage"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<ul>
-<li>Se connecter en <code>ssh</code> à la Raspberry Principale</li>
-<li>Créer le dossier Camera-n (où n représente la n-ième caméra)
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir /var/www/stock/Camera-n
-</span></span></code></pre></div></li>
-<li>A priori, inutile d&rsquo;être en <code>sudo</code> : <code>pi</code> a les droits sur le dossier /var/www/stock</li>
-</ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-de-suppression-des-images">Modifier le fichier de suppression des images<a data-clipboard-text="http://localhost:1313/tuto/part10/#modifier-le-fichier-de-suppression-des-images" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de suppression des images" href="#modifier-le-fichier-de-suppression-des-images"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<ul>
-<li>Ouvrir le fichier suppressFiles</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/suppressFiles.py
-</span></span></code></pre></div><ul>
-<li>Ajouter la commande de suppression des fichiers</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">command_8</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;find&#34;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">stock</span><span class="si">}</span><span class="s1">/Camera-8&#39;</span><span class="p">,</span> <span class="s2">&#34;-mtime&#34;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;+</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">delay_delete</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s2">&#34;-delete&#34;</span><span class="p">]</span>
-</span></span></code></pre></div><ul>
-<li>En modifiant, éventuellement, le nom de la commande et <code>Camera-8</code> par le nom du dossier où sont stockées les photos dans la Raspberry Principale</li>
-<li>Et lancer la commande en ajoutant</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">run</span><span class="p">(</span><span class="n">command_8</span><span class="p">)</span>
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="créer-la-caméra-dans-la-base-de-données">Créer la caméra dans la base de données<a data-clipboard-text="http://localhost:1313/tuto/part10/#créer-la-caméra-dans-la-base-de-données" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer la caméra dans la base de données" href="#créer-la-caméra-dans-la-base-de-données"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<ul>
-<li>Procéder comme dans le tutoriel <a href="http://localhost:1313/tuto/part8/#créer-la-caméra-dans-la-base-de-données">Partie 8 - Créer la caméra</a></li>
-<li>Ouvrir le <code>shell</code> en environnement virtuel</li>
-<li>Créer la caméra en lui donnant la valeur <code>Appareil(name=&quot;Cam_n)</code> (par exemple <code>Cam_8</code>)</li>
-<li>Quitter le <code>shell</code></li>
-</ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-getcamerasandregisterpy">Modifier le fichier getCamerasAndRegister.py<a data-clipboard-text="http://localhost:1313/tuto/part10/#modifier-le-fichier-getcamerasandregisterpy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier getCamerasAndRegister.py" href="#modifier-le-fichier-getcamerasandregisterpy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<ul>
-<li>Il faut que les images stockées dans <code>/var/www/stock</code> soient intégrées dans la base de données</li>
-<li>Dans cette configuration, on a deux caméras au niveau de la raspberry secondaire : Camera_5 et Camera_ir (une pi-camera)</li>
-<li>Ajouter avant la boucle <code>while True</code></li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Ajout des caméras de la 2ème raspberry</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Ajout des caméras de la 2ème raspberry</span>
 </span></span><span class="line"><span class="cl"><span class="n">pathCamera_5</span> <span class="o">=</span> <span class="s2">&#34;Camera_5&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="n">pathCamera_ir</span> <span class="o">=</span> <span class="s2">&#34;Camera_ir&#34;</span>
-</span></span></code></pre></div><ul>
-<li>Ajouter dans la boucle <code>while True</code> avant <code>conn.commit()</code></li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Ajout des caméras de la 2ème raspberry</span>
-</span></span><span class="line"><span class="cl"><span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;INSERT INTO </span><span class="si">{}</span><span class="s2">_photo(date, appareil_id, name, path) VALUES (?, &#39;5&#39;, ?, ?)&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">appli</span><span class="p">),</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pathCamera_5</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;INSERT INTO </span><span class="si">{}</span><span class="s2">_photo(date, appareil_id, name, path) VALUES (?, &#39;6&#39;, ?, ?)&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">appli</span><span class="p">),</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pathCamera_ir</span><span class="p">))</span>
-</span></span></code></pre></div><ul>
-<li>
-<p>Tout ceci si on a nommé les dossiers de stockage <code>Camera_5</code> et <code>Camera_ir</code></p>
-</li>
-<li>
-<p>Et si on a créé deux caméras dans le shell</p>
-</li>
-<li>
-<p>Le nouveau fichier <code>getCamerasAndRegister.py</code> est visible dans la partie <a href="http://localhost:1313/script/getCamerasAndRegister_py_2Raspberry/">script</a></p>
-</li>
-</ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-les-fichiers-urlspy-et-viewspy">Modifier les fichiers urls.py et views.py<a data-clipboard-text="http://localhost:1313/tuto/part10/#modifier-les-fichiers-urlspy-et-viewspy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier les fichiers urls.py et views.py" href="#modifier-les-fichiers-urlspy-et-viewspy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<ul>
-<li>Suivre les indications données dans le tutoriel <a href="http://localhost:1313/tuto/part8/#modifier-les-fichiers-urls-et-views-de-django">Partie 8 - Fichiers urls et views</a></li>
-<li>Modifier <code>urls.py</code> en ajoutant le path pour le streaming, par exemple <code>stream_8</code></li>
-<li>Dans <code>views.py</code>, modifier les fonctions <em>ad hoc</em></li>
-<li>Y ajouter la fonction de streaming (par exemple, si la caméra est la 8)</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">stream_8</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">stream</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;/Rp8?action=stream&#34;</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="s1">&#39;stream&#39;</span><span class="p">:</span> <span class="n">stream</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;</span><span class="si">{}</span><span class="s2">/stream_8.html&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">appli</span><span class="p">),</span> <span class="n">context</span><span class="p">)</span>
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="modifier-les-fichiers-html">Modifier les fichiers html<a data-clipboard-text="http://localhost:1313/tuto/part10/#modifier-les-fichiers-html" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier les fichiers html" href="#modifier-les-fichiers-html"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<ul>
-<li>Suivre les indications données dans le tutoriel <a href="http://localhost:1313/tuto/part8/#modifier-les-fichiers-html-templates">Partie 8 - Fichiers html</a></li>
-</ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-de-configuration-apache2">Modifier le fichier de configuration apache2<a data-clipboard-text="http://localhost:1313/tuto/part10/#modifier-le-fichier-de-configuration-apache2" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de configuration apache2" href="#modifier-le-fichier-de-configuration-apache2"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<ul>
-<li>Suivre les indications données dans le tutoriel <a href="http://localhost:1313/tuto/part8/#modifier-le-fichier-de-configuration-apache2-du-site">Partie 8 - Fichier de configuaration apache</a></li>
-<li>Au niveau des <code>proxyPass</code>, il convient de modifier l&rsquo;adresse <code>ip</code> en y affectant l&rsquo;adresse de la Raspberry Secondaire</li>
-<li>Ajouter dans le fichier <code>/etc/apache2/sites-available/project-camera.conf</code>, aux endroits ad hoc des lignes du style</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ProxyPass /Rp8 http://&lt;localIP RaspberrySecondaire&gt;:8088/
-</span></span><span class="line"><span class="cl">ProxyPassReverse /Rp8 http://&lt;localIP RaspberrySecondaire&gt;:8088/
-</span></span></code></pre></div><ul>
-<li>Si l&rsquo;<strong>adresse de la Raspberry Secondaire</strong> est <code>192.168.1.36</code>, par exemple, cela donnera</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ProxyPass /Rp8 http://192.168.1.36:8088/
-</span></span><span class="line"><span class="cl">ProxyPassReverse /Rp8 http://192.168.1.36:8088/
-</span></span></code></pre></div><ul>
-<li>Il faut modifier ces lignes au niveau dc chaque <code>VirtualHost</code>, c&rsquo;est à dire le <code>443</code> et le <code>88</code></li>
-<li>Ne pas oublier de relancer <code>apache2</code></li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo systemctl restart apache2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sleep</span><span class="p">(</span><span class="n">capture</span> <span class="o">-</span><span class="n">time</span><span class="p">()</span> <span class="o">%</span> <span class="n">capture</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">date</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%d</span><span class="s2">-%m_%H:%M:%S&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;On récupère les images snapshot et on les copie dans le dossier ad hoc&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">command_1</span> <span class="o">=</span> <span class="s1">&#39;wget http://</span><span class="si">{}</span><span class="s1">:</span><span class="si">{}</span><span class="s1">/?action=snapshot -O </span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">cam_1_port</span><span class="p">,</span> <span class="n">path_1</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">command_2</span> <span class="o">=</span> <span class="s1">&#39;wget http://</span><span class="si">{}</span><span class="s1">:</span><span class="si">{}</span><span class="s1">/?action=snapshot -O </span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">cam_2_port</span><span class="p">,</span> <span class="n">path_2</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">command_py</span> <span class="o">=</span> <span class="s1">&#39;wget http://</span><span class="si">{}</span><span class="s1">:</span><span class="si">{}</span><span class="s1">/?action=snapshot -O </span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">cam_py_port</span><span class="p">,</span> <span class="n">path_py</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Ajout d&#39;une caméra supplémentaire : la commande</span>
+</span></span><span class="line"><span class="cl">    <span class="n">command_3</span> <span class="o">=</span> <span class="s1">&#39;wget http://</span><span class="si">{}</span><span class="s1">:</span><span class="si">{}</span><span class="s1">/?action=snapshot -O </span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">cam_3_port</span><span class="p">,</span> <span class="n">path_3</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">#Modification de la commande pour la quatrième caméra</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#command = &#39;{} &amp; {} &amp; {}&#39;.format(command_1, command_2, command_py)  ANCIENNE COMMANDE</span>
+</span></span><span class="line"><span class="cl">    <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> &amp; </span><span class="si">{}</span><span class="s1"> &amp; </span><span class="si">{}</span><span class="s1"> &amp; </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">command_1</span><span class="p">,</span> <span class="n">command_2</span><span class="p">,</span> <span class="n">command_py</span><span class="p">,</span> <span class="n">command_3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;On copie dans la base de données les éléments relatifs aux images&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">home</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">baseName</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;INSERT INTO </span><span class="si">{}</span><span class="s2">_photo(date, appareil_id, name, path) VALUES (?, &#39;1&#39;, ?, ?)&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">appli</span><span class="p">),</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pathCamera_1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;INSERT INTO </span><span class="si">{}</span><span class="s2">_photo(date, appareil_id, name, path) VALUES (?, &#39;2&#39;, ?, ?)&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">appli</span><span class="p">),</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pathCamera_2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;INSERT INTO </span><span class="si">{}</span><span class="s2">_photo(date, appareil_id, name, path) VALUES (?, &#39;3&#39;, ?, ?)&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">appli</span><span class="p">),</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pathCamera_py</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Ajout de la commande pour la quatrième caméra</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;INSERT INTO </span><span class="si">{}</span><span class="s2">_photo(date, appareil_id, name, path) VALUES (?, &#39;4&#39;, ?, ?)&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">appli</span><span class="p">),</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pathCamera_3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Ajout des caméras de la 2ème raspberry</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;INSERT INTO </span><span class="si">{}</span><span class="s2">_photo(date, appareil_id, name, path) VALUES (?, &#39;5&#39;, ?, ?)&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">appli</span><span class="p">),</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pathCamera_5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;INSERT INTO </span><span class="si">{}</span><span class="s2">_photo(date, appareil_id, name, path) VALUES (?, &#39;6&#39;, ?, ?)&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">appli</span><span class="p">),</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pathCamera_ir</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#si la boucle True s&#39;interrompt, le script est relancé</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#command_replay = &#34;python3 {}/getCamerasAndRegister.py&#34;.format(script)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#si la boucle True s&#39;interrompt, la raspberry est reboutée</span>
+</span></span><span class="line"><span class="cl"><span class="n">command_replay</span> <span class="o">=</span> <span class="s2">&#34;sudo reboot&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command_replay</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span></span></code></pre></div>
 
     </article>
@@ -2708,1073 +2546,1070 @@
             
 
             
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
                 
                 
-            
-
-            
-        
-
-        
-        
-    
-
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-                
-                
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-
-        
-        
-            
-    
-    
-
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-
-        
-    
-        
-        
-
-        
-        
-
-        
-        
-            
-    
-    
-
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-
-        
-    
-        
-        
-
-        
-        
-
-        
-        
-            
-    
-    
-
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-
-        
-    
-        
-        
-
-        
-        
-
-        
-        
-            
-    
-    
-
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-
-        
-    
-        
-        
-
-        
-        
-
-        
-        
-            
-    
-    
-
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-
-        
-    
-        
-        
-
-        
-        
-
-        
-        
-            
-    
-    
-
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
-            
-
-            
-        
-
-        
-        
-    
-
-        
-    
-        
-        
-
-        
-        
-
-        
-        
-            
-    
-    
-
-    
-        
-        
-
-        
-        
-            
-            
-            
-
-            
-
             
 
             
@@ -3796,12 +3631,10 @@
     
         <span class="gdoc-page__nav">
             
-                <a class="gdoc-page__nav--prev flex align-center" href="/tuto/part9/" title="Ajout d&#39;une nouvelle fonction nuitparminute"> Ajout d&#39;une nouvelle fonction nuitparminute</a>
+                <a class="gdoc-page__nav--prev flex align-center" href="/script/WiFiCheck_sh/" title="WiFiCheck.sh"> WiFiCheck.sh</a>
             
         </span>
         <span class="gdoc-page__nav">
-            
-                <a class="gdoc-page__nav--next flex align-center" href="/rapid/rapid/" title="Guide rapide">Guide rapide </a>
             
         </span>
     

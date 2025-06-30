@@ -139,5 +139,5 @@ main:
         ref: "/script/WiFiCheck_sh.md"   
   - name: Fichiers pour raspberry supplémentaire
     sub:
-      - name: getCamerasAndRegister_py_4cam
-        ref: "/script/getCamerasAndRegister_py_4cam.md" 
+      - name: getCamerasAndRegister_py_2Raspberry
+        ref: "/script/getCamerasAndRegister_py_2Raspberry.md" 
