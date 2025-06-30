@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tutoriel : Partie 7 - Fichiers de gestion">
@@ -49,7 +49,7 @@
             <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
         </label>
         
-        <a class="gdoc-header__link" href="https://djangocamera.netlify.app/">
+        <a class="gdoc-header__link" href="http://localhost:1313/">
             <span class="gdoc-brand flex align-center">
                 <img class="gdoc-brand__img" src="/logo/logo_camera.svg" alt="" width=38 height=38>
                 Surveillance camera avec raspberry, mjpg-streamer, Django et Apache
@@ -2154,14 +2154,14 @@
     
 
 
-<div class="gdoc-page__anchorwrap"><h2 id="a-faire">A faire<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part7/#a-faire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A faire" href="#a-faire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="a-faire">A faire<a data-clipboard-text="http://localhost:1313/tuto/part7/#a-faire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A faire" href="#a-faire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Ecriture de scripts de gestion</li>
 <li>Lancement des scripts depuis le cron</li>
 <li>Pouvoir se connecter en ssh à la raspberry depuis son téléphone mobile</li>
 <li>Réglages si la Raspberry fonctionne en WiFi</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="mise-à-jour-régulière-du-système">Mise à jour régulière du système<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part7/#mise-à-jour-régulière-du-système" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Mise à jour régulière du système" href="#mise-à-jour-régulière-du-système"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="mise-à-jour-régulière-du-système">Mise à jour régulière du système<a data-clipboard-text="http://localhost:1313/tuto/part7/#mise-à-jour-régulière-du-système" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Mise à jour régulière du système" href="#mise-à-jour-régulière-du-système"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Créer et ouvrir le fichier en écriture
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/updateAndUpgradeAuto.sh
@@ -2174,7 +2174,7 @@
 <li>Il est préférable de les lancer manuellement de manière régulière</li>
 <li>Apporter un soin particulier aux mises à jour de <code>apache2</code> qui peuvent corriger des failles de sécurité</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="etre-informé-par-courriel-des-redémarrages-de-la-raspberry">Etre informé par courriel des redémarrages de la raspberry<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part7/#etre-informé-par-courriel-des-redémarrages-de-la-raspberry" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Etre informé par courriel des redémarrages de la raspberry" href="#etre-informé-par-courriel-des-redémarrages-de-la-raspberry"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="etre-informé-par-courriel-des-redémarrages-de-la-raspberry">Etre informé par courriel des redémarrages de la raspberry<a data-clipboard-text="http://localhost:1313/tuto/part7/#etre-informé-par-courriel-des-redémarrages-de-la-raspberry" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Etre informé par courriel des redémarrages de la raspberry" href="#etre-informé-par-courriel-des-redémarrages-de-la-raspberry"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>A chaque démarrage de la raspberry, un courriel est envoyé pour prévenir l&rsquo;utilisateur.</li>
 <li>Ceci permet notamment de vérifier que les caméras se sont bien lancées.</li>
@@ -2182,9 +2182,9 @@
 <li>Créer et ouvrir le script en écriture
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/mail_reboot.py
 </span></span></code></pre></div></li>
-<li>Copier/coller le contenu du fichier <code>mail_reboot.py</code> disponible <a href="https://djangocamera.netlify.app/script/mail_reboot_py/" title="mail_reboot.py">ici</a></li>
+<li>Copier/coller le contenu du fichier <code>mail_reboot.py</code> disponible <a href="http://localhost:1313/script/mail_reboot_py/" title="mail_reboot.py">ici</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement">Contrôle de l&rsquo;IP et envoi d&rsquo;un mail en cas de changement<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part7/#contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Contrôle de l&rsquo;IP et envoi d&rsquo;un mail en cas de changement" href="#contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement">Contrôle de l&rsquo;IP et envoi d&rsquo;un mail en cas de changement<a data-clipboard-text="http://localhost:1313/tuto/part7/#contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Contrôle de l&rsquo;IP et envoi d&rsquo;un mail en cas de changement" href="#contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Si une IP statique (fixe) n&rsquo;est pas assujettie à la box, il faut être informé des changements d&rsquo;IP.</li>
 <li>Créer et ouvrir en écriture le fichier ~/currentIP.txt
@@ -2196,9 +2196,9 @@
 <li>Créer et ouvrir en écriture le fichier <code>~/script/ipcheck.py</code>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/ipcheck.py  
 </span></span></code></pre></div></li>
-<li>Copier/coller le contenu du fichier <code>ipcheck.py</code> disponible <a href="https://djangocamera.netlify.app/script/ipcheck_py/" title="ipcheck.py">ici</a></li>
+<li>Copier/coller le contenu du fichier <code>ipcheck.py</code> disponible <a href="http://localhost:1313/script/ipcheck_py/" title="ipcheck.py">ici</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="lancement-des-différents-scripts-dans-le-cron">Lancement des différents scripts dans le cron<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part7/#lancement-des-différents-scripts-dans-le-cron" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancement des différents scripts dans le cron" href="#lancement-des-différents-scripts-dans-le-cron"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="lancement-des-différents-scripts-dans-le-cron">Lancement des différents scripts dans le cron<a data-clipboard-text="http://localhost:1313/tuto/part7/#lancement-des-différents-scripts-dans-le-cron" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancement des différents scripts dans le cron" href="#lancement-des-différents-scripts-dans-le-cron"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Éditer le crontab
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">crontab -e
@@ -2224,7 +2224,7 @@
 </span></span><span class="line"><span class="cl">*/10 * * * * python3 /home/pi/script/ipcheck.py
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="accès-à-la-raspberry-depuis-son-téléphone-mobile">Accès à la raspberry depuis son téléphone mobile<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part7/#accès-à-la-raspberry-depuis-son-téléphone-mobile" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès à la raspberry depuis son téléphone mobile" href="#accès-à-la-raspberry-depuis-son-téléphone-mobile"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="accès-à-la-raspberry-depuis-son-téléphone-mobile">Accès à la raspberry depuis son téléphone mobile<a data-clipboard-text="http://localhost:1313/tuto/part7/#accès-à-la-raspberry-depuis-son-téléphone-mobile" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès à la raspberry depuis son téléphone mobile" href="#accès-à-la-raspberry-depuis-son-téléphone-mobile"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Il peut être nécessaire de se connecter à la raspberry pour modifier certains paramètres ou pour toute autre raison. Y compris depuis l’extérieur du réseau avec son téléphone mobile.</li>
 <li>Différentes applications permettant une connexion ssh depuis un mobile sont disponibles. Termius est particulièrement simple et a une offre gratuite amplement suffisante pour ce projet.</li>
@@ -2261,8 +2261,8 @@
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="connexion-au-wifi">Connexion au WiFi<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part7/#connexion-au-wifi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Connexion au WiFi" href="#connexion-au-wifi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="position-du-problème">Position du problème<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part7/#position-du-problème" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="connexion-au-wifi">Connexion au WiFi<a data-clipboard-text="http://localhost:1313/tuto/part7/#connexion-au-wifi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Connexion au WiFi" href="#connexion-au-wifi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="position-du-problème">Position du problème<a data-clipboard-text="http://localhost:1313/tuto/part7/#position-du-problème" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Si la Raspberry est connectée en WiFi et non en filaire, lors d&rsquo;une panne de courant, la Raspberry se mettra en route <strong>AVANT</strong> que la WiFi ne soit disponible</li>
 <li>La Raspberry sera alors incapable de se connecter au WiFi</li>
@@ -2270,13 +2270,13 @@
 <li>La Raspberry ne sera même pas accessible en <code>ssh</code> et il ne sera donc pas possible de la rebooter à distance</li>
 <li>La seule solution est alors de débrancher la Raspberry et de la rebrancher pour qu&rsquo;elle se connecte au WiFi au redémarrage</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="script-de-test-de-connexion">Script de test de connexion<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part7/#script-de-test-de-connexion" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Script de test de connexion" href="#script-de-test-de-connexion"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="script-de-test-de-connexion">Script de test de connexion<a data-clipboard-text="http://localhost:1313/tuto/part7/#script-de-test-de-connexion" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Script de test de connexion" href="#script-de-test-de-connexion"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Une solution est proposée par <a href="https://github.com/dweeber/WiFi_Check/blob/master/WiFi_Check">dweeber</a></li>
 <li>Il s&rsquo;agit d&rsquo;un script qui va tester régulièrement si la Raspberry est sur le réseau et va redémarrer le WiFi dans le cas contraire</li>
 <li>Ce script est repris dans la procédure ci-dessous ; les seuls changements concernent le chemin d&rsquo;accès du fichier <code>lockfile</code>, notamment pour des questions de droits d&rsquo;accès au répertoire <code>/var/run/</code> préconisé par <a href="https://github.com/dweeber">Kevin Reed</a> ainsi que la commande <code>ifconfig</code> de fin de script</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="procédure">Procédure<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part7/#procédure" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Procédure" href="#procédure"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="procédure">Procédure<a data-clipboard-text="http://localhost:1313/tuto/part7/#procédure" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Procédure" href="#procédure"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Créer le répertoire <code>/home/pi/WiFi</code> qui est le répertoire du fichier <code>lockfile</code></li>
 </ul>
@@ -2296,7 +2296,7 @@
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/WiFiCheck.sh
 </span></span></code></pre></div><ul>
-<li>Copier dans ce fichier le script disponible <a href="https://djangocamera.netlify.app/script/WiFiCheck_sh/" title="WiFiCheck.sh">ici</a></li>
+<li>Copier dans ce fichier le script disponible <a href="http://localhost:1313/script/WiFiCheck_sh/" title="WiFiCheck.sh">ici</a></li>
 <li>Sauvegarder et quitter l&rsquo;éditeur <code>nano</code>: <code>Ctrl+0 Enter Ctrl+X</code></li>
 <li>Ouvrir le crontab en édition</li>
 </ul>
@@ -2308,7 +2308,7 @@
 </span></span></code></pre></div><ul>
 <li>Sauvegarder et quitter le <code>crontab</code></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="conclusion">Conclusion<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part7/#conclusion" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Conclusion" href="#conclusion"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="conclusion">Conclusion<a data-clipboard-text="http://localhost:1313/tuto/part7/#conclusion" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Conclusion" href="#conclusion"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <p>Un système de surveillance en flux direct et avec enregistrement et stockage de photos a été mis en place pour être consultable, après authentification, depuis le web en utilisant mjpg-streamer, django et apache.<br>
 En jouant sur différents paramètres, notamment la fréquence de capture des images, on dispose, si on le souhaite, d’une surveillance qui peut être adaptée à d&rsquo;autres projets.<br>
 Certaines faiblesses sont patentes ; par exemple le fait que si l&rsquo;une des caméras ne se lance pas au départ, il n&rsquo;y a ni procédure de relance ni message d&rsquo;alerte.<br>

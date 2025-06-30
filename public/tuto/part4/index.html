@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tutoriel : Partie 4 - Installation de Apache et mod-wsgi">
@@ -49,7 +49,7 @@
             <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
         </label>
         
-        <a class="gdoc-header__link" href="https://djangocamera.netlify.app/">
+        <a class="gdoc-header__link" href="http://localhost:1313/">
             <span class="gdoc-brand flex align-center">
                 <img class="gdoc-brand__img" src="/logo/logo_camera.svg" alt="" width=38 height=38>
                 Surveillance camera avec raspberry, mjpg-streamer, Django et Apache
@@ -2154,14 +2154,14 @@
     
 
 
-<div class="gdoc-page__anchorwrap"><h2 id="a-faire">A faire<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#a-faire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A faire" href="#a-faire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="a-faire">A faire<a data-clipboard-text="http://localhost:1313/tuto/part4/#a-faire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A faire" href="#a-faire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Installer le serveur Apache sur la raspberry</li>
 <li>Installer et activer le module mod-wsgi, qui va servir d&rsquo;interface entre Django et Apache</li>
 <li>Créer un fichier de configuration de site et l&rsquo;activer</li>
 <li>Restreindre l&rsquo;accès au site en forçant l&rsquo;authentification de l&rsquo;utilisateur</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="installation-de-apache">Installation de Apache<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#installation-de-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de Apache" href="#installation-de-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="installation-de-apache">Installation de Apache<a data-clipboard-text="http://localhost:1313/tuto/part4/#installation-de-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de Apache" href="#installation-de-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Mise à jour de raspbian si l&rsquo;installation n&rsquo;est pas récente
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo apt update
@@ -2175,7 +2175,7 @@
 </span></span></code></pre></div></li>
 <li>Vérifier la page d&rsquo;accueil de apache en tapant <code>&lt;local IP Raspberry&gt;:80</code> dans la barre d&rsquo;un navigateur, vous devez voir la page d&rsquo;accueil de Apache (80 est le port par défaut du serveur apache).</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="copie-de-différents-fichiers-de-configuration">Copie de différents fichiers de configuration<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#copie-de-différents-fichiers-de-configuration" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Copie de différents fichiers de configuration" href="#copie-de-différents-fichiers-de-configuration"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="copie-de-différents-fichiers-de-configuration">Copie de différents fichiers de configuration<a data-clipboard-text="http://localhost:1313/tuto/part4/#copie-de-différents-fichiers-de-configuration" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Copie de différents fichiers de configuration" href="#copie-de-différents-fichiers-de-configuration"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Avant de modifier différents fichiers de configuration de apache2, il est souhaitable de faire une copie du fichier original, par exemple en ajoutant ORIGINAL en fin de nom du fichier.</li>
 <li>Copie des fichiers apache2.conf, security.conf, localized-error-pages.conf
@@ -2184,11 +2184,11 @@
 </span></span><span class="line"><span class="cl">sudo cp /etc/apache2/conf-available/localized-error-pages.conf /etc/apache2/conf-available/localized-error-pages.confORIGINAL
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="sécurisation-minimale-du-serveur-apache">Sécurisation minimale du serveur apache<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#sécurisation-minimale-du-serveur-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Sécurisation minimale du serveur apache" href="#sécurisation-minimale-du-serveur-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="sécurisation-minimale-du-serveur-apache">Sécurisation minimale du serveur apache<a data-clipboard-text="http://localhost:1313/tuto/part4/#sécurisation-minimale-du-serveur-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Sécurisation minimale du serveur apache" href="#sécurisation-minimale-du-serveur-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Suivre les instructions de la page <a href="https://wiki.debian-fr.xyz/S%C3%A9curiser_Apache2#Limiter_les_informations_visibles">wiki.debian</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-securityconf">Modifier security.conf<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#modifier-securityconf" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier security.conf" href="#modifier-securityconf"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-securityconf">Modifier security.conf<a data-clipboard-text="http://localhost:1313/tuto/part4/#modifier-securityconf" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier security.conf" href="#modifier-securityconf"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir en écriture le fichier security.conf
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo nano /etc/apache2/conf-available/security.conf
@@ -2211,7 +2211,7 @@
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-la-page-daccueil-apache">Modifier la page d&rsquo;accueil Apache<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#modifier-la-page-daccueil-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier la page d&rsquo;accueil Apache" href="#modifier-la-page-daccueil-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-la-page-daccueil-apache">Modifier la page d&rsquo;accueil Apache<a data-clipboard-text="http://localhost:1313/tuto/part4/#modifier-la-page-daccueil-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier la page d&rsquo;accueil Apache" href="#modifier-la-page-daccueil-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Supprimer la page d&rsquo;accueil et la remplacer par une nouvelle page
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo rm /var/www/html/index.html
@@ -2223,7 +2223,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-une-page-derreur-404">Créer une page d&rsquo;erreur 404<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#créer-une-page-derreur-404" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer une page d&rsquo;erreur 404" href="#créer-une-page-derreur-404"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-une-page-derreur-404">Créer une page d&rsquo;erreur 404<a data-clipboard-text="http://localhost:1313/tuto/part4/#créer-une-page-derreur-404" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer une page d&rsquo;erreur 404" href="#créer-une-page-derreur-404"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Créer la page
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo nano /var/www/html/missing.html
@@ -2235,16 +2235,16 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-etcapache2conf-availablelocalized-error-pagesconf">Modifier /etc/apache2/conf-available/localized-error-pages.conf<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#modifier-etcapache2conf-availablelocalized-error-pagesconf" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier /etc/apache2/conf-available/localized-error-pages.conf" href="#modifier-etcapache2conf-availablelocalized-error-pagesconf"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-etcapache2conf-availablelocalized-error-pagesconf">Modifier /etc/apache2/conf-available/localized-error-pages.conf<a data-clipboard-text="http://localhost:1313/tuto/part4/#modifier-etcapache2conf-availablelocalized-error-pagesconf" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier /etc/apache2/conf-available/localized-error-pages.conf" href="#modifier-etcapache2conf-availablelocalized-error-pagesconf"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir le fichier en écriture
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo nano /etc/apache2/conf-available/localized-error-pages.conf
 </span></span></code></pre></div></li>
 <li>Décommenter la ligne <code>ErrorDocument 404 /missing.html</code></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="prendre-en-compte-les-modifications-en-redémarrant-apache2">Prendre en compte les modifications en redémarrant apache2<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#prendre-en-compte-les-modifications-en-redémarrant-apache2" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Prendre en compte les modifications en redémarrant apache2" href="#prendre-en-compte-les-modifications-en-redémarrant-apache2"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="prendre-en-compte-les-modifications-en-redémarrant-apache2">Prendre en compte les modifications en redémarrant apache2<a data-clipboard-text="http://localhost:1313/tuto/part4/#prendre-en-compte-les-modifications-en-redémarrant-apache2" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Prendre en compte les modifications en redémarrant apache2" href="#prendre-en-compte-les-modifications-en-redémarrant-apache2"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo systemctl restart apache2
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="installer-le-module-mod-wsgi">Installer le module mod-wsgi<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#installer-le-module-mod-wsgi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer le module mod-wsgi" href="#installer-le-module-mod-wsgi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="installer-le-module-mod-wsgi">Installer le module mod-wsgi<a data-clipboard-text="http://localhost:1313/tuto/part4/#installer-le-module-mod-wsgi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer le module mod-wsgi" href="#installer-le-module-mod-wsgi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Sources
 <ul>
@@ -2292,7 +2292,7 @@
 </span></span></code></pre></div></li>
 <li>Le module wsgi est visible dans le dossier <code>/etc/apache2/mods-enabled</code></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="donner-les-droits-à-www-data-et-à-lutilisateur-pi">Donner les droits à www-data et à l&rsquo;utilisateur pi<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#donner-les-droits-à-www-data-et-à-lutilisateur-pi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Donner les droits à www-data et à l&rsquo;utilisateur pi" href="#donner-les-droits-à-www-data-et-à-lutilisateur-pi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="donner-les-droits-à-www-data-et-à-lutilisateur-pi">Donner les droits à www-data et à l&rsquo;utilisateur pi<a data-clipboard-text="http://localhost:1313/tuto/part4/#donner-les-droits-à-www-data-et-à-lutilisateur-pi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Donner les droits à www-data et à l&rsquo;utilisateur pi" href="#donner-les-droits-à-www-data-et-à-lutilisateur-pi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li><em>L&rsquo;attribution des droits sous linux est une plaie sans nom. Les droits attribués ici ne sont pas nécessairement les plus pertinents, mais ils permettent un bon fonctionnement du serveur. Une mauvaise attribution des droits peut empêcher d&rsquo;accéder au site, de visualiser les images ou de bénéficier de la présentation du css.</em></li>
 <li>Créer un groupe varwwwusers composé de pi et de www-data
@@ -2315,13 +2315,13 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo chmod <span class="m">770</span> ~/folder/project/db.sqlite3
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="créer-un-fichier-de-configuration-de-site-et-lactiver">Créer un fichier de configuration de site et l’activer<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#créer-un-fichier-de-configuration-de-site-et-lactiver" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer un fichier de configuration de site et l’activer" href="#créer-un-fichier-de-configuration-de-site-et-lactiver"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="créer-un-fichier-de-configuration-de-site-et-lactiver">Créer un fichier de configuration de site et l’activer<a data-clipboard-text="http://localhost:1313/tuto/part4/#créer-un-fichier-de-configuration-de-site-et-lactiver" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer un fichier de configuration de site et l’activer" href="#créer-un-fichier-de-configuration-de-site-et-lactiver"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>On va créer dans <code>/etc/apache2/sites-available</code> un fichier de configuration de site. On peut donner le nom que l&rsquo;on veut à ce fichier. J&rsquo;ai choisi project-camera.conf et il est <strong>fortement conseillé de ne pas changer ce nom</strong>, sinon il faudra le modifier au sein même du fichier lorsqu&rsquo;il apparaît.</li>
 <li>Créer et ouvrir en écriture le fichier de configuration de site (appelé <code>project-camera.conf</code>)
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo nano /etc/apache2/sites-available/project-camera.conf
 </span></span></code></pre></div></li>
-<li>Copier/coller dans ce fichier le contenu du fichier <code>project-camera.conf_V1</code> disponible <a href="https://djangocamera.netlify.app/script/project-camera_conf_V1/" title="project-camera_V1.html">ici</a></li>
+<li>Copier/coller dans ce fichier le contenu du fichier <code>project-camera.conf_V1</code> disponible <a href="http://localhost:1313/script/project-camera_conf_V1/" title="project-camera_V1.html">ici</a></li>
 <li>Modifications à apporter
 <ul>
 <li><code>ServerName</code> : mettre l&rsquo;adresse IP locale de la Raspberry</li>
@@ -2337,7 +2337,7 @@
 </span></span></code></pre></div></li>
 <li>On aura un accès au site sur le port 80, qui est le port par défaut de Apache.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="copier-les-fichiers-statiques">Copier les fichiers statiques<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#copier-les-fichiers-statiques" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Copier les fichiers statiques" href="#copier-les-fichiers-statiques"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="copier-les-fichiers-statiques">Copier les fichiers statiques<a data-clipboard-text="http://localhost:1313/tuto/part4/#copier-les-fichiers-statiques" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Copier les fichiers statiques" href="#copier-les-fichiers-statiques"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Pour que Apache lise les fichiers statiques (css et logo) de l&rsquo;application caméra, il faut les déplacer dans <code>/var/www/stock</code></li>
 <li>Méthode collectstatic (déconseillée)
@@ -2361,7 +2361,7 @@
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichier-settingsspanspanpy">Modifier le fichier settings<span></span>.py<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#modifier-le-fichier-settingsspanspanpy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier settings<span></span>.py" href="#modifier-le-fichier-settingsspanspanpy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichier-settingspy">Modifier le fichier settings<span></span>.py<a data-clipboard-text="http://localhost:1313/tuto/part4/#modifier-le-fichier-settingspy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier settings<span></span>.py" href="#modifier-le-fichier-settingspy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Ouvrir en écriture le fichier settings.py
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/folder/project/project/settings.py
@@ -2389,7 +2389,7 @@
 </span></span><span class="line"><span class="cl">  <span class="p">]</span> 
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="nouvel-accès-au-site">Nouvel accès au site<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#nouvel-accès-au-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Nouvel accès au site" href="#nouvel-accès-au-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="nouvel-accès-au-site">Nouvel accès au site<a data-clipboard-text="http://localhost:1313/tuto/part4/#nouvel-accès-au-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Nouvel accès au site" href="#nouvel-accès-au-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Redémarrer apache pour prendre en compte les modifications
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo systemctl restart apache2
@@ -2409,14 +2409,14 @@ L&rsquo;accès se fait par le port par défaut de Apache (80) qu&rsquo;il est in
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="restreindre-laccès-au-site">Restreindre l&rsquo;accès au site<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#restreindre-laccès-au-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Restreindre l&rsquo;accès au site" href="#restreindre-laccès-au-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="intérêt">Intérêt<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#intérêt" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Intérêt" href="#intérêt"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="restreindre-laccès-au-site">Restreindre l&rsquo;accès au site<a data-clipboard-text="http://localhost:1313/tuto/part4/#restreindre-laccès-au-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Restreindre l&rsquo;accès au site" href="#restreindre-laccès-au-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="intérêt">Intérêt<a data-clipboard-text="http://localhost:1313/tuto/part4/#intérêt" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Intérêt" href="#intérêt"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Tant que l&rsquo;on est en réseau local, la restriction de l&rsquo;accès au site n&rsquo;est pas indispensable</li>
 <li>Elle le deviendra dès que le site sera accessible de l&rsquo;extérieur du réseau, sinon n&rsquo;importe qui pourra visionner le flux et les images des caméras depuis n&rsquo;importe où !</li>
 <li>On peut aussi avoir intérêt à restreindre cet accès même dans le réseau local.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="déclarer-les-utilisateurs-autorisés">Déclarer les utilisateurs autorisés<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#déclarer-les-utilisateurs-autorisés" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Déclarer les utilisateurs autorisés" href="#déclarer-les-utilisateurs-autorisés"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="déclarer-les-utilisateurs-autorisés">Déclarer les utilisateurs autorisés<a data-clipboard-text="http://localhost:1313/tuto/part4/#déclarer-les-utilisateurs-autorisés" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Déclarer les utilisateurs autorisés" href="#déclarer-les-utilisateurs-autorisés"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>En passant par l&rsquo;authentification de Django
 <ul>
@@ -2440,7 +2440,7 @@ L&rsquo;accès se fait par le port par défaut de Apache (80) qu&rsquo;il est in
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-project-cameraconf">Modifier le fichier project-camera.conf<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#modifier-le-fichier-project-cameraconf" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier project-camera.conf" href="#modifier-le-fichier-project-cameraconf"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-project-cameraconf">Modifier le fichier project-camera.conf<a data-clipboard-text="http://localhost:1313/tuto/part4/#modifier-le-fichier-project-cameraconf" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier project-camera.conf" href="#modifier-le-fichier-project-cameraconf"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Il faut déclarer dans le fichier de configuration du site la restriction d&rsquo;accès.</li>
 <li>Ouvrir le fichier en écriture
@@ -2454,10 +2454,10 @@ L&rsquo;accès se fait par le port par défaut de Apache (80) qu&rsquo;il est in
 </span></span><span class="line"><span class="cl">Require valid-user
 </span></span><span class="line"><span class="cl">&lt;/Location&gt;
 </span></span></code></pre></div></li>
-<li>Le fichier doit ressembler au contenu du fichier project-camera.conf_V2 disponible <a href="https://djangocamera.netlify.app/script/project-camera_conf_V2/" title="project-camera_V2.html">ici</a>.</li>
+<li>Le fichier doit ressembler au contenu du fichier project-camera.conf_V2 disponible <a href="http://localhost:1313/script/project-camera_conf_V2/" title="project-camera_V2.html">ici</a>.</li>
 <li>Cette modification oblige le client à s&rsquo;identifier lorsqu&rsquo;il veut atteindre les pages sous l&rsquo;url <code>/</code>, c&rsquo;est à dire la totalité du site.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-wsgipy">Modifier le fichier wsgi.py<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#modifier-le-fichier-wsgipy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier wsgi.py" href="#modifier-le-fichier-wsgipy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-wsgipy">Modifier le fichier wsgi.py<a data-clipboard-text="http://localhost:1313/tuto/part4/#modifier-le-fichier-wsgipy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier wsgi.py" href="#modifier-le-fichier-wsgipy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Pour des raisons obscures, Apache soulève l’erreur suivante si on tente d’accéder au site sans modifier le fichier wsgi.py
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ModuleNotFoundError: No module named <span class="s1">&#39;project&#39;</span>
@@ -2473,9 +2473,9 @@ L&rsquo;accès se fait par le port par défaut de Apache (80) qu&rsquo;il est in
 </ul>
 <p><em>(A modifier en fonction du nom et du chemin de votre projet)</em></p>
 <ul>
-<li>Votre fichier doit ressembler au fichier <code>wsgi.py</code> disponible <a href="https://djangocamera.netlify.app/script/wsgi_py/" title="wsgi.py">ici</a></li>
+<li>Votre fichier doit ressembler au fichier <code>wsgi.py</code> disponible <a href="http://localhost:1313/script/wsgi_py/" title="wsgi.py">ici</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="accès-au-site">Accès au site<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#accès-au-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès au site" href="#accès-au-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="accès-au-site">Accès au site<a data-clipboard-text="http://localhost:1313/tuto/part4/#accès-au-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès au site" href="#accès-au-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Relancer Apache pour qu’il prenne en compte les modifications
 <pre tabindex="0"><code>  sudo systemctl restart apache2
@@ -2486,14 +2486,14 @@ L&rsquo;accès se fait par le port par défaut de Apache (80) qu&rsquo;il est in
 </li>
 <li>Selon les navigateurs, vous pouvez enregistrer votre identifiant et son mot de passe.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="a-ce-stade---prochaine-étape">A ce stade - Prochaine étape<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#a-ce-stade---prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade - Prochaine étape" href="#a-ce-stade---prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="a-ce-stade">A ce stade<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#a-ce-stade" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade" href="#a-ce-stade"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="a-ce-stade---prochaine-étape">A ce stade - Prochaine étape<a data-clipboard-text="http://localhost:1313/tuto/part4/#a-ce-stade---prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade - Prochaine étape" href="#a-ce-stade---prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="a-ce-stade">A ce stade<a data-clipboard-text="http://localhost:1313/tuto/part4/#a-ce-stade" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade" href="#a-ce-stade"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Vous disposez d’un site web qui fonctionne en local avec le serveur Apache</li>
 <li>Ce site est accessible depuis les différents appareils du réseau local en tapant dans la fenêtre d’un navigateur web <code>&lt;Local IP Raspberry&gt;/camera</code></li>
 <li>Vous devez vous identifier pour accéder au site.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="prochaine-étape">Prochaine étape<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part4/#prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Prochaine étape" href="#prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="prochaine-étape">Prochaine étape<a data-clipboard-text="http://localhost:1313/tuto/part4/#prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Prochaine étape" href="#prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Accéder au site depuis l’extérieur du réseau</li>
 <li>Obtenir un nom de domaine</li>

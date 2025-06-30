@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tutoriel : Partie 2 - Installation de mjpg-streamer">
@@ -49,7 +49,7 @@
             <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
         </label>
         
-        <a class="gdoc-header__link" href="https://djangocamera.netlify.app/">
+        <a class="gdoc-header__link" href="http://localhost:1313/">
             <span class="gdoc-brand flex align-center">
                 <img class="gdoc-brand__img" src="/logo/logo_camera.svg" alt="" width=38 height=38>
                 Surveillance camera avec raspberry, mjpg-streamer, Django et Apache
@@ -2154,13 +2154,13 @@
     
 
 
-<div class="gdoc-page__anchorwrap"><h2 id="a-faire">A faire<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part2/#a-faire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A faire" href="#a-faire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="a-faire">A faire<a data-clipboard-text="http://localhost:1313/tuto/part2/#a-faire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A faire" href="#a-faire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Installer mjpg-streamer</li>
 <li>Désigner les caméras USB de manière unique</li>
 <li>Scripts de lancement des caméras</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="installation-de-mjpg-streamer">Installation de mjpg-streamer<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part2/#installation-de-mjpg-streamer" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de mjpg-streamer" href="#installation-de-mjpg-streamer"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="installation-de-mjpg-streamer">Installation de mjpg-streamer<a data-clipboard-text="http://localhost:1313/tuto/part2/#installation-de-mjpg-streamer" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de mjpg-streamer" href="#installation-de-mjpg-streamer"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Il existe deux façons d’installer mjpg-streamer :
 <ul>
@@ -2170,7 +2170,7 @@
 </li>
 <li>La méthode snap est la plus simple, mais on ne peut pas l&rsquo;utiliser ici car elle n&rsquo;installe pas le module input_raspicam qui gère la pi-caméra.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="installer-avec-github">Installer avec github<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part2/#installer-avec-github" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer avec github" href="#installer-avec-github"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="installer-avec-github">Installer avec github<a data-clipboard-text="http://localhost:1313/tuto/part2/#installer-avec-github" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer avec github" href="#installer-avec-github"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Cloner le dépôt git
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git clone https://github.com/jacksonliam/mjpg-streamer.git
@@ -2201,7 +2201,7 @@
 </span></span><span class="line"><span class="cl">sudo make install
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="installation-et-dénomination-des-caméras">Installation et dénomination des caméras<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part2/#installation-et-dénomination-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation et dénomination des caméras" href="#installation-et-dénomination-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="installation-et-dénomination-des-caméras">Installation et dénomination des caméras<a data-clipboard-text="http://localhost:1313/tuto/part2/#installation-et-dénomination-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation et dénomination des caméras" href="#installation-et-dénomination-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <p><em>Remarque : la pi caméra a été malencontreusement dénommée au départ camera_py, avec un y et non un i. Modifier a posteriori cette coquille serait source d’erreur, aussi le y a été laissé dans les dénominations des dossiers, fichiers et variables.</em></p>
 <ul>
 <li>Brancher la pi-camera si cela n&rsquo;est pas déjà fait
@@ -2227,11 +2227,11 @@
 <li>Remplacer, par un copier/coller, les valeurs mises par défaut par les valeurs <code>&lt;valeur1&gt;-video-index0</code> et <code>&lt;valeur2&gt;-video-index0</code> lues dans l’autre terminal.</li>
 <li>Ceci permet d’identifier de manière unique les flux vidéos dans les scripts de lancement de mjpg-streamer.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="modification-des-paramètres-des-caméras">Modification des paramètres des caméras<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part2/#modification-des-paramètres-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modification des paramètres des caméras" href="#modification-des-paramètres-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="modification-des-paramètres-des-caméras">Modification des paramètres des caméras<a data-clipboard-text="http://localhost:1313/tuto/part2/#modification-des-paramètres-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modification des paramètres des caméras" href="#modification-des-paramètres-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <p>Si vous le souhaitez vous pouvez modifier les paramètres des caméras dans le fichier configuration.ini : ports de sortie pour mjpg-streamer, résolution etc.<br>
 Sinon, laissez les valeurs par défaut.<br>
 En fonction de l’ancienneté et de la qualité de vos caméras, certains paramètres seront à ajuster : la résolution, le nombre d’images par seconde (fps) notamment.</p>
-<div class="gdoc-page__anchorwrap"><h2 id="scripts-de-lancement-des-caméras">Scripts de lancement des caméras<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part2/#scripts-de-lancement-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Scripts de lancement des caméras" href="#scripts-de-lancement-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="scripts-de-lancement-des-caméras">Scripts de lancement des caméras<a data-clipboard-text="http://localhost:1313/tuto/part2/#scripts-de-lancement-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Scripts de lancement des caméras" href="#scripts-de-lancement-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Créer un dossier script placé dans /home/pi/
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir ~/script
@@ -2245,16 +2245,16 @@ C&rsquo;est dans ce dossier que seront placés différents scripts.</p>
 <li>Créer en écriture le fichier
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/runCamera_1.py
 </span></span></code></pre></div></li>
-<li>Copier le contenu du fichier runCamera_1<span></span>.py disponible en cliquant <a href="https://djangocamera.netlify.app/script/runCamera_1_py/" title="runCamera_1">ici</a></li>
+<li>Copier le contenu du fichier runCamera_1<span></span>.py disponible en cliquant <a href="http://localhost:1313/script/runCamera_1_py/" title="runCamera_1">ici</a></li>
 <li>Coller ce contenu dans la fenêtre de l&rsquo;éditeur nano</li>
 <li>Enregsitrer et fermer</li>
 </ul>
 </li>
-<li>Créer runCamera_2<span></span>.py de la même manière (pour copier le fichier : cliquer <a href="https://djangocamera.netlify.app/script/runCamera_2_py/" title="runCamera_2">ici</a>)</li>
-<li>Créer runCamera_py<span></span>.py de la même manière (pour copier le fichier : cliquer <a href="https://djangocamera.netlify.app/script/runCamera_py_py/" title="runCamera_py">ici</a>)</li>
+<li>Créer runCamera_2<span></span>.py de la même manière (pour copier le fichier : cliquer <a href="http://localhost:1313/script/runCamera_2_py/" title="runCamera_2">ici</a>)</li>
+<li>Créer runCamera_py<span></span>.py de la même manière (pour copier le fichier : cliquer <a href="http://localhost:1313/script/runCamera_py_py/" title="runCamera_py">ici</a>)</li>
 <li>Une variable <code>delay_run</code> permet de différer le lancement du script pour éviter que le script ne tourne avant que les caméras n&rsquo;aient été installées par la Raspberry. Il est possible de modifier ces variables dans le fichier de configuration (section <code>[frequences]</code>, clés <code>delay_run_Cam_1</code>, <code>delay_run_Cam_2</code>, <code>delay_run_Cam_py</code>)</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="tester-les-caméras">Tester les caméras<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part2/#tester-les-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Tester les caméras" href="#tester-les-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="tester-les-caméras">Tester les caméras<a data-clipboard-text="http://localhost:1313/tuto/part2/#tester-les-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Tester les caméras" href="#tester-les-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <p>On peut tester les caméras, par exemple la caméra 1</p>
 <ul>
 <li>Lancer le script runCamera_1.py
@@ -2272,11 +2272,11 @@ C&rsquo;est dans ce dossier que seront placés différents scripts.</p>
 <li>Visionner le flux en cliquant sur l&rsquo;onglet <code>Stream</code></li>
 <li>Les deux autres caméras sont visualisées en adaptant le port : 8082 et 8084 (modifier les ports si ils ont été changés dans le fichier de configuration).</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="erreurs-possibles-avec-la-camera-py">Erreurs possibles avec la Camera-py<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part2/#erreurs-possibles-avec-la-camera-py" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Erreurs possibles avec la Camera-py" href="#erreurs-possibles-avec-la-camera-py"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="erreurs-possibles-avec-la-camera-py">Erreurs possibles avec la Camera-py<a data-clipboard-text="http://localhost:1313/tuto/part2/#erreurs-possibles-avec-la-camera-py" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Erreurs possibles avec la Camera-py" href="#erreurs-possibles-avec-la-camera-py"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Suite à des modifications de librairies, il est possible que la Camera-py ne fonctionne pas</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h4 id="absence-du-fichier-input_raspicamso">Absence du fichier input_raspicam.so<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part2/#absence-du-fichier-input_raspicamso" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Absence du fichier input_raspicam.so" href="#absence-du-fichier-input_raspicamso"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+<div class="gdoc-page__anchorwrap"><h4 id="absence-du-fichier-input_raspicamso">Absence du fichier input_raspicam.so<a data-clipboard-text="http://localhost:1313/tuto/part2/#absence-du-fichier-input_raspicamso" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Absence du fichier input_raspicam.so" href="#absence-du-fichier-input_raspicamso"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Si un message de ce type s&rsquo;affiche :</li>
 </ul>
@@ -2290,7 +2290,7 @@ C&rsquo;est dans ce dossier que seront placés différents scripts.</p>
 <li>La Camera-py peut fonctionner avec le fichier <code>input_uvc.so</code> (cf la <a href="https://github.com/jacksonliam/mjpg-streamer/issues/285">discussion sur le site de Jackson Liam</a>, réponse du 26 décembre 2020)</li>
 <li>Dans le fichier <code>RunCamera_py.py</code>, dans la commande <code>command_py</code>,remplacer <code>input_raspicam.so</code> par <code>input_uvc.so</code></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h4 id="erreur-501">Erreur 501<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part2/#erreur-501" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Erreur 501" href="#erreur-501"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+<div class="gdoc-page__anchorwrap"><h4 id="erreur-501">Erreur 501<a data-clipboard-text="http://localhost:1313/tuto/part2/#erreur-501" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Erreur 501" href="#erreur-501"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Si en tapant dans le navigateur <code>&lt;local Ip&gt;:&lt;port mjpg&gt;</code> (par exemple : <code>192.168.1.45:8080</code>) le message suivant s&rsquo;affiche :</li>
 </ul>
@@ -2300,7 +2300,7 @@ C&rsquo;est dans ce dossier que seront placés différents scripts.</p>
 <li>Cela signifie qu&rsquo;il faut ajouter le <code>folder</code> manquant (voir la <a href="https://forums.zoneminder.com/viewtopic.php?t=12082">discussionsur zoneminder</a>, réponse de <code>mattneighbour</code> du 6 août 2008)</li>
 <li>Il convient alors de taper dans la barre d&rsquo;adresse du navigateur : <code>&lt;local Ip&gt;:&lt;port mjpg&gt;/?action=snapshot</code> ou <code>&lt;local Ip&gt;:&lt;port mjpg&gt;/?action=stream</code></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="lancer-les-caméras-et-les-flux-au-démarrage">Lancer les caméras et les flux au démarrage<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part2/#lancer-les-caméras-et-les-flux-au-démarrage" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancer les caméras et les flux au démarrage" href="#lancer-les-caméras-et-les-flux-au-démarrage"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="lancer-les-caméras-et-les-flux-au-démarrage">Lancer les caméras et les flux au démarrage<a data-clipboard-text="http://localhost:1313/tuto/part2/#lancer-les-caméras-et-les-flux-au-démarrage" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancer les caméras et les flux au démarrage" href="#lancer-les-caméras-et-les-flux-au-démarrage"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <p>Pour lancer automatiquement les caméras et les flux au démarrage de la raspberry, il faut écrire les commandes dans le crontab.</p>
 <ul>
 <li>Ouvrir le crontab
@@ -2318,13 +2318,13 @@ C&rsquo;est dans ce dossier que seront placés différents scripts.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo reboot
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="a-ce-stade---prochaine-étape">A ce stade - Prochaine étape<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part2/#a-ce-stade---prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade - Prochaine étape" href="#a-ce-stade---prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="a-ce-stade">A ce stade<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part2/#a-ce-stade" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade" href="#a-ce-stade"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="a-ce-stade---prochaine-étape">A ce stade - Prochaine étape<a data-clipboard-text="http://localhost:1313/tuto/part2/#a-ce-stade---prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade - Prochaine étape" href="#a-ce-stade---prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="a-ce-stade">A ce stade<a data-clipboard-text="http://localhost:1313/tuto/part2/#a-ce-stade" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade" href="#a-ce-stade"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>3 caméras ont été installées</li>
 <li>Les flux des caméras peuvent être consultés sur un appareil du réseau local en tapant dans la fenêtre d&rsquo;un navigateur web <code>&lt;local IP Raspberry&gt;:&lt;port camera&gt;/</code> (par exemple : <code>192.168.1.49:8082/</code>)</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="prochaine-étape">Prochaine étape<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part2/#prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Prochaine étape" href="#prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="prochaine-étape">Prochaine étape<a data-clipboard-text="http://localhost:1313/tuto/part2/#prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Prochaine étape" href="#prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Installer le cadre de développement (framework) Django</li>
 <li>Utiliser Django pour créer un site web avec des requêtes répondant au cahier des charges du projet</li>

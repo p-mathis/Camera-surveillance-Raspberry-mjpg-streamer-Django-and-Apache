@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tutoriel : Partie 5 - Accès depuis l&rsquo;extérieur du réseau">
@@ -49,7 +49,7 @@
             <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
         </label>
         
-        <a class="gdoc-header__link" href="https://djangocamera.netlify.app/">
+        <a class="gdoc-header__link" href="http://localhost:1313/">
             <span class="gdoc-brand flex align-center">
                 <img class="gdoc-brand__img" src="/logo/logo_camera.svg" alt="" width=38 height=38>
                 Surveillance camera avec raspberry, mjpg-streamer, Django et Apache
@@ -2154,21 +2154,21 @@
     
 
 
-<div class="gdoc-page__anchorwrap"><h2 id="a-faire">A faire<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#a-faire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A faire" href="#a-faire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="a-faire">A faire<a data-clipboard-text="http://localhost:1313/tuto/part5/#a-faire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A faire" href="#a-faire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>S&rsquo;inscrire à un site DynDNS et obtenir un nom de domaine</li>
 <li>Déclarer le site sur la box</li>
 <li>Configurer le site Apache</li>
 <li>Modifier le fichier views.py de Django</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="disposer-dune-adresse-mail">Disposer d&rsquo;une adresse mail<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#disposer-dune-adresse-mail" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Disposer d&rsquo;une adresse mail" href="#disposer-dune-adresse-mail"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="disposer-dune-adresse-mail">Disposer d&rsquo;une adresse mail<a data-clipboard-text="http://localhost:1313/tuto/part5/#disposer-dune-adresse-mail" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Disposer d&rsquo;une adresse mail" href="#disposer-dune-adresse-mail"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Vous pouvez utiliser une de vos adresses mail existantes</li>
 <li>Sinon, en créer une réservée uniquement à ce projet.</li>
 <li>Il est préférable de choisir un opérateur qui accepte les IP dynamiques pour le protocole SMTP. Les adresses gmail ne sont pas nécessairement les meilleures à ce point de vue. laposte.net (même si c’est moins glamour) ne pose pas de problèmes de cet ordre. protonmail.com n&rsquo;accepte le protocole SMTP que dans les versions payantes.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="sinscrire-à-un-site-dyndns-et-obtenir-un-nom-de-domaine">S’inscrire à un site DynDNS et obtenir un nom de domaine<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#sinscrire-à-un-site-dyndns-et-obtenir-un-nom-de-domaine" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor S’inscrire à un site DynDNS et obtenir un nom de domaine" href="#sinscrire-à-un-site-dyndns-et-obtenir-un-nom-de-domaine"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="pourquoi-et-chez-qui">Pourquoi et chez qui ?<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#pourquoi-et-chez-qui" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Pourquoi et chez qui ?" href="#pourquoi-et-chez-qui"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="sinscrire-à-un-site-dyndns-et-obtenir-un-nom-de-domaine">S’inscrire à un site DynDNS et obtenir un nom de domaine<a data-clipboard-text="http://localhost:1313/tuto/part5/#sinscrire-à-un-site-dyndns-et-obtenir-un-nom-de-domaine" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor S’inscrire à un site DynDNS et obtenir un nom de domaine" href="#sinscrire-à-un-site-dyndns-et-obtenir-un-nom-de-domaine"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="pourquoi-et-chez-qui">Pourquoi et chez qui ?<a data-clipboard-text="http://localhost:1313/tuto/part5/#pourquoi-et-chez-qui" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Pourquoi et chez qui ?" href="#pourquoi-et-chez-qui"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Le serveur DNS permettra de traduire le nom de domaine en adresse IP (l’IP publique de votre box).</li>
 <li>Les IP publiques n’étant pas nécessairement fixes, le DNS dynamique transférera l’adresse IP évolutive vers un nom de domaine fixe.</li>
@@ -2178,7 +2178,7 @@
 <li>On aurait pu prendre une autre option : acheter un nom de domaine chez un registraire pour quelques Euro par an et bénéficier du DynDNS de ce registraire. OVH est une option intéressante et un <a href="https://raspberry-pi.fr/nom-domaine/">tutoriel</a> très bien fait est disponible.</li>
 <li>Quelque soit l’option que vous choisissez, la marche à suivre sera globalement la même.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="obtenir-un-nom-de-domaine-chez-no-ip">Obtenir un nom de domaine chez No-Ip<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#obtenir-un-nom-de-domaine-chez-no-ip" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Obtenir un nom de domaine chez No-Ip" href="#obtenir-un-nom-de-domaine-chez-no-ip"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="obtenir-un-nom-de-domaine-chez-no-ip">Obtenir un nom de domaine chez No-Ip<a data-clipboard-text="http://localhost:1313/tuto/part5/#obtenir-un-nom-de-domaine-chez-no-ip" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Obtenir un nom de domaine chez No-Ip" href="#obtenir-un-nom-de-domaine-chez-no-ip"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Aller sur le site de <a href="https://www.noip.com/">No-Ip</a></li>
 <li>Créer sur la page d’accueil le nom d’hôte gratuit de votre choix</li>
@@ -2188,7 +2188,7 @@
 <li>Connectez-vous à votre compte</li>
 <li>Si vous consultez votre <code>Tableau de bord</code> vous avez les informations sur votre site : le nom, la date d’expiration (vous devrez réactiver votre abonnement à l’échéance), l’adresse IP cible (celle de votre box).</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="obtenir-un-nom-de-domaine-chez-dynucom-gnudip">Obtenir un nom de domaine chez dynu.com (GnuDIP)<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#obtenir-un-nom-de-domaine-chez-dynucom-gnudip" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Obtenir un nom de domaine chez dynu.com (GnuDIP)" href="#obtenir-un-nom-de-domaine-chez-dynucom-gnudip"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="obtenir-un-nom-de-domaine-chez-dynucom-gnudip">Obtenir un nom de domaine chez dynu.com (GnuDIP)<a data-clipboard-text="http://localhost:1313/tuto/part5/#obtenir-un-nom-de-domaine-chez-dynucom-gnudip" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Obtenir un nom de domaine chez dynu.com (GnuDIP)" href="#obtenir-un-nom-de-domaine-chez-dynucom-gnudip"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Aller sur la page d&rsquo;inscription de <a href="https://www.dynu.com/fr-FR/ControlPanel/CreateAccount">dynu.com</a></li>
 <li>Remplir le formulaire en indiquant son adresse mail, un mot de passe (entre 4 et 20 caractères)</li>
@@ -2200,7 +2200,7 @@
 <li>Aller dans son compte pour modifier certains paramètres, notamment le fuseau horaire</li>
 <li><em><strong>Note du 30 septembre 2024 : ce service est utilisé depuis septembre 2023, sans aucun problème. Il n&rsquo;y a notamment aucune obligation de réactiver le compte chaque mois comme avec No-Ip</strong></em></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="modifications-sur-la-box">Modifications sur la box<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#modifications-sur-la-box" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifications sur la box" href="#modifications-sur-la-box"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="modifications-sur-la-box">Modifications sur la box<a data-clipboard-text="http://localhost:1313/tuto/part5/#modifications-sur-la-box" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifications sur la box" href="#modifications-sur-la-box"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Quelques modifications sont à apporter au niveau de la box. Disposant d’une livebox de chez Orange, la marche à suivre que je donne se réfère à ce type de box ; mais elle est grosso modo la même chez les autres opérateurs.</li>
 <li>Entrer dans le menu de sa box
@@ -2235,7 +2235,7 @@
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichier-de-configuration-apache">Modifier le fichier de configuration Apache<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#modifier-le-fichier-de-configuration-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de configuration Apache" href="#modifier-le-fichier-de-configuration-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichier-de-configuration-apache">Modifier le fichier de configuration Apache<a data-clipboard-text="http://localhost:1313/tuto/part5/#modifier-le-fichier-de-configuration-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de configuration Apache" href="#modifier-le-fichier-de-configuration-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>
 <p>Ouvrir le fichier</p>
@@ -2275,10 +2275,10 @@ Vos lignes doivent ressembler à ceci</p>
 </span></span></code></pre></div><p>A modifier en fonction des ports mjpg-streamer que vous avez attribués aux différentes caméras et en fonction de l’adresse IP locale de votre raspberry.</p>
 </li>
 <li>
-<p>Le contenu du fichier doit être semblable à celui du fichier <code>project-camera.conf V3</code> disponible <a href="https://djangocamera.netlify.app/script/project-camera_conf_V3/" title="project-camera.conf V3">ici</a></p>
+<p>Le contenu du fichier doit être semblable à celui du fichier <code>project-camera.conf V3</code> disponible <a href="http://localhost:1313/script/project-camera_conf_V3/" title="project-camera.conf V3">ici</a></p>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichier-de-configuration-de-django">Modifier le fichier de configuration de Django<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#modifier-le-fichier-de-configuration-de-django" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de configuration de Django" href="#modifier-le-fichier-de-configuration-de-django"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichier-de-configuration-de-django">Modifier le fichier de configuration de Django<a data-clipboard-text="http://localhost:1313/tuto/part5/#modifier-le-fichier-de-configuration-de-django" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de configuration de Django" href="#modifier-le-fichier-de-configuration-de-django"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Ouvrir le fichier
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/folder/project/project/settings.py
@@ -2293,7 +2293,7 @@ Vos lignes doivent ressembler à ceci</p>
 </span></span><span class="line"><span class="cl">              <span class="p">]</span>
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="mode-proxy-et-fichier-viewsspanspanpy">Mode Proxy et fichier views<span></span>.py<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#mode-proxy-et-fichier-viewsspanspanpy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Mode Proxy et fichier views<span></span>.py" href="#mode-proxy-et-fichier-viewsspanspanpy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="mode-proxy-et-fichier-viewspy">Mode Proxy et fichier views<span></span>.py<a data-clipboard-text="http://localhost:1313/tuto/part5/#mode-proxy-et-fichier-viewspy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Mode Proxy et fichier views<span></span>.py" href="#mode-proxy-et-fichier-viewspy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Pour accéder au flux de mjpg-streamer depuis l’extérieur, il faut activer le module proxy de Apache et modifier le fichier views.py</li>
 <li>Ouvrir le fichier views.py
@@ -2314,7 +2314,7 @@ Vos lignes doivent ressembler à ceci</p>
 </span></span><span class="line"><span class="cl"><span class="n">Rp2</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;hosts&#34;</span><span class="p">,</span> <span class="s2">&#34;proxy_2&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">Rpi</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;hosts&#34;</span><span class="p">,</span> <span class="s2">&#34;proxy_py&#34;</span><span class="p">)</span>
 </span></span></code></pre></div></li>
-<li>Le contenu du fichier doit être semblable à celui du fichier <code>views.py V2</code> disponible <a href="https://djangocamera.netlify.app/script/views_py_V2/" title="views.py V2">ici</a>.</li>
+<li>Le contenu du fichier doit être semblable à celui du fichier <code>views.py V2</code> disponible <a href="http://localhost:1313/script/views_py_V2/" title="views.py V2">ici</a>.</li>
 <li>Activer le module proxy_http
 <pre tabindex="0"><code>sudo a2enmod proxy_http
 </code></pre></li>
@@ -2322,8 +2322,8 @@ Vos lignes doivent ressembler à ceci</p>
 <pre tabindex="0"><code>sudo systemctl restart apache2
 </code></pre></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="accès-au-site">Accès au site<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#accès-au-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès au site" href="#accès-au-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="si-tout-se-passe-bien">Si tout se passe bien<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#si-tout-se-passe-bien" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Si tout se passe bien" href="#si-tout-se-passe-bien"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="accès-au-site">Accès au site<a data-clipboard-text="http://localhost:1313/tuto/part5/#accès-au-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès au site" href="#accès-au-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="si-tout-se-passe-bien">Si tout se passe bien<a data-clipboard-text="http://localhost:1313/tuto/part5/#si-tout-se-passe-bien" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Si tout se passe bien" href="#si-tout-se-passe-bien"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>L&rsquo;accès au site se fait depuis la barre d&rsquo;adresse d&rsquo;un navigateur en tapant
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">&lt;nom du site&gt;/camera
@@ -2333,7 +2333,7 @@ Vos lignes doivent ressembler à ceci</p>
 </span></span></code></pre></div></li>
 <li>Vous pouvez vérifier que même en dehors du réseau local vous avez accès au site.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="problème-avec-lipv6">Problème avec l&rsquo;IPv6<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#problème-avec-lipv6" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Problème avec l&rsquo;IPv6" href="#problème-avec-lipv6"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="problème-avec-lipv6">Problème avec l&rsquo;IPv6<a data-clipboard-text="http://localhost:1313/tuto/part5/#problème-avec-lipv6" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Problème avec l&rsquo;IPv6" href="#problème-avec-lipv6"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Il est possible que l&rsquo;accès au site ne soit pas possible pour des problèmes liés à l&rsquo;IPv6</li>
 <li>Dans la box, se rendre dans Réseau &ndash;&gt; Ipv6</li>
@@ -2343,7 +2343,7 @@ Vos lignes doivent ressembler à ceci</p>
 <li><em>Voir la discussion de <a href="https://serverfault.com/questions/1110107/cant-access-apache-server-through-ipv6-from-outside">serveurfault.com</a></em></li>
 <li><em><strong>En décochant la connectivité IPv6, vous perdez de possibles connexions en IPv6 pour d&rsquo;autres usages</strong></em></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="si-vous-navez-pas-daccès-au-site-depuis-le-réseau-local">Si vous n&rsquo;avez pas d&rsquo;accès au site depuis le réseau local<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#si-vous-navez-pas-daccès-au-site-depuis-le-réseau-local" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Si vous n&rsquo;avez pas d&rsquo;accès au site depuis le réseau local" href="#si-vous-navez-pas-daccès-au-site-depuis-le-réseau-local"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="si-vous-navez-pas-daccès-au-site-depuis-le-réseau-local">Si vous n&rsquo;avez pas d&rsquo;accès au site depuis le réseau local<a data-clipboard-text="http://localhost:1313/tuto/part5/#si-vous-navez-pas-daccès-au-site-depuis-le-réseau-local" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Si vous n&rsquo;avez pas d&rsquo;accès au site depuis le réseau local" href="#si-vous-navez-pas-daccès-au-site-depuis-le-réseau-local"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Il est possible que vous ayez accès au site depuis l&rsquo;extérieur (par exemple depuis un téléphone portable dont la wifi a été coupée), mais pas depuis un appareil qui est sur le réseau local. Cela peut être dû, entre autre, à des problèmes d’autorisations et de paramétrages de la box.</li>
 <li>Solution risquée à proscrire : modifier la <code>DMZ</code>
@@ -2370,21 +2370,21 @@ Vos lignes doivent ressembler à ceci</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo nano /etc/apache2/sites-available/project-camera.conf
 </span></span></code></pre></div></li>
 <li>ajouter un <code>&lt;VirtualHost *:54321&gt;</code> identique au <code>&lt;VirtualHost *:80&gt;</code>, à la différence près que le <code>ServerName</code> sera l&rsquo;<code>IP locale de la Raspberry</code>.</li>
-<li>le fichier doit être semblable au fichier <code>project-camera.conf V4</code> disponible <a href="https://djangocamera.netlify.app/script/project-camera_conf_V4/" title="project-camera.conf V4">ici</a>.</li>
+<li>le fichier doit être semblable au fichier <code>project-camera.conf V4</code> disponible <a href="http://localhost:1313/script/project-camera_conf_V4/" title="project-camera.conf V4">ici</a>.</li>
 <li>l’accès depuis un appareil local se fait en tapant dans un navigateur :
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">&lt;adresse IP locale Raspberry&gt;:&lt;port apache&gt;/camera
 </span></span></code></pre></div>par exemple : 192.168.1.49:54321/camera</li>
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="a-ce-stade---prochaine-étape">A ce stade - Prochaine étape<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#a-ce-stade---prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade - Prochaine étape" href="#a-ce-stade---prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="a-ce-stade">A ce stade<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#a-ce-stade" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade" href="#a-ce-stade"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="a-ce-stade---prochaine-étape">A ce stade - Prochaine étape<a data-clipboard-text="http://localhost:1313/tuto/part5/#a-ce-stade---prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade - Prochaine étape" href="#a-ce-stade---prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="a-ce-stade">A ce stade<a data-clipboard-text="http://localhost:1313/tuto/part5/#a-ce-stade" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade" href="#a-ce-stade"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Vous disposez d’un nom de site</li>
 <li>Votre site web est accessible depuis l’extérieur du réseau</li>
 <li>Il n’est pas https : vos données ne sont pas cryptées et peuvent donc être interceptées par des personnes mal intentionnées.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="prochaine-étape">Prochaine étape<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part5/#prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Prochaine étape" href="#prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="prochaine-étape">Prochaine étape<a data-clipboard-text="http://localhost:1313/tuto/part5/#prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Prochaine étape" href="#prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Sécuriser la connexion en https</li>
 </ul>

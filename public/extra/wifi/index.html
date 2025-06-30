@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Wifi">
@@ -49,7 +49,7 @@
             <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
         </label>
         
-        <a class="gdoc-header__link" href="https://djangocamera.netlify.app/">
+        <a class="gdoc-header__link" href="http://localhost:1313/">
             <span class="gdoc-brand flex align-center">
                 <img class="gdoc-brand__img" src="/logo/logo_camera.svg" alt="" width=38 height=38>
                 Surveillance camera avec raspberry, mjpg-streamer, Django et Apache
@@ -2154,8 +2154,8 @@
     
 
 
-<div class="gdoc-page__anchorwrap"><h2 id="connexion-au-wifi">Connexion au WiFi<a data-clipboard-text="https://djangocamera.netlify.app/extra/wifi/#connexion-au-wifi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Connexion au WiFi" href="#connexion-au-wifi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="position-du-problème">Position du problème<a data-clipboard-text="https://djangocamera.netlify.app/extra/wifi/#position-du-problème" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="connexion-au-wifi">Connexion au WiFi<a data-clipboard-text="http://localhost:1313/extra/wifi/#connexion-au-wifi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Connexion au WiFi" href="#connexion-au-wifi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="position-du-problème">Position du problème<a data-clipboard-text="http://localhost:1313/extra/wifi/#position-du-problème" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Si la Raspberry est connectée en WiFi et non en filaire, lors d&rsquo;une panne de courant, la Raspberry se mettra en route <strong>AVANT</strong> que la WiFi ne soit disponible</li>
 <li>La Raspberry sera alors incapable de se connecter au WiFi</li>
@@ -2163,14 +2163,14 @@
 <li>La Raspberry ne sera même pas accessible en <code>ssh</code> et il ne sera donc pas possible de la rebooter à distance</li>
 <li>La seule solution est alors de débrancher la Raspberry et de la rebrancher pour qu&rsquo;elle se connecte au WiFi au redémarrage</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="script-de-test-de-connexion">Script de test de connexion<a data-clipboard-text="https://djangocamera.netlify.app/extra/wifi/#script-de-test-de-connexion" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Script de test de connexion" href="#script-de-test-de-connexion"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="script-de-test-de-connexion">Script de test de connexion<a data-clipboard-text="http://localhost:1313/extra/wifi/#script-de-test-de-connexion" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Script de test de connexion" href="#script-de-test-de-connexion"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Une solution est proposée par <a href="https://github.com/dweeber/WiFi_Check/blob/master/WiFi_Check">dweeber</a></li>
 <li>Dans cet esprit, on peut proposer un script python qui va tester la connexion WiFi régulièrement en lançant un <a href="https://fr.wikipedia.org/wiki/Ping_(logiciel)">ping</a></li>
 <li>En absence de réponse, une commande lance la connexion WiFi</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="procédure">Procédure<a data-clipboard-text="https://djangocamera.netlify.app/extra/wifi/#procédure" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Procédure" href="#procédure"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<div class="gdoc-page__anchorwrap"><h4 id="vérifier-le-fichiernbspwpa_supplicantconf">Vérifier le fichier <em>wpa_supplicant.conf</em><a data-clipboard-text="https://djangocamera.netlify.app/extra/wifi/#vérifier-le-fichiernbspwpa_supplicantconf" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Vérifier le fichier <em>wpa_supplicant.conf</em>" href="#vérifier-le-fichiernbspwpa_supplicantconf"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+<div class="gdoc-page__anchorwrap"><h3 id="procédure">Procédure<a data-clipboard-text="http://localhost:1313/extra/wifi/#procédure" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Procédure" href="#procédure"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h4 id="vérifier-le-fichierwpa_">Vérifier le fichier <em>wpa_supplicant.conf</em><a data-clipboard-text="http://localhost:1313/extra/wifi/#vérifier-le-fichierwpa_" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Vérifier le fichier <em>wpa_supplicant.conf</em>" href="#vérifier-le-fichierwpa_"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Voir <a href="https://linuxhint.com/connect-raspberry-pi-wifi-using-terminal/">la page LinuxHint</a> et le <a href="https://bbs.archlinux.org/viewtopic.php?pid=1324810#p1324810">forum ArchiLinux</a></li>
 <li>Ouvrir le fichier</li>
@@ -2207,7 +2207,7 @@ echo "blacklist hp_wmi" > /etc/modprobe.d/hp.conf
 rfkill unblock all
 ```
 - Quitter le mode superutilisateur : `Ctrl + D` -->
-<div class="gdoc-page__anchorwrap"><h4 id="ecrire-le-script-de-vérificationreconnexion-de-la-wifi">Ecrire le script de vérification/reconnexion de la WiFi<a data-clipboard-text="https://djangocamera.netlify.app/extra/wifi/#ecrire-le-script-de-vérificationreconnexion-de-la-wifi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire le script de vérification/reconnexion de la WiFi" href="#ecrire-le-script-de-vérificationreconnexion-de-la-wifi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+<div class="gdoc-page__anchorwrap"><h4 id="ecrire-le-script-de-vérificationreconnexion-de-la-wifi">Ecrire le script de vérification/reconnexion de la WiFi<a data-clipboard-text="http://localhost:1313/extra/wifi/#ecrire-le-script-de-vérificationreconnexion-de-la-wifi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire le script de vérification/reconnexion de la WiFi" href="#ecrire-le-script-de-vérificationreconnexion-de-la-wifi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Ouvrir le fichier <em>wifi.py</em> en écriture</li>
 </ul>

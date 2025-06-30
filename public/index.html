@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-	<meta name="generator" content="Hugo 0.142.0">
+	<meta name="generator" content="Hugo 0.147.9"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Présentation">
@@ -34,7 +34,7 @@
 <link rel="preload" href="/custom.css" as="style">
 <link rel="stylesheet" href="/custom.css" media="all">
 
-<link rel="alternate" type="application/rss+xml" href="https://djangocamera.netlify.app/index.xml" title="Surveillance camera avec raspberry, mjpg-streamer, Django et Apache" />
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Surveillance camera avec raspberry, mjpg-streamer, Django et Apache" />
 
 </head>
 
@@ -51,7 +51,7 @@
             <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
         </label>
         
-        <a class="gdoc-header__link" href="https://djangocamera.netlify.app/">
+        <a class="gdoc-header__link" href="http://localhost:1313/">
             <span class="gdoc-brand flex align-center">
                 <img class="gdoc-brand__img" src="/logo/logo_camera.svg" alt="" width=38 height=38>
                 Surveillance camera avec raspberry, mjpg-streamer, Django et Apache
@@ -2117,6 +2117,59 @@
     </li>
 
 
+    
+    
+
+    <li>
+        
+        
+            <span class="flex">Fichiers pour raspberry supplémentaire</span>
+        
+
+        
+            
+
+
+
+<ul class="gdoc-nav__list">
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/getCamerasAndRegister_py_4cam/"
+                    class="gdoc-nav__entry ">
+                    getCamerasAndRegister_py_4cam
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+</ul>
+
+        
+    </li>
+
+
 </ul>
 
 
@@ -2155,11 +2208,11 @@
     
 
 
-<div class="gdoc-page__anchorwrap"><h2 id="introduction">Introduction<a data-clipboard-text="https://djangocamera.netlify.app/#introduction" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Introduction" href="#introduction"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="introduction">Introduction<a data-clipboard-text="http://localhost:1313/#introduction" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Introduction" href="#introduction"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <p>Création d&rsquo;un site internet hébergé sur une raspberry fonctionnant sous un serveur Apache. Le site est construit avec le cadre de développement (framework) Django. Les images et les flux vidéos de trois caméras sont capturés par mjpg-streamer.</p>
 <p><em>Ce tutoriel a été mis à jour en octobre 2023.</em><br>
 <em>Ce site a été créé avec <a href="https://gohugo.io/">Hugo</a> en utilisant le thème <a href="https://themes.gohugo.io/themes/hugo-geekdoc/">Geekdoc</a></em></p>
-<div class="gdoc-page__anchorwrap"><h2 id="objectif">Objectif<a data-clipboard-text="https://djangocamera.netlify.app/#objectif" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Objectif" href="#objectif"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="objectif">Objectif<a data-clipboard-text="http://localhost:1313/#objectif" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Objectif" href="#objectif"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <p>Créer une surveillance à distance de chevaux en stabulation libre.
 Les chevaux peuvent aller et venir hors d&rsquo;un abri pour se rendre dans les prés avoisinants. La surveillance a pour but de savoir si les chevaux sont dans l’abri ou dans les prés et de vérifier que leur comportement y est normal. Mais également, lorsqu’ils sont hors de vue des caméras de savoir si dans un passé récent ils étaient bien présents.</p>
 <p>Le cahier des charges est le suivant :</p>
@@ -2169,7 +2222,7 @@ Les chevaux peuvent aller et venir hors d&rsquo;un abri pour se rendre dans les 
 <li>Chaque caméra doit prendre des photos à intervalles réguliers. Il faut pouvoir consulter ces photos afin de savoir si dans un passé récent les chevaux étaient bien présents.</li>
 <li>Les informations doivent être disponibles depuis un navigateur web accessible localement et depuis l’extérieur du réseau.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="les-matériels">Les matériels<a data-clipboard-text="https://djangocamera.netlify.app/#les-matériels" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Les matériels" href="#les-matériels"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="les-matériels">Les matériels<a data-clipboard-text="http://localhost:1313/#les-matériels" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Les matériels" href="#les-matériels"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Une Raspberry Pi, ici un modèle Pi3-B+ avec une carte micro-SD de 16 Giga relié au réseau local.</li>
 <li>Deux webcam en connexion USB.</li>
@@ -2177,7 +2230,7 @@ Les chevaux peuvent aller et venir hors d&rsquo;un abri pour se rendre dans les 
 <li>Un projecteur infra-rouge pour éclairer la zone de surveillance de la caméra nocturne.</li>
 <li>Un ordinateur <em>(pour initialiser puis programmer la Raspberry à distance)</em></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="résultat-final">Résultat final<a data-clipboard-text="https://djangocamera.netlify.app/#résultat-final" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Résultat final" href="#résultat-final"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="résultat-final">Résultat final<a data-clipboard-text="http://localhost:1313/#résultat-final" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Résultat final" href="#résultat-final"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <p>Le résultat sera de ce type :</p>
 <ul>
 <li>La page d&rsquo;accueil
@@ -2205,11 +2258,11 @@ Les chevaux peuvent aller et venir hors d&rsquo;un abri pour se rendre dans les 
 </figure>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="guides-dinstallation">Guides d&rsquo;installation<a data-clipboard-text="https://djangocamera.netlify.app/#guides-dinstallation" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Guides d&rsquo;installation" href="#guides-dinstallation"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="guides-dinstallation">Guides d&rsquo;installation<a data-clipboard-text="http://localhost:1313/#guides-dinstallation" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Guides d&rsquo;installation" href="#guides-dinstallation"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <p>Deux guides d&rsquo;installation sont disponibles :</p>
 <ul>
-<li><a href="https://djangocamera.netlify.app/rapid/rapid/" title="Guide Rapide">Guide rapide</a> : pour une mise en place rapide des scripts. Ce guide est peu détaillé.</li>
-<li><a href="https://djangocamera.netlify.app/tuto/part1/" title="Guide Pas à Pas">Guide pas à pas</a> : mise en place didactique des services permettant un bonne compréhension de la démarche.
+<li><a href="http://localhost:1313/rapid/rapid/" title="Guide Rapide">Guide rapide</a> : pour une mise en place rapide des scripts. Ce guide est peu détaillé.</li>
+<li><a href="http://localhost:1313/tuto/part1/" title="Guide Pas à Pas">Guide pas à pas</a> : mise en place didactique des services permettant un bonne compréhension de la démarche.
 <ul>
 <li>installation de la raspberry</li>
 <li>installation de mjpg-streamer</li>
@@ -3450,6 +3503,41 @@ Les chevaux peuvent aller et venir hors d&rsquo;un abri pour se rendre dans les 
 
         
         
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
     
         
         

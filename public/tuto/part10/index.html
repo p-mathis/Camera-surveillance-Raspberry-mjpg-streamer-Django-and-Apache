@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tutoriel : Partie 10 - Mise en place de 2 Raspberry">
@@ -49,7 +49,7 @@
             <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
         </label>
         
-        <a class="gdoc-header__link" href="https://djangocamera.netlify.app/">
+        <a class="gdoc-header__link" href="http://localhost:1313/">
             <span class="gdoc-brand flex align-center">
                 <img class="gdoc-brand__img" src="/logo/logo_camera.svg" alt="" width=38 height=38>
                 Surveillance camera avec raspberry, mjpg-streamer, Django et Apache
@@ -2115,6 +2115,59 @@
     </li>
 
 
+    
+    
+
+    <li>
+        
+        
+            <span class="flex">Fichiers pour raspberry supplémentaire</span>
+        
+
+        
+            
+
+
+
+<ul class="gdoc-nav__list">
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                
+                <a href="/script/getCamerasAndRegister_py_4cam/"
+                    class="gdoc-nav__entry ">
+                    getCamerasAndRegister_py_4cam
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+</ul>
+
+        
+    </li>
+
+
 </ul>
 
 
@@ -2154,7 +2207,7 @@
     
 
 
-<div class="gdoc-page__anchorwrap"><h2 id="position-du-problème">Position du problème<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#position-du-problème" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="position-du-problème">Position du problème<a data-clipboard-text="http://localhost:1313/tuto/part10/#position-du-problème" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>La Raspberry peut être limitée en termes de capacités</li>
 <li>Soit parce que le nombre de caméras est élevé et que la Raspberry va peiner à traiter toutes les images</li>
@@ -2162,24 +2215,24 @@
 <li>Nous appelons Raspberry Principale la Raspberry qui héberge le site Django</li>
 <li>Et Raspberry Secondaire la nouvelle Raspberry</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="schéma-de-la-procédure">Schéma de la procédure<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#schéma-de-la-procédure" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Schéma de la procédure" href="#schéma-de-la-procédure"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="schéma-de-la-procédure">Schéma de la procédure<a data-clipboard-text="http://localhost:1313/tuto/part10/#schéma-de-la-procédure" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Schéma de la procédure" href="#schéma-de-la-procédure"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Installer la Raspberry Secondaire et la caméra</li>
 <li>Créer les scripts sur cette Raspberry</li>
 <li>Créer un répertoire de stockage des photos sur la Raspberry Principale et créer la caméra dans la base de données</li>
 <li>Modifier le serveur Apache sur la Raspberry Principale</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="installer-la-raspberry-secondaire">Installer la Raspberry Secondaire<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#installer-la-raspberry-secondaire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer la Raspberry Secondaire" href="#installer-la-raspberry-secondaire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="installer-la-raspberry-secondaire">Installer la Raspberry Secondaire<a data-clipboard-text="http://localhost:1313/tuto/part10/#installer-la-raspberry-secondaire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer la Raspberry Secondaire" href="#installer-la-raspberry-secondaire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
-<li>Préparer la Raspberry : procédure de la <a href="https://djangocamera.netlify.app/tuto/part1/#mise-en-route-de-la-raspberry">première partie du tutoriel</a></li>
+<li>Préparer la Raspberry : procédure de la <a href="http://localhost:1313/tuto/part1/#mise-en-route-de-la-raspberry">première partie du tutoriel</a></li>
 <li>Mettre en place sur cette Raspberry <code>mjpg-streamer</code></li>
-<li>C&rsquo;est la même procédure que celle indiquée dans la <a href="https://djangocamera.netlify.app/tuto/part2/">deuxième partie du tutoriel</a></li>
+<li>C&rsquo;est la même procédure que celle indiquée dans la <a href="http://localhost:1313/tuto/part2/">deuxième partie du tutoriel</a></li>
 <li>On peut mettre en place un fichier de configuration sur cette Raspberry Secondaire</li>
 <li>Dans ce tutoriel, on simplifie en codant <em>en dur</em> les variables liées à la Raspberry Secondaire</li>
-<li>Installer la camera en suivant la procédure du <a href="https://djangocamera.netlify.app/tuto/part2/#installation-et-dénomination-des-caméras">tutoriel</a></li>
+<li>Installer la camera en suivant la procédure du <a href="http://localhost:1313/tuto/part2/#installation-et-dénomination-des-caméras">tutoriel</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="créer-les-scripts-sur-la-raspberry-secondaire">Créer les scripts sur la Raspberry Secondaire<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#créer-les-scripts-sur-la-raspberry-secondaire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les scripts sur la Raspberry Secondaire" href="#créer-les-scripts-sur-la-raspberry-secondaire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-différents-dossiers">Créer différents dossiers<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#créer-différents-dossiers" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer différents dossiers" href="#créer-différents-dossiers"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="créer-les-scripts-sur-la-raspberry-secondaire">Créer les scripts sur la Raspberry Secondaire<a data-clipboard-text="http://localhost:1313/tuto/part10/#créer-les-scripts-sur-la-raspberry-secondaire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les scripts sur la Raspberry Secondaire" href="#créer-les-scripts-sur-la-raspberry-secondaire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-différents-dossiers">Créer différents dossiers<a data-clipboard-text="http://localhost:1313/tuto/part10/#créer-différents-dossiers" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer différents dossiers" href="#créer-différents-dossiers"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Créer un dossier script placé dans /home/pi/
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir ~/script
@@ -2191,10 +2244,10 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo chown -R pi /var/www/stock
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="script-de-lancement-de-la-camera">Script de lancement de la camera<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#script-de-lancement-de-la-camera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Script de lancement de la camera" href="#script-de-lancement-de-la-camera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<div class="gdoc-page__anchorwrap"><h4 id="créer-le-script-en-écriture">Créer le script en écriture<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#créer-le-script-en-écriture" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le script en écriture" href="#créer-le-script-en-écriture"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+<div class="gdoc-page__anchorwrap"><h3 id="script-de-lancement-de-la-camera">Script de lancement de la camera<a data-clipboard-text="http://localhost:1313/tuto/part10/#script-de-lancement-de-la-camera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Script de lancement de la camera" href="#script-de-lancement-de-la-camera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h4 id="créer-le-script-en-écriture">Créer le script en écriture<a data-clipboard-text="http://localhost:1313/tuto/part10/#créer-le-script-en-écriture" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le script en écriture" href="#créer-le-script-en-écriture"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/runCamera.py
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="écrire-le-contenu">Écrire le contenu<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#écrire-le-contenu" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Écrire le contenu" href="#écrire-le-contenu"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="écrire-le-contenu">Écrire le contenu<a data-clipboard-text="http://localhost:1313/tuto/part10/#écrire-le-contenu" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Écrire le contenu" href="#écrire-le-contenu"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
 </span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 </span></span><span class="line"><span class="cl">
@@ -2215,7 +2268,7 @@
 </span></span></code></pre></div><ul>
 <li>Modifier les valeurs en fonction des paramètres choisis</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h4 id="lancer-le-script-au-démareage">Lancer le script au démareage<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#lancer-le-script-au-démareage" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancer le script au démareage" href="#lancer-le-script-au-démareage"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+<div class="gdoc-page__anchorwrap"><h4 id="lancer-le-script-au-démareage">Lancer le script au démareage<a data-clipboard-text="http://localhost:1313/tuto/part10/#lancer-le-script-au-démareage" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancer le script au démareage" href="#lancer-le-script-au-démareage"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Ouvrir le crontab</li>
 </ul>
@@ -2224,14 +2277,14 @@
 <li>Ajouter la commande</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">@reboot python3 /home/pi/script/runCamera.py
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="script-denvoi-des-images-vers-la-raspberry-principale">Script d&rsquo;envoi des images vers la Raspberry Principale<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#script-denvoi-des-images-vers-la-raspberry-principale" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Script d&rsquo;envoi des images vers la Raspberry Principale" href="#script-denvoi-des-images-vers-la-raspberry-principale"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<div class="gdoc-page__anchorwrap"><h4 id="principe">Principe<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#principe" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Principe" href="#principe"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="script-denvoi-des-images-vers-la-raspberry-principale">Script d&rsquo;envoi des images vers la Raspberry Principale<a data-clipboard-text="http://localhost:1313/tuto/part10/#script-denvoi-des-images-vers-la-raspberry-principale" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Script d&rsquo;envoi des images vers la Raspberry Principale" href="#script-denvoi-des-images-vers-la-raspberry-principale"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h4 id="principe">Principe<a data-clipboard-text="http://localhost:1313/tuto/part10/#principe" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Principe" href="#principe"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Les images vont être stockées dans le dossier <code>/var/www/stock/Camera</code> de la deuxième caméra toutes les minutes</li>
 <li>Elles sont envoyées par le protocole <code>scp</code> sur la Raspberry principale</li>
 <li>Elles sont stockées dans un dossier <code>/var/www/stock/Camera_n</code> où <code>n</code> représente la n-ième caméra du système</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h4 id="charger-les-bibliothèques-nécessaires">Charger les bibliothèques nécessaires<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#charger-les-bibliothèques-nécessaires" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Charger les bibliothèques nécessaires" href="#charger-les-bibliothèques-nécessaires"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+<div class="gdoc-page__anchorwrap"><h4 id="charger-les-bibliothèques-nécessaires">Charger les bibliothèques nécessaires<a data-clipboard-text="http://localhost:1313/tuto/part10/#charger-les-bibliothèques-nécessaires" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Charger les bibliothèques nécessaires" href="#charger-les-bibliothèques-nécessaires"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Ouvrir un terminal dans la Raspberry Secondaire : <code>Ctrl + Alt + T</code></li>
 <li>Installer les deux bibliothèques nécessaires
@@ -2239,9 +2292,9 @@
 </span></span><span class="line"><span class="cl">pip3 install scp
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h4 id="créer-le-script-en-écriture-dans-la-raspberry-secondaire">Créer le script en écriture dans la Raspberry Secondaire<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#créer-le-script-en-écriture-dans-la-raspberry-secondaire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le script en écriture dans la Raspberry Secondaire" href="#créer-le-script-en-écriture-dans-la-raspberry-secondaire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+<div class="gdoc-page__anchorwrap"><h4 id="créer-le-script-en-écriture-dans-la-raspberry-secondaire">Créer le script en écriture dans la Raspberry Secondaire<a data-clipboard-text="http://localhost:1313/tuto/part10/#créer-le-script-en-écriture-dans-la-raspberry-secondaire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le script en écriture dans la Raspberry Secondaire" href="#créer-le-script-en-écriture-dans-la-raspberry-secondaire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/stockAndSendImage.py
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="écrire-le-contenu-1">Écrire le contenu<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#écrire-le-contenu-1" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Écrire le contenu" href="#écrire-le-contenu-1"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="écrire-le-contenu-1">Écrire le contenu<a data-clipboard-text="http://localhost:1313/tuto/part10/#écrire-le-contenu-1" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Écrire le contenu" href="#écrire-le-contenu-1"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">paramiko</span>
 </span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scp</span> <span class="kn">import</span> <span class="n">SCPClient</span>
 </span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -2281,7 +2334,7 @@
 </span></span><span class="line"><span class="cl"><span class="n">scp</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">path_sender</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">.jpg&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">path_server</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>   <span class="c1"># envoi de la photo en scp</span>
 </span></span><span class="line"><span class="cl"><span class="n">scp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;closed / end&#34;</span><span class="p">)</span>
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="lancer-le-script-toutes-les-minutes">Lancer le script toutes les minutes<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#lancer-le-script-toutes-les-minutes" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancer le script toutes les minutes" href="#lancer-le-script-toutes-les-minutes"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="lancer-le-script-toutes-les-minutes">Lancer le script toutes les minutes<a data-clipboard-text="http://localhost:1313/tuto/part10/#lancer-le-script-toutes-les-minutes" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancer le script toutes les minutes" href="#lancer-le-script-toutes-les-minutes"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Ouvrir le crontab</li>
 </ul>
@@ -2290,9 +2343,9 @@
 <li>Ajouter la commande</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">* * * * * python3 /home/pi/script/stockAndSendImage.py
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="script-de-destruction-périodique-des-photos-stockées">Script de destruction périodique des photos stockées<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#script-de-destruction-périodique-des-photos-stockées" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Script de destruction périodique des photos stockées" href="#script-de-destruction-périodique-des-photos-stockées"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="script-de-destruction-périodique-des-photos-stockées">Script de destruction périodique des photos stockées<a data-clipboard-text="http://localhost:1313/tuto/part10/#script-de-destruction-périodique-des-photos-stockées" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Script de destruction périodique des photos stockées" href="#script-de-destruction-périodique-des-photos-stockées"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
-<li>On procède comme cela a été fait pour la <a href="https://djangocamera.netlify.app/tuto/part3/#ecrire-le-script-de-destruction-périodique-des-photos">Raspberry Principale</a></li>
+<li>On procède comme cela a été fait pour la <a href="http://localhost:1313/tuto/part3/#ecrire-le-script-de-destruction-périodique-des-photos">Raspberry Principale</a></li>
 <li>Créer et ouvrir en écriture le fichier suppressFiles<span></span>.py
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/suppressFiles.py
 </span></span></code></pre></div></li>
@@ -2316,14 +2369,14 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="m">10</span> <span class="m">03</span> * * * python3 /home/pi/script/suppressFiles.py
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="modifications-au-niveau-de-la-raspberry-principale">Modifications au niveau de la Raspberry Principale<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#modifications-au-niveau-de-la-raspberry-principale" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifications au niveau de la Raspberry Principale" href="#modifications-au-niveau-de-la-raspberry-principale"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="coder-en-dur-">Coder en dur ?<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#coder-en-dur-" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Coder en dur ?" href="#coder-en-dur-"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="modifications-au-niveau-de-la-raspberry-principale">Modifications au niveau de la Raspberry Principale<a data-clipboard-text="http://localhost:1313/tuto/part10/#modifications-au-niveau-de-la-raspberry-principale" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifications au niveau de la Raspberry Principale" href="#modifications-au-niveau-de-la-raspberry-principale"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="coder-en-dur-">Coder en dur ?<a data-clipboard-text="http://localhost:1313/tuto/part10/#coder-en-dur-" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Coder en dur ?" href="#coder-en-dur-"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Soit on apporte les modifications de variable au niveau du fichier <code>/etc/camera/configuration.ini</code></li>
 <li>Soit on code en dur dans les différents fichiers</li>
 <li>Dans ce tutoriel, par simplification, on code en dur</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-un-répertoire-de-stockage">Créer un répertoire de stockage<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#créer-un-répertoire-de-stockage" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer un répertoire de stockage" href="#créer-un-répertoire-de-stockage"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-un-répertoire-de-stockage">Créer un répertoire de stockage<a data-clipboard-text="http://localhost:1313/tuto/part10/#créer-un-répertoire-de-stockage" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer un répertoire de stockage" href="#créer-un-répertoire-de-stockage"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Se connecter en <code>ssh</code> à la Raspberry Principale</li>
 <li>Créer le dossier Camera-n (où n représente la n-ième caméra)
@@ -2331,7 +2384,7 @@
 </span></span></code></pre></div></li>
 <li>A priori, inutile d&rsquo;être en <code>sudo</code> : <code>pi</code> a les droits sur le dossier /var/www/stock</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-de-suppression-des-images">Modifier le fichier de suppression des images<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#modifier-le-fichier-de-suppression-des-images" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de suppression des images" href="#modifier-le-fichier-de-suppression-des-images"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-de-suppression-des-images">Modifier le fichier de suppression des images<a data-clipboard-text="http://localhost:1313/tuto/part10/#modifier-le-fichier-de-suppression-des-images" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de suppression des images" href="#modifier-le-fichier-de-suppression-des-images"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir le fichier suppressFiles</li>
 </ul>
@@ -2345,16 +2398,42 @@
 <li>Et lancer la commande en ajoutant</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">run</span><span class="p">(</span><span class="n">command_8</span><span class="p">)</span>
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="créer-la-caméra-dans-la-base-de-données">Créer la caméra dans la base de données<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#créer-la-caméra-dans-la-base-de-données" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer la caméra dans la base de données" href="#créer-la-caméra-dans-la-base-de-données"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="créer-la-caméra-dans-la-base-de-données">Créer la caméra dans la base de données<a data-clipboard-text="http://localhost:1313/tuto/part10/#créer-la-caméra-dans-la-base-de-données" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer la caméra dans la base de données" href="#créer-la-caméra-dans-la-base-de-données"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
-<li>Procéder comme dans le tutoriel <a href="https://djangocamera.netlify.app/tuto/part8/#créer-la-caméra-dans-la-base-de-données">Partie 8 - Créer la caméra</a></li>
+<li>Procéder comme dans le tutoriel <a href="http://localhost:1313/tuto/part8/#créer-la-caméra-dans-la-base-de-données">Partie 8 - Créer la caméra</a></li>
 <li>Ouvrir le <code>shell</code> en environnement virtuel</li>
 <li>Créer la caméra en lui donnant la valeur <code>Appareil(name=&quot;Cam_n)</code> (par exemple <code>Cam_8</code>)</li>
 <li>Quitter le <code>shell</code></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-les-fichiers-urlspy-et-viewspy">Modifier les fichiers urls.py et views.py<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#modifier-les-fichiers-urlspy-et-viewspy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier les fichiers urls.py et views.py" href="#modifier-les-fichiers-urlspy-et-viewspy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-getcamerasandregisterpy">Modifier le fichier getCamerasAndRegister.py<a data-clipboard-text="http://localhost:1313/tuto/part10/#modifier-le-fichier-getcamerasandregisterpy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier getCamerasAndRegister.py" href="#modifier-le-fichier-getcamerasandregisterpy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
-<li>Suivre les indications données dans le tutoriel <a href="https://djangocamera.netlify.app/tuto/part8/#modifier-les-fichiers-urls-et-views-de-django">Partie 8 - Fichiers urls et views</a></li>
+<li>Il faut que les images stockées dans <code>/var/www/stock</code> soient intégrées dans la base de données</li>
+<li>Dans cette configuration, on a deux caméras au niveau de la raspberry secondaire : Camera_5 et Camera_ir (une pi-camera)</li>
+<li>Ajouter avant la boucle <code>while True</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Ajout des caméras de la 2ème raspberry</span>
+</span></span><span class="line"><span class="cl"><span class="n">pathCamera_5</span> <span class="o">=</span> <span class="s2">&#34;Camera_5&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">pathCamera_ir</span> <span class="o">=</span> <span class="s2">&#34;Camera_ir&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Ajouter dans la boucle <code>while True</code> avant <code>conn.commit()</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Ajout des caméras de la 2ème raspberry</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;INSERT INTO </span><span class="si">{}</span><span class="s2">_photo(date, appareil_id, name, path) VALUES (?, &#39;5&#39;, ?, ?)&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">appli</span><span class="p">),</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pathCamera_5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;INSERT INTO </span><span class="si">{}</span><span class="s2">_photo(date, appareil_id, name, path) VALUES (?, &#39;6&#39;, ?, ?)&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">appli</span><span class="p">),</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pathCamera_ir</span><span class="p">))</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>Tout ceci si on a nommé les dossiers de stockage <code>Camera_5</code> et <code>Camera_ir</code></p>
+</li>
+<li>
+<p>Et si on a créé deux caméras dans le shell</p>
+</li>
+<li>
+<p>Le nouveau fichier <code>getCamerasAndRegister.py</code> est visible dans la partie <a href="http://localhost:1313/script/getCamerasAndRegister_py_4cam/">script</a></p>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-les-fichiers-urlspy-et-viewspy">Modifier les fichiers urls.py et views.py<a data-clipboard-text="http://localhost:1313/tuto/part10/#modifier-les-fichiers-urlspy-et-viewspy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier les fichiers urls.py et views.py" href="#modifier-les-fichiers-urlspy-et-viewspy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<ul>
+<li>Suivre les indications données dans le tutoriel <a href="http://localhost:1313/tuto/part8/#modifier-les-fichiers-urls-et-views-de-django">Partie 8 - Fichiers urls et views</a></li>
 <li>Modifier <code>urls.py</code> en ajoutant le path pour le streaming, par exemple <code>stream_8</code></li>
 <li>Dans <code>views.py</code>, modifier les fonctions <em>ad hoc</em></li>
 <li>Y ajouter la fonction de streaming (par exemple, si la caméra est la 8)</li>
@@ -2365,13 +2444,13 @@
 </span></span><span class="line"><span class="cl">        <span class="s1">&#39;stream&#39;</span><span class="p">:</span> <span class="n">stream</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;</span><span class="si">{}</span><span class="s2">/stream_8.html&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">appli</span><span class="p">),</span> <span class="n">context</span><span class="p">)</span>
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="modifier-les-fichiers-html">Modifier les fichiers html<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#modifier-les-fichiers-html" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier les fichiers html" href="#modifier-les-fichiers-html"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="modifier-les-fichiers-html">Modifier les fichiers html<a data-clipboard-text="http://localhost:1313/tuto/part10/#modifier-les-fichiers-html" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier les fichiers html" href="#modifier-les-fichiers-html"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
-<li>Suivre les indications données dans le tutoriel <a href="https://djangocamera.netlify.app/tuto/part8/#modifier-les-fichiers-html-templates">Partie 8 - Fichiers html</a></li>
+<li>Suivre les indications données dans le tutoriel <a href="http://localhost:1313/tuto/part8/#modifier-les-fichiers-html-templates">Partie 8 - Fichiers html</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-de-configuration-apache2">Modifier le fichier de configuration apache2<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part10/#modifier-le-fichier-de-configuration-apache2" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de configuration apache2" href="#modifier-le-fichier-de-configuration-apache2"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-de-configuration-apache2">Modifier le fichier de configuration apache2<a data-clipboard-text="http://localhost:1313/tuto/part10/#modifier-le-fichier-de-configuration-apache2" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de configuration apache2" href="#modifier-le-fichier-de-configuration-apache2"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
-<li>Suivre les indications données dans le tutoriel <a href="https://djangocamera.netlify.app/tuto/part8/#modifier-le-fichier-de-configuration-apache2-du-site">Partie 8 - Fichier de configuaration apache</a></li>
+<li>Suivre les indications données dans le tutoriel <a href="http://localhost:1313/tuto/part8/#modifier-le-fichier-de-configuration-apache2-du-site">Partie 8 - Fichier de configuaration apache</a></li>
 <li>Au niveau des <code>proxyPass</code>, il convient de modifier l&rsquo;adresse <code>ip</code> en y affectant l&rsquo;adresse de la Raspberry Secondaire</li>
 <li>Ajouter dans le fichier <code>/etc/apache2/sites-available/project-camera.conf</code>, aux endroits ad hoc des lignes du style</li>
 </ul>
@@ -3614,6 +3693,41 @@
 
         
         
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+
+        
+        
+            
+    
+    
+
     
         
         

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tutoriel : Partie 6 - Sécuriser le site en https">
@@ -49,7 +49,7 @@
             <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
         </label>
         
-        <a class="gdoc-header__link" href="https://djangocamera.netlify.app/">
+        <a class="gdoc-header__link" href="http://localhost:1313/">
             <span class="gdoc-brand flex align-center">
                 <img class="gdoc-brand__img" src="/logo/logo_camera.svg" alt="" width=38 height=38>
                 Surveillance camera avec raspberry, mjpg-streamer, Django et Apache
@@ -2154,7 +2154,7 @@
     
 
 
-<div class="gdoc-page__anchorwrap"><h2 id="a-faire">A faire<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#a-faire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A faire" href="#a-faire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="a-faire">A faire<a data-clipboard-text="http://localhost:1313/tuto/part6/#a-faire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A faire" href="#a-faire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Installer Certbot et obtenir un certificat</li>
 <li>Modifier le fichier de configuration du site</li>
@@ -2162,17 +2162,17 @@
 <li>Tester la sécurité du site</li>
 <li>Renouveler automatiquement le certificat</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="comment-sécuriser-un-site-">Comment sécuriser un site ?<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#comment-sécuriser-un-site-" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Comment sécuriser un site ?" href="#comment-sécuriser-un-site-"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="comment-sécuriser-un-site-">Comment sécuriser un site ?<a data-clipboard-text="http://localhost:1313/tuto/part6/#comment-sécuriser-un-site-" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Comment sécuriser un site ?" href="#comment-sécuriser-un-site-"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Il est possible de sécuriser un site en utilisant les services de Cloudflare. Mais dans la mesure où on utilise un Dyn DNS (No-IP), la procédure est plutôt complexe, nécessitant par exemple de passer par DNS-O-Matic.</li>
 <li>Il est finalement plus simple d’utiliser Certbot, d’autant que l’on peut automatiser le renouvellement des certificats. La manière la plus simple d’installer certbot est d’utiliser la commande snap.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="sources">Sources<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#sources" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Sources" href="#sources"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="sources">Sources<a data-clipboard-text="http://localhost:1313/tuto/part6/#sources" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Sources" href="#sources"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li><a href="https://certbot.eff.org/instructions?ws=other&amp;os=snap">certbot</a></li>
 <li><a href="https://doc.ubuntu-fr.org/tutoriel/securiser_apache2_avec_ssl">Wiki ubuntu-fr</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="activer-les-modules-de-apache">Activer les modules de Apache<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#activer-les-modules-de-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Activer les modules de Apache" href="#activer-les-modules-de-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="activer-les-modules-de-apache">Activer les modules de Apache<a data-clipboard-text="http://localhost:1313/tuto/part6/#activer-les-modules-de-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Activer les modules de Apache" href="#activer-les-modules-de-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Activer le module ssl
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo a2enmod ssl
@@ -2184,8 +2184,8 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo systemctl restart apache2
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="installer-certbot-et-obtenir-un-certificat">Installer Certbot et obtenir un certificat<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#installer-certbot-et-obtenir-un-certificat" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer Certbot et obtenir un certificat" href="#installer-certbot-et-obtenir-un-certificat"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="installer-snapd">Installer Snapd<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#installer-snapd" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer Snapd" href="#installer-snapd"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="installer-certbot-et-obtenir-un-certificat">Installer Certbot et obtenir un certificat<a data-clipboard-text="http://localhost:1313/tuto/part6/#installer-certbot-et-obtenir-un-certificat" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer Certbot et obtenir un certificat" href="#installer-certbot-et-obtenir-un-certificat"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="installer-snapd">Installer Snapd<a data-clipboard-text="http://localhost:1313/tuto/part6/#installer-snapd" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer Snapd" href="#installer-snapd"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>La manière la plus simple d&rsquo;installer Certbot est de passer par la commande snap</li>
 <li>Installer snapd
@@ -2201,7 +2201,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo snap install core
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="installer-certbot">Installer Certbot<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#installer-certbot" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer Certbot" href="#installer-certbot"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="installer-certbot">Installer Certbot<a data-clipboard-text="http://localhost:1313/tuto/part6/#installer-certbot" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer Certbot" href="#installer-certbot"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Installer Certbot
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo snap install --classic certbot
@@ -2210,7 +2210,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo ln -s /snap/bin/certbot /usr/bin/certbot
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="installer-le-certificat-certbot">Installer le certificat Certbot<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#installer-le-certificat-certbot" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer le certificat Certbot" href="#installer-le-certificat-certbot"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="installer-le-certificat-certbot">Installer le certificat Certbot<a data-clipboard-text="http://localhost:1313/tuto/part6/#installer-le-certificat-certbot" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer le certificat Certbot" href="#installer-le-certificat-certbot"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>On peut laisser Certbot installer le certificat et modifier lui-même les fichiers Apache. Il est préférable d’installer le certificat mais de modifier soi-même les fichiers de configuration du site, notamment pour pouvoir maîtriser certains paramètres de sécurité.</li>
 <li>Lancer la commande
@@ -2239,7 +2239,7 @@
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichier-etcapache2sites-availableproject-cameraconf">Modifier le fichier /etc/apache2/sites-available/project-camera.conf<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#modifier-le-fichier-etcapache2sites-availableproject-cameraconf" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier /etc/apache2/sites-available/project-camera.conf" href="#modifier-le-fichier-etcapache2sites-availableproject-cameraconf"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichier-etcapache2sites-availableproject-cameraconf">Modifier le fichier /etc/apache2/sites-available/project-camera.conf<a data-clipboard-text="http://localhost:1313/tuto/part6/#modifier-le-fichier-etcapache2sites-availableproject-cameraconf" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier /etc/apache2/sites-available/project-camera.conf" href="#modifier-le-fichier-etcapache2sites-availableproject-cameraconf"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Ouvrir le fichier
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo nano /etc/apache2/sites-available/project-camera.conf
@@ -2274,10 +2274,10 @@
 <li>Balise de fermeture du VirtualHost
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">&lt;/VirtualHost&gt;
 </span></span></code></pre></div></li>
-<li>Le contenu du fichier doit être semblable à celui du fichier <code>project-camera.conf V5</code> disponible <a href="https://djangocamera.netlify.app/script/project-camera_conf_V5/" title="project-camera.conf V5">ici</a></li>
+<li>Le contenu du fichier doit être semblable à celui du fichier <code>project-camera.conf V5</code> disponible <a href="http://localhost:1313/script/project-camera_conf_V5/" title="project-camera.conf V5">ici</a></li>
 <li>Si vous copiez/collez le contenu de ce fichier, vous devrez modifier l’IP locale, le nom du site, les ports des caméras… en fonction de vos paramètres.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="explications-sur-ces-commandes">Explications sur ces commandes<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#explications-sur-ces-commandes" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Explications sur ces commandes" href="#explications-sur-ces-commandes"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="explications-sur-ces-commandes">Explications sur ces commandes<a data-clipboard-text="http://localhost:1313/tuto/part6/#explications-sur-ces-commandes" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Explications sur ces commandes" href="#explications-sur-ces-commandes"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li><code>SSLEngine on</code> : Activation du module <code>SSL</code></li>
 <li><code>SSLCertificateKeyFile</code> : chemin vers le fichier <code>privkey.pem</code></li>
@@ -2289,7 +2289,7 @@
 <li><code>SSLCipherSuite</code> : Liste des algorithmes de chiffrement disponibles</li>
 <li><code>Header always set Strict-Transport-Security </code>: ou <code>HSTS</code>. Indique aux navigateurs que seul le https est supporté.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="modifications-au-niveau-de-la-box">Modifications au niveau de la box<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#modifications-au-niveau-de-la-box" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifications au niveau de la box" href="#modifications-au-niveau-de-la-box"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="modifications-au-niveau-de-la-box">Modifications au niveau de la box<a data-clipboard-text="http://localhost:1313/tuto/part6/#modifications-au-niveau-de-la-box" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifications au niveau de la box" href="#modifications-au-niveau-de-la-box"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Entrer dans la box en tapant <code>192.168.1.1</code> dans la barre d&rsquo;adresse du navigateur (à modifier selon l&rsquo;opérateur et le réseau)</li>
 <li>Ajouter la règle dans le <code>NAT/PAT</code>
@@ -2303,7 +2303,7 @@
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="tester-la-sécurité">Tester la sécurité<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#tester-la-sécurité" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Tester la sécurité" href="#tester-la-sécurité"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="tester-la-sécurité">Tester la sécurité<a data-clipboard-text="http://localhost:1313/tuto/part6/#tester-la-sécurité" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Tester la sécurité" href="#tester-la-sécurité"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>En accédant au site depuis l&rsquo;extérieur du réseau, vous constatez que le symbole cadenas précède l&rsquo;adresse de votre site.</li>
 <li>Tester le niveau de sécurité
@@ -2314,7 +2314,7 @@
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="renouveler-automatiquement-le-certificat-certbot">Renouveler automatiquement le certificat certbot<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#renouveler-automatiquement-le-certificat-certbot" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Renouveler automatiquement le certificat certbot" href="#renouveler-automatiquement-le-certificat-certbot"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="renouveler-automatiquement-le-certificat-certbot">Renouveler automatiquement le certificat certbot<a data-clipboard-text="http://localhost:1313/tuto/part6/#renouveler-automatiquement-le-certificat-certbot" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Renouveler automatiquement le certificat certbot" href="#renouveler-automatiquement-le-certificat-certbot"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Le certificat est valable 90 jours ; on écrit un script bash pour le renouveler automatiquement.</li>
 <li>Créer le script et l&rsquo;ouvrir en écriture
@@ -2350,14 +2350,14 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo certbot certificates
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="a-ce-stade---prochaine-étape">A ce stade - Prochaine étape<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#a-ce-stade---prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade - Prochaine étape" href="#a-ce-stade---prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="a-ce-stade">A ce stade<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#a-ce-stade" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade" href="#a-ce-stade"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="a-ce-stade---prochaine-étape">A ce stade - Prochaine étape<a data-clipboard-text="http://localhost:1313/tuto/part6/#a-ce-stade---prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade - Prochaine étape" href="#a-ce-stade---prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="a-ce-stade">A ce stade<a data-clipboard-text="http://localhost:1313/tuto/part6/#a-ce-stade" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade" href="#a-ce-stade"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Votre site est sécurisé https</li>
 <li>Il a un score global A+</li>
 <li>Le certificat de Let’s Encrypt est renouvelé automatiquement tous les deux mois.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="etape-suivante">Etape suivante<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part6/#etape-suivante" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Etape suivante" href="#etape-suivante"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="etape-suivante">Etape suivante<a data-clipboard-text="http://localhost:1313/tuto/part6/#etape-suivante" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Etape suivante" href="#etape-suivante"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Automatiser les mises à jour de la raspberry</li>
 <li>Être informé des redémarrages de la raspberry</li>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tutoriel : Partie 8 - Ajouter une caméra">
@@ -49,7 +49,7 @@
             <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
         </label>
         
-        <a class="gdoc-header__link" href="https://djangocamera.netlify.app/">
+        <a class="gdoc-header__link" href="http://localhost:1313/">
             <span class="gdoc-brand flex align-center">
                 <img class="gdoc-brand__img" src="/logo/logo_camera.svg" alt="" width=38 height=38>
                 Surveillance camera avec raspberry, mjpg-streamer, Django et Apache
@@ -2154,7 +2154,7 @@
     
 
 
-<div class="gdoc-page__anchorwrap"><h2 id="position-du-problème">Position du problème<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#position-du-problème" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="position-du-problème">Position du problème<a data-clipboard-text="http://localhost:1313/tuto/part8/#position-du-problème" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>D&rsquo;autres caméras peuvent être installées en fonction :
 <ul>
@@ -2203,7 +2203,7 @@
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="répertorier-la-caméra">Répertorier la caméra<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#répertorier-la-caméra" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Répertorier la caméra" href="#répertorier-la-caméra"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="répertorier-la-caméra">Répertorier la caméra<a data-clipboard-text="http://localhost:1313/tuto/part8/#répertorier-la-caméra" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Répertorier la caméra" href="#répertorier-la-caméra"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Dans le répertoire <code>/dev/v4l/by-id</code> répertorier l&rsquo;identifiant de la nouvelle caméra USB</li>
 </ul>
@@ -2211,17 +2211,17 @@
 </span></span></code></pre></div><ul>
 <li>Noter la valeur <code>index-O</code> de la nouvelle caméra</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichiernbspconfigurationini">Modifier le fichier <em>configuration.ini</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-le-fichiernbspconfigurationini" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>configuration.ini</em>" href="#modifier-le-fichiernbspconfigurationini"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichierconfigurationini">Modifier le fichier <em>configuration.ini</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-le-fichierconfigurationini" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>configuration.ini</em>" href="#modifier-le-fichierconfigurationini"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Ouvrir le fichier config.ini en écriture</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo nano /etc/camera/configuration.ini
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="dans-la-sectionnbsphosts">Dans la section <em>[hosts]</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#dans-la-sectionnbsphosts" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dans la section <em>[hosts]</em>" href="#dans-la-sectionnbsphosts"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="dans-la-sectionhosts">Dans la section <em>[hosts]</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#dans-la-sectionhosts" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dans la section <em>[hosts]</em>" href="#dans-la-sectionhosts"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ajouter un proxy pour la nouvelle caméra</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">proxy_3</span><span class="o">=</span>Rp3
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="dans-la-sectionnbspcamera">Dans la section <em>[camera]</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#dans-la-sectionnbspcamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dans la section <em>[camera]</em>" href="#dans-la-sectionnbspcamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="dans-la-sectioncamera">Dans la section <em>[camera]</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#dans-la-sectioncamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dans la section <em>[camera]</em>" href="#dans-la-sectioncamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ajouter
 <ul>
@@ -2240,7 +2240,7 @@
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="dans-la-sectionnbsppaths">Dans la section <em>[paths]</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#dans-la-sectionnbsppaths" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dans la section <em>[paths]</em>" href="#dans-la-sectionnbsppaths"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="dans-la-sectionpaths">Dans la section <em>[paths]</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#dans-la-sectionpaths" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dans la section <em>[paths]</em>" href="#dans-la-sectionpaths"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ajouter un path pour la caméra</li>
 <li>Par exemple :
@@ -2249,7 +2249,7 @@
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="dans-la-sectionnbspfrequences">Dans la section <em>[frequences]</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#dans-la-sectionnbspfrequences" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dans la section <em>[frequences]</em>" href="#dans-la-sectionnbspfrequences"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="dans-la-sectionfrequences">Dans la section <em>[frequences]</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#dans-la-sectionfrequences" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dans la section <em>[frequences]</em>" href="#dans-la-sectionfrequences"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ajouter un temps d&rsquo;attente pour le lancement de la caméra</li>
 <li>Par exemple :
@@ -2258,11 +2258,11 @@
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="fichier-final">Fichier final<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#fichier-final" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Fichier final" href="#fichier-final"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="fichier-final">Fichier final<a data-clipboard-text="http://localhost:1313/tuto/part8/#fichier-final" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Fichier final" href="#fichier-final"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
-<li>Le fichier ressemblera au fichier consultable <a href="https://djangocamera.netlify.app/script/configuration_ini_4cam/" title="configuration_ini_4cam">ici</a></li>
+<li>Le fichier ressemblera au fichier consultable <a href="http://localhost:1313/script/configuration_ini_4cam/" title="configuration_ini_4cam">ici</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="créer-le-dossier-de-stockage-pour-la-caméra">Créer le dossier de stockage pour la caméra<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#créer-le-dossier-de-stockage-pour-la-caméra" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le dossier de stockage pour la caméra" href="#créer-le-dossier-de-stockage-pour-la-caméra"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="créer-le-dossier-de-stockage-pour-la-caméra">Créer le dossier de stockage pour la caméra<a data-clipboard-text="http://localhost:1313/tuto/part8/#créer-le-dossier-de-stockage-pour-la-caméra" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le dossier de stockage pour la caméra" href="#créer-le-dossier-de-stockage-pour-la-caméra"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Par exemple :</li>
 </ul>
@@ -2271,18 +2271,18 @@
 <li>Accorder les droits ad hoc</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo chown -R pi /var/www/stock/Camera_3
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="ecrire-et-modifier-les-scripts-python-pour-la-caméra">Ecrire et modifier les scripts python pour la caméra<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#ecrire-et-modifier-les-scripts-python-pour-la-caméra" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire et modifier les scripts python pour la caméra" href="#ecrire-et-modifier-les-scripts-python-pour-la-caméra"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="le-script-de-lancement">Le script de lancement<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#le-script-de-lancement" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Le script de lancement" href="#le-script-de-lancement"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="ecrire-et-modifier-les-scripts-python-pour-la-caméra">Ecrire et modifier les scripts python pour la caméra<a data-clipboard-text="http://localhost:1313/tuto/part8/#ecrire-et-modifier-les-scripts-python-pour-la-caméra" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire et modifier les scripts python pour la caméra" href="#ecrire-et-modifier-les-scripts-python-pour-la-caméra"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="le-script-de-lancement">Le script de lancement<a data-clipboard-text="http://localhost:1313/tuto/part8/#le-script-de-lancement" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Le script de lancement" href="#le-script-de-lancement"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Créer le script de lancement</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/runCamera_3.py
 </span></span></code></pre></div><ul>
 <li>Ecrire dans ce fichier le même script que pour les fichiers des autres caméras, en adaptant les différentes variables</li>
-<li>Un exemple de fichier est disponible <a href="https://djangocamera.netlify.app/script/runCamera_3_py_4cam/" title="runCamera_3_py_4cam
+<li>Un exemple de fichier est disponible <a href="http://localhost:1313/script/runCamera_3_py_4cam/" title="runCamera_3_py_4cam
 ">ici</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-de-suppression-des-photos">Modifier le fichier de suppression des photos<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-le-fichier-de-suppression-des-photos" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de suppression des photos" href="#modifier-le-fichier-de-suppression-des-photos"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-de-suppression-des-photos">Modifier le fichier de suppression des photos<a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-le-fichier-de-suppression-des-photos" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de suppression des photos" href="#modifier-le-fichier-de-suppression-des-photos"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir le fichier suppressFiles</li>
 </ul>
@@ -2300,10 +2300,10 @@
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">run</span><span class="p">(</span><span class="n">command_3</span><span class="p">)</span>
 </span></span></code></pre></div><ul>
-<li>Le fichier ressemblera au fichier consultable <a href="https://djangocamera.netlify.app/script/suppressFiles_py_4cam/" title="suppressFiles_py_4cam
+<li>Le fichier ressemblera au fichier consultable <a href="http://localhost:1313/script/suppressFiles_py_4cam/" title="suppressFiles_py_4cam
 ">ici</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-de-stockage-des-photos">Modifier le fichier de stockage des photos<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-le-fichier-de-stockage-des-photos" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de stockage des photos" href="#modifier-le-fichier-de-stockage-des-photos"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-de-stockage-des-photos">Modifier le fichier de stockage des photos<a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-le-fichier-de-stockage-des-photos" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de stockage des photos" href="#modifier-le-fichier-de-stockage-des-photos"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir le fichier de stockage des photos</li>
 </ul>
@@ -2335,10 +2335,10 @@
 </span></span></code></pre></div><ul>
 <li><em>La base de données numérote les caméras (<code>appareil_id</code>) par ordre de saisie</em></li>
 <li><em>La caméra surajoutée est, ici, la quatrième caméra, ce qui explique qu&rsquo;elle a l&rsquo;identifiant <code>4</code></em></li>
-<li>Le fichier de stockage ressemblera au fichier consultable <a href="https://djangocamera.netlify.app/script/getCamerasAndRegister_py_4cam/" title="getCamerasAndRegister_py_4cam
+<li>Le fichier de stockage ressemblera au fichier consultable <a href="http://localhost:1313/script/getCamerasAndRegister_py_4cam/" title="getCamerasAndRegister_py_4cam
 ">ici</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-cron">Modifier le cron<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-le-cron" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le cron" href="#modifier-le-cron"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-cron">Modifier le cron<a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-le-cron" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le cron" href="#modifier-le-cron"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Le fichier de mise en route de la nouvelle caméra doit être lancé par le cron lors du démarrage de la raspberry</li>
 <li>Ouvrir le cron en édition</li>
@@ -2348,7 +2348,7 @@
 <li>Ajouter la ligne</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">@reboot python3 /home/pi/script/runCamera_3.py
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="créer-la-caméra-dans-la-base-de-données">Créer la caméra dans la base de données<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#créer-la-caméra-dans-la-base-de-données" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer la caméra dans la base de données" href="#créer-la-caméra-dans-la-base-de-données"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="créer-la-caméra-dans-la-base-de-données">Créer la caméra dans la base de données<a data-clipboard-text="http://localhost:1313/tuto/part8/#créer-la-caméra-dans-la-base-de-données" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer la caméra dans la base de données" href="#créer-la-caméra-dans-la-base-de-données"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li><strong>Se mettre en environnement virtuel</strong></li>
 </ul>
@@ -2379,8 +2379,8 @@
 <li>On peut maintenant quitter l&rsquo;environnement virtuel</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> deactivate
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="modifier-les-fichiersnbspurlsnbspetnbspviewsnbspde-django">Modifier les fichiers <em>urls</em> et <em>views</em> de Django<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-les-fichiersnbspurlsnbspetnbspviewsnbspde-django" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier les fichiers <em>urls</em> et <em>views</em> de Django" href="#modifier-les-fichiersnbspurlsnbspetnbspviewsnbspde-django"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichiernbspurlspynbspdansnbspfolderprojectcamera">Modifier le fichier <em>urls.py</em> dans <em>~/folder/project/camera</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-le-fichiernbspurlspynbspdansnbspfolderprojectcamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>urls.py</em> dans <em>~/folder/project/camera</em>" href="#modifier-le-fichiernbspurlspynbspdansnbspfolderprojectcamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="modifier-les-fichiersurlsetviewsde-django">Modifier les fichiers <em>urls</em> et <em>views</em> de Django<a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-les-fichiersurlsetviewsde-django" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier les fichiers <em>urls</em> et <em>views</em> de Django" href="#modifier-les-fichiersurlsetviewsde-django"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichierurlspydansfolderprojectcamera">Modifier le fichier <em>urls.py</em> dans <em>~/folder/project/camera</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-le-fichierurlspydansfolderprojectcamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>urls.py</em> dans <em>~/folder/project/camera</em>" href="#modifier-le-fichierurlspydansfolderprojectcamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir le fichier</li>
 </ul>
@@ -2390,10 +2390,10 @@
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">path</span><span class="p">(</span><span class="s1">&#39;stream_3/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">stream_3</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;stream_3&#34;</span><span class="p">),</span>
 </span></span></code></pre></div><ul>
-<li>Le fichier modifié est consultable <a href="https://djangocamera.netlify.app/script/urls_py_4cam/" title="urls_py_4cam
+<li>Le fichier modifié est consultable <a href="http://localhost:1313/script/urls_py_4cam/" title="urls_py_4cam
 ">ici</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichiernbspviewspynbspdansnbspfolderprojectcamera">Modifier le fichier <em>views.py</em> dans <em>~/folder/project/camera</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-le-fichiernbspviewspynbspdansnbspfolderprojectcamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>views.py</em> dans <em>~/folder/project/camera</em>" href="#modifier-le-fichiernbspviewspynbspdansnbspfolderprojectcamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichierviewspydansfolderprojectcamera">Modifier le fichier <em>views.py</em> dans <em>~/folder/project/camera</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-le-fichierviewspydansfolderprojectcamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>views.py</em> dans <em>~/folder/project/camera</em>" href="#modifier-le-fichierviewspydansfolderprojectcamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir le fichier</li>
 </ul>
@@ -2403,7 +2403,7 @@
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">cam_3_port</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;camera&#34;</span><span class="p">,</span> <span class="s2">&#34;cam_3_port&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">Rp3</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;hosts&#34;</span><span class="p">,</span> <span class="s2">&#34;proxy_3&#34;</span><span class="p">)</span>
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="modifiernbspdef-historiquerequest">Modifier <em>def historique(request)</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifiernbspdef-historiquerequest" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier <em>def historique(request)</em>" href="#modifiernbspdef-historiquerequest"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="modifierdef-historiquerequest">Modifier <em>def historique(request)</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#modifierdef-historiquerequest" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier <em>def historique(request)</em>" href="#modifierdef-historiquerequest"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Ajouter chacune des lignes suivantes à la suite des lignes qui leur sont équivalentes</li>
 </ul>
@@ -2434,7 +2434,7 @@
 </span></span><span class="line"><span class="cl">    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="s1">&#39;latest_photo_list_group&#39;</span><span class="p">:</span> <span class="n">latest_photo_list_group</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>  
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="modifiernbspdef-parheurerequest">Modifier <em>def parheure(request)</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifiernbspdef-parheurerequest" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier <em>def parheure(request)</em>" href="#modifiernbspdef-parheurerequest"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="modifierdef-parheurerequest">Modifier <em>def parheure(request)</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#modifierdef-parheurerequest" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier <em>def parheure(request)</em>" href="#modifierdef-parheurerequest"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Ajouter la ligne suivante après <code>latest_photo_list_py ...</code></li>
 </ul>
@@ -2457,7 +2457,7 @@
 <li>Dans la varaible <code>paginator</code> modifier éventuellement le nombre d&rsquo;éléments par page en mettant, par exemple, <code>240</code> au lieu de <code>180</code> (<em>240 permet de visualiser les photos d&rsquo;une heure complète si on prend une photo toutes les minutes</em>).</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">paginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">latest_photo_list_group</span><span class="p">,</span> <span class="mi">240</span><span class="p">)</span>
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="ajouter-la-fonctionnbspstream_3">Ajouter la fonction <em>stream_3</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#ajouter-la-fonctionnbspstream_3" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ajouter la fonction <em>stream_3</em>" href="#ajouter-la-fonctionnbspstream_3"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="ajouter-la-fonctionstream_">Ajouter la fonction <em>stream_3</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#ajouter-la-fonctionstream_" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ajouter la fonction <em>stream_3</em>" href="#ajouter-la-fonctionstream_"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Après les trois fonctions <code>stream</code> ajouter :</li>
 </ul>
@@ -2466,16 +2466,16 @@
 </span></span><span class="line"><span class="cl">    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="s1">&#39;stream&#39;</span><span class="p">:</span> <span class="n">stream</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="modifier-la-fonctionnbspstream_allcam">Modifier la fonction <em>stream_AllCam</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-la-fonctionnbspstream_allcam" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier la fonction <em>stream_AllCam</em>" href="#modifier-la-fonctionnbspstream_allcam"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="modifier-la-fonctionstream_">Modifier la fonction <em>stream_AllCam</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-la-fonctionstream_" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier la fonction <em>stream_AllCam</em>" href="#modifier-la-fonctionstream_"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Dans la liste <code>stream</code> ajouter <code>&quot;/{}?action=stream&quot;.format(Rp3)</code></li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">stream</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;/</span><span class="si">{}</span><span class="s2">?action=stream&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Rp1</span><span class="p">),</span><span class="s2">&#34;/</span><span class="si">{}</span><span class="s2">?action=stream&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Rp2</span><span class="p">),</span><span class="s2">&#34;/</span><span class="si">{}</span><span class="s2">?action=stream&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Rpi</span><span class="p">),</span> <span class="s2">&#34;/</span><span class="si">{}</span><span class="s2">?action=stream&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Rp3</span><span class="p">)]</span>
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="fichier-consultable">Fichier consultable<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#fichier-consultable" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Fichier consultable" href="#fichier-consultable"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
-<p>Le fichier <code>views.py</code> doit ressembler au fichier consultable <a href="https://djangocamera.netlify.app/script/views_py_4cam/" title="views_py_4cam
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="fichier-consultable">Fichier consultable<a data-clipboard-text="http://localhost:1313/tuto/part8/#fichier-consultable" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Fichier consultable" href="#fichier-consultable"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+<p>Le fichier <code>views.py</code> doit ressembler au fichier consultable <a href="http://localhost:1313/script/views_py_4cam/" title="views_py_4cam
 ">ici</a></p>
-<div class="gdoc-page__anchorwrap"><h2 id="modifier-les-fichiers-html-templates">Modifier les fichiers html (templates)<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-les-fichiers-html-templates" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier les fichiers html (templates)" href="#modifier-les-fichiers-html-templates"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="position-du-problème-1">Position du problème<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#position-du-problème-1" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème-1"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="modifier-les-fichiers-html-templates">Modifier les fichiers html (templates)<a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-les-fichiers-html-templates" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier les fichiers html (templates)" href="#modifier-les-fichiers-html-templates"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="position-du-problème-1">Position du problème<a data-clipboard-text="http://localhost:1313/tuto/part8/#position-du-problème-1" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème-1"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Nécessité de créer un fichier de streaming pour la nouvelle caméra : <code>stream_3.html</code></li>
 <li>Modifier <code>base.html</code> pour ajouter la nouvelle caméra dans le menu</li>
@@ -2484,7 +2484,7 @@
 <li>Modifier <code>stream_AllCam.html</code> pour ajouter la nouvelle caméra</li>
 <li>Toiletter divers fichiers <code>.html</code></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-le-fichernbspstream_3html">Créer le ficher <em>stream_3.html</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#créer-le-fichernbspstream_3html" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le ficher <em>stream_3.html</em>" href="#créer-le-fichernbspstream_3html"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-le-ficherstream_">Créer le ficher <em>stream_3.html</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#créer-le-ficherstream_" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le ficher <em>stream_3.html</em>" href="#créer-le-ficherstream_"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Créer le fichier en écriture</li>
 </ul>
@@ -2500,10 +2500,10 @@
 </ul>
 </li>
 <li>
-<p>Un exemple de fichier est disponible <a href="https://djangocamera.netlify.app/script/stream_3_html_4cam/" title="stream_3_html_4cam">ici</a></p>
+<p>Un exemple de fichier est disponible <a href="http://localhost:1313/script/stream_3_html_4cam/" title="stream_3_html_4cam">ici</a></p>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichiernbspbasehtml">Modifier le fichier <em>base.html</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-le-fichiernbspbasehtml" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>base.html</em>" href="#modifier-le-fichiernbspbasehtml"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichierbasehtml">Modifier le fichier <em>base.html</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-le-fichierbasehtml" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>base.html</em>" href="#modifier-le-fichierbasehtml"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir le fichier en écriture</li>
 </ul>
@@ -2515,10 +2515,10 @@
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/camera/stream_3/&#34;</span><span class="p">&gt;</span>Caméra 3<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </span></span></code></pre></div><ul>
-<li>Un exemple de fichier est disponible <a href="https://djangocamera.netlify.app/script/base_html_4cam/" title="base_html_4cam
+<li>Un exemple de fichier est disponible <a href="http://localhost:1313/script/base_html_4cam/" title="base_html_4cam
 ">ici</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichiernbsphistoriquehtml">Modifier le fichier <em>historique.html</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-le-fichiernbsphistoriquehtml" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>historique.html</em>" href="#modifier-le-fichiernbsphistoriquehtml"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichierhistoriquehtml">Modifier le fichier <em>historique.html</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-le-fichierhistoriquehtml" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>historique.html</em>" href="#modifier-le-fichierhistoriquehtml"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir le fichier en écriture</li>
 </ul>
@@ -2535,10 +2535,10 @@
 </ul>
 </li>
 <li>Il est aussi possible de ne pas modifier cette valeur. Dans ce cas, 3 photos seront affichées par ligne, avec un décalage des caméras en passant d&rsquo;une ligne à l&rsquo;autre</li>
-<li>Un exemple de fichier est disponible <a href="https://djangocamera.netlify.app/script/historique_html_4cam/" title="historique_html_4cam
+<li>Un exemple de fichier est disponible <a href="http://localhost:1313/script/historique_html_4cam/" title="historique_html_4cam
 ">ici</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichiernbspparheurehtml">Modifier le fichier <em>parHeure.html</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-le-fichiernbspparheurehtml" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>parHeure.html</em>" href="#modifier-le-fichiernbspparheurehtml"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichierparheurehtml">Modifier le fichier <em>parHeure.html</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-le-fichierparheurehtml" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>parHeure.html</em>" href="#modifier-le-fichierparheurehtml"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir le fichier en écriture</li>
 </ul>
@@ -2555,10 +2555,10 @@
 </ul>
 </li>
 <li>Il est aussi possible de ne pas modifier le fichier. Dans ce cas, 3 photos seront affichées par ligne, avec un décalage des caméras en passant d&rsquo;une ligne à l&rsquo;autre</li>
-<li>Un exemple de fichier est disponible <a href="https://djangocamera.netlify.app/script/parHeure_html_4cam/" title="parHeure_html_4cam
+<li>Un exemple de fichier est disponible <a href="http://localhost:1313/script/parHeure_html_4cam/" title="parHeure_html_4cam
 ">ici</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichiernbspstream_allcamhtml">Modifier le fichier <em>stream_AllCam.html</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-le-fichiernbspstream_allcamhtml" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>stream_AllCam.html</em>" href="#modifier-le-fichiernbspstream_allcamhtml"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichierstream_">Modifier le fichier <em>stream_AllCam.html</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-le-fichierstream_" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>stream_AllCam.html</em>" href="#modifier-le-fichierstream_"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir le fichier en écriture</li>
 </ul>
@@ -2580,17 +2580,17 @@
 <li>Créer une deuxième ligne avec une balise <code>&lt;tr&gt;...&lt;/tr&gt;</code></li>
 <li>Y insérer la troisième cellule existante, délimitée par la troisième balise <code>&lt;td&gt;...&lt;/td&gt;</code></li>
 <li>Et ajouter la quatrième cellule comme définie plus haut</li>
-<li>Un exemple de fichier (<em>avec 2 caméras par ligne sur 2 lignes</em>) est disponible <a href="https://djangocamera.netlify.app/script/stream_AllCam_html_4cam/" title="stream_AllCam_html_4cam
+<li>Un exemple de fichier (<em>avec 2 caméras par ligne sur 2 lignes</em>) est disponible <a href="http://localhost:1313/script/stream_AllCam_html_4cam/" title="stream_AllCam_html_4cam
 ">ici</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="toiletter-divers-fichiersnbsphtml">Toiletter divers fichiers <em>.html</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#toiletter-divers-fichiersnbsphtml" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Toiletter divers fichiers <em>.html</em>" href="#toiletter-divers-fichiersnbsphtml"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="toiletter-divers-fichiershtml">Toiletter divers fichiers <em>.html</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#toiletter-divers-fichiershtml" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Toiletter divers fichiers <em>.html</em>" href="#toiletter-divers-fichiershtml"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Un certain nombre de fichiers font référence à trois caméras et non quatre</li>
 <li>Il est possible de modifier le code <code>html</code> pour faire référence à quatre caméras</li>
 <li>Par exemple au niveau des <code>boutons</code> des fichiers de streaming (<code>stream_1.html, stream_2.html, stream_py.html</code>)</li>
 <li>Ces modificatins sont cosmétiques et non indispensables !</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="vérifier-les-éventuelles-migrations-de-lapplicationnbspcamera">Vérifier les éventuelles migrations de l&rsquo;application <em>camera</em><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#vérifier-les-éventuelles-migrations-de-lapplicationnbspcamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Vérifier les éventuelles migrations de l&rsquo;application <em>camera</em>" href="#vérifier-les-éventuelles-migrations-de-lapplicationnbspcamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="vérifier-les-éventuelles-migrations-de-lapplicationcamera">Vérifier les éventuelles migrations de l&rsquo;application <em>camera</em><a data-clipboard-text="http://localhost:1313/tuto/part8/#vérifier-les-éventuelles-migrations-de-lapplicationcamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Vérifier les éventuelles migrations de l&rsquo;application <em>camera</em>" href="#vérifier-les-éventuelles-migrations-de-lapplicationcamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>A priori, aucune modification de <code>models.py</code> n&rsquo;a eu lieu</li>
 <li>Il est cependant possible de vérifier qu&rsquo;on n&rsquo;a pas touché à cette partie de l&rsquo;application <code>camera</code></li>
@@ -2599,8 +2599,8 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">source</span> ~/folder/folder_venv/bin/activate
 </span></span><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> python ~/folder/project/manage.py makemigrations
 </span></span><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> python ~/folder/project/manage.py migrate
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichier-de-configuration-apache2-du-site">Modifier le fichier de configuration apache2 du site<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-le-fichier-de-configuration-apache2-du-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de configuration apache2 du site" href="#modifier-le-fichier-de-configuration-apache2-du-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier">Modifier le fichier<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#modifier-le-fichier" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier" href="#modifier-le-fichier"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichier-de-configuration-apache2-du-site">Modifier le fichier de configuration apache2 du site<a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-le-fichier-de-configuration-apache2-du-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier de configuration apache2 du site" href="#modifier-le-fichier-de-configuration-apache2-du-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier">Modifier le fichier<a data-clipboard-text="http://localhost:1313/tuto/part8/#modifier-le-fichier" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier" href="#modifier-le-fichier"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir le fichier en écriture</li>
 </ul>
@@ -2615,10 +2615,10 @@
 <li><strong>Changer <code>&lt;localIP&gt;</code> par l&rsquo;IP locale de la raspberry</strong> (par exemple : <code>ProxyPass /Rp3 http://192.168.1.49:8083/</code>)</li>
 <li>Rajouter ces deux lignes également au niveau du <code>VirtualHost *:80</code></li>
 <li>Si il a été nécessaire de créer un <code>Virtual Host</code> supplémentaire pour accéder au site depuis le réseau interne (<code>&lt;VirtualHost *:54321&gt;</code>) par exemple, ajouter les nouveaux <code>ProxyPass</code> et <code>ProxyPassReverse</code> au niveau de ce <code>Virtual Host</code></li>
-<li>Un exemplaire de ce fichier est disponible <a href="https://djangocamera.netlify.app/script/project-camera_conf_4cam/" title="project-camera_conf_4cam
+<li>Un exemplaire de ce fichier est disponible <a href="http://localhost:1313/script/project-camera_conf_4cam/" title="project-camera_conf_4cam
 ">ici</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="vérifier-la-syntaxe-et-relancer-le-serveur">Vérifier la syntaxe et relancer le serveur<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#vérifier-la-syntaxe-et-relancer-le-serveur" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Vérifier la syntaxe et relancer le serveur" href="#vérifier-la-syntaxe-et-relancer-le-serveur"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="vérifier-la-syntaxe-et-relancer-le-serveur">Vérifier la syntaxe et relancer le serveur<a data-clipboard-text="http://localhost:1313/tuto/part8/#vérifier-la-syntaxe-et-relancer-le-serveur" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Vérifier la syntaxe et relancer le serveur" href="#vérifier-la-syntaxe-et-relancer-le-serveur"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Vérifier la syntaxe</li>
 </ul>
@@ -2627,19 +2627,19 @@
 <li>Relancer le serveur</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo systemctl restart apache2
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="relancer-la-raspberry">Relancer la raspberry<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#relancer-la-raspberry" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Relancer la raspberry" href="#relancer-la-raspberry"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="relancer-la-raspberry">Relancer la raspberry<a data-clipboard-text="http://localhost:1313/tuto/part8/#relancer-la-raspberry" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Relancer la raspberry" href="#relancer-la-raspberry"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Pour prendre en charge toutes les modifications, relancer la raspberry</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo reboot
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="remarques-sur-les-caméras">Remarques sur les caméras<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#remarques-sur-les-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Remarques sur les caméras" href="#remarques-sur-les-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="longueur-du-câble-usb">Longueur du câble USB<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#longueur-du-câble-usb" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Longueur du câble USB" href="#longueur-du-câble-usb"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="remarques-sur-les-caméras">Remarques sur les caméras<a data-clipboard-text="http://localhost:1313/tuto/part8/#remarques-sur-les-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Remarques sur les caméras" href="#remarques-sur-les-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="longueur-du-câble-usb">Longueur du câble USB<a data-clipboard-text="http://localhost:1313/tuto/part8/#longueur-du-câble-usb" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Longueur du câble USB" href="#longueur-du-câble-usb"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Il peut être nécessaire d&rsquo;allonger le câble USB d&rsquo;une caméra</li>
 <li>Si la longueur de la rallonge est courte, une rallonge simple peut suffire</li>
 <li>Sinon, il convient d&rsquo;utiliser une rallonge avec <strong><a href="https://www.amazon.fr/s?k=usb+active+repeater+extension&amp;rh=n%3A2908498031&amp;__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&amp;ref=nb_sb_noss">répéteur actif</a></strong>, de manière à amplifier le signal de la caméra</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="alimentation-de-plusieurs-caméras">Alimentation de plusieurs caméras<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#alimentation-de-plusieurs-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Alimentation de plusieurs caméras" href="#alimentation-de-plusieurs-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="alimentation-de-plusieurs-caméras">Alimentation de plusieurs caméras<a data-clipboard-text="http://localhost:1313/tuto/part8/#alimentation-de-plusieurs-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Alimentation de plusieurs caméras" href="#alimentation-de-plusieurs-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Le nombre de ports USB de la Raspberry est limité</li>
 <li>Si on installe un grand nombre de caméras, il faut évidemment un <a href="https://fr.wikipedia.org/wiki/Hub_USB">hub USB</a></li>
@@ -2647,14 +2647,14 @@
 <li>A terme, la puissance de celle-ci sera insuffisante</li>
 <li>Aussi est-il souhaitable de prévoir un <strong><a href="https://www.amazon.fr/s?k=hub+usb+alimentation+externe&amp;adgrpid=57890976642&amp;hvadid=601470758526&amp;hvdev=c&amp;hvlocphy=9109000&amp;hvnetw=g&amp;hvqmt=e&amp;hvrand=17884128194425712080&amp;hvtargid=kwd-298458767922&amp;hydadcr=196_2608013&amp;tag=googhydr0a8-21&amp;ref=pd_sl_91g4ccd9d7_e">hub avec alimentation externe</a></strong></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="capacité-du-streaming">Capacité du streaming<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part8/#capacité-du-streaming" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Capacité du streaming" href="#capacité-du-streaming"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="capacité-du-streaming">Capacité du streaming<a data-clipboard-text="http://localhost:1313/tuto/part8/#capacité-du-streaming" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Capacité du streaming" href="#capacité-du-streaming"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Lorsque le nombre de caméras est élevé, il est possible que la Raspberry ne puisse pas bien afficher tous les flux des caméras ensemble</li>
 <li>Avec une Raspberry 3-B+, au delà de 4 caméras le flux en direct s&rsquo;est essouflé</li>
 <li>Il convient alors de ne pas afficher tous les flux ensemble et de créer, par exemple, une première fonction de <code>views.py</code> qui affichera 4 caméras et une deuxième fonction qui affichera les 2 autres <em>(dans une hypothèse de 6 caméras)</em></li>
 <li>Il faut bien sûr, dans ce cas, adapter <code>urls.py</code> et créer les fichiers <code>html</code> <em>ad hoc</em></li>
 <li>Une alternative (possible, mais non testée) est d&rsquo;utiliser une Raspberry plus puissante <em>(Pi-4 ou Pi-5 par exemple)</em></li>
-<li>Il est également possible d&rsquo;utiliser une deuxième Raspberry qui accueillera de nouvelles caméras et qui enverra les images à la Raspberry qui héberge le site Django : voir la <a href="https://djangocamera.netlify.app/tuto/part10/">Partie 10</a></li>
+<li>Il est également possible d&rsquo;utiliser une deuxième Raspberry qui accueillera de nouvelles caméras et qui enverra les images à la Raspberry qui héberge le site Django : voir la <a href="http://localhost:1313/tuto/part10/">Partie 10</a></li>
 </ul>
 
 

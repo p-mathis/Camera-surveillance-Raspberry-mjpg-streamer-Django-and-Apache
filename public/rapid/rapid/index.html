@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Guide Rapide">
@@ -49,7 +49,7 @@
             <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
         </label>
         
-        <a class="gdoc-header__link" href="https://djangocamera.netlify.app/">
+        <a class="gdoc-header__link" href="http://localhost:1313/">
             <span class="gdoc-brand flex align-center">
                 <img class="gdoc-brand__img" src="/logo/logo_camera.svg" alt="" width=38 height=38>
                 Surveillance camera avec raspberry, mjpg-streamer, Django et Apache
@@ -2154,11 +2154,11 @@
     
 
 
-<div class="gdoc-page__anchorwrap"><h2 id="préalable">Préalable<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#préalable" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Préalable" href="#préalable"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="préalable">Préalable<a data-clipboard-text="http://localhost:1313/rapid/rapid/#préalable" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Préalable" href="#préalable"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <p>Raspbian est installé sur la Raspberry. Celle-ci est accessible par SSH depuis un ordinateur à partir duquel sont lancées toutes les commandes.<br>
 La Raspberry a une IP locale fixe.<br>
 La pi-caméra et les deux caméras USB sont branchées.</p>
-<div class="gdoc-page__anchorwrap"><h2 id="installation-de-logiciels-et-de-dépendances">Installation de logiciels et de dépendances<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#installation-de-logiciels-et-de-dépendances" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de logiciels et de dépendances" href="#installation-de-logiciels-et-de-dépendances"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="installation-de-logiciels-et-de-dépendances">Installation de logiciels et de dépendances<a data-clipboard-text="http://localhost:1313/rapid/rapid/#installation-de-logiciels-et-de-dépendances" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de logiciels et de dépendances" href="#installation-de-logiciels-et-de-dépendances"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>
 <p>mise à jour (si raspbian est d&rsquo;installation ancienne)</p>
@@ -2196,12 +2196,12 @@ La pi-caméra et les deux caméras USB sont branchées.</p>
 </code></pre>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="installation-dun-fichier-de-configuration">Installation d&rsquo;un fichier de configuration<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#installation-dun-fichier-de-configuration" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation d&rsquo;un fichier de configuration" href="#installation-dun-fichier-de-configuration"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="installation-dun-fichier-de-configuration">Installation d&rsquo;un fichier de configuration<a data-clipboard-text="http://localhost:1313/rapid/rapid/#installation-dun-fichier-de-configuration" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation d&rsquo;un fichier de configuration" href="#installation-dun-fichier-de-configuration"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <pre><code>sudo mkdir /etc/camera
 sudo nano /etc/camera/configuration.ini
 </code></pre>
 <ul>
-<li>Copier/coller dans la fenêtre le contenu du fichier <code>configuration.ini</code> disponible <a href="https://djangocamera.netlify.app/script/configuration_ini/" title="configuration_ini">ici</a>.</li>
+<li>Copier/coller dans la fenêtre le contenu du fichier <code>configuration.ini</code> disponible <a href="http://localhost:1313/script/configuration_ini/" title="configuration_ini">ici</a>.</li>
 <li>Modifier ou renseigner les valeurs suivantes :
 <ul>
 <li><code>[locate]</code> : renseigner longitude, latitude, altitude et zone en fonction de vos valeurs</li>
@@ -2212,8 +2212,8 @@ sudo nano /etc/camera/configuration.ini
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="installation-de-mjpg-streamer-et-des-caméras">Installation de mjpg-streamer et des caméras<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#installation-de-mjpg-streamer-et-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de mjpg-streamer et des caméras" href="#installation-de-mjpg-streamer-et-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="installer-mjpg-streamer">Installer mjpg-streamer<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#installer-mjpg-streamer" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer mjpg-streamer" href="#installer-mjpg-streamer"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="installation-de-mjpg-streamer-et-des-caméras">Installation de mjpg-streamer et des caméras<a data-clipboard-text="http://localhost:1313/rapid/rapid/#installation-de-mjpg-streamer-et-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de mjpg-streamer et des caméras" href="#installation-de-mjpg-streamer-et-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="installer-mjpg-streamer">Installer mjpg-streamer<a data-clipboard-text="http://localhost:1313/rapid/rapid/#installer-mjpg-streamer" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installer mjpg-streamer" href="#installer-mjpg-streamer"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Cloner le dépôt git</p>
@@ -2232,7 +2232,7 @@ sudo nano /etc/camera/configuration.ini
 </span></span><span class="line"><span class="cl">sudo make install
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="dénomination-des-caméras">Dénomination des caméras<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#dénomination-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dénomination des caméras" href="#dénomination-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="dénomination-des-caméras">Dénomination des caméras<a data-clipboard-text="http://localhost:1313/rapid/rapid/#dénomination-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dénomination des caméras" href="#dénomination-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Dans le répertoire /dev/v4l/by-id répertorier l’identifiant des caméras</p>
@@ -2250,8 +2250,8 @@ sudo nano /etc/camera/configuration.ini
 <p>Dans le fichier de configuration remplacer les valeurs des clés <code>cam_1_name</code> et <code>cam_2_name</code> par les valeurs <code>&lt;valeur1&gt;-video-index0</code> et <code>&lt;valeur2&gt;-video-index0</code></p>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="installation-de-django">Installation de Django<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#installation-de-django" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de Django" href="#installation-de-django"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="création-dun-environnement-virtuel">Création d&rsquo;un environnement virtuel<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#création-dun-environnement-virtuel" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création d&rsquo;un environnement virtuel" href="#création-dun-environnement-virtuel"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="installation-de-django">Installation de Django<a data-clipboard-text="http://localhost:1313/rapid/rapid/#installation-de-django" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de Django" href="#installation-de-django"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="création-dun-environnement-virtuel">Création d&rsquo;un environnement virtuel<a data-clipboard-text="http://localhost:1313/rapid/rapid/#création-dun-environnement-virtuel" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création d&rsquo;un environnement virtuel" href="#création-dun-environnement-virtuel"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Création du dossier folder et de l&rsquo;environnement virtuel</p>
@@ -2276,7 +2276,7 @@ sudo nano /etc/camera/configuration.ini
 <p><em><strong>Dorénavant, lorsque les commandes seront tapées dans l&rsquo;environnement virtuel, elles seront précédées du symbole : (venv)</strong></em></p>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="installation-de-django-et-de-modules-complémentaires">Installation de Django et de modules complémentaires<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#installation-de-django-et-de-modules-complémentaires" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de Django et de modules complémentaires" href="#installation-de-django-et-de-modules-complémentaires"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="installation-de-django-et-de-modules-complémentaires">Installation de Django et de modules complémentaires<a data-clipboard-text="http://localhost:1313/rapid/rapid/#installation-de-django-et-de-modules-complémentaires" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de Django et de modules complémentaires" href="#installation-de-django-et-de-modules-complémentaires"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Installer Django en environnement virtuel</p>
@@ -2302,13 +2302,13 @@ sudo nano /etc/camera/configuration.ini
 </span></span><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> pip install tzlocal
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="création-du-projet-et-de-lapplication">Création du projet et de l&rsquo;application<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#création-du-projet-et-de-lapplication" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création du projet et de l&rsquo;application" href="#création-du-projet-et-de-lapplication"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<div class="gdoc-page__anchorwrap"><h4 id="création-du-projet-project-et-de-lapplication-camera">Création du projet project et de l&rsquo;application camera<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#création-du-projet-project-et-de-lapplication-camera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création du projet project et de l&rsquo;application camera" href="#création-du-projet-project-et-de-lapplication-camera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+<div class="gdoc-page__anchorwrap"><h3 id="création-du-projet-et-de-lapplication">Création du projet et de l&rsquo;application<a data-clipboard-text="http://localhost:1313/rapid/rapid/#création-du-projet-et-de-lapplication" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création du projet et de l&rsquo;application" href="#création-du-projet-et-de-lapplication"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h4 id="création-du-projet-project-et-de-lapplication-camera">Création du projet project et de l&rsquo;application camera<a data-clipboard-text="http://localhost:1313/rapid/rapid/#création-du-projet-project-et-de-lapplication-camera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création du projet project et de l&rsquo;application camera" href="#création-du-projet-project-et-de-lapplication-camera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> <span class="nb">cd</span> ~/folder
 </span></span><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> django-admin startproject project
 </span></span><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> <span class="nb">cd</span> ~/folder/project
 </span></span><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> python manage.py startapp camera
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="structure-de-lapplication-camera">Structure de l&rsquo;application camera<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#structure-de-lapplication-camera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Structure de l&rsquo;application camera" href="#structure-de-lapplication-camera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="structure-de-lapplication-camera">Structure de l&rsquo;application camera<a data-clipboard-text="http://localhost:1313/rapid/rapid/#structure-de-lapplication-camera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Structure de l&rsquo;application camera" href="#structure-de-lapplication-camera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <p>L&rsquo;application camera va comporter huit vues :</p>
 <ul>
 <li>accueil : la page d’accueil du site</li>
@@ -2320,7 +2320,7 @@ sudo nano /etc/camera/configuration.ini
 <li>stream_py : flux vidéo en direct de la pi-caméra</li>
 <li>stream_AllCam : flux vidéo en direct des trois caméras</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="réglages-du-fichier-settingsspanspanpy">Réglages du fichier settings<span></span>.py<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#réglages-du-fichier-settingsspanspanpy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Réglages du fichier settings<span></span>.py" href="#réglages-du-fichier-settingsspanspanpy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="réglages-du-fichier-settingspy">Réglages du fichier settings<span></span>.py<a data-clipboard-text="http://localhost:1313/rapid/rapid/#réglages-du-fichier-settingspy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Réglages du fichier settings<span></span>.py" href="#réglages-du-fichier-settingspy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Ouvrir le fichier <code>settings.py</code></p>
@@ -2360,7 +2360,7 @@ sudo nano /etc/camera/configuration.ini
 </span></span><span class="line"><span class="cl"><span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s1">&#39;Europe/Paris&#39;</span>
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-les-modèles-de-lapplication">Créer les modèles de l&rsquo;application<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#créer-les-modèles-de-lapplication" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les modèles de l&rsquo;application" href="#créer-les-modèles-de-lapplication"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-les-modèles-de-lapplication">Créer les modèles de l&rsquo;application<a data-clipboard-text="http://localhost:1313/rapid/rapid/#créer-les-modèles-de-lapplication" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les modèles de l&rsquo;application" href="#créer-les-modèles-de-lapplication"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Ouvrir le fichier <code>models.py</code></p>
@@ -2368,7 +2368,7 @@ sudo nano /etc/camera/configuration.ini
 </code></pre>
 </li>
 <li>
-<p>Remplacer son contenu par celui du fichier <code>models.py</code> disponible <a href="https://djangocamera.netlify.app/script/models_py/" title="models.py">ici</a>.</p>
+<p>Remplacer son contenu par celui du fichier <code>models.py</code> disponible <a href="http://localhost:1313/script/models_py/" title="models.py">ici</a>.</p>
 </li>
 <li>
 <p>Prendre en compte les modifications</p>
@@ -2395,7 +2395,7 @@ sudo nano /etc/camera/configuration.ini
 <p>Quitter le shell : <code>Ctrl+D</code></p>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-urlsspanspanpy-de-folderprojectproject">Modifier le fichier urls<span></span>.py de ~/folder/project/project<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#modifier-le-fichier-urlsspanspanpy-de-folderprojectproject" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier urls<span></span>.py de ~/folder/project/project" href="#modifier-le-fichier-urlsspanspanpy-de-folderprojectproject"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-urlspy-de-folderprojectproject">Modifier le fichier urls<span></span>.py de ~/folder/project/project<a data-clipboard-text="http://localhost:1313/rapid/rapid/#modifier-le-fichier-urlspy-de-folderprojectproject" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier urls<span></span>.py de ~/folder/project/project" href="#modifier-le-fichier-urlspy-de-folderprojectproject"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir le fichier
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">  nano ~/folder/project/project/urls.py
@@ -2410,7 +2410,7 @@ sudo nano /etc/camera/configuration.ini
 </span></span><span class="line"><span class="cl">  <span class="p">]</span>
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-un-fichier-urlsspanspanpy-dans-folderprojectcamera">Créer un fichier urls<span></span>.py dans ~/folder/project/camera<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#créer-un-fichier-urlsspanspanpy-dans-folderprojectcamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer un fichier urls<span></span>.py dans ~/folder/project/camera" href="#créer-un-fichier-urlsspanspanpy-dans-folderprojectcamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-un-fichier-urlspy-dans-folderprojectcamera">Créer un fichier urls<span></span>.py dans ~/folder/project/camera<a data-clipboard-text="http://localhost:1313/rapid/rapid/#créer-un-fichier-urlspy-dans-folderprojectcamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer un fichier urls<span></span>.py dans ~/folder/project/camera" href="#créer-un-fichier-urlspy-dans-folderprojectcamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Créer et ouvrir le fichier en écriture</p>
@@ -2418,10 +2418,10 @@ sudo nano /etc/camera/configuration.ini
 </code></pre>
 </li>
 <li>
-<p>Coller/copier dans ce fichier le contenu du fichier <code>urls_camera.py</code> disponible <a href="https://djangocamera.netlify.app/script/urls_py_camera/" title="urls camera">ici</a>.</p>
+<p>Coller/copier dans ce fichier le contenu du fichier <code>urls_camera.py</code> disponible <a href="http://localhost:1313/script/urls_py_camera/" title="urls camera">ici</a>.</p>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-folderprojectcameraviewsspanspanpy">Modifier le fichier ~folder/project/camera/views<span></span>.py<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#modifier-le-fichier-folderprojectcameraviewsspanspanpy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier ~folder/project/camera/views<span></span>.py" href="#modifier-le-fichier-folderprojectcameraviewsspanspanpy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-folderprojectcameraviewspy">Modifier le fichier ~folder/project/camera/views<span></span>.py<a data-clipboard-text="http://localhost:1313/rapid/rapid/#modifier-le-fichier-folderprojectcameraviewspy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier ~folder/project/camera/views<span></span>.py" href="#modifier-le-fichier-folderprojectcameraviewspy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Ouvrir le fichier</p>
@@ -2429,10 +2429,10 @@ sudo nano /etc/camera/configuration.ini
 </code></pre>
 </li>
 <li>
-<p>Effacer son contenu et copier/coller le contenu du fichier <code>views.py</code> disponible <a href="https://djangocamera.netlify.app/script/views_py_V2/" title="views.py V2">ici</a>.</p>
+<p>Effacer son contenu et copier/coller le contenu du fichier <code>views.py</code> disponible <a href="http://localhost:1313/script/views_py_V2/" title="views.py V2">ici</a>.</p>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-les-fichier-css-et-un-fichier-logo">Créer les fichier css et un fichier logo<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#créer-les-fichier-css-et-un-fichier-logo" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les fichier css et un fichier logo" href="#créer-les-fichier-css-et-un-fichier-logo"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-les-fichier-css-et-un-fichier-logo">Créer les fichier css et un fichier logo<a data-clipboard-text="http://localhost:1313/rapid/rapid/#créer-les-fichier-css-et-un-fichier-logo" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les fichier css et un fichier logo" href="#créer-les-fichier-css-et-un-fichier-logo"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Création des dossiers css et logo</p>
@@ -2445,15 +2445,15 @@ sudo nano /etc/camera/configuration.ini
 </code></pre>
 </li>
 </ul>
-<p>Copier/coller dans ce fichier le contenu du fichier <code>general.css</code> disponible <a href="https://djangocamera.netlify.app/script/general_css/" title="general.css">ici</a>.</p>
+<p>Copier/coller dans ce fichier le contenu du fichier <code>general.css</code> disponible <a href="http://localhost:1313/script/general_css/" title="general.css">ici</a>.</p>
 <ul>
 <li>Procéder de même pour les autres fichiers css :
 <ul>
-<li><code>bouton.css</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/bouton_css/" title="bouton.css">ici</a></li>
-<li><code>menu.css</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/menu_css/" title="menu.css">ici</a></li>
-<li><code>disposition.css</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/disposition_css/" title="menu.css">ici</a></li>
-<li><code>header_footer.css</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/header_footer_css/" title="menu.css">ici</a></li>
-<li><code>pagination.css</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/pagination_css/" title="pagination.css">ici</a></li>
+<li><code>bouton.css</code> dont le contenu est disponible <a href="http://localhost:1313/script/bouton_css/" title="bouton.css">ici</a></li>
+<li><code>menu.css</code> dont le contenu est disponible <a href="http://localhost:1313/script/menu_css/" title="menu.css">ici</a></li>
+<li><code>disposition.css</code> dont le contenu est disponible <a href="http://localhost:1313/script/disposition_css/" title="menu.css">ici</a></li>
+<li><code>header_footer.css</code> dont le contenu est disponible <a href="http://localhost:1313/script/header_footer_css/" title="menu.css">ici</a></li>
+<li><code>pagination.css</code> dont le contenu est disponible <a href="http://localhost:1313/script/pagination_css/" title="pagination.css">ici</a></li>
 </ul>
 </li>
 <li>Logo favicon
@@ -2464,7 +2464,7 @@ sudo nano /etc/camera/configuration.ini
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-les-fichiers-html-templates">Créer les fichiers html (templates)<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#créer-les-fichiers-html-templates" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les fichiers html (templates)" href="#créer-les-fichiers-html-templates"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-les-fichiers-html-templates">Créer les fichiers html (templates)<a data-clipboard-text="http://localhost:1313/rapid/rapid/#créer-les-fichiers-html-templates" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les fichiers html (templates)" href="#créer-les-fichiers-html-templates"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Création du dossier templates</p>
@@ -2477,36 +2477,36 @@ sudo nano /etc/camera/configuration.ini
 </code></pre>
 </li>
 </ul>
-<p>Copier/coller dans ce fichier le contenu du fichier <code>base.html</code> disponible <a href="https://djangocamera.netlify.app/script/base_html/" title="base.html">ici</a>.</p>
+<p>Copier/coller dans ce fichier le contenu du fichier <code>base.html</code> disponible <a href="http://localhost:1313/script/base_html/" title="base.html">ici</a>.</p>
 <ul>
 <li>Procéder de même pour les autres fichiers html :
 <ul>
-<li><code>accueil.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/accueil_html/" title="accueil.html">ici</a></li>
-<li><code>historique.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/historique_html/" title="historique.html">ici</a></li>
-<li><code>nuit.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/nuit_html/" title="nuit.html">ici</a></li>
-<li><code>parHeure.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/parHeure_html/" title="parHeure.html">ici</a></li>
-<li><code>stream_1.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/stream_1_html/" title="stream_1.html">ici</a></li>
-<li><code>stream_2.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/stream_2_html/" title="stream_2.html">ici</a></li>
-<li><code>stream_py.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/stream_py_html/" title="stream_py.html">ici</a></li>
-<li><code>stream_AllCam.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/stream_AllCam_html/" title="stream_AllCam.html">ici</a></li>
+<li><code>accueil.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/accueil_html/" title="accueil.html">ici</a></li>
+<li><code>historique.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/historique_html/" title="historique.html">ici</a></li>
+<li><code>nuit.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/nuit_html/" title="nuit.html">ici</a></li>
+<li><code>parHeure.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/parHeure_html/" title="parHeure.html">ici</a></li>
+<li><code>stream_1.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/stream_1_html/" title="stream_1.html">ici</a></li>
+<li><code>stream_2.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/stream_2_html/" title="stream_2.html">ici</a></li>
+<li><code>stream_py.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/stream_py_html/" title="stream_py.html">ici</a></li>
+<li><code>stream_AllCam.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/stream_AllCam_html/" title="stream_AllCam.html">ici</a></li>
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="nom-de-domaine---dyndns---modifications-sur-la-box">Nom de domaine - DynDNS - Modifications sur la box<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#nom-de-domaine---dyndns---modifications-sur-la-box" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Nom de domaine - DynDNS - Modifications sur la box" href="#nom-de-domaine---dyndns---modifications-sur-la-box"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="obtenir-un-nom-de-domain-chez-no-ip">Obtenir un nom de domain chez No-IP<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#obtenir-un-nom-de-domain-chez-no-ip" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Obtenir un nom de domain chez No-IP" href="#obtenir-un-nom-de-domain-chez-no-ip"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="nom-de-domaine---dyndns---modifications-sur-la-box">Nom de domaine - DynDNS - Modifications sur la box<a data-clipboard-text="http://localhost:1313/rapid/rapid/#nom-de-domaine---dyndns---modifications-sur-la-box" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Nom de domaine - DynDNS - Modifications sur la box" href="#nom-de-domaine---dyndns---modifications-sur-la-box"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="obtenir-un-nom-de-domain-chez-no-ip">Obtenir un nom de domain chez No-IP<a data-clipboard-text="http://localhost:1313/rapid/rapid/#obtenir-un-nom-de-domain-chez-no-ip" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Obtenir un nom de domain chez No-IP" href="#obtenir-un-nom-de-domain-chez-no-ip"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Aller sur le site de <a href="https://www.noip.com/">No-Ip</a></li>
 <li>Créer son site avec obtention du nom de domaine en suivant les instructions</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifications-sur-la-box">Modifications sur la box<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#modifications-sur-la-box" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifications sur la box" href="#modifications-sur-la-box"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifications-sur-la-box">Modifications sur la box<a data-clipboard-text="http://localhost:1313/rapid/rapid/#modifications-sur-la-box" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifications sur la box" href="#modifications-sur-la-box"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <p>Quelques modifications sont à apporter au niveau de la box. La marche à suivre décrit ci-dessous concerne une livebox Orange ; les proccédures sont similaires chez les autres opérateurs.</p>
 <ul>
 <li>Créer une règle <code>NAT/PAT</code> pour la raspberry sur les ports internes et externes 80</li>
 <li>Créer une règle <code>NAT/PAT</code> pour la raspberry sur les ports internes et externes 443</li>
 <li>Dans le service <code>DynDNS</code> attribuer le nom de domaine obtenu chez NoIP, renseigner l&rsquo;adresse email et le mot de passe NoIP</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="paramétrages-de-apache-et-de-linterface-wsgi">Paramétrages de Apache et de l&rsquo;interface wsgi<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#paramétrages-de-apache-et-de-linterface-wsgi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Paramétrages de Apache et de l&rsquo;interface wsgi" href="#paramétrages-de-apache-et-de-linterface-wsgi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="sécurisation-minimale-du-serveur-apache">Sécurisation minimale du serveur apache<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#sécurisation-minimale-du-serveur-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Sécurisation minimale du serveur apache" href="#sécurisation-minimale-du-serveur-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="paramétrages-de-apache-et-de-linterface-wsgi">Paramétrages de Apache et de l&rsquo;interface wsgi<a data-clipboard-text="http://localhost:1313/rapid/rapid/#paramétrages-de-apache-et-de-linterface-wsgi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Paramétrages de Apache et de l&rsquo;interface wsgi" href="#paramétrages-de-apache-et-de-linterface-wsgi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="sécurisation-minimale-du-serveur-apache">Sécurisation minimale du serveur apache<a data-clipboard-text="http://localhost:1313/rapid/rapid/#sécurisation-minimale-du-serveur-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Sécurisation minimale du serveur apache" href="#sécurisation-minimale-du-serveur-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Suivre les instructions de la page <a href="https://wiki.debian-fr.xyz/S%C3%A9curiser_Apache2#Limiter_les_informations_visibles">wiki.debian</a></p>
@@ -2557,7 +2557,7 @@ sudo nano /etc/camera/configuration.ini
 <p>Et décommenter la ligne <code>ErrorDocument 404 /missing.html</code></p>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="installation-du-module-mod_wsgi">Installation du module mod_wsgi<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#installation-du-module-mod_wsgi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation du module mod_wsgi" href="#installation-du-module-mod_wsgi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="installation-du-module-mod_wsgi">Installation du module mod_wsgi<a data-clipboard-text="http://localhost:1313/rapid/rapid/#installation-du-module-mod_wsgi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation du module mod_wsgi" href="#installation-du-module-mod_wsgi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Installer le module dans l&rsquo;environnement virtuel</p>
@@ -2589,11 +2589,11 @@ sudo nano /etc/camera/configuration.ini
 <p>Dans ce fichier coller les deux lignes récupérées précédemment</p>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="création-des-répertoires-de-stockage-des-photos">Création des répertoires de stockage des photos<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#création-des-répertoires-de-stockage-des-photos" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création des répertoires de stockage des photos" href="#création-des-répertoires-de-stockage-des-photos"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="création-des-répertoires-de-stockage-des-photos">Création des répertoires de stockage des photos<a data-clipboard-text="http://localhost:1313/rapid/rapid/#création-des-répertoires-de-stockage-des-photos" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création des répertoires de stockage des photos" href="#création-des-répertoires-de-stockage-des-photos"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo mkdir /var/www/stock
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> /var/www/stock
 </span></span><span class="line"><span class="cl">sudo mkdir Camera_1 Camera_2 Camera_py
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="donner-les-droits-à-www-data-et-à-lutilisateur-pi">Donner les droits à www-data et à l&rsquo;utilisateur pi<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#donner-les-droits-à-www-data-et-à-lutilisateur-pi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Donner les droits à www-data et à l&rsquo;utilisateur pi" href="#donner-les-droits-à-www-data-et-à-lutilisateur-pi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="donner-les-droits-à-www-data-et-à-lutilisateur-pi">Donner les droits à www-data et à l&rsquo;utilisateur pi<a data-clipboard-text="http://localhost:1313/rapid/rapid/#donner-les-droits-à-www-data-et-à-lutilisateur-pi" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Donner les droits à www-data et à l&rsquo;utilisateur pi" href="#donner-les-droits-à-www-data-et-à-lutilisateur-pi"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Créer un groupe composé de pi et www-data, appelé varwwwusers</p>
@@ -2613,9 +2613,9 @@ chmod -R 750 /var/www/stock
 </span></span><span class="line"><span class="cl">sudo chmod <span class="m">770</span> ~/folder/project/db.sqlite3
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="copier-les-fichiers-statiques-de-django-vers-varwwwstock">Copier les fichiers statiques de Django vers /var/www/stock<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#copier-les-fichiers-statiques-de-django-vers-varwwwstock" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Copier les fichiers statiques de Django vers /var/www/stock" href="#copier-les-fichiers-statiques-de-django-vers-varwwwstock"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="copier-les-fichiers-statiques-de-django-vers-varwwwstock">Copier les fichiers statiques de Django vers /var/www/stock<a data-clipboard-text="http://localhost:1313/rapid/rapid/#copier-les-fichiers-statiques-de-django-vers-varwwwstock" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Copier les fichiers statiques de Django vers /var/www/stock" href="#copier-les-fichiers-statiques-de-django-vers-varwwwstock"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cp -r ~/folder/project/camera/static/camera /var/www/stock
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-settingsspanspanpy">Modifier le fichier settings<span></span>.py<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#modifier-le-fichier-settingsspanspanpy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier settings<span></span>.py" href="#modifier-le-fichier-settingsspanspanpy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier-settingspy">Modifier le fichier settings<span></span>.py<a data-clipboard-text="http://localhost:1313/rapid/rapid/#modifier-le-fichier-settingspy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier settings<span></span>.py" href="#modifier-le-fichier-settingspy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Ouvrir le fichier settings.py</p>
@@ -2656,7 +2656,7 @@ chmod -R 750 /var/www/stock
 </span></span><span class="line"><span class="cl">  <span class="p">]</span> 
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="restreindre-laccès-au-site">Restreindre l&rsquo;accès au site<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#restreindre-laccès-au-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Restreindre l&rsquo;accès au site" href="#restreindre-laccès-au-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="restreindre-laccès-au-site">Restreindre l&rsquo;accès au site<a data-clipboard-text="http://localhost:1313/rapid/rapid/#restreindre-laccès-au-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Restreindre l&rsquo;accès au site" href="#restreindre-laccès-au-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Créer le fichier .htaccess dans /etc/apache2</p>
@@ -2673,7 +2673,7 @@ chmod -R 750 /var/www/stock
 <li>Le message &quot; Adding password for user foo &quot;  s’affiche.</li>
 <li>Créer autant d’utilisateurs que nécessaire en procédant de la même manière.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="obtenir-un-certificat-certbot-de-lets-encrypt">Obtenir un certificat Certbot de Let&rsquo;s Encrypt<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#obtenir-un-certificat-certbot-de-lets-encrypt" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Obtenir un certificat Certbot de Let&rsquo;s Encrypt" href="#obtenir-un-certificat-certbot-de-lets-encrypt"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="obtenir-un-certificat-certbot-de-lets-encrypt">Obtenir un certificat Certbot de Let&rsquo;s Encrypt<a data-clipboard-text="http://localhost:1313/rapid/rapid/#obtenir-un-certificat-certbot-de-lets-encrypt" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Obtenir un certificat Certbot de Let&rsquo;s Encrypt" href="#obtenir-un-certificat-certbot-de-lets-encrypt"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Lancer la commande</p>
@@ -2684,7 +2684,7 @@ chmod -R 750 /var/www/stock
 <p>Répondre aux invites de commandes</p>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-le-fichier-de-configuration-project-cameraconf">Créer le fichier de configuration project-camera.conf<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#créer-le-fichier-de-configuration-project-cameraconf" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le fichier de configuration project-camera.conf" href="#créer-le-fichier-de-configuration-project-cameraconf"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-le-fichier-de-configuration-project-cameraconf">Créer le fichier de configuration project-camera.conf<a data-clipboard-text="http://localhost:1313/rapid/rapid/#créer-le-fichier-de-configuration-project-cameraconf" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le fichier de configuration project-camera.conf" href="#créer-le-fichier-de-configuration-project-cameraconf"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Créer et ouvrir le fichie en écriture</p>
@@ -2692,7 +2692,7 @@ chmod -R 750 /var/www/stock
 </code></pre>
 </li>
 <li>
-<p>Coller/copier le contenu du fichier <code>project-camera.conf</code> disponible <a href="https://djangocamera.netlify.app/script/project-camera_conf_V5/" title="project-camera_V5.html">ici</a>.</p>
+<p>Coller/copier le contenu du fichier <code>project-camera.conf</code> disponible <a href="http://localhost:1313/script/project-camera_conf_V5/" title="project-camera_V5.html">ici</a>.</p>
 </li>
 <li>
 <p>Renseigner le nom de son site partout où nécessaire</p>
@@ -2701,7 +2701,7 @@ chmod -R 750 /var/www/stock
 <p>Renseigner l&rsquo;adresse IP locale de la raspberry partout où nécessaire</p>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="activer-les-différents-modules-de-apache">Activer les différents modules de apache<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#activer-les-différents-modules-de-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Activer les différents modules de apache" href="#activer-les-différents-modules-de-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="activer-les-différents-modules-de-apache">Activer les différents modules de apache<a data-clipboard-text="http://localhost:1313/rapid/rapid/#activer-les-différents-modules-de-apache" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Activer les différents modules de apache" href="#activer-les-différents-modules-de-apache"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Activation des modules</p>
@@ -2722,15 +2722,15 @@ chmod -R 750 /var/www/stock
 </code></pre>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="accès-au-site">Accès au site<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#accès-au-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès au site" href="#accès-au-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="accès-au-site">Accès au site<a data-clipboard-text="http://localhost:1313/rapid/rapid/#accès-au-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès au site" href="#accès-au-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Depuis l&rsquo;extérieur du réseau, le site est accessible à l&rsquo;adresse : &lt;nom du site&gt;/camera</li>
 <li>Depuis le réseau local, le site est accessible à l&rsquo;adresse : &lt;adresse Ip locale&gt;:54321/camera</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="scripts-de-gestion">Scripts de gestion<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#scripts-de-gestion" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Scripts de gestion" href="#scripts-de-gestion"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-le-dossier-script">Créer le dossier ~/script<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#créer-le-dossier-script" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le dossier ~/script" href="#créer-le-dossier-script"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="scripts-de-gestion">Scripts de gestion<a data-clipboard-text="http://localhost:1313/rapid/rapid/#scripts-de-gestion" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Scripts de gestion" href="#scripts-de-gestion"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-le-dossier-script">Créer le dossier ~/script<a data-clipboard-text="http://localhost:1313/rapid/rapid/#créer-le-dossier-script" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le dossier ~/script" href="#créer-le-dossier-script"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir ~/script
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="scripts-de-lancement-des-caméras">Scripts de lancement des caméras<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#scripts-de-lancement-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Scripts de lancement des caméras" href="#scripts-de-lancement-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="scripts-de-lancement-des-caméras">Scripts de lancement des caméras<a data-clipboard-text="http://localhost:1313/rapid/rapid/#scripts-de-lancement-des-caméras" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Scripts de lancement des caméras" href="#scripts-de-lancement-des-caméras"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Créer et écrire le fichier runCamera_1.py</p>
@@ -2738,12 +2738,12 @@ chmod -R 750 /var/www/stock
 </code></pre>
 </li>
 </ul>
-<p>Et coller dans la fenêtre le contenu du fichier runCamera_1.py disponible <a href="https://djangocamera.netlify.app/script/runCamera_1_py/" title="runCamera_1">ici</a></p>
+<p>Et coller dans la fenêtre le contenu du fichier runCamera_1.py disponible <a href="http://localhost:1313/script/runCamera_1_py/" title="runCamera_1">ici</a></p>
 <ul>
-<li>Faire de même pour les deux autres caméras en créant les fichiers et en copiant/collant le contenu des fichiers <code>runCamera_2.py</code> disponible <a href="https://djangocamera.netlify.app/script/runCamera_2_py/" title="runCamera_1">ici</a> et <code>runCamera_py.py</code> disponible <a href="https://djangocamera.netlify.app/script/runCamera_py_py/" title="runCamera_1">ici</a></li>
+<li>Faire de même pour les deux autres caméras en créant les fichiers et en copiant/collant le contenu des fichiers <code>runCamera_2.py</code> disponible <a href="http://localhost:1313/script/runCamera_2_py/" title="runCamera_1">ici</a> et <code>runCamera_py.py</code> disponible <a href="http://localhost:1313/script/runCamera_py_py/" title="runCamera_1">ici</a></li>
 <li>Les scripts sont lancés après un délai d&rsquo;attente paramétrable dans le fichier de configuration.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="ecrire-le-script-de-capture-et-de-stockage-des-photos">Ecrire le script de capture et de stockage des photos<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#ecrire-le-script-de-capture-et-de-stockage-des-photos" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire le script de capture et de stockage des photos" href="#ecrire-le-script-de-capture-et-de-stockage-des-photos"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="ecrire-le-script-de-capture-et-de-stockage-des-photos">Ecrire le script de capture et de stockage des photos<a data-clipboard-text="http://localhost:1313/rapid/rapid/#ecrire-le-script-de-capture-et-de-stockage-des-photos" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire le script de capture et de stockage des photos" href="#ecrire-le-script-de-capture-et-de-stockage-des-photos"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Créer et ouvrir en écriture le fichier</p>
@@ -2751,10 +2751,10 @@ chmod -R 750 /var/www/stock
 </code></pre>
 </li>
 <li>
-<p>Copier/coller dans la fenêtre le contenu du fichier <code>getCamerasAndRegister.py</code> disponible <a href="https://djangocamera.netlify.app/script/getCamerasAndRegister_py/" title="getCamerasAndRegister.py">ici</a>.</p>
+<p>Copier/coller dans la fenêtre le contenu du fichier <code>getCamerasAndRegister.py</code> disponible <a href="http://localhost:1313/script/getCamerasAndRegister_py/" title="getCamerasAndRegister.py">ici</a>.</p>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="ecrire-le-script-de-destruction-périodique-des-fichiers">Ecrire le script de destruction périodique des fichiers<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#ecrire-le-script-de-destruction-périodique-des-fichiers" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire le script de destruction périodique des fichiers" href="#ecrire-le-script-de-destruction-périodique-des-fichiers"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="ecrire-le-script-de-destruction-périodique-des-fichiers">Ecrire le script de destruction périodique des fichiers<a data-clipboard-text="http://localhost:1313/rapid/rapid/#ecrire-le-script-de-destruction-périodique-des-fichiers" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire le script de destruction périodique des fichiers" href="#ecrire-le-script-de-destruction-périodique-des-fichiers"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Créer et ouvrir en écriture le fichier</p>
@@ -2762,10 +2762,10 @@ chmod -R 750 /var/www/stock
 </code></pre>
 </li>
 <li>
-<p>Copier/coller dans la fenêtre le contenu du fichier <code>suppressFiles.py</code> disponible <a href="https://djangocamera.netlify.app/script/suppressFiles_py/" title="suppressFiles.py">ici</a>.</p>
+<p>Copier/coller dans la fenêtre le contenu du fichier <code>suppressFiles.py</code> disponible <a href="http://localhost:1313/script/suppressFiles_py/" title="suppressFiles.py">ici</a>.</p>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="mise-à-jour-régulière-du-système">Mise à jour régulière du système<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#mise-à-jour-régulière-du-système" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Mise à jour régulière du système" href="#mise-à-jour-régulière-du-système"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="mise-à-jour-régulière-du-système">Mise à jour régulière du système<a data-clipboard-text="http://localhost:1313/rapid/rapid/#mise-à-jour-régulière-du-système" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Mise à jour régulière du système" href="#mise-à-jour-régulière-du-système"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Créer et ouvrir le fichier en écriture<br>
 <code>nano ~/script/updateAndUpgradeAuto.sh</code></li>
@@ -2774,14 +2774,14 @@ chmod -R 750 /var/www/stock
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>sudo apt update <span class="o">&amp;&amp;</span> sudo apt upgrade -y <span class="o">&amp;&amp;</span> sudo apt autoremove -y
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="etre-informé-par-courriel-des-redémarrages-de-la-raspberry">Etre informé par courriel des redémarrages de la raspberry<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#etre-informé-par-courriel-des-redémarrages-de-la-raspberry" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Etre informé par courriel des redémarrages de la raspberry" href="#etre-informé-par-courriel-des-redémarrages-de-la-raspberry"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="etre-informé-par-courriel-des-redémarrages-de-la-raspberry">Etre informé par courriel des redémarrages de la raspberry<a data-clipboard-text="http://localhost:1313/rapid/rapid/#etre-informé-par-courriel-des-redémarrages-de-la-raspberry" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Etre informé par courriel des redémarrages de la raspberry" href="#etre-informé-par-courriel-des-redémarrages-de-la-raspberry"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Créer et ouvrir le script en écriture
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/mail_reboot.py
 </span></span></code></pre></div></li>
-<li>Copier/coller le contenu du fichier <code>mail_reboot.py</code> disponible <a href="https://djangocamera.netlify.app/script/mail_reboot_py/" title="mail_reboot.py">ici</a>    ```</li>
+<li>Copier/coller le contenu du fichier <code>mail_reboot.py</code> disponible <a href="http://localhost:1313/script/mail_reboot_py/" title="mail_reboot.py">ici</a>    ```</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement">Contrôle de l&rsquo;IP et envoi d&rsquo;un mail en cas de changement<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Contrôle de l&rsquo;IP et envoi d&rsquo;un mail en cas de changement" href="#contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement">Contrôle de l&rsquo;IP et envoi d&rsquo;un mail en cas de changement<a data-clipboard-text="http://localhost:1313/rapid/rapid/#contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Contrôle de l&rsquo;IP et envoi d&rsquo;un mail en cas de changement" href="#contrôle-de-lip-et-envoi-dun-mail-en-cas-de-changement"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Si une IP statique (fixe) n&rsquo;est pas assujettie à la box, il faut être informé des changements d&rsquo;IP.</li>
 <li>Créer et ouvrir en écriture le fichier ~/currentIP.txt
@@ -2793,9 +2793,9 @@ chmod -R 750 /var/www/stock
 <li>Créer et ouvrir en écriture le fichier <code>~/script/ipcheck.py</code>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/ipcheck.py  
 </span></span></code></pre></div></li>
-<li>Copier/coller le contenu du fichier <code>ipcheck.py</code> disponible <a href="https://djangocamera.netlify.app/script/ipcheck_py/" title="ipcheck.py">ici</a></li>
+<li>Copier/coller le contenu du fichier <code>ipcheck.py</code> disponible <a href="http://localhost:1313/script/ipcheck_py/" title="ipcheck.py">ici</a></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="lancement-des-différents-scripts-dans-le-cron">Lancement des différents scripts dans le cron<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#lancement-des-différents-scripts-dans-le-cron" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancement des différents scripts dans le cron" href="#lancement-des-différents-scripts-dans-le-cron"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="lancement-des-différents-scripts-dans-le-cron">Lancement des différents scripts dans le cron<a data-clipboard-text="http://localhost:1313/rapid/rapid/#lancement-des-différents-scripts-dans-le-cron" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancement des différents scripts dans le cron" href="#lancement-des-différents-scripts-dans-le-cron"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Éditer le crontab
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">crontab -e
@@ -2812,12 +2812,12 @@ chmod -R 750 /var/www/stock
 </span></span><span class="line"><span class="cl">*/10 * * * * python3 /home/pi/script/ipcheck.py
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="accès-à-la-raspberry-depuis-son-téléphone-mobile">Accès à la Raspberry depuis son téléphone mobile<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#accès-à-la-raspberry-depuis-son-téléphone-mobile" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès à la Raspberry depuis son téléphone mobile" href="#accès-à-la-raspberry-depuis-son-téléphone-mobile"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="accès-à-la-raspberry-depuis-son-téléphone-mobile">Accès à la Raspberry depuis son téléphone mobile<a data-clipboard-text="http://localhost:1313/rapid/rapid/#accès-à-la-raspberry-depuis-son-téléphone-mobile" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès à la Raspberry depuis son téléphone mobile" href="#accès-à-la-raspberry-depuis-son-téléphone-mobile"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Différentes applications permettent d&rsquo;accéder en ssh à un ordinateur distant depuis son téléphone mobile.</li>
 <li>Termius est une application simple dont la version gratuite est amplement suffisante pour ce projet.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="accès-au-site-1">Accès au site<a data-clipboard-text="https://djangocamera.netlify.app/rapid/rapid/#accès-au-site-1" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès au site" href="#accès-au-site-1"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="accès-au-site-1">Accès au site<a data-clipboard-text="http://localhost:1313/rapid/rapid/#accès-au-site-1" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Accès au site" href="#accès-au-site-1"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Depuis l&rsquo;extérieur du réseau, le site est accessible à l&rsquo;adresse : <code>&lt;nom du site&gt;/camera</code></li>
 <li>Depuis le réseau local, le site est accessible à l&rsquo;adresse : <code>&lt;adresse Ip locale&gt;:54321/camera</code></li>

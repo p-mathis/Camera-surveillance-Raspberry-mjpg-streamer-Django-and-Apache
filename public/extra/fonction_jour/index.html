@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Fonction jour">
@@ -49,7 +49,7 @@
             <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
         </label>
         
-        <a class="gdoc-header__link" href="https://djangocamera.netlify.app/">
+        <a class="gdoc-header__link" href="http://localhost:1313/">
             <span class="gdoc-brand flex align-center">
                 <img class="gdoc-brand__img" src="/logo/logo_camera.svg" alt="" width=38 height=38>
                 Surveillance camera avec raspberry, mjpg-streamer, Django et Apache
@@ -2154,29 +2154,29 @@
     
 
 
-<div class="gdoc-page__anchorwrap"><h2 id="position-du-problème">Position du problème<a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#position-du-problème" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="position-du-problème">Position du problème<a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#position-du-problème" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Les photos affichées par la fonction <code>historique</code> de <code>views.py</code> incluent les photos nocturnes, même si la caméra n&rsquo;est pas infrarouge</li>
 <li>On souhaite, ici, disposer des photos prises par les caméras diurnes pendant la durée du jour, sur une période couvrant 24 heures</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="schéma-de-la-procédure">Schéma de la procédure<a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#schéma-de-la-procédure" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Schéma de la procédure" href="#schéma-de-la-procédure"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="schéma-de-la-procédure">Schéma de la procédure<a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#schéma-de-la-procédure" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Schéma de la procédure" href="#schéma-de-la-procédure"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Modifier le fichier <code>views.py</code> en créant une fonction <code>jour</code></li>
 <li>Ajouter l&rsquo;url <code>jour</code> dans le fichier <code>urls.py</code></li>
 <li>Créer le fichier html <code>jour.html</code> qui permettra de visualiser les images</li>
 <li>On ne crée pas de bouton d&rsquo;accès : la page sera affichée depuis la barre du navigateur à l&rsquo;adresse <code>&lt;monsite&gt;/camera/jour/</code></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="procédure">Procédure<a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#procédure" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Procédure" href="#procédure"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="généralités">Généralités<a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#généralités" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Généralités" href="#généralités"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="procédure">Procédure<a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#procédure" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Procédure" href="#procédure"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="généralités">Généralités<a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#généralités" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Généralités" href="#généralités"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>On utilise, à peu de choses près, la même procédure que dans le tutoriel <code>partie 9</code></li>
 <li>On va afficher les photos de n minutes avant le lever du soleil jusqu&rsquo;à n minutes après le coucher</li>
 <li>Par défaut, on va définir la valeur <code>n</code> à 30 minutes dans le fichier <code>configuration.ini</code></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichiernbspetccameraconfigurationini">Modifier le fichier <em>/etc/camera/configuration.ini</em><a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#modifier-le-fichiernbspetccameraconfigurationini" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>/etc/camera/configuration.ini</em>" href="#modifier-le-fichiernbspetccameraconfigurationini"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<div class="gdoc-page__anchorwrap"><h4 id="ouvrir-le-fichier-en-écriture">Ouvrir le fichier en écriture<a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#ouvrir-le-fichier-en-écriture" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ouvrir le fichier en écriture" href="#ouvrir-le-fichier-en-écriture"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichieretccameraconfigurationini">Modifier le fichier <em>/etc/camera/configuration.ini</em><a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#modifier-le-fichieretccameraconfigurationini" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>/etc/camera/configuration.ini</em>" href="#modifier-le-fichieretccameraconfigurationini"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h4 id="ouvrir-le-fichier-en-écriture">Ouvrir le fichier en écriture<a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#ouvrir-le-fichier-en-écriture" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ouvrir le fichier en écriture" href="#ouvrir-le-fichier-en-écriture"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo nano ~/etc/camera/configuration.ini
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="ajouter-la-variablenbspdeltasetrise">Ajouter la variable <em>deltaSetRise</em><a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#ajouter-la-variablenbspdeltasetrise" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ajouter la variable <em>deltaSetRise</em>" href="#ajouter-la-variablenbspdeltasetrise"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="ajouter-la-variabledeltasetrise">Ajouter la variable <em>deltaSetRise</em><a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#ajouter-la-variabledeltasetrise" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ajouter la variable <em>deltaSetRise</em>" href="#ajouter-la-variabledeltasetrise"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Dans <code>[locate]</code> (par exemple) ajouter la variable <code>deltaSetRise</code></li>
 <li>Cette valeur donnera en minutes le temps de sélection des photos avant le lever du soleil et après le coucher</li>
@@ -2185,19 +2185,19 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">[</span>locate<span class="o">]</span>
 </span></span><span class="line"><span class="cl">////
 </span></span><span class="line"><span class="cl"><span class="nv">deltaSetRise</span><span class="o">=</span><span class="m">30</span>
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichiernbspviewspy">Modifier le fichier <em>views.py</em><a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#modifier-le-fichiernbspviewspy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>views.py</em>" href="#modifier-le-fichiernbspviewspy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<div class="gdoc-page__anchorwrap"><h4 id="ajouter-la-variable-deltasetrise">Ajouter la variable <code>deltaSetRise</code><a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#ajouter-la-variable-deltasetrise" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ajouter la variable <code>deltaSetRise</code>" href="#ajouter-la-variable-deltasetrise"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichierviewspy">Modifier le fichier <em>views.py</em><a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#modifier-le-fichierviewspy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>views.py</em>" href="#modifier-le-fichierviewspy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h4 id="ajouter-la-variable-deltasetrise">Ajouter la variable <code>deltaSetRise</code><a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#ajouter-la-variable-deltasetrise" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ajouter la variable <code>deltaSetRise</code>" href="#ajouter-la-variable-deltasetrise"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Au niveau de la déclaration des différentes variables, déclarer <code>deltaSetRise</code></li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">deltaSetRise</span> <span class="o">=</span> parser.get<span class="o">(</span><span class="s2">&#34;locate&#34;</span>, <span class="s2">&#34;deltaSetRise&#34;</span><span class="o">)</span>
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="déclarer-un-q-object">Déclarer un <code>Q object</code><a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#déclarer-un-q-object" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Déclarer un <code>Q object</code>" href="#déclarer-un-q-object"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="déclarer-un-q-object">Déclarer un <code>Q object</code><a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#déclarer-un-q-object" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Déclarer un <code>Q object</code>" href="#déclarer-un-q-object"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Les<code>Q objects</code> permettent des opérations sur les bases de données</li>
 <li>Au niveau des premières lignes du fichier <code>views.py</code>, appeler <code>Q</code></li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">from django.db.models import Q
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="créer-la-fonctionnbspjour">Créer la fonction <em>jour</em><a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#créer-la-fonctionnbspjour" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer la fonction <em>jour</em>" href="#créer-la-fonctionnbspjour"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="créer-la-fonctionjour">Créer la fonction <em>jour</em><a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#créer-la-fonctionjour" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer la fonction <em>jour</em>" href="#créer-la-fonctionjour"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <ul>
 <li>Cette fonction est écrite pour 4 caméras de jour, appelées <em>Appareil 1, 2, 4 et 5</em></li>
 <li>Au niveau du fichier <code>views.py</code>, ajouter la fonction suivante</li>
@@ -2258,7 +2258,7 @@
 <li>Toutes les photos vont s&rsquo;afficher selon le critère temporel choisi</li>
 <li>Si on souhaite n&rsquo;afficher qu&rsquo;une photo sur N (par exemple, une photo toutes les trois minutes), il faut, comme dans les fonctions <code>historique</code> et <code>nuit</code> sélectionner une photo toutes les N photos dans les listes de photos</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichiernbspfolderprojectcameraurlspy">Modifier le fichier <em>folder/project/camera/urls.py</em><a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#modifier-le-fichiernbspfolderprojectcameraurlspy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>folder/project/camera/urls.py</em>" href="#modifier-le-fichiernbspfolderprojectcameraurlspy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichierfolderprojectcameraurlspy">Modifier le fichier <em>folder/project/camera/urls.py</em><a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#modifier-le-fichierfolderprojectcameraurlspy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier <em>folder/project/camera/urls.py</em>" href="#modifier-le-fichierfolderprojectcameraurlspy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir le fichier en écriture</li>
 <li>Au niveau de la liste <code>urlpatterns</code> ajouter</li>
@@ -2267,10 +2267,10 @@
 </span></span></code></pre></div><ul>
 <li><em>Bien respecter les virgules dans la liste</em></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="ecrire-le-fichiernbspjourhtml">Ecrire le fichier <em>jour.html</em><a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#ecrire-le-fichiernbspjourhtml" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire le fichier <em>jour.html</em>" href="#ecrire-le-fichiernbspjourhtml"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<div class="gdoc-page__anchorwrap"><h4 id="créer-le-fichier-en-écriture">Créer le fichier en écriture<a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#créer-le-fichier-en-écriture" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le fichier en écriture" href="#créer-le-fichier-en-écriture"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+<div class="gdoc-page__anchorwrap"><h3 id="ecrire-le-fichierjourhtml">Ecrire le fichier <em>jour.html</em><a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#ecrire-le-fichierjourhtml" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire le fichier <em>jour.html</em>" href="#ecrire-le-fichierjourhtml"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h4 id="créer-le-fichier-en-écriture">Créer le fichier en écriture<a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#créer-le-fichier-en-écriture" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le fichier en écriture" href="#créer-le-fichier-en-écriture"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/folder/project/camera/templates/camera/jour.html
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="coller-dans-le-fichier-le-contenu-suivant">Coller dans le fichier le contenu suivant<a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#coller-dans-le-fichier-le-contenu-suivant" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Coller dans le fichier le contenu suivant" href="#coller-dans-le-fichier-le-contenu-suivant"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h4 id="coller-dans-le-fichier-le-contenu-suivant">Coller dans le fichier le contenu suivant<a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#coller-dans-le-fichier-le-contenu-suivant" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Coller dans le fichier le contenu suivant" href="#coller-dans-le-fichier-le-contenu-suivant"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h4></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{% extends &#34;camera/base.html&#34; %}
 </span></span><span class="line"><span class="cl">{% load static %}
 </span></span><span class="line"><span class="cl">
@@ -2301,7 +2301,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">{% endblock %}
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="résultat">Résultat<a data-clipboard-text="https://djangocamera.netlify.app/extra/fonction_jour/#résultat" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Résultat" href="#résultat"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap"><h2 id="résultat">Résultat<a data-clipboard-text="http://localhost:1313/extra/fonction_jour/#résultat" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Résultat" href="#résultat"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Redémarrer la <code>raspberry</code></li>
 <li>Les images sont visibles à l&rsquo;adresse <code>&lt;monsite&gt;/camera/jour/</code></li>

@@ -2,207 +2,207 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://djangocamera.netlify.app/tuto/part10/</loc>
+    <loc>http://localhost:1313/script/</loc>
+    <lastmod>2025-06-30T17:22:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tuto/part10/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/tuto/</loc>
+    <loc>http://localhost:1313/tuto/</loc>
     <lastmod>2024-11-20T10:28:34+01:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/extra/</loc>
+    <loc>http://localhost:1313/extra/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/extra/wifi/</loc>
+    <loc>http://localhost:1313/extra/wifi/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/extra/fonction_jour/</loc>
+    <loc>http://localhost:1313/extra/fonction_jour/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/</loc>
+    <loc>http://localhost:1313/script/WiFiCheck_sh/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tuto/part9/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/stream_3_html_4cam/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/views_py_4cam/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/runCamera_3_py_4cam/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/suppressFiles_py_4cam/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/getCamerasAndRegister_py_4cam/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/parHeure_html_4cam/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/stream_AllCam_html_4cam/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/historique_html_4cam/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/urls_py_4cam/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/project-camera_conf_4cam/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/configuration_ini_4cam/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tuto/part8/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/global_css/</loc>
+    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/base_html_4cam/</loc>
     <lastmod>2025-01-29T10:51:48+01:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/WiFiCheck_sh/</loc>
+    <loc>http://localhost:1313/script/ipcheck_py/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/tuto/part9/</loc>
+    <loc>http://localhost:1313/script/mail_reboot_py/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/stream_3_html_4cam/</loc>
+    <loc>http://localhost:1313/tuto/part7/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/views_py_4cam/</loc>
+    <loc>http://localhost:1313/script/project-camera_conf_V5/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/runCamera_3_py_4cam/</loc>
+    <loc>http://localhost:1313/tuto/part6/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/suppressFiles_py_4cam/</loc>
+    <loc>http://localhost:1313/script/project-camera_conf_V4/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/getCamerasAndRegister_py_4cam/</loc>
+    <loc>http://localhost:1313/script/views_py_V2/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/parHeure_html_4cam/</loc>
+    <loc>http://localhost:1313/script/project-camera_conf_V3/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/stream_AllCam_html_4cam/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/script/historique_html_4cam/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/script/urls_py_4cam/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/script/project-camera_conf_4cam/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/script/configuration_ini_4cam/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/tuto/part8/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/script/global_css/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/script/base_html_4cam/</loc>
-    <lastmod>2025-01-29T10:51:48+01:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/script/ipcheck_py/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/script/mail_reboot_py/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/tuto/part7/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/script/project-camera_conf_V5/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/tuto/part6/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/script/project-camera_conf_V4/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/script/views_py_V2/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/script/project-camera_conf_V3/</loc>
-    <lastmod>2024-09-30T16:00:15+02:00</lastmod>
-  </url><url>
-    <loc>https://djangocamera.netlify.app/tuto/part5/</loc>
+    <loc>http://localhost:1313/tuto/part5/</loc>
     <lastmod>2024-09-30T16:38:59+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/wsgi_py/</loc>
+    <loc>http://localhost:1313/script/wsgi_py/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/project-camera_conf_V2/</loc>
+    <loc>http://localhost:1313/script/project-camera_conf_V2/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/project-camera_conf_V1/</loc>
+    <loc>http://localhost:1313/script/project-camera_conf_V1/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/tuto/part4/</loc>
+    <loc>http://localhost:1313/tuto/part4/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/runDjango_py/</loc>
+    <loc>http://localhost:1313/script/runDjango_py/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/suppressFiles_py/</loc>
+    <loc>http://localhost:1313/script/suppressFiles_py/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/getCamerasAndRegister_py/</loc>
+    <loc>http://localhost:1313/script/getCamerasAndRegister_py/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/parHeure_html/</loc>
+    <loc>http://localhost:1313/script/parHeure_html/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/stream_AllCam_html/</loc>
+    <loc>http://localhost:1313/script/stream_AllCam_html/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/stream_py_html/</loc>
+    <loc>http://localhost:1313/script/stream_py_html/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/stream_2_html/</loc>
+    <loc>http://localhost:1313/script/stream_2_html/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/stream_1_html/</loc>
+    <loc>http://localhost:1313/script/stream_1_html/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/nuit_html/</loc>
+    <loc>http://localhost:1313/script/nuit_html/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/historique_html/</loc>
+    <loc>http://localhost:1313/script/historique_html/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/accueil_html/</loc>
+    <loc>http://localhost:1313/script/accueil_html/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/base_html/</loc>
+    <loc>http://localhost:1313/script/base_html/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/pagination_css/</loc>
+    <loc>http://localhost:1313/script/pagination_css/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/header_footer_css/</loc>
+    <loc>http://localhost:1313/script/header_footer_css/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/disposition_css/</loc>
+    <loc>http://localhost:1313/script/disposition_css/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/menu_css/</loc>
+    <loc>http://localhost:1313/script/menu_css/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/bouton_css/</loc>
+    <loc>http://localhost:1313/script/bouton_css/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/general_css/</loc>
+    <loc>http://localhost:1313/script/general_css/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/views_py_V1/</loc>
+    <loc>http://localhost:1313/script/views_py_V1/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/urls_py_camera/</loc>
+    <loc>http://localhost:1313/script/urls_py_camera/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/urls_py_project/</loc>
+    <loc>http://localhost:1313/script/urls_py_project/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/models_py/</loc>
+    <loc>http://localhost:1313/script/models_py/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/tuto/part3/</loc>
+    <loc>http://localhost:1313/tuto/part3/</loc>
     <lastmod>2024-11-20T10:28:34+01:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/runCamera_py_py/</loc>
+    <loc>http://localhost:1313/script/runCamera_py_py/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/runCamera_2_py/</loc>
+    <loc>http://localhost:1313/script/runCamera_2_py/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/runCamera_1_py/</loc>
+    <loc>http://localhost:1313/script/runCamera_1_py/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/tuto/part2/</loc>
+    <loc>http://localhost:1313/tuto/part2/</loc>
     <lastmod>2024-09-30T16:15:41+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/script/configuration_ini/</loc>
+    <loc>http://localhost:1313/script/configuration_ini/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/rapid/rapid/</loc>
+    <loc>http://localhost:1313/rapid/rapid/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/rapid/</loc>
+    <loc>http://localhost:1313/rapid/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/tuto/part1/</loc>
+    <loc>http://localhost:1313/tuto/part1/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>
   </url><url>
-    <loc>https://djangocamera.netlify.app/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>

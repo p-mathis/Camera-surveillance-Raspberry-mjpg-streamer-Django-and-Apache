@@ -194,6 +194,28 @@ run(command_8)
 - Ouvrir le `shell` en environnement virtuel
 - Créer la caméra en lui donnant la valeur `Appareil(name="Cam_n)` (par exemple `Cam_8`)
 - Quitter le `shell`
+### Modifier le fichier getCamerasAndRegister.py
+- Il faut que les images stockées dans `/var/www/stock` soient intégrées dans la base de données
+- Dans cette configuration, on a deux caméras au niveau de la raspberry secondaire : Camera_5 et Camera_ir (une pi-camera)
+- Ajouter avant la boucle `while True`
+
+```python
+# Ajout des caméras de la 2ème raspberry
+pathCamera_5 = "Camera_5"
+pathCamera_ir = "Camera_ir"
+```
+- Ajouter dans la boucle `while True` avant `conn.commit()`
+
+```python
+# Ajout des caméras de la 2ème raspberry
+c.execute("INSERT INTO {}_photo(date, appareil_id, name, path) VALUES (?, '5', ?, ?)".format(appli), (date, name, pathCamera_5))
+c.execute("INSERT INTO {}_photo(date, appareil_id, name, path) VALUES (?, '6', ?, ?)".format(appli), (date, name, pathCamera_ir))
+```
+- Tout ceci si on a nommé les dossiers de stockage `Camera_5` et `Camera_ir` 
+- Et si on a créé deux caméras dans le shell
+
+- Le nouveau fichier `getCamerasAndRegister.py` est visible dans la partie [script]({{< ref "/script/getCamerasAndRegister_py_4cam.md" >}})
+
 ### Modifier les fichiers urls.py et views.py
 - Suivre les indications données dans le tutoriel [Partie 8 - Fichiers urls et views]({{< ref "part8.md#modifier-les-fichiers-urls-et-views-de-django" >}})
 - Modifier `urls.py` en ajoutant le path pour le streaming, par exemple `stream_8`

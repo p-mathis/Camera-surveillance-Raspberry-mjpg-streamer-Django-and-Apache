@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tutoriel : Partie 3 - Installation de Django">
@@ -49,7 +49,7 @@
             <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
         </label>
         
-        <a class="gdoc-header__link" href="https://djangocamera.netlify.app/">
+        <a class="gdoc-header__link" href="http://localhost:1313/">
             <span class="gdoc-brand flex align-center">
                 <img class="gdoc-brand__img" src="/logo/logo_camera.svg" alt="" width=38 height=38>
                 Surveillance camera avec raspberry, mjpg-streamer, Django et Apache
@@ -2154,7 +2154,7 @@
     
 
 
-<div class="gdoc-page__anchorwrap"><h2 id="a-faire">A faire<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#a-faire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A faire" href="#a-faire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="a-faire">A faire<a data-clipboard-text="http://localhost:1313/tuto/part3/#a-faire" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A faire" href="#a-faire"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Créer un environnement virtuel pour y installer Django</li>
 <li>Installer Django</li>
@@ -2165,7 +2165,7 @@
 <li>Capturer et stocker des images fixes prises par les caméras</li>
 <li>Lancer le site</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="dossiers-et-environnement-virtuel">Dossiers et environnement virtuel<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#dossiers-et-environnement-virtuel" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dossiers et environnement virtuel" href="#dossiers-et-environnement-virtuel"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="dossiers-et-environnement-virtuel">Dossiers et environnement virtuel<a data-clipboard-text="http://localhost:1313/tuto/part3/#dossiers-et-environnement-virtuel" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dossiers et environnement virtuel" href="#dossiers-et-environnement-virtuel"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Pour éviter des problèmes de conflit entre python2 et python3, il est préférable d’installer Django dans un environnement virtuel.</li>
 <li>De manière à structurer les dossiers nous allons utiliser une arborescence de ce type :<br>
@@ -2179,7 +2179,7 @@ Django sera installé dans cet environnement virtuel.</li>
 <li>Vous pouvez choisir les noms folder et project que vous souhaitez (mais cela n&rsquo;est pas souhaitable), à condition de les modifier dans le fichier configuration.ini (section <code>[paths]</code>, clés <code>folder</code> et <code>project</code>).</li>
 <li>Il est très vivement conseillé de ne pas modifier le nom de l’application camera, sinon vous devrez changer le nom de l’application dans différents fichiers html ou python que nous créerons plus tard.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="création-dun-environnement-virtuel">Création d’un environnement virtuel<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#création-dun-environnement-virtuel" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création d’un environnement virtuel" href="#création-dun-environnement-virtuel"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="création-dun-environnement-virtuel">Création d’un environnement virtuel<a data-clipboard-text="http://localhost:1313/tuto/part3/#création-dun-environnement-virtuel" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création d’un environnement virtuel" href="#création-dun-environnement-virtuel"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Créer le dossier folder
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir ~/folder
@@ -2205,7 +2205,7 @@ Django sera installé dans cet environnement virtuel.</li>
 </code></pre>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="installation-de-django">Installation de Django<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#installation-de-django" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de Django" href="#installation-de-django"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="installation-de-django">Installation de Django<a data-clipboard-text="http://localhost:1313/tuto/part3/#installation-de-django" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de Django" href="#installation-de-django"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Se mettre en environnement virtuel :
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">source</span> ~/folder/folder_venv/bin/activate
@@ -2219,8 +2219,8 @@ Django sera installé dans cet environnement virtuel.</li>
 </span></span></code></pre></div></li>
 </ul>
 <p>qui doit renvoyer une sortie du type : 4.0.2 (en fonction de la version)</p>
-<div class="gdoc-page__anchorwrap"><h2 id="création-du-projet-et-de-lapplication">Création du projet et de l’application<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#création-du-projet-et-de-lapplication" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création du projet et de l’application" href="#création-du-projet-et-de-lapplication"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-le-projet-project">Créer le projet project<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#créer-le-projet-project" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le projet project" href="#créer-le-projet-project"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="création-du-projet-et-de-lapplication">Création du projet et de l’application<a data-clipboard-text="http://localhost:1313/tuto/part3/#création-du-projet-et-de-lapplication" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Création du projet et de l’application" href="#création-du-projet-et-de-lapplication"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-le-projet-project">Créer le projet project<a data-clipboard-text="http://localhost:1313/tuto/part3/#créer-le-projet-project" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le projet project" href="#créer-le-projet-project"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Se mettre dans le répertoire folder (en environnement virtuel)
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> <span class="nb">cd</span> ~/folder
@@ -2233,7 +2233,7 @@ Django sera installé dans cet environnement virtuel.</li>
 </figure>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-lapplication-camera">Créer l’application camera <a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#créer-lapplication-camera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer l’application camera " href="#créer-lapplication-camera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-lapplication-camera">Créer l’application camera <a data-clipboard-text="http://localhost:1313/tuto/part3/#créer-lapplication-camera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer l’application camera " href="#créer-lapplication-camera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Se mettre dans le même dossier que celui contenant manage<span></span>.py,
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> <span class="nb">cd</span> ~/folder/project
@@ -2246,7 +2246,7 @@ Django sera installé dans cet environnement virtuel.</li>
 </figure>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="structure-de-lapplication-camera">Structure de l’application camera<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#structure-de-lapplication-camera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Structure de l’application camera" href="#structure-de-lapplication-camera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="structure-de-lapplication-camera">Structure de l’application camera<a data-clipboard-text="http://localhost:1313/tuto/part3/#structure-de-lapplication-camera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Structure de l’application camera" href="#structure-de-lapplication-camera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <p>L’application camera va comporter huit vues, c’est à dire huit pages web différentes.</p>
 <ul>
 <li>accueil : la page d’accueil du site.</li>
@@ -2258,7 +2258,7 @@ Django sera installé dans cet environnement virtuel.</li>
 <li>stream_py : flux vidéo en direct de la caméra py</li>
 <li>stream_AllCam : flux vidéo en direct des trois caméras</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="réglage-du-fichier-settingspy">Réglage du fichier settings.py<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#réglage-du-fichier-settingspy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Réglage du fichier settings.py" href="#réglage-du-fichier-settingspy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="réglage-du-fichier-settingspy">Réglage du fichier settings.py<a data-clipboard-text="http://localhost:1313/tuto/part3/#réglage-du-fichier-settingspy" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Réglage du fichier settings.py" href="#réglage-du-fichier-settingspy"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>
 <p>Ouvrir le fichier settings.py (vous n’avez pas besoin d’être en environnement virtuel)</p>
@@ -2311,7 +2311,7 @@ Django sera installé dans cet environnement virtuel.</li>
 </ul>
 <p>si vous avez gardé cette valeur de la clé <code>stock</code>de la section <code>[paths]</code> du fichier de configuration.<br>
 C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les photos prises par les caméras.</p>
-<div class="gdoc-page__anchorwrap"><h2 id="créer-les-modèles-de-lapplication">Créer les modèles de l’application<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#créer-les-modèles-de-lapplication" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les modèles de l’application" href="#créer-les-modèles-de-lapplication"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="créer-les-modèles-de-lapplication">Créer les modèles de l’application<a data-clipboard-text="http://localhost:1313/tuto/part3/#créer-les-modèles-de-lapplication" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les modèles de l’application" href="#créer-les-modèles-de-lapplication"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Les modèles vont permettre de définir les tables de la base de données.</li>
 <li>Nous allons créer deux modèles :
@@ -2324,7 +2324,7 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/folder/project/camera/models.py
 </span></span></code></pre></div></li>
 <li>Supprimer son contenu</li>
-<li>Remplacer son contenu par celui du fichier <code>models.py</code> disponible <a href="https://djangocamera.netlify.app/script/models_py/" title="models.py">ici</a>.</li>
+<li>Remplacer son contenu par celui du fichier <code>models.py</code> disponible <a href="http://localhost:1313/script/models_py/" title="models.py">ici</a>.</li>
 <li>Prendre en compte les modifications ; on crée la base de données et on effectue les migrations (en environnement virtuel)
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> python ~/folder/project/manage.py makemigrations
 </span></span><span class="line"><span class="cl"><span class="o">(</span>venv<span class="o">)</span> python ~/folder/project/manage.py migrate
@@ -2352,7 +2352,7 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 </li>
 <li>Nous n’avons pas utilisé l’interface Admin de Django. Celle-ci nous est inutile, toutes les actions sur la base de données se feront directement par des scripts python.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichier-urlspy-de-folderprojectproject">Modifier le fichier urls.py de ~/folder/project/project<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#modifier-le-fichier-urlspy-de-folderprojectproject" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier urls.py de ~/folder/project/project" href="#modifier-le-fichier-urlspy-de-folderprojectproject"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichier-urlspy-de-folderprojectproject">Modifier le fichier urls.py de ~/folder/project/project<a data-clipboard-text="http://localhost:1313/tuto/part3/#modifier-le-fichier-urlspy-de-folderprojectproject" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier urls.py de ~/folder/project/project" href="#modifier-le-fichier-urlspy-de-folderprojectproject"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Ouvrir le fichier
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/folder/project/project/urls.py
@@ -2366,24 +2366,24 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 </span></span><span class="line"><span class="cl">  <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">  <span class="p">]</span>
 </span></span></code></pre></div></li>
-<li>Un exemplaire du fichier est disponible <a href="https://djangocamera.netlify.app/script/urls_py_project/" title="urls project">ici</a>.</li>
+<li>Un exemplaire du fichier est disponible <a href="http://localhost:1313/script/urls_py_project/" title="urls project">ici</a>.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="créer-un-fichier-urlspy-dans-folderprojectcamera">Créer un fichier urls.py dans ~/folder/project/camera<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#créer-un-fichier-urlspy-dans-folderprojectcamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer un fichier urls.py dans ~/folder/project/camera" href="#créer-un-fichier-urlspy-dans-folderprojectcamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="créer-un-fichier-urlspy-dans-folderprojectcamera">Créer un fichier urls.py dans ~/folder/project/camera<a data-clipboard-text="http://localhost:1313/tuto/part3/#créer-un-fichier-urlspy-dans-folderprojectcamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer un fichier urls.py dans ~/folder/project/camera" href="#créer-un-fichier-urlspy-dans-folderprojectcamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Créer et ouvrir le fichier en écriture
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/folder/project/camera/urls.py
 </span></span></code></pre></div></li>
-<li>Coller/copier dans ce fichier le contenu du fichier <code>urls.py</code> (camera) disponible <a href="https://djangocamera.netlify.app/script/urls_py_camera/" title="urls camera">ici</a>.</li>
+<li>Coller/copier dans ce fichier le contenu du fichier <code>urls.py</code> (camera) disponible <a href="http://localhost:1313/script/urls_py_camera/" title="urls camera">ici</a>.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichier-viewspy-dans-folderprojectcamera">Modifier le fichier views.py dans ~/folder/project/camera<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#modifier-le-fichier-viewspy-dans-folderprojectcamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier views.py dans ~/folder/project/camera" href="#modifier-le-fichier-viewspy-dans-folderprojectcamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier">Modifier le fichier<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#modifier-le-fichier" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier" href="#modifier-le-fichier"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="modifier-le-fichier-viewspy-dans-folderprojectcamera">Modifier le fichier views.py dans ~/folder/project/camera<a data-clipboard-text="http://localhost:1313/tuto/part3/#modifier-le-fichier-viewspy-dans-folderprojectcamera" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier views.py dans ~/folder/project/camera" href="#modifier-le-fichier-viewspy-dans-folderprojectcamera"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="modifier-le-fichier">Modifier le fichier<a data-clipboard-text="http://localhost:1313/tuto/part3/#modifier-le-fichier" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Modifier le fichier" href="#modifier-le-fichier"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ouvrir le fichier
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">  nano ~/folder/project/camera/views.py
 </span></span></code></pre></div></li>
-<li>Effacer son contenu et copier/coller le contenu du fichier views<span></span>.py (V1) disponible <a href="https://djangocamera.netlify.app/script/views_py_V1/" title="views.py V1">ici</a>.</li>
+<li>Effacer son contenu et copier/coller le contenu du fichier views<span></span>.py (V1) disponible <a href="http://localhost:1313/script/views_py_V1/" title="views.py V1">ici</a>.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="commentaires-sur-ce-fichier">Commentaires sur ce fichier<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#commentaires-sur-ce-fichier" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Commentaires sur ce fichier" href="#commentaires-sur-ce-fichier"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="commentaires-sur-ce-fichier">Commentaires sur ce fichier<a data-clipboard-text="http://localhost:1313/tuto/part3/#commentaires-sur-ce-fichier" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Commentaires sur ce fichier" href="#commentaires-sur-ce-fichier"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>La vue historique (def historique(request)) permet de visualiser les captures de photos des trois caméras sur les N dernières heures en ne sélectionnant qu’une photo sur n, les photos étant prises à une fréquence f. Les paramètres N, n et f sont modifiables dans le fichier de configuration. Il s’agit des clés <code>historique</code>, <code>display_jour</code> et <code>capture</code> de la section <code>[fréquences]</code>. Si la clé historique est à 5, la clé display_jour à 2 et la clé capture à 60 cela signifie que les caméras prennent une photo toutes les 60 secondes et qu’on visualisera sur les 2 derniers jours une photo sur cinq (c’est à dire une photo toutes les 300 secondes).</li>
 <li>La vue parHeure (def parHeure(request)) permettra de visualiser toutes les photos des trois caméras sur les N dernières heures prises à la fréquence f, sans sélection. N et f ont la même valeur que dans la vue historique. La présentation se fera en pagination.</li>
@@ -2391,7 +2391,7 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 <li>Les fonctions de streaming n’appellent aucun réglage, sauf l’adresse IP locale de la raspberry (clé <code>raspIP</code> de la section <code>[hosts]</code> et les ports de sortie des flux (clés <code>cam_1_port</code>, <code>cam_2_port</code> et <code>cam_py_port</code> de la section <code>[camera]</code>)</li>
 <li>Par défaut : N = 24 heures (clé display_jour=1, soit 24 heures), n = 4, p = 3, f = 60 (en secondes) ; les ports des flux sont par défaut 8081, 8082 et 8084.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="lever-et-coucher-du-soleil">Lever et coucher du soleil<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#lever-et-coucher-du-soleil" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lever et coucher du soleil" href="#lever-et-coucher-du-soleil"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="lever-et-coucher-du-soleil">Lever et coucher du soleil<a data-clipboard-text="http://localhost:1313/tuto/part3/#lever-et-coucher-du-soleil" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lever et coucher du soleil" href="#lever-et-coucher-du-soleil"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Les heures de lever et de coucher du soleil sont calculées à l&rsquo;aide du module <code>suntimes</code></li>
 <li>Installer le module suntimes (en environnement virtuel)
@@ -2407,12 +2407,12 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 </span></span></code></pre></div></li>
 <li>Dans la section <code>[locate]</code> modifier les valeurs par défaut par celles de votre lieu. Ces valeurs sont disponibles sur <a href="https://www.geoportail.gouv.fr/">geoportail</a> ou sur <a href="https://earth.google.com/web/">google earth</a>.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="a-renseigner-impérativement-dans-le-fichier-de-configuration"><strong>A renseigner impérativement dans le fichier de configuration</strong><a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#a-renseigner-impérativement-dans-le-fichier-de-configuration" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor <strong>A renseigner impérativement dans le fichier de configuration</strong>" href="#a-renseigner-impérativement-dans-le-fichier-de-configuration"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="a-renseigner-impérativement-dans-le-fichier-de-configuration"><strong>A renseigner impérativement dans le fichier de configuration</strong><a data-clipboard-text="http://localhost:1313/tuto/part3/#a-renseigner-impérativement-dans-le-fichier-de-configuration" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor <strong>A renseigner impérativement dans le fichier de configuration</strong>" href="#a-renseigner-impérativement-dans-le-fichier-de-configuration"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Dans la section <code>[hosts]</code> chercher la clé <code>raspIP</code></li>
 <li>Remplacer la valeur <local IP Raspberry> par l&rsquo;IP locale de votre Raspberry</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="créer-le-fichier-css-et-un-fichier-logo">Créer le fichier css et un fichier logo<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#créer-le-fichier-css-et-un-fichier-logo" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le fichier css et un fichier logo" href="#créer-le-fichier-css-et-un-fichier-logo"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="créer-le-fichier-css-et-un-fichier-logo">Créer le fichier css et un fichier logo<a data-clipboard-text="http://localhost:1313/tuto/part3/#créer-le-fichier-css-et-un-fichier-logo" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer le fichier css et un fichier logo" href="#créer-le-fichier-css-et-un-fichier-logo"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Création des dossiers css et logo
 <ul>
@@ -2439,7 +2439,7 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 <li>Créer et ouvrir en écriture le fichier global.css
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/folder/project/camera/static/camera/css/global.css
 </span></span></code></pre></div></li>
-<li>Copier/coller dans l&rsquo;éditeur de texte le contenu du fichier <code>global.css</code>disponible <a href="https://djangocamera.netlify.app/script/global_css/" title="global.css">ici</a></li>
+<li>Copier/coller dans l&rsquo;éditeur de texte le contenu du fichier <code>global.css</code>disponible <a href="http://localhost:1313/script/global_css/" title="global.css">ici</a></li>
 </ul>
 </li>
 <li>Logo favicon
@@ -2455,7 +2455,7 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="créer-les-fichiers-html-templates">Créer les fichiers html (templates)<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#créer-les-fichiers-html-templates" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les fichiers html (templates)" href="#créer-les-fichiers-html-templates"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="créer-les-fichiers-html-templates">Créer les fichiers html (templates)<a data-clipboard-text="http://localhost:1313/tuto/part3/#créer-les-fichiers-html-templates" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les fichiers html (templates)" href="#créer-les-fichiers-html-templates"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Création du dossier templates
 <ul>
@@ -2479,24 +2479,24 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 <li>Créer et ouvrir en écriture le fichier base.html
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/folder/project/camera/templates/camera/base.html
 </span></span></code></pre></div></li>
-<li>Copier/coller dans ce fichier le contenu du fichier <code>base.html</code> disponible <a href="https://djangocamera.netlify.app/script/base_html/" title="base.html">ici</a></li>
+<li>Copier/coller dans ce fichier le contenu du fichier <code>base.html</code> disponible <a href="http://localhost:1313/script/base_html/" title="base.html">ici</a></li>
 </ul>
 </li>
 <li>Procéder de même pour les autres fichiers html
 <ul>
-<li><code>accueil.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/accueil_html/" title="accueil.html">ici</a></li>
-<li><code>historique.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/historique_html/" title="historique.html">ici</a></li>
-<li><code>nuit.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/nuit_html/" title="nuit.html">ici</a></li>
-<li><code>parHeure.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/parHeure_html/" title="parHeure.html">ici</a></li>
-<li><code>stream_1.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/stream_1_html/" title="stream_1.html">ici</a></li>
-<li><code>stream_2.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/stream_2_html/" title="stream_2.html">ici</a></li>
-<li><code>stream_py.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/stream_py_html/" title="stream_py.html">ici</a></li>
-<li><code>stream_AllCam.html</code> dont le contenu est disponible <a href="https://djangocamera.netlify.app/script/stream_AllCam_html/" title="stream_AllCam.html">ici</a></li>
+<li><code>accueil.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/accueil_html/" title="accueil.html">ici</a></li>
+<li><code>historique.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/historique_html/" title="historique.html">ici</a></li>
+<li><code>nuit.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/nuit_html/" title="nuit.html">ici</a></li>
+<li><code>parHeure.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/parHeure_html/" title="parHeure.html">ici</a></li>
+<li><code>stream_1.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/stream_1_html/" title="stream_1.html">ici</a></li>
+<li><code>stream_2.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/stream_2_html/" title="stream_2.html">ici</a></li>
+<li><code>stream_py.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/stream_py_html/" title="stream_py.html">ici</a></li>
+<li><code>stream_AllCam.html</code> dont le contenu est disponible <a href="http://localhost:1313/script/stream_AllCam_html/" title="stream_AllCam.html">ici</a></li>
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="capturer-les-images-et-les-stocker">Capturer les images et les stocker<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#capturer-les-images-et-les-stocker" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Capturer les images et les stocker" href="#capturer-les-images-et-les-stocker"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="créer-les-répertoires-de-stockage">Créer les répertoires de stockage<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#créer-les-répertoires-de-stockage" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les répertoires de stockage" href="#créer-les-répertoires-de-stockage"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="capturer-les-images-et-les-stocker">Capturer les images et les stocker<a data-clipboard-text="http://localhost:1313/tuto/part3/#capturer-les-images-et-les-stocker" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Capturer les images et les stocker" href="#capturer-les-images-et-les-stocker"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="créer-les-répertoires-de-stockage">Créer les répertoires de stockage<a data-clipboard-text="http://localhost:1313/tuto/part3/#créer-les-répertoires-de-stockage" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer les répertoires de stockage" href="#créer-les-répertoires-de-stockage"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Créer le répertoire /var/www/stock
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo mkdir /var/www/stock
@@ -2509,7 +2509,7 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo chown -R pi /var/www/stock
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="ecrire-le-script-de-capture-des-photos">Ecrire le script de capture des photos<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#ecrire-le-script-de-capture-des-photos" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire le script de capture des photos" href="#ecrire-le-script-de-capture-des-photos"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="ecrire-le-script-de-capture-des-photos">Ecrire le script de capture des photos<a data-clipboard-text="http://localhost:1313/tuto/part3/#ecrire-le-script-de-capture-des-photos" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire le script de capture des photos" href="#ecrire-le-script-de-capture-des-photos"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Ce script sera lancé au démarrage et tournera en boucle en effectuant :
 <ul>
@@ -2522,7 +2522,7 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 <li>Créer et ouvrir en écriture le fichier getCamerasAndRegister<span></span>.py
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/getCamerasAndRegister.py
 </span></span></code></pre></div></li>
-<li>Copier/coller dans ce fichier le contenu du fichier <code>getCamerasAndRegister.py</code> disponible <a href="https://djangocamera.netlify.app/script/getCamerasAndRegister_py/" title="getCamerasAndRegister.py">ici</a></li>
+<li>Copier/coller dans ce fichier le contenu du fichier <code>getCamerasAndRegister.py</code> disponible <a href="http://localhost:1313/script/getCamerasAndRegister_py/" title="getCamerasAndRegister.py">ici</a></li>
 </ul>
 </li>
 <li>Lancer le script au démarrage de la Raspberry
@@ -2536,7 +2536,7 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="ecrire-le-script-de-destruction-périodique-des-photos">Ecrire le script de destruction périodique des photos<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#ecrire-le-script-de-destruction-périodique-des-photos" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire le script de destruction périodique des photos" href="#ecrire-le-script-de-destruction-périodique-des-photos"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="ecrire-le-script-de-destruction-périodique-des-photos">Ecrire le script de destruction périodique des photos<a data-clipboard-text="http://localhost:1313/tuto/part3/#ecrire-le-script-de-destruction-périodique-des-photos" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ecrire le script de destruction périodique des photos" href="#ecrire-le-script-de-destruction-périodique-des-photos"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>
 <p>Tous les jours on efface les images datant de plus de N jours, N étant la clé <code>delay-delete</code> de la section <code>[frequences]</code> du fichier de configuration.</p>
@@ -2552,7 +2552,7 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/suppressFiles.py
 </span></span></code></pre></div></li>
 <li>
-<p>Copier/coller dans ce fichier le contenu du fichier <code>suppressFiles</code> disponible <a href="https://djangocamera.netlify.app/script/suppressFiles_py/" title="suppressFiles.py">ici</a></p>
+<p>Copier/coller dans ce fichier le contenu du fichier <code>suppressFiles</code> disponible <a href="http://localhost:1313/script/suppressFiles_py/" title="suppressFiles.py">ici</a></p>
 </li>
 <li>
 <p>Lancer le script tous les jours à 03H10 du matin (par exemple) dans le crontab</p>
@@ -2564,14 +2564,14 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="m">10</span> <span class="m">03</span> * * * python3 /home/pi/script/suppressFiles.py
 </span></span></code></pre></div></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="lancer-django-au-démarrage">Lancer Django au démarrage<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#lancer-django-au-démarrage" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancer Django au démarrage" href="#lancer-django-au-démarrage"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="lancer-django-au-démarrage">Lancer Django au démarrage<a data-clipboard-text="http://localhost:1313/tuto/part3/#lancer-django-au-démarrage" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Lancer Django au démarrage" href="#lancer-django-au-démarrage"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Le script lance le serveur de Django au démarrage de la raspberry sur le port 8000 par défaut (paramétrable dans /etc/configuration.ini)</li>
 <li><em>Pour accéder au site depuis un appareil du réseau, vous devez avoir indiqué l’adresse IP locale de la raspberry dans ALLOWED_HOSTS du fichier ~/folder/project/project/settings.py (par exemple ALLOWED_HOSTS = [&lsquo;192.168.1.49&rsquo;])</em></li>
 <li>Créer et ouvrir en écriture le fichier runDjango<span></span>.py
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nano ~/script/runDjango.py
 </span></span></code></pre></div></li>
-<li>Copier/coller le contenu du fichier runDjango<span></span>.py disponible <a href="https://djangocamera.netlify.app/script/runDjango_py/" title="runDjango.py">ici</a></li>
+<li>Copier/coller le contenu du fichier runDjango<span></span>.py disponible <a href="http://localhost:1313/script/runDjango_py/" title="runDjango.py">ici</a></li>
 <li>Lancer le script au démarrage dans le crontab
 <ul>
 <li>Ouvrir le crontab en édition
@@ -2586,7 +2586,7 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 </ul>
 </li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="tester-le-site">Tester le site<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#tester-le-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Tester le site" href="#tester-le-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="tester-le-site">Tester le site<a data-clipboard-text="http://localhost:1313/tuto/part3/#tester-le-site" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Tester le site" href="#tester-le-site"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
 <li>Rebouter le système
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo reboot
@@ -2600,20 +2600,20 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 <li>Si les caméras sont bien lancées, vous devez voir les flux en cliquant sur le bouton <code>En direct</code>. Bien sûr, pour les autres pages html, au début vous ne verrez que peu ou pas d&rsquo;images.</li>
 <li>Au fil du temps, les différents historiques (Histoire, Heure par Heure et Nuit) pourront être longs à s&rsquo;afficher, le nombre d&rsquo;images à charger étant élevé. <em>C&rsquo;est, à l&rsquo;évidence, une faiblesse des scripts.</em></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="horaire-dété--horaire-dhiver">Horaire d&rsquo;été / horaire d&rsquo;hiver<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#horaire-dété--horaire-dhiver" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Horaire d&rsquo;été / horaire d&rsquo;hiver" href="#horaire-dété--horaire-dhiver"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="position-du-problème">Position du problème<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#position-du-problème" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="horaire-dété--horaire-dhiver">Horaire d&rsquo;été / horaire d&rsquo;hiver<a data-clipboard-text="http://localhost:1313/tuto/part3/#horaire-dété--horaire-dhiver" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Horaire d&rsquo;été / horaire d&rsquo;hiver" href="#horaire-dété--horaire-dhiver"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="position-du-problème">Position du problème<a data-clipboard-text="http://localhost:1313/tuto/part3/#position-du-problème" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Position du problème" href="#position-du-problème"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Lors du passage de l&rsquo;horaire d&rsquo;été à l&rsquo;horaire d&rsquo;hiver la même heure va être doublée</li>
 <li>Ceci ne pose pas de problème au niveau du stockage des photos : la photo qui portera le même nom écrasera la photo homonyme</li>
 <li>Par contre au niveau de la base de données, deux lignes vont exister pour une photo prise à la même heure</li>
 <li>Lorsqu&rsquo;on voudra afficher les historiques, une <em>erreur 500</em> sera renvoyée, Django ne sachant pas quelle image afficher</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="solution-1">Solution 1<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#solution-1" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Solution 1" href="#solution-1"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="solution-1">Solution 1<a data-clipboard-text="http://localhost:1313/tuto/part3/#solution-1" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Solution 1" href="#solution-1"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Éteindre  la raspberry avant le changement d&rsquo;heure</li>
 <li>Rallumer la raspberry après le changement d&rsquo;heure</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="solution-2">Solution 2<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#solution-2" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Solution 2" href="#solution-2"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="solution-2">Solution 2<a data-clipboard-text="http://localhost:1313/tuto/part3/#solution-2" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Solution 2" href="#solution-2"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Après le changement d&rsquo;heure, alors que l&rsquo;<em>erreur 500</em> va s&rsquo;afficher, vider la table de la base de données contenant les informations des photos</li>
 <li>Se connecter en <em>ssh</em> à la raspberry</li>
@@ -2640,14 +2640,14 @@ C&rsquo;est dans ce dossier <code>/var/www/stock</code> que seront stockées les
 <li>Vérifier que l&rsquo;<em>historique</em> ne renvoie pas d&rsquo;<em>erreur 500</em></li>
 <li>Au bout d&rsquo;une minute de nouveaux enregistements sont inscrits dans la base et on peut les apercevoir dans la vue <em>parHeure</em></li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h2 id="a-ce-stade---prochaine-étape">A ce stade - Prochaine étape<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#a-ce-stade---prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade - Prochaine étape" href="#a-ce-stade---prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="a-ce-stade">A ce stade<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#a-ce-stade" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade" href="#a-ce-stade"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h2 id="a-ce-stade---prochaine-étape">A ce stade - Prochaine étape<a data-clipboard-text="http://localhost:1313/tuto/part3/#a-ce-stade---prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade - Prochaine étape" href="#a-ce-stade---prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="a-ce-stade">A ce stade<a data-clipboard-text="http://localhost:1313/tuto/part3/#a-ce-stade" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A ce stade" href="#a-ce-stade"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>On dispose d&rsquo;un site web qui fonctionne en local avec le serveur embarqué de Django.</li>
 <li>Ce site est accessible depuis les différents appareils du réseau local en tapant dans la fenêtre d&rsquo;un navigateur web  <code>&lt;local IP Raspberry&gt;:&lt;port serveur Django&gt;/camera</code></li>
 <li>Si vous ne souhaitez pas accéder au site depuis l&rsquo;extérieur, vous pouvez, de manière peu orthodoxe, en rester là. Mais il est souhaitable de passer à l&rsquo;étape suivante.</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="prochaine-étape">Prochaine étape<a data-clipboard-text="https://djangocamera.netlify.app/tuto/part3/#prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Prochaine étape" href="#prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<div class="gdoc-page__anchorwrap"><h3 id="prochaine-étape">Prochaine étape<a data-clipboard-text="http://localhost:1313/tuto/part3/#prochaine-étape" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Prochaine étape" href="#prochaine-étape"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <ul>
 <li>Installation d&rsquo;un serveur Apache qui va prendre la main sur le serveur embarqué de Django.</li>
 <li>Installation du module mod-wsgi, interface entre Apache et Django</li>
