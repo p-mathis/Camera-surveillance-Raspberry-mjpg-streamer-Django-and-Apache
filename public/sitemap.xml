@@ -3,13 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/script/</loc>
-    <lastmod>2025-06-30T17:49:39+02:00</lastmod>
+    <lastmod>2025-07-01T08:30:17+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/suppressFiles_py_2Raspberry/</loc>
+    <lastmod>2025-07-01T08:30:17+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/script/getCamerasAndRegister_py_2Raspberry/</loc>
+    <lastmod>2025-06-30T18:17:44+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tuto/part10/</loc>
-    <lastmod>2025-06-30T17:49:39+02:00</lastmod>
+    <lastmod>2025-06-30T18:17:44+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tuto/</loc>
-    <lastmod>2025-06-30T17:49:39+02:00</lastmod>
+    <lastmod>2025-06-30T18:17:44+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/extra/</loc>
     <lastmod>2024-09-30T16:00:15+02:00</lastmod>

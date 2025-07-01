@@ -189,6 +189,7 @@ command_8 = ["find", f'{stock}/Camera-8', "-mtime", f'+{str(delay_delete)}', "-d
 ```python
 run(command_8)
 ```
+- Un script complet avec deux caméras (nommées ici Camera_5 et Camera_ir) est disponible au niveau des [scripts]({{< ref "/script/suppressFiles_py_2Raspberry.md" >}})
 ### Créer la caméra dans la base de données
 - Procéder comme dans le tutoriel [Partie 8 - Créer la caméra]({{< ref "part8#créer-la-caméra-dans-la-base-de-données" >}})
 - Ouvrir le `shell` en environnement virtuel

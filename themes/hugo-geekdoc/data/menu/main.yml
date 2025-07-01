@@ -140,4 +140,6 @@ main:
   - name: Fichiers pour raspberry supplémentaire
     sub:
       - name: getCamerasAndRegister_py_2Raspberry
-        ref: "/script/getCamerasAndRegister_py_2Raspberry.md" 
+        ref: "/script/getCamerasAndRegister_py_2Raspberry.md"
+      - name: suppressFiles_py_2Raspberry
+        ref: "/script/suppressFiles_py_2Raspberry.md"
